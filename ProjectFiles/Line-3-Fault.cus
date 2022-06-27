@@ -1,0 +1,2301 @@
+<ui_settings>
+    <version>2.5</version>
+    <model_locked>True</model_locked>
+    <canvas_bg_color>#ffffff</canvas_bg_color>
+    <initialization_code><![CDATA[# NOTE: Variables and functions defined here will be
+# available for use in all Macro and Expression scripts.
+# NOTE: This code is always executed prior simulation start.
+
+# Variable 'SETTINGS_DIR' holds directory where loaded Panel .cus file is located.
+# Also you can call 'get_settings_dir_path()' function in any
+# Macro and Expression scripts to get the same directory.
+SETTINGS_DIR = get_settings_dir_path()
+
+# The 'add_to_python_path(folder)' function can be used to add custom folder
+# with Python files and packages to the PYTHONPATH. After folder is added, all Python 
+# files and Python packages from it can be imported into the SCADA Namespace.
+
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# Numpy module is imported as 'np'
+# Scipy module is imported as 'sp'
+# Schematic Editor model namespace is imported as 'scm'
+# Function for printing to HIL SCADA Message log is imported as 'printf'.
+
+]]></initialization_code>
+    <components>
+        <component_data>
+                <id>f365c668f44f11ea8e1d705a0f179416</id>
+                <name><![CDATA[System Relays]]></name>
+                <type>Group</type>
+                <description><![CDATA[]]></description>
+                <components_ids><![CDATA[['f365c669f44f11eaacfd705a0f179416', 'f365c66af44f11ea9f94705a0f179416', 'f365c66bf44f11ea9045705a0f179416', 'f365c66cf44f11ea8d9b705a0f179416', 'f365c66df44f11eab73c705a0f179416', 'f365c66ef44f11eaa450705a0f179416', 'f365c66ff44f11ea9f4e705a0f179416', 'f365c670f44f11ea8d89705a0f179416', 'f365c671f44f11eab4ec705a0f179416', 'f365c672f44f11ea9eb1705a0f179416', 'f365c673f44f11eaa392705a0f179416', 'f365c674f44f11eaa926705a0f179416', 'f365c675f44f11eaa9bc705a0f179416', 'f365c676f44f11eab57c705a0f179416', 'f3682ab6f44f11eaa031705a0f179416', 'f3682ab7f44f11ea8290705a0f179416', 'f3682ab8f44f11ea9f45705a0f179416', 'f3682ab9f44f11ea98e2705a0f179416', 'f3682abaf44f11eab2e2705a0f179416', 'f3682abbf44f11ea95bb705a0f179416', 'f3682abcf44f11ea8215705a0f179416', 'f3682abdf44f11eab528705a0f179416', 'f3682abef44f11ea91f7705a0f179416', 'f3682abff44f11eaa5c6705a0f179416', 'f3682ac0f44f11eaab7a705a0f179416', 'f3682ac1f44f11ea96a9705a0f179416', 'f3682ac2f44f11ea937e705a0f179416', 'f3682ac3f44f11ea9faa705a0f179416', 'f3682ac4f44f11eaaf07705a0f179416', 'f3682ac5f44f11ea8369705a0f179416', 'f3682ac6f44f11eaa5a9705a0f179416', 'f3682ac7f44f11ea87d8705a0f179416', 'f3682ac8f44f11eab2ca705a0f179416', 'ade8cc00f69d11eaaf21705a0f179416', '938be846f76711ea98d1705a0f179416']]]></components_ids>
+                <hierarchy_position>1</hierarchy_position>
+                <canvas_bg_color>#ffffff</canvas_bg_color>
+                <initialization_code><![CDATA[# NOTE: Variables and functions defined here will be
+# available for use in all Macro and Expression scripts of the components owned by this widget.
+# This code is always executed prior simulation start.
+# HIL API is imported as 'hil'
+
+]]></initialization_code>
+                <widget_settings>
+                    <x>0.0</x>
+                    <y>0.0</y>
+                    <width>1768</width>
+                    <height>1032</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <collapsed>False</collapsed>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c669f44f11eaacfd705a0f179416</id>
+                <name><![CDATA[Phaso Graph]]></name>
+                <type>PhasorGraphDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing values
+# that will be displayed
+# e.g displayValue = [ ['Phasor 1 name', Phasor 1 phase, Phasor 1 magnitude],
+#                      ['Phasor X name', Phasor X phase, Phasor X magnitude] ]
+global ly
+
+mag = hil.read_analog_signal(name='various.Magnitud')
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+current = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_A_(Angle)')
+voltage = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).V_BC_(Angle)')
+RCA = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).RCA')
+val = [current,voltage]
+for i in range(2):
+    if val[i] < 0:
+        val[i] += 360
+val[1] += RCA
+if val[1] < 0:
+    val[1] +=360
+
+displayValue = [ ['Current Phase A', val[0], mag],
+                 ['Voltage Phases BC', val[1], mag]]
+]]></code>
+                <signals><![CDATA[]]></signals>
+                <updateRate>250</updateRate>
+                <background_color>#ffffff</background_color>
+                <hierarchy_position>2</hierarchy_position>
+                <phasors_data>
+                    <phasor>
+                        <display_name><![CDATA[Phasor [Double click to edit]]]></display_name>
+                        <magnitude_signal><![CDATA[const_0V]]></magnitude_signal>
+                        <phase_signal><![CDATA[const_0V]]></phase_signal>
+                    </phasor>
+                    </phasors_data>
+                <widget_settings>
+                    <x>16.0</x>
+                    <y>256.0</y>
+                    <width>400</width>
+                    <height>320</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <range_max>20.0</range_max>
+                    <auto_scale_enabled>True</auto_scale_enabled>
+                    <legend_enabled>True</legend_enabled>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c66af44f11ea9f94705a0f179416</id>
+                <name><![CDATA[TMS (IEC / UK)]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+displayValue = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).TMS_Stt')
+
+
+
+
+
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[3]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>736.0</x>
+                    <y>40.0</y>
+                    <width>160</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c66bf44f11ea9045705a0f179416</id>
+                <name><![CDATA[Select Relay]]></name>
+                <type>ComboBoxMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# NOTE: entered value is available through variable 'inputValue'
+
+if inputValue == 'Relay 3':
+    hil.set_scada_input_value('various.Relay_Selected', 3)
+
+elif inputValue == 'Relay 12':
+    hil.set_scada_input_value('various.Relay_Selected', 12)
+
+elif inputValue == 'Relay 11':
+    hil.set_scada_input_value('various.Relay_Selected', 11)
+
+elif inputValue == 'Relay 4':
+    hil.set_scada_input_value('various.Relay_Selected', 4)
+
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[Relay 4]]></inputValue>
+                <availableValues><![CDATA[['Relay 3', 'Relay 4', 'Relay 11', 'Relay 12']]]></availableValues>
+                <unit><![CDATA[]]></unit>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>32.0</x>
+                    <y>56.0</y>
+                    <width>232</width>
+                    <height>40</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c66cf44f11ea8d9b705a0f179416</id>
+                <name><![CDATA[Phasor graph]]></name>
+                <type>PhasorGraphDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing values
+# that will be displayed
+# e.g displayValue = [ ['Phasor 1 name', Phasor 1 phase, Phasor 1 magnitude],
+#                      ['Phasor X name', Phasor X phase, Phasor X magnitude] ]
+global ly
+
+mag = hil.read_analog_signal(name='various.Magnitud')
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+current = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_C_(Angle)')
+voltage = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).V_AB_(Angle)')
+RCA = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).RCA')
+val = [current,voltage]
+for i in range(2):
+    if val[i] < 0:
+        val[i] += 360
+val[1] += RCA
+if val[1] < 0:
+    val[1] +=360
+
+displayValue = [ ['Current Phase C', val[0], mag],
+                 ['Voltage Phases AB', val[1], mag]]
+]]></code>
+                <signals><![CDATA[]]></signals>
+                <updateRate>500</updateRate>
+                <background_color>#ffffff</background_color>
+                <hierarchy_position>2</hierarchy_position>
+                <phasors_data>
+                    </phasors_data>
+                <widget_settings>
+                    <x>592.0</x>
+                    <y>576.0</y>
+                    <width>400</width>
+                    <height>320</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <range_max>20.0</range_max>
+                    <auto_scale_enabled>True</auto_scale_enabled>
+                    <legend_enabled>True</legend_enabled>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c66df44f11eab73c705a0f179416</id>
+                <name><![CDATA[Note component]]></name>
+                <type>TextNote</type>
+                <description><![CDATA[]]></description>
+                <text><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Arial'; font-size:8pt; font-weight:400; font-style:normal;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">I &gt; 1 Pick - Up</p></body></html>]]></text>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>32.0</x>
+                    <y>208.0</y>
+                    <width>104</width>
+                    <height>32</height>
+                    <background_color><![CDATA[#f0f0f0]]></background_color>
+                    <background_type><![CDATA[Filled]]></background_type>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c66ef44f11eaa450705a0f179416</id>
+                <name><![CDATA[Phaso Graph]]></name>
+                <type>PhasorGraphDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing values
+# that will be displayed
+# e.g displayValue = [ ['Phasor 1 name', Phasor 1 phase, Phasor 1 magnitude],
+#                      ['Phasor X name', Phasor X phase, Phasor X magnitude] ]
+global ly
+
+mag = hil.read_analog_signal(name='various.Magnitud')
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+current = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_B_(Angle)')
+voltage = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).V_CA_(Angle)')
+RCA = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).RCA')
+val = [current,voltage]
+for i in range(2):
+    if val[i] < 0:
+        val[i] += 360
+val[1] += RCA
+if val[1] < 0:
+    val[1] +=360
+
+displayValue = [ ['Current Phase B', val[0], mag],
+                 ['Voltage Phases CA', val[1], mag]]
+]]></code>
+                <signals><![CDATA[]]></signals>
+                <updateRate>500</updateRate>
+                <background_color>#ffffff</background_color>
+                <hierarchy_position>2</hierarchy_position>
+                <phasors_data>
+                    </phasors_data>
+                <widget_settings>
+                    <x>16.0</x>
+                    <y>576.0</y>
+                    <width>400</width>
+                    <height>320</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <range_max>20.0</range_max>
+                    <auto_scale_enabled>True</auto_scale_enabled>
+                    <legend_enabled>True</legend_enabled>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c66ff44f11ea9f4e705a0f179416</id>
+                <name><![CDATA[]]></name>
+                <type>TextBoxMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# NOTE: entered value is available through variable 'inputValue'
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+hil.set_scada_input_value('Relay-'+ly+'.Function (67P).I_Pick_Up', inputValue)
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[15.0]]></inputValue>
+                <inputValueType>float</inputValueType>
+                <unit><![CDATA[]]></unit>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>136</x>
+                    <y>208</y>
+                    <width>144</width>
+                    <height>32</height>
+                    <inputWidgetWidth>80</inputWidgetWidth>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c670f44f11ea8d89705a0f179416</id>
+                <name><![CDATA[]]></name>
+                <type>TextBoxMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# NOTE: entered value is available through variable 'inputValue'
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+
+
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+
+hil.set_scada_input_value('Relay-'+ly+'.Function (67P).TMS', inputValue)
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[0.313]]></inputValue>
+                <inputValueType>float</inputValueType>
+                <unit><![CDATA[]]></unit>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>136.0</x>
+                    <y>144.0</y>
+                    <width>144</width>
+                    <height>32</height>
+                    <inputWidgetWidth>80</inputWidgetWidth>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c671f44f11eab4ec705a0f179416</id>
+                <name><![CDATA[]]></name>
+                <type>LedDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <signal_name><![CDATA[]]></signal_name>
+                <hil_device>0</hil_device>
+                <led_color>Red</led_color>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing LED indicator state
+# True -> On, False -> Off
+value_1 = hil.read_analog_signal(name='Relay-11.Function (67P).RS')
+value_2 = hil.read_analog_signal(name='Relay-4.Function (67P).RS')
+if (value_1 == 1) & (value_2 == 1):
+    displayValue = True
+else:
+    displayValue = False
+]]></code>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>208.0</x>
+                    <y>24.0</y>
+                    <width>32</width>
+                    <height>32</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c672f44f11ea9eb1705a0f179416</id>
+                <name><![CDATA[Make a Three Phase fault A-B-C-G]]></name>
+                <type>ComboBoxMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# NOTE: entered value is available through variable 'inputValue'
+
+if inputValue == 'Near Relay 11':
+
+    hil.set_contactor('Fault-1.S1', swControl=True, swState=True)
+    hil.set_contactor('Fault-2.S1', swControl=True, swState=False)
+    hil.set_contactor('Fault-3.S1', swControl=True, swState=False)
+
+elif inputValue == 'Near Relay 4':
+    hil.set_contactor('Fault-1.S1', swControl=True, swState=False)
+    hil.set_contactor('Fault-2.S1', swControl=True, swState=False)
+    hil.set_contactor('Fault-3.S1', swControl=True, swState=True)
+
+elif inputValue == 'Half of Transmission Line':
+    hil.set_contactor('Fault-1.S1', swControl=True, swState=False)
+    hil.set_contactor('Fault-2.S1', swControl=True, swState=True)
+    hil.set_contactor('Fault-3.S1', swControl=True, swState=False)
+elif inputValue == 'None':
+    hil.set_contactor('Fault-1.S1', swControl=True, swState=False)
+    hil.set_contactor('Fault-2.S1', swControl=True, swState=False)
+    hil.set_contactor('Fault-3.S1', swControl=True, swState=False)
+
+
+
+
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[None]]></inputValue>
+                <availableValues><![CDATA[['None', 'Near Relay 4', 'Near Relay 11', 'Half of Transmission Line']]]></availableValues>
+                <unit><![CDATA[]]></unit>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>32.0</x>
+                    <y>96.0</y>
+                    <width>304</width>
+                    <height>48</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c673f44f11eaa392705a0f179416</id>
+                <name><![CDATA[I_Pick_Up]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+displayValue = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_PKU')
+
+
+
+
+
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>592.0</x>
+                    <y>40.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c674f44f11eaa926705a0f179416</id>
+                <name><![CDATA[Note component]]></name>
+                <type>TextNote</type>
+                <description><![CDATA[]]></description>
+                <text><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Arial'; font-size:8pt; font-weight:400; font-style:normal;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TMS (IEC / UK)</p></body></html>]]></text>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>32.0</x>
+                    <y>144.0</y>
+                    <width>104</width>
+                    <height>32</height>
+                    <background_color><![CDATA[#f0f0f0]]></background_color>
+                    <background_type><![CDATA[Filled]]></background_type>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c675f44f11eaa9bc705a0f179416</id>
+                <name><![CDATA[Reset All system  Relays]]></name>
+                <type>MacroButton</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+
+
+hil.set_scada_input_value('Relay-4.Function (67P).Reset', 1.0)
+hil.set_scada_input_value('Relay-3.Function (67P).Reset', 1.0)
+hil.set_scada_input_value('Relay-12.Function (67P).Reset', 1.0)
+hil.set_scada_input_value('Relay-11.Function (67P).Reset', 1.0)
+hil.wait_msec(500)
+hil.set_scada_input_value('Relay-4.Function (67P).Reset', 0.0)
+hil.set_scada_input_value('Relay-3.Function (67P).Reset', 0.0)
+hil.set_scada_input_value('Relay-12.Function (67P).Reset', 0.0)
+hil.set_scada_input_value('Relay-11.Function (67P).Reset', 0.0)
+
+
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+]]></on_stop_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>32.0</x>
+                    <y>24.0</y>
+                    <width>160</width>
+                    <height>32</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f365c676f44f11eab57c705a0f179416</id>
+                <name><![CDATA[]]></name>
+                <type>TextBoxMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# NOTE: entered value is available through variable 'inputValue'
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+
+hil.set_scada_input_value('Relay-'+ly+'.Function (67P).DT', inputValue)
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[0.1]]></inputValue>
+                <inputValueType>float</inputValueType>
+                <unit><![CDATA[]]></unit>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>136.0</x>
+                    <y>176.0</y>
+                    <width>144</width>
+                    <height>32</height>
+                    <inputWidgetWidth>80</inputWidgetWidth>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ab6f44f11eaa031705a0f179416</id>
+                <name><![CDATA[Note component]]></name>
+                <type>TextNote</type>
+                <description><![CDATA[]]></description>
+                <text><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Arial'; font-size:8pt; font-weight:400; font-style:normal;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Time Dial (IEEE / US)</p></body></html>]]></text>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>32.0</x>
+                    <y>176.0</y>
+                    <width>104</width>
+                    <height>32</height>
+                    <background_color><![CDATA[#f0f0f0]]></background_color>
+                    <background_type><![CDATA[Filled]]></background_type>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ab7f44f11ea8290705a0f179416</id>
+                <name><![CDATA[Time Dial (IEEE / US)]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+displayValue = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).DT_Stt')
+
+
+
+
+
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[3]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>896.0</x>
+                    <y>40.0</y>
+                    <width>160</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ab8f44f11ea9f45705a0f179416</id>
+                <name><![CDATA[M_A]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+RMS = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_A(RMS)')
+PU = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_PKU')*200/5
+CT = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).CTp_Stt')
+
+displayValue = RMS / PU
+
+
+
+
+
+
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>592.0</x>
+                    <y>104.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ab9f44f11ea98e2705a0f179416</id>
+                <name><![CDATA[M_C]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+RMS = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_C(RMS)')
+PU = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_PKU')*200/5
+CT = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).CTp_Stt')
+
+displayValue = RMS / PU
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>896.0</x>
+                    <y>104.0</y>
+                    <width>160</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682abaf44f11eab2e2705a0f179416</id>
+                <name><![CDATA[M_B]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+RMS = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_B(RMS)')
+PU = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_PKU')*200/5
+CT = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).CTp_Stt')
+
+displayValue = RMS / PU
+
+
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>736.0</x>
+                    <y>104.0</y>
+                    <width>160</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682abbf44f11ea95bb705a0f179416</id>
+                <name><![CDATA[Note component]]></name>
+                <type>TextNote</type>
+                <description><![CDATA[]]></description>
+                <text><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Arial'; font-size:8pt; font-weight:400; font-style:normal;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:14pt;">This graph shows a directional trip. </span></p></body></html>]]></text>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>592.0</x>
+                    <y>328.0</y>
+                    <width>400</width>
+                    <height>32</height>
+                    <background_color><![CDATA[#f0f0f0]]></background_color>
+                    <background_type><![CDATA[Filled]]></background_type>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682abcf44f11ea8215705a0f179416</id>
+                <name><![CDATA[Directional Trip]]></name>
+                <type>TraceDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Signals</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing values
+# that will be displayed
+# specify data (one pairs of "names" and "values" parts are mandatory)
+data = {
+    # analog like signals/data names: ["Analog 1 name","Analog 2 name","Analog N name"]
+    "analog_names": [],
+    
+    # analog data values: [aVal1,aVal2,aVal3]
+    "analog_values": [],
+    
+    # digital like signals/data names: ["Digital 1 name","Digital 2 name","Digital 3 name"]
+    "digital_names": [],
+    
+    # digital data values: [dVal1,dVal2,aVal3]
+    "digital_values": [],
+    }
+displayValue = data
+]]></code>
+                <analog_signals><![CDATA[['Relay-3.Function (67P).Directional Trip', 'Relay-12.Function (67P).Directional Trip', 'Relay-4.Function (67P).Directional Trip', 'Relay-11.Function (67P).Directional Trip']]]></analog_signals>
+                <digital_signals><![CDATA[[]]]></digital_signals>
+                <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
+                <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
+                <update_rate>250</update_rate>
+                <execution_rate>None</execution_rate>
+                <background_color>black</background_color>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>600.0</x>
+                    <y>360.0</y>
+                    <width>400</width>
+                    <height>200</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <x_title><![CDATA[x axes]]></x_title>
+                    <y_title><![CDATA[y axes]]></y_title>
+                    <y_range_min>0.0</y_range_min>
+                    <y_range_max>1.2</y_range_max>
+                    <time_window>10</time_window>
+                    <auto_scale_enabled>False</auto_scale_enabled>
+                    <legend_enabled>True</legend_enabled>
+                    <x_axis_title_enabled>False</x_axis_title_enabled>
+                    <y_axis_title_enabled>False</y_axis_title_enabled>
+                    <use_reference_curve>False</use_reference_curve>
+                    <reference_curve_code><![CDATA[# NOTE: Global namespace variables are available
+# Selected time window is available through variable 'timeWindow'
+# Selected update rate is available through variable 'updateRate'
+
+# reference curve data point
+curveData = 12.0
+
+# specify curve options ('data' part is mandatory)
+refCurveData1 = {
+    # reference curve data point
+    "data": curveData,
+
+    # curve line style: 'solid', 'dashed', 'dashdot', 'dotted'
+    "line_style": "dashed",
+
+    # curve line color: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow'
+    "line_color": 'red',
+
+    # curve line width: float number
+    "line_width": 2.0,
+    
+    # reference curve title
+    "title": "Reference curve",
+
+    # show a title in the legend
+    "show_in_legend": True
+}
+
+# list of reference curves data: [ref1, ref2,...refN]
+referenceCurves = [refCurveData1]
+
+]]></reference_curve_code>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682abdf44f11eab528705a0f179416</id>
+                <name><![CDATA[Directional Trip]]></name>
+                <type>TraceDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Signals</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing values
+# that will be displayed
+# specify data (one pairs of "names" and "values" parts are mandatory)
+data = {
+    # analog like signals/data names: ["Analog 1 name","Analog 2 name","Analog N name"]
+    "analog_names": ["Relay 1","Relay 2"],
+    
+    # analog data values: [aVal1,aVal2,aVal3]
+    "analog_values": [],
+    
+    # digital like signals/data names: ["Digital 1 name","Digital 2 name","Digital 3 name"]
+    "digital_names": [],
+    
+    # digital data values: [dVal1,dVal2,aVal3]
+    "digital_values": [],
+    }
+displayValue = data
+]]></code>
+                <analog_signals><![CDATA[['Relay-11.Trip', 'Relay-4.Trip']]]></analog_signals>
+                <digital_signals><![CDATA[[]]]></digital_signals>
+                <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
+                <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
+                <update_rate>250</update_rate>
+                <execution_rate>None</execution_rate>
+                <background_color>black</background_color>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>1032.0</x>
+                    <y>352.0</y>
+                    <width>400</width>
+                    <height>200</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <x_title><![CDATA[x axes]]></x_title>
+                    <y_title><![CDATA[y axes]]></y_title>
+                    <y_range_min>0.0</y_range_min>
+                    <y_range_max>1.2</y_range_max>
+                    <time_window>10</time_window>
+                    <auto_scale_enabled>False</auto_scale_enabled>
+                    <legend_enabled>True</legend_enabled>
+                    <x_axis_title_enabled>False</x_axis_title_enabled>
+                    <y_axis_title_enabled>False</y_axis_title_enabled>
+                    <use_reference_curve>False</use_reference_curve>
+                    <reference_curve_code><![CDATA[# NOTE: Global namespace variables are available
+# Selected time window is available through variable 'timeWindow'
+# Selected update rate is available through variable 'updateRate'
+
+# reference curve data point
+curveData = 12.0
+
+# specify curve options ('data' part is mandatory)
+refCurveData1 = {
+    # reference curve data point
+    "data": curveData,
+
+    # curve line style: 'solid', 'dashed', 'dashdot', 'dotted'
+    "line_style": "dashed",
+
+    # curve line color: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow'
+    "line_color": 'red',
+
+    # curve line width: float number
+    "line_width": 2.0,
+    
+    # reference curve title
+    "title": "Reference curve",
+
+    # show a title in the legend
+    "show_in_legend": True
+}
+
+# list of reference curves data: [ref1, ref2,...refN]
+referenceCurves = [refCurveData1]
+
+]]></reference_curve_code>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682abef44f11ea91f7705a0f179416</id>
+                <name><![CDATA[Note component]]></name>
+                <type>TextNote</type>
+                <description><![CDATA[]]></description>
+                <text><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head><meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Arial'; font-size:8pt; font-weight:400; font-style:normal;">
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:14pt;">This graph shows DOCR Relay Output Trip. </span></p></body></html>]]></text>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>1032.0</x>
+                    <y>320.0</y>
+                    <width>400</width>
+                    <height>32</height>
+                    <background_color><![CDATA[#f0f0f0]]></background_color>
+                    <background_type><![CDATA[Filled]]></background_type>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682abff44f11eaa5c6705a0f179416</id>
+                <name><![CDATA[I_B (Peak)]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+RMS = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_B(RMS)')
+PU = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_PKU')*200/5
+CT = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).CTp_Stt')
+
+displayValue = RMS*np.sqrt(2)
+
+
+
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>736.0</x>
+                    <y>168.0</y>
+                    <width>160</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac0f44f11eaab7a705a0f179416</id>
+                <name><![CDATA[I_A (Peak)]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+RMS = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_A(RMS)')
+PU = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_PKU')*200/5
+CT = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).CTp_Stt')
+
+displayValue = RMS*np.sqrt(2)
+
+
+
+
+
+
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>592.0</x>
+                    <y>168.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac1f44f11ea96a9705a0f179416</id>
+                <name><![CDATA[I_C (Peak)]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+RMS = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_C(RMS)')
+PU = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_PKU')*200/5
+CT = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).CTp_Stt')
+
+displayValue = RMS*np.sqrt(2) 
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>896.0</x>
+                    <y>168.0</y>
+                    <width>160</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac2f44f11ea937e705a0f179416</id>
+                <name><![CDATA[Current]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+current = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_C_(Angle)')
+if current < 0:
+    current +=360
+displayValue = current
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>992.0</x>
+                    <y>784.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac3f44f11ea9faa705a0f179416</id>
+                <name><![CDATA[Voltage]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+voltage = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).V_AB_(Angle)')
+RCA = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).RCA')
+if voltage < 0:
+    voltage +=360
+voltage += RCA
+if voltage >= 360:
+    voltage -=360
+displayValue = voltage
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>992.0</x>
+                    <y>840.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac4f44f11eaaf07705a0f179416</id>
+                <name><![CDATA[Current]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+current = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_B_(Angle)')
+if current < 0:
+    current +=360
+displayValue = current
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>416.0</x>
+                    <y>784.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac5f44f11ea8369705a0f179416</id>
+                <name><![CDATA[Voltage]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+voltage = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).V_CA_(Angle)')
+RCA = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).RCA')
+if voltage < 0:
+    voltage +=360
+voltage += RCA
+if voltage >= 360:
+    voltage -=360
+displayValue = voltage
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>416.0</x>
+                    <y>840.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac6f44f11eaa5a9705a0f179416</id>
+                <name><![CDATA[Current]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+current = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).I_A_(Angle)')
+if current < 0:
+    current +=360
+displayValue = current
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>416.0</x>
+                    <y>464.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac7f44f11ea87d8705a0f179416</id>
+                <name><![CDATA[Voltage]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+voltage = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).V_BC_(Angle)')
+RCA = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).RCA')
+if voltage < 0:
+    voltage +=360
+voltage += RCA
+if voltage >= 360:
+    voltage -=360
+displayValue = voltage
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>416.0</x>
+                    <y>520.0</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>f3682ac8f44f11eab2ca705a0f179416</id>
+                <name><![CDATA[time]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Expression</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+global ly
+
+Relay = hil.read_analog_signal(name='various.Relay_Sted')
+if (Relay == 3):
+    ly = '3'
+elif (Relay == 12):
+    ly = '12'
+elif (Relay == 11):
+    ly = '11'
+elif (Relay == 4):
+    ly = '4'
+time = hil.read_analog_signal(name='Relay-'+ly+'.Function (67P).time')
+
+
+displayValue = time 
+]]></code>
+                <signal_name><![CDATA[]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[3]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>1136.0</x>
+                    <y>56.0</y>
+                    <width>160</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>ade8cc00f69d11eaaf21705a0f179416</id>
+                <name><![CDATA[Capture/Scope]]></name>
+                <type>Capture/Scope</type>
+                <description><![CDATA[]]></description>
+                <hierarchy_position>2</hierarchy_position>
+                <working_mode>windowed</working_mode>
+                <widget_settings>
+                    <x>1176</x>
+                    <y>592</y>
+                    <width>120</width>
+                    <height>120</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <state>Capture</state>
+                    <layout>None</layout>
+                    <presets>
+                        <active_capture_preset>Default</active_capture_preset>
+                        <active_scope_preset>Default</active_scope_preset>
+                        <capture name="Default">
+                            <time_interval>2.0</time_interval>
+                            <sample_rate>100000.0</sample_rate>
+                            <background_color>white</background_color>
+                            <layout>Grid</layout>
+                            <legend>True</legend>
+                            <analog_signals>
+                            <analog>
+                            <channel>0</channel>
+                            <name>Measurements Block - 4.I_A</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>1</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>1</channel>
+                            <name>Measurements Block - 11.I_A</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>1</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>2</channel>
+                            <name>Relay-4.Trip</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>2</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>3</channel>
+                            <name>Relay-11.Trip</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>2</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>4</channel>
+                            <name>Measurements Block - 3.I_A</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>3</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>5</channel>
+                            <name>Measurements Block - 12.I_A</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>3</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>6</channel>
+                            <name>Relay-3.Trip</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>4</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>7</channel>
+                            <name>Relay-12.Trip</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>4</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            </analog_signals>
+                            <digital_signals>
+                            <digital>
+                            <channel>0</channel>
+                            <name>Fault-1.S1_fb</name>
+                            <is_locked>False</is_locked>
+                            <vertical_offset>0.0</vertical_offset>
+                            <viewports>
+                                
+                           </viewports>
+                        </digital>
+                            <digital>
+                            <channel>1</channel>
+                            <name>Fault-2.S1_fb</name>
+                            <is_locked>False</is_locked>
+                            <vertical_offset>0.0</vertical_offset>
+                            <viewports>
+                                
+                           </viewports>
+                        </digital>
+                            <digital>
+                            <channel>2</channel>
+                            <name>Fault-3.S1_fb</name>
+                            <is_locked>False</is_locked>
+                            <vertical_offset>0.0</vertical_offset>
+                            <viewports>
+                                
+                           </viewports>
+                        </digital>
+                            </digital_signals>
+                            <trigger>
+                                <device>0</device>
+                                <is_force>False</is_force>
+                                <type>Digital</type>
+                                <source>Fault-3.S1_fb</source>
+                                <edge>Rising edge</edge>
+                                <treshold>0.0</treshold>
+                                <offset>10.0</offset>
+                                <useFirstTrigger>False</useFirstTrigger>
+                            </trigger>
+                            <plotting_options in_use="True">
+                                <subplots>
+                                    <subplot>
+                                        <number>1</number>
+                                        <x_min>-0.24999999999999997</x_min>
+                                        <x_max>2.24999</x_max>
+                                        <y_min>-5123.9277</y_min>
+                                        <y_max>3979.1096</y_max>
+                                        <signals>
+                                            <signal>
+                                                <original_name>Measurements Block - 4.I_A</original_name>
+                                                <user_specified_name></user_specified_name>
+                                                <color>#FF0000</color>
+                                                <line_type>1</line_type>
+                                                <line_width>1</line_width>
+                                            </signal>
+                                            <signal>
+                                                <original_name>Measurements Block - 11.I_A</original_name>
+                                                <user_specified_name></user_specified_name>
+                                                <color>#00CC00</color>
+                                                <line_type>1</line_type>
+                                                <line_width>1</line_width>
+                                            </signal>
+                                            
+                                        </signals>
+                                    </subplot>
+                                    <subplot>
+                                        <number>2</number>
+                                        <x_min>-0.24999999999999997</x_min>
+                                        <x_max>2.24999</x_max>
+                                        <y_min>0.0</y_min>
+                                        <y_max>1.0</y_max>
+                                        <signals>
+                                            <signal>
+                                                <original_name>Relay-4.Trip</original_name>
+                                                <user_specified_name></user_specified_name>
+                                                <color>#005500</color>
+                                                <line_type>1</line_type>
+                                                <line_width>1</line_width>
+                                            </signal>
+                                            <signal>
+                                                <original_name>Relay-11.Trip</original_name>
+                                                <user_specified_name></user_specified_name>
+                                                <color>#ff0000</color>
+                                                <line_type>1</line_type>
+                                                <line_width>1</line_width>
+                                            </signal>
+                                            
+                                        </signals>
+                                    </subplot>
+                                    <subplot>
+                                        <number>3</number>
+                                        <x_min>-0.24999999999999997</x_min>
+                                        <x_max>2.24999</x_max>
+                                        <y_min>-5169.245</y_min>
+                                        <y_max>4040.274</y_max>
+                                        <signals>
+                                            <signal>
+                                                <original_name>Measurements Block - 3.I_A</original_name>
+                                                <user_specified_name></user_specified_name>
+                                                <color>#000000</color>
+                                                <line_type>1</line_type>
+                                                <line_width>1</line_width>
+                                            </signal>
+                                            <signal>
+                                                <original_name>Measurements Block - 12.I_A</original_name>
+                                                <user_specified_name></user_specified_name>
+                                                <color>#55ff7f</color>
+                                                <line_type>1</line_type>
+                                                <line_width>1</line_width>
+                                            </signal>
+                                            
+                                        </signals>
+                                    </subplot>
+                                    <subplot>
+                                        <number>4</number>
+                                        <x_min>-0.24999999999999997</x_min>
+                                        <x_max>2.24999</x_max>
+                                        <y_min>0.0</y_min>
+                                        <y_max>0.0</y_max>
+                                        <signals>
+                                            <signal>
+                                                <original_name>Relay-3.Trip</original_name>
+                                                <user_specified_name></user_specified_name>
+                                                <color>#55007f</color>
+                                                <line_type>1</line_type>
+                                                <line_width>1</line_width>
+                                            </signal>
+                                            <signal>
+                                                <original_name>Relay-12.Trip</original_name>
+                                                <user_specified_name></user_specified_name>
+                                                <color>#ff0000</color>
+                                                <line_type>1</line_type>
+                                                <line_width>1</line_width>
+                                            </signal>
+                                            
+                                        </signals>
+                                    </subplot>
+                                    </subplots>
+                            </plotting_options>
+                        </capture>
+                        <scope name="Default">
+                            <background_color>white</background_color>
+                            <layout>Grid</layout>
+                            <legend>True</legend>
+                            <show_viewports>1</show_viewports>
+                            <decimation>1</decimation>
+                            <time_base>1e-05</time_base>
+                            <analog_signals>
+                            </analog_signals>
+                            <digital_signals>
+                            </digital_signals>
+                            <trigger>
+                                <device>-1</device>
+                                <is_force>False</is_force>
+                                <type>Analog</type>
+                                <source>None</source>
+                                <edge>Rising edge</edge>
+                                <treshold>0.0</treshold>
+                                <offset>50.0</offset>
+                                <useFirstTrigger>False</useFirstTrigger>
+                            </trigger>
+                        </scope>
+                        </presets>
+                    <capture>
+                        <time_interval>2.0</time_interval>
+                        <sample_rate>100000.0</sample_rate>
+                        <background_color>white</background_color>
+                        <layout>Grid</layout>
+                        <legend>True</legend>
+                        <trigger>
+                            <type>Digital</type>
+                            <source>Fault-3.S1_fb</source>
+                            <edge>Rising edge</edge>
+                            <treshold>0.0</treshold>
+                            <offset>10.0</offset>
+                            <useFirstTrigger>False</useFirstTrigger>
+                        </trigger>
+
+                        <analog_signals>
+                            <analog>
+                            <channel>0</channel>
+                            <name>Measurements Block - 4.I_A</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>1</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>1</channel>
+                            <name>Measurements Block - 11.I_A</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>1</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>2</channel>
+                            <name>Relay-4.Trip</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>2</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>3</channel>
+                            <name>Relay-11.Trip</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>2</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>4</channel>
+                            <name>Measurements Block - 3.I_A</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>3</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>5</channel>
+                            <name>Measurements Block - 12.I_A</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>3</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>6</channel>
+                            <name>Relay-3.Trip</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>4</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            <analog>
+                            <channel>7</channel>
+                            <name>Relay-12.Trip</name>
+                            <is_locked>False</is_locked>
+                            <vertical_scale>Auto</vertical_scale>
+                            <vertical_offset>0.0</vertical_offset>
+                            <coupling>False</coupling>
+                            <viewports>
+                                
+                                <num_viewport>4</num_viewport>
+                                
+                           </viewports>
+                        </analog>
+                            </analog_signals>
+
+                         <digital_signals>
+                            <digital>
+                            <channel>0</channel>
+                            <name>Fault-1.S1_fb</name>
+                            <is_locked>False</is_locked>
+                            <vertical_offset>0.0</vertical_offset>
+                            <viewports>
+                                
+                           </viewports>
+                        </digital>
+                            <digital>
+                            <channel>1</channel>
+                            <name>Fault-2.S1_fb</name>
+                            <is_locked>False</is_locked>
+                            <vertical_offset>0.0</vertical_offset>
+                            <viewports>
+                                
+                           </viewports>
+                        </digital>
+                            <digital>
+                            <channel>2</channel>
+                            <name>Fault-3.S1_fb</name>
+                            <is_locked>False</is_locked>
+                            <vertical_offset>0.0</vertical_offset>
+                            <viewports>
+                                
+                           </viewports>
+                        </digital>
+                            </digital_signals>
+
+                    </capture>
+
+                    <scope>
+                        <time_base>1e-05 </time_base>
+                        <background_color>white</background_color>
+                        <layout>Grid</layout>
+                        <legend>True</legend>
+                        <trigger>
+                            <mode>Auto</mode>
+                            <type>Analog</type>
+                            <source>None</source>
+                            <edge>Rising edge</edge>
+                            <treshold>0.0</treshold>
+                            <offset>50.0</offset>
+                        </trigger>
+
+                         <analog_signals>
+                            </analog_signals>
+
+                        <digital_signals>
+                            </digital_signals>
+
+                    </scope>
+                    <plotting_options in_use="True">
+                    
+                        <subplots>
+                            <subplot>
+                                <number>1</number>
+                                <x_min>-0.24999999999999997</x_min>
+                                <x_max>2.24999</x_max>
+                                <y_min>-5123.9277</y_min>
+                                <y_max>3979.1096</y_max>
+                                <signals>
+                                    <signal>
+                                        <original_name>Measurements Block - 4.I_A</original_name>
+                                        <user_specified_name></user_specified_name>
+                                        <color>#FF0000</color>
+                                        <line_type>1</line_type>
+                                        <line_width>1</line_width>
+                                    </signal>
+                                    <signal>
+                                        <original_name>Measurements Block - 11.I_A</original_name>
+                                        <user_specified_name></user_specified_name>
+                                        <color>#00CC00</color>
+                                        <line_type>1</line_type>
+                                        <line_width>1</line_width>
+                                    </signal>
+                                    
+                                </signals>
+                            </subplot>
+                            <subplot>
+                                <number>2</number>
+                                <x_min>-0.24999999999999997</x_min>
+                                <x_max>2.24999</x_max>
+                                <y_min>0.0</y_min>
+                                <y_max>1.0</y_max>
+                                <signals>
+                                    <signal>
+                                        <original_name>Relay-4.Trip</original_name>
+                                        <user_specified_name></user_specified_name>
+                                        <color>#005500</color>
+                                        <line_type>1</line_type>
+                                        <line_width>1</line_width>
+                                    </signal>
+                                    <signal>
+                                        <original_name>Relay-11.Trip</original_name>
+                                        <user_specified_name></user_specified_name>
+                                        <color>#ff0000</color>
+                                        <line_type>1</line_type>
+                                        <line_width>1</line_width>
+                                    </signal>
+                                    
+                                </signals>
+                            </subplot>
+                            <subplot>
+                                <number>3</number>
+                                <x_min>-0.24999999999999997</x_min>
+                                <x_max>2.24999</x_max>
+                                <y_min>-5169.245</y_min>
+                                <y_max>4040.274</y_max>
+                                <signals>
+                                    <signal>
+                                        <original_name>Measurements Block - 3.I_A</original_name>
+                                        <user_specified_name></user_specified_name>
+                                        <color>#000000</color>
+                                        <line_type>1</line_type>
+                                        <line_width>1</line_width>
+                                    </signal>
+                                    <signal>
+                                        <original_name>Measurements Block - 12.I_A</original_name>
+                                        <user_specified_name></user_specified_name>
+                                        <color>#55ff7f</color>
+                                        <line_type>1</line_type>
+                                        <line_width>1</line_width>
+                                    </signal>
+                                    
+                                </signals>
+                            </subplot>
+                            <subplot>
+                                <number>4</number>
+                                <x_min>-0.24999999999999997</x_min>
+                                <x_max>2.24999</x_max>
+                                <y_min>0.0</y_min>
+                                <y_max>0.0</y_max>
+                                <signals>
+                                    <signal>
+                                        <original_name>Relay-3.Trip</original_name>
+                                        <user_specified_name></user_specified_name>
+                                        <color>#55007f</color>
+                                        <line_type>1</line_type>
+                                        <line_width>1</line_width>
+                                    </signal>
+                                    <signal>
+                                        <original_name>Relay-12.Trip</original_name>
+                                        <user_specified_name></user_specified_name>
+                                        <color>#ff0000</color>
+                                        <line_type>1</line_type>
+                                        <line_width>1</line_width>
+                                    </signal>
+                                    
+                                </signals>
+                            </subplot>
+                            </subplots>
+                    </plotting_options>
+                </widget_settings>
+
+            </component_data>
+        <component_data>
+                <id>938be846f76711ea98d1705a0f179416</id>
+                <name><![CDATA[Select Relay]]></name>
+                <type>ComboBoxMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# NOTE: entered value is available through variable 'inputValue'
+
+if inputValue == 'Relay 3':
+    hil.set_scada_input_value('Relay-3.Function (67P).Enable', 0)
+
+elif inputValue == 'Relay 12':
+    hil.set_scada_input_value('Relay-12.Function (67P).Enable', 0)
+
+elif inputValue == 'Relay 11':
+    hil.set_scada_input_value('Relay-11.Function (67P).Enable', 0)
+
+elif inputValue == 'Relay 4':
+    hil.set_scada_input_value('Relay-4.Function (67P).Enable', 0)
+
+elif inputValue == 'None':
+    hil.set_scada_input_value('Relay-3.Function (67P).Enable', 1)
+    hil.set_scada_input_value('Relay-12.Function (67P).Enable', 1)
+    hil.set_scada_input_value('Relay-11.Function (67P).Enable', 1)
+    hil.set_scada_input_value('Relay-4.Function (67P).Enable', 1)
+    
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[None]]></inputValue>
+                <availableValues><![CDATA[['None', 'Relay 3', 'Relay 4', 'Relay 11', 'Relay 12']]]></availableValues>
+                <unit><![CDATA[]]></unit>
+                <hierarchy_position>2</hierarchy_position>
+                <widget_settings>
+                    <x>1272.0</x>
+                    <y>776.0</y>
+                    <width>232</width>
+                    <height>40</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                </widget_settings>
+            </component_data>
+        </components>
+</ui_settings>
