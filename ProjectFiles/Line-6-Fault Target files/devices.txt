@@ -1,0 +1,43 @@
+2atv8VqZT02snFZW7hdgFwyTw5eU8c+84n3aFtrhFLOEiQsJRsUZrFUsnbfEPKOfhOtMu1K6mpBjkbfO1ggdrQ==
+{
+  "compilation_timestamp": "2022-05-26 00:13:12",
+  "sw_version": "2021.3",
+  "devices": [
+    {
+      "device_type": "HIL402",
+      "hw_id": "c07908fb00594c1b0afbd8ebd13e8e0aaac10f5771c53878947fc1925715fe8a",
+      "activation_key": "IQEVS-W7K1F-UYZ02-H6G9B-C88C5",
+      "serial_no": "00402-02-00239",
+      "license_expiry": "2118-10-16",
+      "maintenance_expiry": null,
+      "supported": true,
+      "not_supported_reason": null,
+      "toolboxes": []
+    },
+    {
+      "device_type": "HIL402",
+      "hw_id": "d0e3ce0b54197caca5aaeddc96da5d1cae48649c1b4c102099167e8a425b4cf8",
+      "activation_key": "J5Y0C-ZTDBA-PF4GX-9SM86-E8FFA",
+      "serial_no": "00402-02-00240",
+      "license_expiry": "2118-10-16",
+      "maintenance_expiry": null,
+      "supported": true,
+      "not_supported_reason": null,
+      "toolboxes": []
+    },
+    {
+      "device_type": "HIL604",
+      "hw_id": "cbb8f1ce16890db18d8fff1c4e8e50b8dbfc7f0e24045de07a01052720a949a9",
+      "activation_key": "ZR1T8-WNGAE-5XUJP-QS693-F580D",
+      "serial_no": "00604-00-00301",
+      "license_expiry": "2120-12-11",
+      "maintenance_expiry": null,
+      "supported": true,
+      "not_supported_reason": null,
+      "toolboxes": []
+    }
+  ]
+}
+-----BEGIN SIGNATURE-----
+EwuN772ICCFhLWMW7QZX6PXKNSJ8Yb7yKE3dy3HScBVnUjz/OS0i8qykna0Nbr/oEXVSIT/JrptJB9fFA3nY0n6cEYpjaebpYJh4uneAF7HTOMZT2/OUK7vrPLfGG3m7QgthdDGntjeTPD9ApwAnBN8KK1ztIpME285nP0NH7Z0k41Q26v9+eogHdJ4GtxUGUoH8AqrwSTcwqz9Wzj1HhZzL1pmlT/ogQJRRnYJ4n4qRDtsP0ymZlDLDzeVWCxW7MfsfND1XbRO5x0i3i6OGMNAI9Bqj9r5y2Z+TXU4CQ/s0QOLHoHNnZgocYHJMm5K2CqDAGMHiEd89s2CXqz8Jqw==
+-----END SIGNATURE-----
