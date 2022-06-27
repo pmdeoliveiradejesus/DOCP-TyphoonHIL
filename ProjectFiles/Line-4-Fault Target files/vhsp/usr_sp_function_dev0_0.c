@@ -1,0 +1,5636 @@
+// generated using template: cop_main.template---------------------------------------------
+/******************************************************************************************
+**
+**  Module Name: cop_main.c
+**  NOTE: Automatically generated file. DO NOT MODIFY!
+**  Description:
+**            Main file
+**
+******************************************************************************************/
+// generated using template: arm/custom_include.template-----------------------------------
+
+#include "math.h"
+#include <stdint.h>
+
+// x86 libraries:
+#include "../include/sp_functions_dev0.h"
+
+// H files from Advanced C Function components
+
+// Header files from additional sources (Advanced C Function)
+
+// ----------------------------------------------------------------------------------------
+// generated using template: VirtualHIL/custom_defines.template----------------------------
+
+typedef unsigned char X_UnInt8;
+typedef char X_Int8;
+typedef signed short X_Int16;
+typedef unsigned short X_UnInt16;
+typedef int X_Int32;
+typedef unsigned int X_UnInt32;
+typedef unsigned int uint;
+typedef double real;
+
+// ----------------------------------------------------------------------------------------
+// generated using template: custom_consts.template----------------------------------------
+
+// arithmetic constants
+#define C_SQRT_2                    1.4142135623730950488016887242097f
+#define C_SQRT_3                    1.7320508075688772935274463415059f
+#define C_PI                        3.1415926535897932384626433832795f
+#define C_E                         2.7182818284590452353602874713527f
+#define C_2PI                       6.283185307179586476925286766559f
+
+//@cmp.def.start
+//component defines
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//@cmp.def.end
+
+
+//-----------------------------------------------------------------------------------------
+// generated using template: common_variables.template-------------------------------------
+// true global variables
+
+
+//@cmp.var.start
+// variables
+double _measurements_block___12_i_a_ia1__out;
+double _measurements_block___12_i_b_ia1__out;
+double _measurements_block___12_i_c_ia1__out;
+double _measurements_block___12_irmsa_cpu_trans_output__out;
+double _measurements_block___12_irmsb_cpu_trans_output__out;
+double _measurements_block___12_irmsc_cpu_trans_output__out;
+double _measurements_block___12_v_ab_va1__out;
+double _measurements_block___12_v_bc_va1__out;
+double _measurements_block___12_v_ca_va1__out;
+double _measurements_block___13_i_a_ia1__out;
+double _measurements_block___13_i_b_ia1__out;
+double _measurements_block___13_i_c_ia1__out;
+double _measurements_block___13_irmsa_cpu_trans_output__out;
+double _measurements_block___13_irmsb_cpu_trans_output__out;
+double _measurements_block___13_irmsc_cpu_trans_output__out;
+double _measurements_block___13_v_ab_va1__out;
+double _measurements_block___13_v_bc_va1__out;
+double _measurements_block___13_v_ca_va1__out;
+double _measurements_block___14_i_a_ia1__out;
+double _measurements_block___14_i_b_ia1__out;
+double _measurements_block___14_i_c_ia1__out;
+double _measurements_block___14_irmsa_cpu_trans_output__out;
+double _measurements_block___14_irmsb_cpu_trans_output__out;
+double _measurements_block___14_irmsc_cpu_trans_output__out;
+double _measurements_block___14_v_ab_va1__out;
+double _measurements_block___14_v_bc_va1__out;
+double _measurements_block___14_v_ca_va1__out;
+double _measurements_block___4_i_a_ia1__out;
+double _measurements_block___4_i_b_ia1__out;
+double _measurements_block___4_i_c_ia1__out;
+double _measurements_block___4_irmsa_cpu_trans_output__out;
+double _measurements_block___4_irmsb_cpu_trans_output__out;
+double _measurements_block___4_irmsc_cpu_trans_output__out;
+double _measurements_block___4_v_ab_va1__out;
+double _measurements_block___4_v_bc_va1__out;
+double _measurements_block___4_v_ca_va1__out;
+double _measurements_block___5_i_a_ia1__out;
+double _measurements_block___5_i_b_ia1__out;
+double _measurements_block___5_i_c_ia1__out;
+double _measurements_block___5_irmsa_cpu_trans_output__out;
+double _measurements_block___5_irmsb_cpu_trans_output__out;
+double _measurements_block___5_irmsc_cpu_trans_output__out;
+double _measurements_block___5_v_ab_va1__out;
+double _measurements_block___5_v_bc_va1__out;
+double _measurements_block___5_v_ca_va1__out;
+double _relay_12_constant1__out = 0.5;
+double _relay_12_function__67p__ctp__out = 200.0;
+double _relay_12_function__67p__constant1__out = 0.0;
+X_UnInt32 _relay_12_function__67p__constant2__out = 1;
+double _relay_12_function__67p__constant3__out = 1.0;
+double _relay_12_function__67p__constant4__out = 0.0005;
+double _relay_12_function__67p__constant6__out = 0.0;
+double _relay_12_function__67p__constant7__out = 45.0;
+double _relay_12_function__67p__dt__out;
+X_UnInt32 _relay_12_function__67p__enable__out;
+double _relay_12_function__67p__i_pick_up__out;
+double _relay_12_function__67p__reset__out;
+double _relay_12_function__67p__sinusoidal_source3__out;
+double _relay_12_function__67p__tms__out;
+double _relay_13_constant1__out = 0.5;
+double _relay_13_function__67p__ctp__out = 200.0;
+double _relay_13_function__67p__constant1__out = 0.0;
+X_UnInt32 _relay_13_function__67p__constant2__out = 1;
+double _relay_13_function__67p__constant3__out = 1.0;
+double _relay_13_function__67p__constant4__out = 0.0005;
+double _relay_13_function__67p__constant6__out = 0.0;
+double _relay_13_function__67p__constant7__out = 45.0;
+double _relay_13_function__67p__dt__out;
+X_UnInt32 _relay_13_function__67p__enable__out;
+double _relay_13_function__67p__i_pick_up__out;
+double _relay_13_function__67p__reset__out;
+double _relay_13_function__67p__sinusoidal_source3__out;
+double _relay_13_function__67p__tms__out;
+double _relay_14_constant1__out = 0.5;
+double _relay_14_function__67p__ctp__out = 200.0;
+double _relay_14_function__67p__constant1__out = 0.0;
+X_UnInt32 _relay_14_function__67p__constant2__out = 1;
+double _relay_14_function__67p__constant3__out = 1.0;
+double _relay_14_function__67p__constant4__out = 0.0005;
+double _relay_14_function__67p__constant6__out = 0.0;
+double _relay_14_function__67p__constant7__out = 45.0;
+double _relay_14_function__67p__dt__out;
+X_UnInt32 _relay_14_function__67p__enable__out;
+double _relay_14_function__67p__i_pick_up__out;
+double _relay_14_function__67p__reset__out;
+double _relay_14_function__67p__sinusoidal_source3__out;
+double _relay_14_function__67p__tms__out;
+double _relay_4_constant1__out = 0.5;
+double _relay_4_function__67p__ctp__out = 200.0;
+double _relay_4_function__67p__constant1__out = 0.0;
+X_UnInt32 _relay_4_function__67p__constant2__out = 1;
+double _relay_4_function__67p__constant3__out = 1.0;
+double _relay_4_function__67p__constant4__out = 0.0005;
+double _relay_4_function__67p__constant6__out = 0.0;
+double _relay_4_function__67p__constant7__out = 45.0;
+double _relay_4_function__67p__dt__out;
+X_UnInt32 _relay_4_function__67p__enable__out;
+double _relay_4_function__67p__i_pick_up__out;
+double _relay_4_function__67p__reset__out;
+double _relay_4_function__67p__sinusoidal_source3__out;
+double _relay_4_function__67p__tms__out;
+double _relay_5_constant1__out = 0.5;
+double _relay_5_function__67p__ctp__out = 200.0;
+double _relay_5_function__67p__constant1__out = 0.0;
+X_UnInt32 _relay_5_function__67p__constant2__out = 1;
+double _relay_5_function__67p__constant3__out = 1.0;
+double _relay_5_function__67p__constant4__out = 0.0005;
+double _relay_5_function__67p__constant6__out = 0.0;
+double _relay_5_function__67p__constant7__out = 45.0;
+double _relay_5_function__67p__dt__out;
+X_UnInt32 _relay_5_function__67p__enable__out;
+double _relay_5_function__67p__i_pick_up__out;
+double _relay_5_function__67p__reset__out;
+double _relay_5_function__67p__sinusoidal_source3__out;
+double _relay_5_function__67p__tms__out;
+double _vrms10_cpu_trans_output__out;
+double _vrms5_cpu_trans_output__out;
+double _vrms7_cpu_trans_output__out;
+double _vrms8_cpu_trans_output__out;
+X_UnInt32 _various_constant1__out = 1;
+X_UnInt32 _various_relay_selected__out;
+double _measurements_block___12_basic_measurements__join___out[9];
+double _measurements_block___13_basic_measurements__join___out[9];
+double _measurements_block___14_basic_measurements__join___out[9];
+double _measurements_block___4_basic_measurements__join___out[9];
+double _measurements_block___5_basic_measurements__join___out[9];
+double _relay_12_function__67p__basic_measurements__split___out;
+double _relay_12_function__67p__basic_measurements__split___out1;
+double _relay_12_function__67p__basic_measurements__split___out2;
+double _relay_12_function__67p__basic_measurements__split___out3;
+double _relay_12_function__67p__basic_measurements__split___out4;
+double _relay_12_function__67p__basic_measurements__split___out5;
+double _relay_12_function__67p__basic_measurements__split___out6;
+double _relay_12_function__67p__basic_measurements__split___out7;
+double _relay_12_function__67p__basic_measurements__split___out8;
+double _relay_12_comparator1__out;
+double _relay_13_function__67p__basic_measurements__split___out;
+double _relay_13_function__67p__basic_measurements__split___out1;
+double _relay_13_function__67p__basic_measurements__split___out2;
+double _relay_13_function__67p__basic_measurements__split___out3;
+double _relay_13_function__67p__basic_measurements__split___out4;
+double _relay_13_function__67p__basic_measurements__split___out5;
+double _relay_13_function__67p__basic_measurements__split___out6;
+double _relay_13_function__67p__basic_measurements__split___out7;
+double _relay_13_function__67p__basic_measurements__split___out8;
+double _relay_13_comparator1__out;
+double _relay_14_function__67p__basic_measurements__split___out;
+double _relay_14_function__67p__basic_measurements__split___out1;
+double _relay_14_function__67p__basic_measurements__split___out2;
+double _relay_14_function__67p__basic_measurements__split___out3;
+double _relay_14_function__67p__basic_measurements__split___out4;
+double _relay_14_function__67p__basic_measurements__split___out5;
+double _relay_14_function__67p__basic_measurements__split___out6;
+double _relay_14_function__67p__basic_measurements__split___out7;
+double _relay_14_function__67p__basic_measurements__split___out8;
+double _relay_14_comparator1__out;
+double _relay_4_function__67p__basic_measurements__split___out;
+double _relay_4_function__67p__basic_measurements__split___out1;
+double _relay_4_function__67p__basic_measurements__split___out2;
+double _relay_4_function__67p__basic_measurements__split___out3;
+double _relay_4_function__67p__basic_measurements__split___out4;
+double _relay_4_function__67p__basic_measurements__split___out5;
+double _relay_4_function__67p__basic_measurements__split___out6;
+double _relay_4_function__67p__basic_measurements__split___out7;
+double _relay_4_function__67p__basic_measurements__split___out8;
+double _relay_4_comparator1__out;
+double _relay_5_function__67p__basic_measurements__split___out;
+double _relay_5_function__67p__basic_measurements__split___out1;
+double _relay_5_function__67p__basic_measurements__split___out2;
+double _relay_5_function__67p__basic_measurements__split___out3;
+double _relay_5_function__67p__basic_measurements__split___out4;
+double _relay_5_function__67p__basic_measurements__split___out5;
+double _relay_5_function__67p__basic_measurements__split___out6;
+double _relay_5_function__67p__basic_measurements__split___out7;
+double _relay_5_function__67p__basic_measurements__split___out8;
+double _relay_5_comparator1__out;
+double _gain10__out;
+double _gain5__out;
+double _gain7__out;
+double _gain8__out;
+double _relay_12_function__67p__phase_difference1__correction_ref;
+X_UnInt32 _relay_12_function__67p__phase_difference1__zc_flag_ref;
+double _relay_12_function__67p__phase_difference1__filtered_ref;
+
+double _relay_12_function__67p__phase_difference1__phase_diff;
+double _relay_12_function__67p__phase_difference1__correction_in;
+X_UnInt32 _relay_12_function__67p__phase_difference1__zc_flag_in;
+X_UnInt32 _relay_12_function__67p__phase_difference1__no_zc_flag_in;
+double _relay_12_function__67p__phase_difference1__filtered_in;
+
+double _relay_12_function__67p__phase_difference2__correction_ref;
+X_UnInt32 _relay_12_function__67p__phase_difference2__zc_flag_ref;
+double _relay_12_function__67p__phase_difference2__filtered_ref;
+
+double _relay_12_function__67p__phase_difference2__phase_diff;
+double _relay_12_function__67p__phase_difference2__correction_in;
+X_UnInt32 _relay_12_function__67p__phase_difference2__zc_flag_in;
+X_UnInt32 _relay_12_function__67p__phase_difference2__no_zc_flag_in;
+double _relay_12_function__67p__phase_difference2__filtered_in;
+
+double _relay_12_function__67p__phase_difference3__correction_ref;
+X_UnInt32 _relay_12_function__67p__phase_difference3__zc_flag_ref;
+double _relay_12_function__67p__phase_difference3__filtered_ref;
+
+double _relay_12_function__67p__phase_difference3__phase_diff;
+double _relay_12_function__67p__phase_difference3__correction_in;
+X_UnInt32 _relay_12_function__67p__phase_difference3__zc_flag_in;
+X_UnInt32 _relay_12_function__67p__phase_difference3__no_zc_flag_in;
+double _relay_12_function__67p__phase_difference3__filtered_in;
+
+double _relay_12_function__67p__phase_difference4__correction_ref;
+X_UnInt32 _relay_12_function__67p__phase_difference4__zc_flag_ref;
+double _relay_12_function__67p__phase_difference4__filtered_ref;
+
+double _relay_12_function__67p__phase_difference4__phase_diff;
+double _relay_12_function__67p__phase_difference4__correction_in;
+X_UnInt32 _relay_12_function__67p__phase_difference4__zc_flag_in;
+X_UnInt32 _relay_12_function__67p__phase_difference4__no_zc_flag_in;
+double _relay_12_function__67p__phase_difference4__filtered_in;
+
+double _relay_12_function__67p__phase_difference5__correction_ref;
+X_UnInt32 _relay_12_function__67p__phase_difference5__zc_flag_ref;
+double _relay_12_function__67p__phase_difference5__filtered_ref;
+
+double _relay_12_function__67p__phase_difference5__phase_diff;
+double _relay_12_function__67p__phase_difference5__correction_in;
+X_UnInt32 _relay_12_function__67p__phase_difference5__zc_flag_in;
+X_UnInt32 _relay_12_function__67p__phase_difference5__no_zc_flag_in;
+double _relay_12_function__67p__phase_difference5__filtered_in;
+
+double _relay_12_function__67p__phase_difference6__correction_ref;
+X_UnInt32 _relay_12_function__67p__phase_difference6__zc_flag_ref;
+double _relay_12_function__67p__phase_difference6__filtered_ref;
+
+double _relay_12_function__67p__phase_difference6__phase_diff;
+double _relay_12_function__67p__phase_difference6__correction_in;
+X_UnInt32 _relay_12_function__67p__phase_difference6__zc_flag_in;
+X_UnInt32 _relay_12_function__67p__phase_difference6__no_zc_flag_in;
+double _relay_12_function__67p__phase_difference6__filtered_in;
+double _relay_12_logical_operator1__out;
+
+double _relay_13_function__67p__phase_difference1__correction_ref;
+X_UnInt32 _relay_13_function__67p__phase_difference1__zc_flag_ref;
+double _relay_13_function__67p__phase_difference1__filtered_ref;
+
+double _relay_13_function__67p__phase_difference1__phase_diff;
+double _relay_13_function__67p__phase_difference1__correction_in;
+X_UnInt32 _relay_13_function__67p__phase_difference1__zc_flag_in;
+X_UnInt32 _relay_13_function__67p__phase_difference1__no_zc_flag_in;
+double _relay_13_function__67p__phase_difference1__filtered_in;
+
+double _relay_13_function__67p__phase_difference2__correction_ref;
+X_UnInt32 _relay_13_function__67p__phase_difference2__zc_flag_ref;
+double _relay_13_function__67p__phase_difference2__filtered_ref;
+
+double _relay_13_function__67p__phase_difference2__phase_diff;
+double _relay_13_function__67p__phase_difference2__correction_in;
+X_UnInt32 _relay_13_function__67p__phase_difference2__zc_flag_in;
+X_UnInt32 _relay_13_function__67p__phase_difference2__no_zc_flag_in;
+double _relay_13_function__67p__phase_difference2__filtered_in;
+
+double _relay_13_function__67p__phase_difference3__correction_ref;
+X_UnInt32 _relay_13_function__67p__phase_difference3__zc_flag_ref;
+double _relay_13_function__67p__phase_difference3__filtered_ref;
+
+double _relay_13_function__67p__phase_difference3__phase_diff;
+double _relay_13_function__67p__phase_difference3__correction_in;
+X_UnInt32 _relay_13_function__67p__phase_difference3__zc_flag_in;
+X_UnInt32 _relay_13_function__67p__phase_difference3__no_zc_flag_in;
+double _relay_13_function__67p__phase_difference3__filtered_in;
+
+double _relay_13_function__67p__phase_difference4__correction_ref;
+X_UnInt32 _relay_13_function__67p__phase_difference4__zc_flag_ref;
+double _relay_13_function__67p__phase_difference4__filtered_ref;
+
+double _relay_13_function__67p__phase_difference4__phase_diff;
+double _relay_13_function__67p__phase_difference4__correction_in;
+X_UnInt32 _relay_13_function__67p__phase_difference4__zc_flag_in;
+X_UnInt32 _relay_13_function__67p__phase_difference4__no_zc_flag_in;
+double _relay_13_function__67p__phase_difference4__filtered_in;
+
+double _relay_13_function__67p__phase_difference5__correction_ref;
+X_UnInt32 _relay_13_function__67p__phase_difference5__zc_flag_ref;
+double _relay_13_function__67p__phase_difference5__filtered_ref;
+
+double _relay_13_function__67p__phase_difference5__phase_diff;
+double _relay_13_function__67p__phase_difference5__correction_in;
+X_UnInt32 _relay_13_function__67p__phase_difference5__zc_flag_in;
+X_UnInt32 _relay_13_function__67p__phase_difference5__no_zc_flag_in;
+double _relay_13_function__67p__phase_difference5__filtered_in;
+
+double _relay_13_function__67p__phase_difference6__correction_ref;
+X_UnInt32 _relay_13_function__67p__phase_difference6__zc_flag_ref;
+double _relay_13_function__67p__phase_difference6__filtered_ref;
+
+double _relay_13_function__67p__phase_difference6__phase_diff;
+double _relay_13_function__67p__phase_difference6__correction_in;
+X_UnInt32 _relay_13_function__67p__phase_difference6__zc_flag_in;
+X_UnInt32 _relay_13_function__67p__phase_difference6__no_zc_flag_in;
+double _relay_13_function__67p__phase_difference6__filtered_in;
+double _relay_13_logical_operator1__out;
+
+double _relay_14_function__67p__phase_difference1__correction_ref;
+X_UnInt32 _relay_14_function__67p__phase_difference1__zc_flag_ref;
+double _relay_14_function__67p__phase_difference1__filtered_ref;
+
+double _relay_14_function__67p__phase_difference1__phase_diff;
+double _relay_14_function__67p__phase_difference1__correction_in;
+X_UnInt32 _relay_14_function__67p__phase_difference1__zc_flag_in;
+X_UnInt32 _relay_14_function__67p__phase_difference1__no_zc_flag_in;
+double _relay_14_function__67p__phase_difference1__filtered_in;
+
+double _relay_14_function__67p__phase_difference2__correction_ref;
+X_UnInt32 _relay_14_function__67p__phase_difference2__zc_flag_ref;
+double _relay_14_function__67p__phase_difference2__filtered_ref;
+
+double _relay_14_function__67p__phase_difference2__phase_diff;
+double _relay_14_function__67p__phase_difference2__correction_in;
+X_UnInt32 _relay_14_function__67p__phase_difference2__zc_flag_in;
+X_UnInt32 _relay_14_function__67p__phase_difference2__no_zc_flag_in;
+double _relay_14_function__67p__phase_difference2__filtered_in;
+
+double _relay_14_function__67p__phase_difference3__correction_ref;
+X_UnInt32 _relay_14_function__67p__phase_difference3__zc_flag_ref;
+double _relay_14_function__67p__phase_difference3__filtered_ref;
+
+double _relay_14_function__67p__phase_difference3__phase_diff;
+double _relay_14_function__67p__phase_difference3__correction_in;
+X_UnInt32 _relay_14_function__67p__phase_difference3__zc_flag_in;
+X_UnInt32 _relay_14_function__67p__phase_difference3__no_zc_flag_in;
+double _relay_14_function__67p__phase_difference3__filtered_in;
+
+double _relay_14_function__67p__phase_difference4__correction_ref;
+X_UnInt32 _relay_14_function__67p__phase_difference4__zc_flag_ref;
+double _relay_14_function__67p__phase_difference4__filtered_ref;
+
+double _relay_14_function__67p__phase_difference4__phase_diff;
+double _relay_14_function__67p__phase_difference4__correction_in;
+X_UnInt32 _relay_14_function__67p__phase_difference4__zc_flag_in;
+X_UnInt32 _relay_14_function__67p__phase_difference4__no_zc_flag_in;
+double _relay_14_function__67p__phase_difference4__filtered_in;
+
+double _relay_14_function__67p__phase_difference5__correction_ref;
+X_UnInt32 _relay_14_function__67p__phase_difference5__zc_flag_ref;
+double _relay_14_function__67p__phase_difference5__filtered_ref;
+
+double _relay_14_function__67p__phase_difference5__phase_diff;
+double _relay_14_function__67p__phase_difference5__correction_in;
+X_UnInt32 _relay_14_function__67p__phase_difference5__zc_flag_in;
+X_UnInt32 _relay_14_function__67p__phase_difference5__no_zc_flag_in;
+double _relay_14_function__67p__phase_difference5__filtered_in;
+
+double _relay_14_function__67p__phase_difference6__correction_ref;
+X_UnInt32 _relay_14_function__67p__phase_difference6__zc_flag_ref;
+double _relay_14_function__67p__phase_difference6__filtered_ref;
+
+double _relay_14_function__67p__phase_difference6__phase_diff;
+double _relay_14_function__67p__phase_difference6__correction_in;
+X_UnInt32 _relay_14_function__67p__phase_difference6__zc_flag_in;
+X_UnInt32 _relay_14_function__67p__phase_difference6__no_zc_flag_in;
+double _relay_14_function__67p__phase_difference6__filtered_in;
+double _relay_14_logical_operator1__out;
+
+double _relay_4_function__67p__phase_difference1__correction_ref;
+X_UnInt32 _relay_4_function__67p__phase_difference1__zc_flag_ref;
+double _relay_4_function__67p__phase_difference1__filtered_ref;
+
+double _relay_4_function__67p__phase_difference1__phase_diff;
+double _relay_4_function__67p__phase_difference1__correction_in;
+X_UnInt32 _relay_4_function__67p__phase_difference1__zc_flag_in;
+X_UnInt32 _relay_4_function__67p__phase_difference1__no_zc_flag_in;
+double _relay_4_function__67p__phase_difference1__filtered_in;
+
+double _relay_4_function__67p__phase_difference2__correction_ref;
+X_UnInt32 _relay_4_function__67p__phase_difference2__zc_flag_ref;
+double _relay_4_function__67p__phase_difference2__filtered_ref;
+
+double _relay_4_function__67p__phase_difference2__phase_diff;
+double _relay_4_function__67p__phase_difference2__correction_in;
+X_UnInt32 _relay_4_function__67p__phase_difference2__zc_flag_in;
+X_UnInt32 _relay_4_function__67p__phase_difference2__no_zc_flag_in;
+double _relay_4_function__67p__phase_difference2__filtered_in;
+
+double _relay_4_function__67p__phase_difference3__correction_ref;
+X_UnInt32 _relay_4_function__67p__phase_difference3__zc_flag_ref;
+double _relay_4_function__67p__phase_difference3__filtered_ref;
+
+double _relay_4_function__67p__phase_difference3__phase_diff;
+double _relay_4_function__67p__phase_difference3__correction_in;
+X_UnInt32 _relay_4_function__67p__phase_difference3__zc_flag_in;
+X_UnInt32 _relay_4_function__67p__phase_difference3__no_zc_flag_in;
+double _relay_4_function__67p__phase_difference3__filtered_in;
+
+double _relay_4_function__67p__phase_difference4__correction_ref;
+X_UnInt32 _relay_4_function__67p__phase_difference4__zc_flag_ref;
+double _relay_4_function__67p__phase_difference4__filtered_ref;
+
+double _relay_4_function__67p__phase_difference4__phase_diff;
+double _relay_4_function__67p__phase_difference4__correction_in;
+X_UnInt32 _relay_4_function__67p__phase_difference4__zc_flag_in;
+X_UnInt32 _relay_4_function__67p__phase_difference4__no_zc_flag_in;
+double _relay_4_function__67p__phase_difference4__filtered_in;
+
+double _relay_4_function__67p__phase_difference5__correction_ref;
+X_UnInt32 _relay_4_function__67p__phase_difference5__zc_flag_ref;
+double _relay_4_function__67p__phase_difference5__filtered_ref;
+
+double _relay_4_function__67p__phase_difference5__phase_diff;
+double _relay_4_function__67p__phase_difference5__correction_in;
+X_UnInt32 _relay_4_function__67p__phase_difference5__zc_flag_in;
+X_UnInt32 _relay_4_function__67p__phase_difference5__no_zc_flag_in;
+double _relay_4_function__67p__phase_difference5__filtered_in;
+
+double _relay_4_function__67p__phase_difference6__correction_ref;
+X_UnInt32 _relay_4_function__67p__phase_difference6__zc_flag_ref;
+double _relay_4_function__67p__phase_difference6__filtered_ref;
+
+double _relay_4_function__67p__phase_difference6__phase_diff;
+double _relay_4_function__67p__phase_difference6__correction_in;
+X_UnInt32 _relay_4_function__67p__phase_difference6__zc_flag_in;
+X_UnInt32 _relay_4_function__67p__phase_difference6__no_zc_flag_in;
+double _relay_4_function__67p__phase_difference6__filtered_in;
+double _relay_4_logical_operator1__out;
+
+double _relay_5_function__67p__phase_difference1__correction_ref;
+X_UnInt32 _relay_5_function__67p__phase_difference1__zc_flag_ref;
+double _relay_5_function__67p__phase_difference1__filtered_ref;
+
+double _relay_5_function__67p__phase_difference1__phase_diff;
+double _relay_5_function__67p__phase_difference1__correction_in;
+X_UnInt32 _relay_5_function__67p__phase_difference1__zc_flag_in;
+X_UnInt32 _relay_5_function__67p__phase_difference1__no_zc_flag_in;
+double _relay_5_function__67p__phase_difference1__filtered_in;
+
+double _relay_5_function__67p__phase_difference2__correction_ref;
+X_UnInt32 _relay_5_function__67p__phase_difference2__zc_flag_ref;
+double _relay_5_function__67p__phase_difference2__filtered_ref;
+
+double _relay_5_function__67p__phase_difference2__phase_diff;
+double _relay_5_function__67p__phase_difference2__correction_in;
+X_UnInt32 _relay_5_function__67p__phase_difference2__zc_flag_in;
+X_UnInt32 _relay_5_function__67p__phase_difference2__no_zc_flag_in;
+double _relay_5_function__67p__phase_difference2__filtered_in;
+
+double _relay_5_function__67p__phase_difference3__correction_ref;
+X_UnInt32 _relay_5_function__67p__phase_difference3__zc_flag_ref;
+double _relay_5_function__67p__phase_difference3__filtered_ref;
+
+double _relay_5_function__67p__phase_difference3__phase_diff;
+double _relay_5_function__67p__phase_difference3__correction_in;
+X_UnInt32 _relay_5_function__67p__phase_difference3__zc_flag_in;
+X_UnInt32 _relay_5_function__67p__phase_difference3__no_zc_flag_in;
+double _relay_5_function__67p__phase_difference3__filtered_in;
+
+double _relay_5_function__67p__phase_difference4__correction_ref;
+X_UnInt32 _relay_5_function__67p__phase_difference4__zc_flag_ref;
+double _relay_5_function__67p__phase_difference4__filtered_ref;
+
+double _relay_5_function__67p__phase_difference4__phase_diff;
+double _relay_5_function__67p__phase_difference4__correction_in;
+X_UnInt32 _relay_5_function__67p__phase_difference4__zc_flag_in;
+X_UnInt32 _relay_5_function__67p__phase_difference4__no_zc_flag_in;
+double _relay_5_function__67p__phase_difference4__filtered_in;
+
+double _relay_5_function__67p__phase_difference5__correction_ref;
+X_UnInt32 _relay_5_function__67p__phase_difference5__zc_flag_ref;
+double _relay_5_function__67p__phase_difference5__filtered_ref;
+
+double _relay_5_function__67p__phase_difference5__phase_diff;
+double _relay_5_function__67p__phase_difference5__correction_in;
+X_UnInt32 _relay_5_function__67p__phase_difference5__zc_flag_in;
+X_UnInt32 _relay_5_function__67p__phase_difference5__no_zc_flag_in;
+double _relay_5_function__67p__phase_difference5__filtered_in;
+
+double _relay_5_function__67p__phase_difference6__correction_ref;
+X_UnInt32 _relay_5_function__67p__phase_difference6__zc_flag_ref;
+double _relay_5_function__67p__phase_difference6__filtered_ref;
+
+double _relay_5_function__67p__phase_difference6__phase_diff;
+double _relay_5_function__67p__phase_difference6__correction_in;
+X_UnInt32 _relay_5_function__67p__phase_difference6__zc_flag_in;
+X_UnInt32 _relay_5_function__67p__phase_difference6__no_zc_flag_in;
+double _relay_5_function__67p__phase_difference6__filtered_in;
+double _relay_5_logical_operator1__out;
+
+double _relay_12_function__67p__c_function__directional_protection___I_a;
+double _relay_12_function__67p__c_function__directional_protection___I_b;
+double _relay_12_function__67p__c_function__directional_protection___I_c;
+double _relay_12_function__67p__c_function__directional_protection___RCA;
+double _relay_12_function__67p__c_function__directional_protection___Reset;
+double _relay_12_function__67p__c_function__directional_protection___V_ab;
+double _relay_12_function__67p__c_function__directional_protection___V_bc;
+double _relay_12_function__67p__c_function__directional_protection___V_ca;
+
+
+double _relay_12_function__67p__c_function__directional_protection___Directional_Trip;
+
+double _relay_13_function__67p__c_function__directional_protection___I_a;
+double _relay_13_function__67p__c_function__directional_protection___I_b;
+double _relay_13_function__67p__c_function__directional_protection___I_c;
+double _relay_13_function__67p__c_function__directional_protection___RCA;
+double _relay_13_function__67p__c_function__directional_protection___Reset;
+double _relay_13_function__67p__c_function__directional_protection___V_ab;
+double _relay_13_function__67p__c_function__directional_protection___V_bc;
+double _relay_13_function__67p__c_function__directional_protection___V_ca;
+
+
+double _relay_13_function__67p__c_function__directional_protection___Directional_Trip;
+
+double _relay_14_function__67p__c_function__directional_protection___I_a;
+double _relay_14_function__67p__c_function__directional_protection___I_b;
+double _relay_14_function__67p__c_function__directional_protection___I_c;
+double _relay_14_function__67p__c_function__directional_protection___RCA;
+double _relay_14_function__67p__c_function__directional_protection___Reset;
+double _relay_14_function__67p__c_function__directional_protection___V_ab;
+double _relay_14_function__67p__c_function__directional_protection___V_bc;
+double _relay_14_function__67p__c_function__directional_protection___V_ca;
+
+
+double _relay_14_function__67p__c_function__directional_protection___Directional_Trip;
+
+double _relay_4_function__67p__c_function__directional_protection___I_a;
+double _relay_4_function__67p__c_function__directional_protection___I_b;
+double _relay_4_function__67p__c_function__directional_protection___I_c;
+double _relay_4_function__67p__c_function__directional_protection___RCA;
+double _relay_4_function__67p__c_function__directional_protection___Reset;
+double _relay_4_function__67p__c_function__directional_protection___V_ab;
+double _relay_4_function__67p__c_function__directional_protection___V_bc;
+double _relay_4_function__67p__c_function__directional_protection___V_ca;
+
+
+double _relay_4_function__67p__c_function__directional_protection___Directional_Trip;
+
+double _relay_5_function__67p__c_function__directional_protection___I_a;
+double _relay_5_function__67p__c_function__directional_protection___I_b;
+double _relay_5_function__67p__c_function__directional_protection___I_c;
+double _relay_5_function__67p__c_function__directional_protection___RCA;
+double _relay_5_function__67p__c_function__directional_protection___Reset;
+double _relay_5_function__67p__c_function__directional_protection___V_ab;
+double _relay_5_function__67p__c_function__directional_protection___V_bc;
+double _relay_5_function__67p__c_function__directional_protection___V_ca;
+
+
+double _relay_5_function__67p__c_function__directional_protection___Directional_Trip;
+double _relay_12_function__67p__signal_switch1__out;
+double _relay_13_function__67p__signal_switch1__out;
+double _relay_14_function__67p__signal_switch1__out;
+double _relay_4_function__67p__signal_switch1__out;
+double _relay_5_function__67p__signal_switch1__out;
+double _relay_12_function__67p__product1__out;
+double _relay_12_function__67p__product2__out;
+double _relay_12_function__67p__product3__out;
+double _relay_13_function__67p__product1__out;
+double _relay_13_function__67p__product2__out;
+double _relay_13_function__67p__product3__out;
+double _relay_14_function__67p__product1__out;
+double _relay_14_function__67p__product2__out;
+double _relay_14_function__67p__product3__out;
+double _relay_4_function__67p__product1__out;
+double _relay_4_function__67p__product2__out;
+double _relay_4_function__67p__product3__out;
+double _relay_5_function__67p__product1__out;
+double _relay_5_function__67p__product2__out;
+double _relay_5_function__67p__product3__out;
+
+double _relay_12_function__67p__overcurrent_inverse_function__CTp;
+double _relay_12_function__67p__overcurrent_inverse_function__DT;
+double _relay_12_function__67p__overcurrent_inverse_function__I_Arms;
+double _relay_12_function__67p__overcurrent_inverse_function__I_Brms;
+double _relay_12_function__67p__overcurrent_inverse_function__I_Crms;
+double _relay_12_function__67p__overcurrent_inverse_function__I_Pick_Up;
+double _relay_12_function__67p__overcurrent_inverse_function__Inverse_Function;
+double _relay_12_function__67p__overcurrent_inverse_function__Reset;
+double _relay_12_function__67p__overcurrent_inverse_function__TMS;
+double _relay_12_function__67p__overcurrent_inverse_function__Ts;
+
+
+double _relay_12_function__67p__overcurrent_inverse_function__OUT;
+double _relay_12_function__67p__overcurrent_inverse_function__time_out;
+
+double _relay_13_function__67p__overcurrent_inverse_function__CTp;
+double _relay_13_function__67p__overcurrent_inverse_function__DT;
+double _relay_13_function__67p__overcurrent_inverse_function__I_Arms;
+double _relay_13_function__67p__overcurrent_inverse_function__I_Brms;
+double _relay_13_function__67p__overcurrent_inverse_function__I_Crms;
+double _relay_13_function__67p__overcurrent_inverse_function__I_Pick_Up;
+double _relay_13_function__67p__overcurrent_inverse_function__Inverse_Function;
+double _relay_13_function__67p__overcurrent_inverse_function__Reset;
+double _relay_13_function__67p__overcurrent_inverse_function__TMS;
+double _relay_13_function__67p__overcurrent_inverse_function__Ts;
+
+
+double _relay_13_function__67p__overcurrent_inverse_function__OUT;
+double _relay_13_function__67p__overcurrent_inverse_function__time_out;
+
+double _relay_14_function__67p__overcurrent_inverse_function__CTp;
+double _relay_14_function__67p__overcurrent_inverse_function__DT;
+double _relay_14_function__67p__overcurrent_inverse_function__I_Arms;
+double _relay_14_function__67p__overcurrent_inverse_function__I_Brms;
+double _relay_14_function__67p__overcurrent_inverse_function__I_Crms;
+double _relay_14_function__67p__overcurrent_inverse_function__I_Pick_Up;
+double _relay_14_function__67p__overcurrent_inverse_function__Inverse_Function;
+double _relay_14_function__67p__overcurrent_inverse_function__Reset;
+double _relay_14_function__67p__overcurrent_inverse_function__TMS;
+double _relay_14_function__67p__overcurrent_inverse_function__Ts;
+
+
+double _relay_14_function__67p__overcurrent_inverse_function__OUT;
+double _relay_14_function__67p__overcurrent_inverse_function__time_out;
+
+double _relay_4_function__67p__overcurrent_inverse_function__CTp;
+double _relay_4_function__67p__overcurrent_inverse_function__DT;
+double _relay_4_function__67p__overcurrent_inverse_function__I_Arms;
+double _relay_4_function__67p__overcurrent_inverse_function__I_Brms;
+double _relay_4_function__67p__overcurrent_inverse_function__I_Crms;
+double _relay_4_function__67p__overcurrent_inverse_function__I_Pick_Up;
+double _relay_4_function__67p__overcurrent_inverse_function__Inverse_Function;
+double _relay_4_function__67p__overcurrent_inverse_function__Reset;
+double _relay_4_function__67p__overcurrent_inverse_function__TMS;
+double _relay_4_function__67p__overcurrent_inverse_function__Ts;
+
+
+double _relay_4_function__67p__overcurrent_inverse_function__OUT;
+double _relay_4_function__67p__overcurrent_inverse_function__time_out;
+
+double _relay_5_function__67p__overcurrent_inverse_function__CTp;
+double _relay_5_function__67p__overcurrent_inverse_function__DT;
+double _relay_5_function__67p__overcurrent_inverse_function__I_Arms;
+double _relay_5_function__67p__overcurrent_inverse_function__I_Brms;
+double _relay_5_function__67p__overcurrent_inverse_function__I_Crms;
+double _relay_5_function__67p__overcurrent_inverse_function__I_Pick_Up;
+double _relay_5_function__67p__overcurrent_inverse_function__Inverse_Function;
+double _relay_5_function__67p__overcurrent_inverse_function__Reset;
+double _relay_5_function__67p__overcurrent_inverse_function__TMS;
+double _relay_5_function__67p__overcurrent_inverse_function__Ts;
+
+
+double _relay_5_function__67p__overcurrent_inverse_function__OUT;
+double _relay_5_function__67p__overcurrent_inverse_function__time_out;
+double _relay_12_function__67p__signal_switch2__out;
+double _relay_13_function__67p__signal_switch2__out;
+double _relay_14_function__67p__signal_switch2__out;
+double _relay_4_function__67p__signal_switch2__out;
+double _relay_5_function__67p__signal_switch2__out;
+//@cmp.var.end
+
+//@cmp.svar.start
+// state variables
+double _relay_12_function__67p__sinusoidal_source3__current_phase;
+double _relay_12_rate_transition1_output__out[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+double _relay_12_rate_transition2_output__out =  0.0;
+double _relay_13_function__67p__sinusoidal_source3__current_phase;
+double _relay_13_rate_transition1_output__out[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+double _relay_13_rate_transition2_output__out =  0.0;
+double _relay_14_function__67p__sinusoidal_source3__current_phase;
+double _relay_14_rate_transition1_output__out[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+double _relay_14_rate_transition2_output__out =  0.0;
+double _relay_4_function__67p__sinusoidal_source3__current_phase;
+double _relay_4_rate_transition1_output__out[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+double _relay_4_rate_transition2_output__out =  0.0;
+double _relay_5_function__67p__sinusoidal_source3__current_phase;
+double _relay_5_rate_transition1_output__out[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+double _relay_5_rate_transition2_output__out =  0.0;
+double _relay_12_comparator1__state;
+double _relay_13_comparator1__state;
+double _relay_14_comparator1__state;
+double _relay_4_comparator1__state;
+double _relay_5_comparator1__state;
+double _relay_12_function__67p__phase_difference1__previous_correction_ref;
+double _relay_12_function__67p__phase_difference1__sample_cnt_ref;
+double _relay_12_function__67p__phase_difference1__previous_filtered_ref;
+
+double _relay_12_function__67p__phase_difference1__phase_state;
+double _relay_12_function__67p__phase_difference1__previous_correction_in;
+double _relay_12_function__67p__phase_difference1__sample_cnt_in;
+double _relay_12_function__67p__phase_difference1__previous_filtered_in;
+
+double _relay_12_function__67p__phase_difference2__previous_correction_ref;
+double _relay_12_function__67p__phase_difference2__sample_cnt_ref;
+double _relay_12_function__67p__phase_difference2__previous_filtered_ref;
+
+double _relay_12_function__67p__phase_difference2__phase_state;
+double _relay_12_function__67p__phase_difference2__previous_correction_in;
+double _relay_12_function__67p__phase_difference2__sample_cnt_in;
+double _relay_12_function__67p__phase_difference2__previous_filtered_in;
+
+double _relay_12_function__67p__phase_difference3__previous_correction_ref;
+double _relay_12_function__67p__phase_difference3__sample_cnt_ref;
+double _relay_12_function__67p__phase_difference3__previous_filtered_ref;
+
+double _relay_12_function__67p__phase_difference3__phase_state;
+double _relay_12_function__67p__phase_difference3__previous_correction_in;
+double _relay_12_function__67p__phase_difference3__sample_cnt_in;
+double _relay_12_function__67p__phase_difference3__previous_filtered_in;
+
+double _relay_12_function__67p__phase_difference4__previous_correction_ref;
+double _relay_12_function__67p__phase_difference4__sample_cnt_ref;
+double _relay_12_function__67p__phase_difference4__previous_filtered_ref;
+
+double _relay_12_function__67p__phase_difference4__phase_state;
+double _relay_12_function__67p__phase_difference4__previous_correction_in;
+double _relay_12_function__67p__phase_difference4__sample_cnt_in;
+double _relay_12_function__67p__phase_difference4__previous_filtered_in;
+
+double _relay_12_function__67p__phase_difference5__previous_correction_ref;
+double _relay_12_function__67p__phase_difference5__sample_cnt_ref;
+double _relay_12_function__67p__phase_difference5__previous_filtered_ref;
+
+double _relay_12_function__67p__phase_difference5__phase_state;
+double _relay_12_function__67p__phase_difference5__previous_correction_in;
+double _relay_12_function__67p__phase_difference5__sample_cnt_in;
+double _relay_12_function__67p__phase_difference5__previous_filtered_in;
+
+double _relay_12_function__67p__phase_difference6__previous_correction_ref;
+double _relay_12_function__67p__phase_difference6__sample_cnt_ref;
+double _relay_12_function__67p__phase_difference6__previous_filtered_ref;
+
+double _relay_12_function__67p__phase_difference6__phase_state;
+double _relay_12_function__67p__phase_difference6__previous_correction_in;
+double _relay_12_function__67p__phase_difference6__sample_cnt_in;
+double _relay_12_function__67p__phase_difference6__previous_filtered_in;
+
+double _relay_13_function__67p__phase_difference1__previous_correction_ref;
+double _relay_13_function__67p__phase_difference1__sample_cnt_ref;
+double _relay_13_function__67p__phase_difference1__previous_filtered_ref;
+
+double _relay_13_function__67p__phase_difference1__phase_state;
+double _relay_13_function__67p__phase_difference1__previous_correction_in;
+double _relay_13_function__67p__phase_difference1__sample_cnt_in;
+double _relay_13_function__67p__phase_difference1__previous_filtered_in;
+
+double _relay_13_function__67p__phase_difference2__previous_correction_ref;
+double _relay_13_function__67p__phase_difference2__sample_cnt_ref;
+double _relay_13_function__67p__phase_difference2__previous_filtered_ref;
+
+double _relay_13_function__67p__phase_difference2__phase_state;
+double _relay_13_function__67p__phase_difference2__previous_correction_in;
+double _relay_13_function__67p__phase_difference2__sample_cnt_in;
+double _relay_13_function__67p__phase_difference2__previous_filtered_in;
+
+double _relay_13_function__67p__phase_difference3__previous_correction_ref;
+double _relay_13_function__67p__phase_difference3__sample_cnt_ref;
+double _relay_13_function__67p__phase_difference3__previous_filtered_ref;
+
+double _relay_13_function__67p__phase_difference3__phase_state;
+double _relay_13_function__67p__phase_difference3__previous_correction_in;
+double _relay_13_function__67p__phase_difference3__sample_cnt_in;
+double _relay_13_function__67p__phase_difference3__previous_filtered_in;
+
+double _relay_13_function__67p__phase_difference4__previous_correction_ref;
+double _relay_13_function__67p__phase_difference4__sample_cnt_ref;
+double _relay_13_function__67p__phase_difference4__previous_filtered_ref;
+
+double _relay_13_function__67p__phase_difference4__phase_state;
+double _relay_13_function__67p__phase_difference4__previous_correction_in;
+double _relay_13_function__67p__phase_difference4__sample_cnt_in;
+double _relay_13_function__67p__phase_difference4__previous_filtered_in;
+
+double _relay_13_function__67p__phase_difference5__previous_correction_ref;
+double _relay_13_function__67p__phase_difference5__sample_cnt_ref;
+double _relay_13_function__67p__phase_difference5__previous_filtered_ref;
+
+double _relay_13_function__67p__phase_difference5__phase_state;
+double _relay_13_function__67p__phase_difference5__previous_correction_in;
+double _relay_13_function__67p__phase_difference5__sample_cnt_in;
+double _relay_13_function__67p__phase_difference5__previous_filtered_in;
+
+double _relay_13_function__67p__phase_difference6__previous_correction_ref;
+double _relay_13_function__67p__phase_difference6__sample_cnt_ref;
+double _relay_13_function__67p__phase_difference6__previous_filtered_ref;
+
+double _relay_13_function__67p__phase_difference6__phase_state;
+double _relay_13_function__67p__phase_difference6__previous_correction_in;
+double _relay_13_function__67p__phase_difference6__sample_cnt_in;
+double _relay_13_function__67p__phase_difference6__previous_filtered_in;
+
+double _relay_14_function__67p__phase_difference1__previous_correction_ref;
+double _relay_14_function__67p__phase_difference1__sample_cnt_ref;
+double _relay_14_function__67p__phase_difference1__previous_filtered_ref;
+
+double _relay_14_function__67p__phase_difference1__phase_state;
+double _relay_14_function__67p__phase_difference1__previous_correction_in;
+double _relay_14_function__67p__phase_difference1__sample_cnt_in;
+double _relay_14_function__67p__phase_difference1__previous_filtered_in;
+
+double _relay_14_function__67p__phase_difference2__previous_correction_ref;
+double _relay_14_function__67p__phase_difference2__sample_cnt_ref;
+double _relay_14_function__67p__phase_difference2__previous_filtered_ref;
+
+double _relay_14_function__67p__phase_difference2__phase_state;
+double _relay_14_function__67p__phase_difference2__previous_correction_in;
+double _relay_14_function__67p__phase_difference2__sample_cnt_in;
+double _relay_14_function__67p__phase_difference2__previous_filtered_in;
+
+double _relay_14_function__67p__phase_difference3__previous_correction_ref;
+double _relay_14_function__67p__phase_difference3__sample_cnt_ref;
+double _relay_14_function__67p__phase_difference3__previous_filtered_ref;
+
+double _relay_14_function__67p__phase_difference3__phase_state;
+double _relay_14_function__67p__phase_difference3__previous_correction_in;
+double _relay_14_function__67p__phase_difference3__sample_cnt_in;
+double _relay_14_function__67p__phase_difference3__previous_filtered_in;
+
+double _relay_14_function__67p__phase_difference4__previous_correction_ref;
+double _relay_14_function__67p__phase_difference4__sample_cnt_ref;
+double _relay_14_function__67p__phase_difference4__previous_filtered_ref;
+
+double _relay_14_function__67p__phase_difference4__phase_state;
+double _relay_14_function__67p__phase_difference4__previous_correction_in;
+double _relay_14_function__67p__phase_difference4__sample_cnt_in;
+double _relay_14_function__67p__phase_difference4__previous_filtered_in;
+
+double _relay_14_function__67p__phase_difference5__previous_correction_ref;
+double _relay_14_function__67p__phase_difference5__sample_cnt_ref;
+double _relay_14_function__67p__phase_difference5__previous_filtered_ref;
+
+double _relay_14_function__67p__phase_difference5__phase_state;
+double _relay_14_function__67p__phase_difference5__previous_correction_in;
+double _relay_14_function__67p__phase_difference5__sample_cnt_in;
+double _relay_14_function__67p__phase_difference5__previous_filtered_in;
+
+double _relay_14_function__67p__phase_difference6__previous_correction_ref;
+double _relay_14_function__67p__phase_difference6__sample_cnt_ref;
+double _relay_14_function__67p__phase_difference6__previous_filtered_ref;
+
+double _relay_14_function__67p__phase_difference6__phase_state;
+double _relay_14_function__67p__phase_difference6__previous_correction_in;
+double _relay_14_function__67p__phase_difference6__sample_cnt_in;
+double _relay_14_function__67p__phase_difference6__previous_filtered_in;
+
+double _relay_4_function__67p__phase_difference1__previous_correction_ref;
+double _relay_4_function__67p__phase_difference1__sample_cnt_ref;
+double _relay_4_function__67p__phase_difference1__previous_filtered_ref;
+
+double _relay_4_function__67p__phase_difference1__phase_state;
+double _relay_4_function__67p__phase_difference1__previous_correction_in;
+double _relay_4_function__67p__phase_difference1__sample_cnt_in;
+double _relay_4_function__67p__phase_difference1__previous_filtered_in;
+
+double _relay_4_function__67p__phase_difference2__previous_correction_ref;
+double _relay_4_function__67p__phase_difference2__sample_cnt_ref;
+double _relay_4_function__67p__phase_difference2__previous_filtered_ref;
+
+double _relay_4_function__67p__phase_difference2__phase_state;
+double _relay_4_function__67p__phase_difference2__previous_correction_in;
+double _relay_4_function__67p__phase_difference2__sample_cnt_in;
+double _relay_4_function__67p__phase_difference2__previous_filtered_in;
+
+double _relay_4_function__67p__phase_difference3__previous_correction_ref;
+double _relay_4_function__67p__phase_difference3__sample_cnt_ref;
+double _relay_4_function__67p__phase_difference3__previous_filtered_ref;
+
+double _relay_4_function__67p__phase_difference3__phase_state;
+double _relay_4_function__67p__phase_difference3__previous_correction_in;
+double _relay_4_function__67p__phase_difference3__sample_cnt_in;
+double _relay_4_function__67p__phase_difference3__previous_filtered_in;
+
+double _relay_4_function__67p__phase_difference4__previous_correction_ref;
+double _relay_4_function__67p__phase_difference4__sample_cnt_ref;
+double _relay_4_function__67p__phase_difference4__previous_filtered_ref;
+
+double _relay_4_function__67p__phase_difference4__phase_state;
+double _relay_4_function__67p__phase_difference4__previous_correction_in;
+double _relay_4_function__67p__phase_difference4__sample_cnt_in;
+double _relay_4_function__67p__phase_difference4__previous_filtered_in;
+
+double _relay_4_function__67p__phase_difference5__previous_correction_ref;
+double _relay_4_function__67p__phase_difference5__sample_cnt_ref;
+double _relay_4_function__67p__phase_difference5__previous_filtered_ref;
+
+double _relay_4_function__67p__phase_difference5__phase_state;
+double _relay_4_function__67p__phase_difference5__previous_correction_in;
+double _relay_4_function__67p__phase_difference5__sample_cnt_in;
+double _relay_4_function__67p__phase_difference5__previous_filtered_in;
+
+double _relay_4_function__67p__phase_difference6__previous_correction_ref;
+double _relay_4_function__67p__phase_difference6__sample_cnt_ref;
+double _relay_4_function__67p__phase_difference6__previous_filtered_ref;
+
+double _relay_4_function__67p__phase_difference6__phase_state;
+double _relay_4_function__67p__phase_difference6__previous_correction_in;
+double _relay_4_function__67p__phase_difference6__sample_cnt_in;
+double _relay_4_function__67p__phase_difference6__previous_filtered_in;
+
+double _relay_5_function__67p__phase_difference1__previous_correction_ref;
+double _relay_5_function__67p__phase_difference1__sample_cnt_ref;
+double _relay_5_function__67p__phase_difference1__previous_filtered_ref;
+
+double _relay_5_function__67p__phase_difference1__phase_state;
+double _relay_5_function__67p__phase_difference1__previous_correction_in;
+double _relay_5_function__67p__phase_difference1__sample_cnt_in;
+double _relay_5_function__67p__phase_difference1__previous_filtered_in;
+
+double _relay_5_function__67p__phase_difference2__previous_correction_ref;
+double _relay_5_function__67p__phase_difference2__sample_cnt_ref;
+double _relay_5_function__67p__phase_difference2__previous_filtered_ref;
+
+double _relay_5_function__67p__phase_difference2__phase_state;
+double _relay_5_function__67p__phase_difference2__previous_correction_in;
+double _relay_5_function__67p__phase_difference2__sample_cnt_in;
+double _relay_5_function__67p__phase_difference2__previous_filtered_in;
+
+double _relay_5_function__67p__phase_difference3__previous_correction_ref;
+double _relay_5_function__67p__phase_difference3__sample_cnt_ref;
+double _relay_5_function__67p__phase_difference3__previous_filtered_ref;
+
+double _relay_5_function__67p__phase_difference3__phase_state;
+double _relay_5_function__67p__phase_difference3__previous_correction_in;
+double _relay_5_function__67p__phase_difference3__sample_cnt_in;
+double _relay_5_function__67p__phase_difference3__previous_filtered_in;
+
+double _relay_5_function__67p__phase_difference4__previous_correction_ref;
+double _relay_5_function__67p__phase_difference4__sample_cnt_ref;
+double _relay_5_function__67p__phase_difference4__previous_filtered_ref;
+
+double _relay_5_function__67p__phase_difference4__phase_state;
+double _relay_5_function__67p__phase_difference4__previous_correction_in;
+double _relay_5_function__67p__phase_difference4__sample_cnt_in;
+double _relay_5_function__67p__phase_difference4__previous_filtered_in;
+
+double _relay_5_function__67p__phase_difference5__previous_correction_ref;
+double _relay_5_function__67p__phase_difference5__sample_cnt_ref;
+double _relay_5_function__67p__phase_difference5__previous_filtered_ref;
+
+double _relay_5_function__67p__phase_difference5__phase_state;
+double _relay_5_function__67p__phase_difference5__previous_correction_in;
+double _relay_5_function__67p__phase_difference5__sample_cnt_in;
+double _relay_5_function__67p__phase_difference5__previous_filtered_in;
+
+double _relay_5_function__67p__phase_difference6__previous_correction_ref;
+double _relay_5_function__67p__phase_difference6__sample_cnt_ref;
+double _relay_5_function__67p__phase_difference6__previous_filtered_ref;
+
+double _relay_5_function__67p__phase_difference6__phase_state;
+double _relay_5_function__67p__phase_difference6__previous_correction_in;
+double _relay_5_function__67p__phase_difference6__sample_cnt_in;
+double _relay_5_function__67p__phase_difference6__previous_filtered_in;
+double _relay_12_function__67p__c_function__directional_protection___threshold_Low[3];
+double _relay_12_function__67p__c_function__directional_protection___threshold_high[3];
+double _relay_12_function__67p__c_function__directional_protection___vec[6];
+X_UnInt32 _relay_12_function__67p__c_function__directional_protection___i;
+X_UnInt32 _relay_12_function__67p__c_function__directional_protection___j;
+double _relay_12_function__67p__c_function__directional_protection___Flag;
+double _relay_12_function__67p__c_function__directional_protection___val[3];
+double _relay_13_function__67p__c_function__directional_protection___threshold_Low[3];
+double _relay_13_function__67p__c_function__directional_protection___threshold_high[3];
+double _relay_13_function__67p__c_function__directional_protection___vec[6];
+X_UnInt32 _relay_13_function__67p__c_function__directional_protection___i;
+X_UnInt32 _relay_13_function__67p__c_function__directional_protection___j;
+double _relay_13_function__67p__c_function__directional_protection___Flag;
+double _relay_13_function__67p__c_function__directional_protection___val[3];
+double _relay_14_function__67p__c_function__directional_protection___threshold_Low[3];
+double _relay_14_function__67p__c_function__directional_protection___threshold_high[3];
+double _relay_14_function__67p__c_function__directional_protection___vec[6];
+X_UnInt32 _relay_14_function__67p__c_function__directional_protection___i;
+X_UnInt32 _relay_14_function__67p__c_function__directional_protection___j;
+double _relay_14_function__67p__c_function__directional_protection___Flag;
+double _relay_14_function__67p__c_function__directional_protection___val[3];
+double _relay_4_function__67p__c_function__directional_protection___threshold_Low[3];
+double _relay_4_function__67p__c_function__directional_protection___threshold_high[3];
+double _relay_4_function__67p__c_function__directional_protection___vec[6];
+X_UnInt32 _relay_4_function__67p__c_function__directional_protection___i;
+X_UnInt32 _relay_4_function__67p__c_function__directional_protection___j;
+double _relay_4_function__67p__c_function__directional_protection___Flag;
+double _relay_4_function__67p__c_function__directional_protection___val[3];
+double _relay_5_function__67p__c_function__directional_protection___threshold_Low[3];
+double _relay_5_function__67p__c_function__directional_protection___threshold_high[3];
+double _relay_5_function__67p__c_function__directional_protection___vec[6];
+X_UnInt32 _relay_5_function__67p__c_function__directional_protection___i;
+X_UnInt32 _relay_5_function__67p__c_function__directional_protection___j;
+double _relay_5_function__67p__c_function__directional_protection___Flag;
+double _relay_5_function__67p__c_function__directional_protection___val[3];
+double _relay_12_function__67p__overcurrent_inverse_function__Irms[3];
+X_UnInt32 _relay_12_function__67p__overcurrent_inverse_function__i;
+double _relay_12_function__67p__overcurrent_inverse_function__M[3];
+double _relay_12_function__67p__overcurrent_inverse_function__Ipk_2;
+double _relay_12_function__67p__overcurrent_inverse_function__t[3];
+X_UnInt32 _relay_12_function__67p__overcurrent_inverse_function__j;
+double _relay_12_function__67p__overcurrent_inverse_function__Flag;
+double _relay_12_function__67p__overcurrent_inverse_function__B;
+double _relay_12_function__67p__overcurrent_inverse_function__A;
+double _relay_12_function__67p__overcurrent_inverse_function__L;
+double _relay_12_function__67p__overcurrent_inverse_function__multiplier;
+double _relay_12_function__67p__overcurrent_inverse_function__counter;
+double _relay_12_function__67p__overcurrent_inverse_function__out;
+double _relay_12_function__67p__overcurrent_inverse_function__trans;
+double _relay_12_function__67p__overcurrent_inverse_function__time;
+double _relay_13_function__67p__overcurrent_inverse_function__Irms[3];
+X_UnInt32 _relay_13_function__67p__overcurrent_inverse_function__i;
+double _relay_13_function__67p__overcurrent_inverse_function__M[3];
+double _relay_13_function__67p__overcurrent_inverse_function__Ipk_2;
+double _relay_13_function__67p__overcurrent_inverse_function__t[3];
+X_UnInt32 _relay_13_function__67p__overcurrent_inverse_function__j;
+double _relay_13_function__67p__overcurrent_inverse_function__Flag;
+double _relay_13_function__67p__overcurrent_inverse_function__B;
+double _relay_13_function__67p__overcurrent_inverse_function__A;
+double _relay_13_function__67p__overcurrent_inverse_function__L;
+double _relay_13_function__67p__overcurrent_inverse_function__multiplier;
+double _relay_13_function__67p__overcurrent_inverse_function__counter;
+double _relay_13_function__67p__overcurrent_inverse_function__out;
+double _relay_13_function__67p__overcurrent_inverse_function__trans;
+double _relay_13_function__67p__overcurrent_inverse_function__time;
+double _relay_14_function__67p__overcurrent_inverse_function__Irms[3];
+X_UnInt32 _relay_14_function__67p__overcurrent_inverse_function__i;
+double _relay_14_function__67p__overcurrent_inverse_function__M[3];
+double _relay_14_function__67p__overcurrent_inverse_function__Ipk_2;
+double _relay_14_function__67p__overcurrent_inverse_function__t[3];
+X_UnInt32 _relay_14_function__67p__overcurrent_inverse_function__j;
+double _relay_14_function__67p__overcurrent_inverse_function__Flag;
+double _relay_14_function__67p__overcurrent_inverse_function__B;
+double _relay_14_function__67p__overcurrent_inverse_function__A;
+double _relay_14_function__67p__overcurrent_inverse_function__L;
+double _relay_14_function__67p__overcurrent_inverse_function__multiplier;
+double _relay_14_function__67p__overcurrent_inverse_function__counter;
+double _relay_14_function__67p__overcurrent_inverse_function__out;
+double _relay_14_function__67p__overcurrent_inverse_function__trans;
+double _relay_14_function__67p__overcurrent_inverse_function__time;
+double _relay_4_function__67p__overcurrent_inverse_function__Irms[3];
+X_UnInt32 _relay_4_function__67p__overcurrent_inverse_function__i;
+double _relay_4_function__67p__overcurrent_inverse_function__M[3];
+double _relay_4_function__67p__overcurrent_inverse_function__Ipk_2;
+double _relay_4_function__67p__overcurrent_inverse_function__t[3];
+X_UnInt32 _relay_4_function__67p__overcurrent_inverse_function__j;
+double _relay_4_function__67p__overcurrent_inverse_function__Flag;
+double _relay_4_function__67p__overcurrent_inverse_function__B;
+double _relay_4_function__67p__overcurrent_inverse_function__A;
+double _relay_4_function__67p__overcurrent_inverse_function__L;
+double _relay_4_function__67p__overcurrent_inverse_function__multiplier;
+double _relay_4_function__67p__overcurrent_inverse_function__counter;
+double _relay_4_function__67p__overcurrent_inverse_function__out;
+double _relay_4_function__67p__overcurrent_inverse_function__trans;
+double _relay_4_function__67p__overcurrent_inverse_function__time;
+double _relay_5_function__67p__overcurrent_inverse_function__Irms[3];
+X_UnInt32 _relay_5_function__67p__overcurrent_inverse_function__i;
+double _relay_5_function__67p__overcurrent_inverse_function__M[3];
+double _relay_5_function__67p__overcurrent_inverse_function__Ipk_2;
+double _relay_5_function__67p__overcurrent_inverse_function__t[3];
+X_UnInt32 _relay_5_function__67p__overcurrent_inverse_function__j;
+double _relay_5_function__67p__overcurrent_inverse_function__Flag;
+double _relay_5_function__67p__overcurrent_inverse_function__B;
+double _relay_5_function__67p__overcurrent_inverse_function__A;
+double _relay_5_function__67p__overcurrent_inverse_function__L;
+double _relay_5_function__67p__overcurrent_inverse_function__multiplier;
+double _relay_5_function__67p__overcurrent_inverse_function__counter;
+double _relay_5_function__67p__overcurrent_inverse_function__out;
+double _relay_5_function__67p__overcurrent_inverse_function__trans;
+double _relay_5_function__67p__overcurrent_inverse_function__time;
+//@cmp.svar.end
+
+//
+// Tunable parameters
+//
+static struct Tunable_params {
+} tunable_params;
+
+void *tunable_params_dev0_cpu0_ptr = &tunable_params;
+
+
+
+
+
+// generated using template: virtual_hil/custom_functions.template---------------------------------
+void ReInit_user_sp_cpu0_dev0() {
+#if DEBUG_MODE
+    printf("\n\rReInitTimer");
+#endif
+    //@cmp.init.block.start
+    _relay_12_function__67p__sinusoidal_source3__current_phase = 0.0 / 360.0f;
+    _relay_12_rate_transition1_output__out[0] =  0.0;
+    _relay_12_rate_transition1_output__out[1] =  0.0;
+    _relay_12_rate_transition1_output__out[2] =  0.0;
+    _relay_12_rate_transition1_output__out[3] =  0.0;
+    _relay_12_rate_transition1_output__out[4] =  0.0;
+    _relay_12_rate_transition1_output__out[5] =  0.0;
+    _relay_12_rate_transition1_output__out[6] =  0.0;
+    _relay_12_rate_transition1_output__out[7] =  0.0;
+    _relay_12_rate_transition1_output__out[8] =  0.0;
+    _relay_12_rate_transition2_output__out =  0.0;
+    _relay_13_function__67p__sinusoidal_source3__current_phase = 0.0 / 360.0f;
+    _relay_13_rate_transition1_output__out[0] =  0.0;
+    _relay_13_rate_transition1_output__out[1] =  0.0;
+    _relay_13_rate_transition1_output__out[2] =  0.0;
+    _relay_13_rate_transition1_output__out[3] =  0.0;
+    _relay_13_rate_transition1_output__out[4] =  0.0;
+    _relay_13_rate_transition1_output__out[5] =  0.0;
+    _relay_13_rate_transition1_output__out[6] =  0.0;
+    _relay_13_rate_transition1_output__out[7] =  0.0;
+    _relay_13_rate_transition1_output__out[8] =  0.0;
+    _relay_13_rate_transition2_output__out =  0.0;
+    _relay_14_function__67p__sinusoidal_source3__current_phase = 0.0 / 360.0f;
+    _relay_14_rate_transition1_output__out[0] =  0.0;
+    _relay_14_rate_transition1_output__out[1] =  0.0;
+    _relay_14_rate_transition1_output__out[2] =  0.0;
+    _relay_14_rate_transition1_output__out[3] =  0.0;
+    _relay_14_rate_transition1_output__out[4] =  0.0;
+    _relay_14_rate_transition1_output__out[5] =  0.0;
+    _relay_14_rate_transition1_output__out[6] =  0.0;
+    _relay_14_rate_transition1_output__out[7] =  0.0;
+    _relay_14_rate_transition1_output__out[8] =  0.0;
+    _relay_14_rate_transition2_output__out =  0.0;
+    _relay_4_function__67p__sinusoidal_source3__current_phase = 0.0 / 360.0f;
+    _relay_4_rate_transition1_output__out[0] =  0.0;
+    _relay_4_rate_transition1_output__out[1] =  0.0;
+    _relay_4_rate_transition1_output__out[2] =  0.0;
+    _relay_4_rate_transition1_output__out[3] =  0.0;
+    _relay_4_rate_transition1_output__out[4] =  0.0;
+    _relay_4_rate_transition1_output__out[5] =  0.0;
+    _relay_4_rate_transition1_output__out[6] =  0.0;
+    _relay_4_rate_transition1_output__out[7] =  0.0;
+    _relay_4_rate_transition1_output__out[8] =  0.0;
+    _relay_4_rate_transition2_output__out =  0.0;
+    _relay_5_function__67p__sinusoidal_source3__current_phase = 0.0 / 360.0f;
+    _relay_5_rate_transition1_output__out[0] =  0.0;
+    _relay_5_rate_transition1_output__out[1] =  0.0;
+    _relay_5_rate_transition1_output__out[2] =  0.0;
+    _relay_5_rate_transition1_output__out[3] =  0.0;
+    _relay_5_rate_transition1_output__out[4] =  0.0;
+    _relay_5_rate_transition1_output__out[5] =  0.0;
+    _relay_5_rate_transition1_output__out[6] =  0.0;
+    _relay_5_rate_transition1_output__out[7] =  0.0;
+    _relay_5_rate_transition1_output__out[8] =  0.0;
+    _relay_5_rate_transition2_output__out =  0.0;
+    HIL_OutAO(0x2013, 0.0f);
+    HIL_OutAO(0x201d, 0.0f);
+    HIL_OutAO(0x2014, 0.0f);
+    HIL_OutAO(0x201c, 0.0f);
+    HIL_OutAO(0x201e, 0.0f);
+    HIL_OutAO(0x201f, 0.0f);
+    _relay_12_comparator1__state = 0.0f;
+    HIL_OutAO(0x2025, 0.0f);
+    HIL_OutAO(0x202f, 0.0f);
+    HIL_OutAO(0x2026, 0.0f);
+    HIL_OutAO(0x202e, 0.0f);
+    HIL_OutAO(0x2030, 0.0f);
+    HIL_OutAO(0x2031, 0.0f);
+    _relay_13_comparator1__state = 0.0f;
+    HIL_OutAO(0x2037, 0.0f);
+    HIL_OutAO(0x2041, 0.0f);
+    HIL_OutAO(0x2038, 0.0f);
+    HIL_OutAO(0x2040, 0.0f);
+    HIL_OutAO(0x2042, 0.0f);
+    HIL_OutAO(0x2043, 0.0f);
+    _relay_14_comparator1__state = 0.0f;
+    HIL_OutAO(0x2049, 0.0f);
+    HIL_OutAO(0x2053, 0.0f);
+    HIL_OutAO(0x204a, 0.0f);
+    HIL_OutAO(0x2052, 0.0f);
+    HIL_OutAO(0x2054, 0.0f);
+    HIL_OutAO(0x2055, 0.0f);
+    _relay_4_comparator1__state = 0.0f;
+    HIL_OutAO(0x205b, 0.0f);
+    HIL_OutAO(0x2065, 0.0f);
+    HIL_OutAO(0x205c, 0.0f);
+    HIL_OutAO(0x2064, 0.0f);
+    HIL_OutAO(0x2066, 0.0f);
+    HIL_OutAO(0x2067, 0.0f);
+    _relay_5_comparator1__state = 0.0f;
+    HIL_OutAO(0x2071, 0.0f);
+    HIL_OutAO(0x2072, 0.0f);
+    HIL_OutAO(0x2016, 0.0f);
+    HIL_OutAO(0x2018, 0.0f);
+    HIL_OutAO(0x201a, 0.0f);
+    _relay_12_function__67p__phase_difference1__phase_diff = 0x0;
+    _relay_12_function__67p__phase_difference1__phase_state = 0x0;
+    _relay_12_function__67p__phase_difference1__correction_in = 0x0;
+    _relay_12_function__67p__phase_difference1__previous_correction_in = 0x0;
+    _relay_12_function__67p__phase_difference1__sample_cnt_in = 0x0;
+    _relay_12_function__67p__phase_difference1__filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference1__previous_filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference1__zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference1__no_zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference1__previous_correction_ref = 0x0;
+    _relay_12_function__67p__phase_difference1__sample_cnt_ref = 0x0;
+    _relay_12_function__67p__phase_difference1__previous_filtered_ref = 0x0;
+    _relay_12_function__67p__phase_difference2__phase_diff = 0x0;
+    _relay_12_function__67p__phase_difference2__phase_state = 0x0;
+    _relay_12_function__67p__phase_difference2__correction_in = 0x0;
+    _relay_12_function__67p__phase_difference2__previous_correction_in = 0x0;
+    _relay_12_function__67p__phase_difference2__sample_cnt_in = 0x0;
+    _relay_12_function__67p__phase_difference2__filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference2__previous_filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference2__zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference2__no_zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference2__previous_correction_ref = 0x0;
+    _relay_12_function__67p__phase_difference2__sample_cnt_ref = 0x0;
+    _relay_12_function__67p__phase_difference2__previous_filtered_ref = 0x0;
+    _relay_12_function__67p__phase_difference3__phase_diff = 0x0;
+    _relay_12_function__67p__phase_difference3__phase_state = 0x0;
+    _relay_12_function__67p__phase_difference3__correction_in = 0x0;
+    _relay_12_function__67p__phase_difference3__previous_correction_in = 0x0;
+    _relay_12_function__67p__phase_difference3__sample_cnt_in = 0x0;
+    _relay_12_function__67p__phase_difference3__filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference3__previous_filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference3__zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference3__no_zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference3__previous_correction_ref = 0x0;
+    _relay_12_function__67p__phase_difference3__sample_cnt_ref = 0x0;
+    _relay_12_function__67p__phase_difference3__previous_filtered_ref = 0x0;
+    _relay_12_function__67p__phase_difference4__phase_diff = 0x0;
+    _relay_12_function__67p__phase_difference4__phase_state = 0x0;
+    _relay_12_function__67p__phase_difference4__correction_in = 0x0;
+    _relay_12_function__67p__phase_difference4__previous_correction_in = 0x0;
+    _relay_12_function__67p__phase_difference4__sample_cnt_in = 0x0;
+    _relay_12_function__67p__phase_difference4__filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference4__previous_filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference4__zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference4__no_zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference4__previous_correction_ref = 0x0;
+    _relay_12_function__67p__phase_difference4__sample_cnt_ref = 0x0;
+    _relay_12_function__67p__phase_difference4__previous_filtered_ref = 0x0;
+    _relay_12_function__67p__phase_difference5__phase_diff = 0x0;
+    _relay_12_function__67p__phase_difference5__phase_state = 0x0;
+    _relay_12_function__67p__phase_difference5__correction_in = 0x0;
+    _relay_12_function__67p__phase_difference5__previous_correction_in = 0x0;
+    _relay_12_function__67p__phase_difference5__sample_cnt_in = 0x0;
+    _relay_12_function__67p__phase_difference5__filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference5__previous_filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference5__zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference5__no_zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference5__previous_correction_ref = 0x0;
+    _relay_12_function__67p__phase_difference5__sample_cnt_ref = 0x0;
+    _relay_12_function__67p__phase_difference5__previous_filtered_ref = 0x0;
+    _relay_12_function__67p__phase_difference6__phase_diff = 0x0;
+    _relay_12_function__67p__phase_difference6__phase_state = 0x0;
+    _relay_12_function__67p__phase_difference6__correction_in = 0x0;
+    _relay_12_function__67p__phase_difference6__previous_correction_in = 0x0;
+    _relay_12_function__67p__phase_difference6__sample_cnt_in = 0x0;
+    _relay_12_function__67p__phase_difference6__filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference6__previous_filtered_in = 0x0;
+    _relay_12_function__67p__phase_difference6__zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference6__no_zc_flag_in = 0x0;
+    _relay_12_function__67p__phase_difference6__previous_correction_ref = 0x0;
+    _relay_12_function__67p__phase_difference6__sample_cnt_ref = 0x0;
+    _relay_12_function__67p__phase_difference6__previous_filtered_ref = 0x0;
+    HIL_OutAO(0x2024, 0.0f);
+    HIL_OutAO(0x2028, 0.0f);
+    HIL_OutAO(0x202a, 0.0f);
+    HIL_OutAO(0x202c, 0.0f);
+    _relay_13_function__67p__phase_difference1__phase_diff = 0x0;
+    _relay_13_function__67p__phase_difference1__phase_state = 0x0;
+    _relay_13_function__67p__phase_difference1__correction_in = 0x0;
+    _relay_13_function__67p__phase_difference1__previous_correction_in = 0x0;
+    _relay_13_function__67p__phase_difference1__sample_cnt_in = 0x0;
+    _relay_13_function__67p__phase_difference1__filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference1__previous_filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference1__zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference1__no_zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference1__previous_correction_ref = 0x0;
+    _relay_13_function__67p__phase_difference1__sample_cnt_ref = 0x0;
+    _relay_13_function__67p__phase_difference1__previous_filtered_ref = 0x0;
+    _relay_13_function__67p__phase_difference2__phase_diff = 0x0;
+    _relay_13_function__67p__phase_difference2__phase_state = 0x0;
+    _relay_13_function__67p__phase_difference2__correction_in = 0x0;
+    _relay_13_function__67p__phase_difference2__previous_correction_in = 0x0;
+    _relay_13_function__67p__phase_difference2__sample_cnt_in = 0x0;
+    _relay_13_function__67p__phase_difference2__filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference2__previous_filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference2__zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference2__no_zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference2__previous_correction_ref = 0x0;
+    _relay_13_function__67p__phase_difference2__sample_cnt_ref = 0x0;
+    _relay_13_function__67p__phase_difference2__previous_filtered_ref = 0x0;
+    _relay_13_function__67p__phase_difference3__phase_diff = 0x0;
+    _relay_13_function__67p__phase_difference3__phase_state = 0x0;
+    _relay_13_function__67p__phase_difference3__correction_in = 0x0;
+    _relay_13_function__67p__phase_difference3__previous_correction_in = 0x0;
+    _relay_13_function__67p__phase_difference3__sample_cnt_in = 0x0;
+    _relay_13_function__67p__phase_difference3__filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference3__previous_filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference3__zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference3__no_zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference3__previous_correction_ref = 0x0;
+    _relay_13_function__67p__phase_difference3__sample_cnt_ref = 0x0;
+    _relay_13_function__67p__phase_difference3__previous_filtered_ref = 0x0;
+    _relay_13_function__67p__phase_difference4__phase_diff = 0x0;
+    _relay_13_function__67p__phase_difference4__phase_state = 0x0;
+    _relay_13_function__67p__phase_difference4__correction_in = 0x0;
+    _relay_13_function__67p__phase_difference4__previous_correction_in = 0x0;
+    _relay_13_function__67p__phase_difference4__sample_cnt_in = 0x0;
+    _relay_13_function__67p__phase_difference4__filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference4__previous_filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference4__zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference4__no_zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference4__previous_correction_ref = 0x0;
+    _relay_13_function__67p__phase_difference4__sample_cnt_ref = 0x0;
+    _relay_13_function__67p__phase_difference4__previous_filtered_ref = 0x0;
+    _relay_13_function__67p__phase_difference5__phase_diff = 0x0;
+    _relay_13_function__67p__phase_difference5__phase_state = 0x0;
+    _relay_13_function__67p__phase_difference5__correction_in = 0x0;
+    _relay_13_function__67p__phase_difference5__previous_correction_in = 0x0;
+    _relay_13_function__67p__phase_difference5__sample_cnt_in = 0x0;
+    _relay_13_function__67p__phase_difference5__filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference5__previous_filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference5__zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference5__no_zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference5__previous_correction_ref = 0x0;
+    _relay_13_function__67p__phase_difference5__sample_cnt_ref = 0x0;
+    _relay_13_function__67p__phase_difference5__previous_filtered_ref = 0x0;
+    _relay_13_function__67p__phase_difference6__phase_diff = 0x0;
+    _relay_13_function__67p__phase_difference6__phase_state = 0x0;
+    _relay_13_function__67p__phase_difference6__correction_in = 0x0;
+    _relay_13_function__67p__phase_difference6__previous_correction_in = 0x0;
+    _relay_13_function__67p__phase_difference6__sample_cnt_in = 0x0;
+    _relay_13_function__67p__phase_difference6__filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference6__previous_filtered_in = 0x0;
+    _relay_13_function__67p__phase_difference6__zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference6__no_zc_flag_in = 0x0;
+    _relay_13_function__67p__phase_difference6__previous_correction_ref = 0x0;
+    _relay_13_function__67p__phase_difference6__sample_cnt_ref = 0x0;
+    _relay_13_function__67p__phase_difference6__previous_filtered_ref = 0x0;
+    HIL_OutAO(0x2036, 0.0f);
+    HIL_OutAO(0x203a, 0.0f);
+    HIL_OutAO(0x203c, 0.0f);
+    HIL_OutAO(0x203e, 0.0f);
+    _relay_14_function__67p__phase_difference1__phase_diff = 0x0;
+    _relay_14_function__67p__phase_difference1__phase_state = 0x0;
+    _relay_14_function__67p__phase_difference1__correction_in = 0x0;
+    _relay_14_function__67p__phase_difference1__previous_correction_in = 0x0;
+    _relay_14_function__67p__phase_difference1__sample_cnt_in = 0x0;
+    _relay_14_function__67p__phase_difference1__filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference1__previous_filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference1__zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference1__no_zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference1__previous_correction_ref = 0x0;
+    _relay_14_function__67p__phase_difference1__sample_cnt_ref = 0x0;
+    _relay_14_function__67p__phase_difference1__previous_filtered_ref = 0x0;
+    _relay_14_function__67p__phase_difference2__phase_diff = 0x0;
+    _relay_14_function__67p__phase_difference2__phase_state = 0x0;
+    _relay_14_function__67p__phase_difference2__correction_in = 0x0;
+    _relay_14_function__67p__phase_difference2__previous_correction_in = 0x0;
+    _relay_14_function__67p__phase_difference2__sample_cnt_in = 0x0;
+    _relay_14_function__67p__phase_difference2__filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference2__previous_filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference2__zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference2__no_zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference2__previous_correction_ref = 0x0;
+    _relay_14_function__67p__phase_difference2__sample_cnt_ref = 0x0;
+    _relay_14_function__67p__phase_difference2__previous_filtered_ref = 0x0;
+    _relay_14_function__67p__phase_difference3__phase_diff = 0x0;
+    _relay_14_function__67p__phase_difference3__phase_state = 0x0;
+    _relay_14_function__67p__phase_difference3__correction_in = 0x0;
+    _relay_14_function__67p__phase_difference3__previous_correction_in = 0x0;
+    _relay_14_function__67p__phase_difference3__sample_cnt_in = 0x0;
+    _relay_14_function__67p__phase_difference3__filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference3__previous_filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference3__zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference3__no_zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference3__previous_correction_ref = 0x0;
+    _relay_14_function__67p__phase_difference3__sample_cnt_ref = 0x0;
+    _relay_14_function__67p__phase_difference3__previous_filtered_ref = 0x0;
+    _relay_14_function__67p__phase_difference4__phase_diff = 0x0;
+    _relay_14_function__67p__phase_difference4__phase_state = 0x0;
+    _relay_14_function__67p__phase_difference4__correction_in = 0x0;
+    _relay_14_function__67p__phase_difference4__previous_correction_in = 0x0;
+    _relay_14_function__67p__phase_difference4__sample_cnt_in = 0x0;
+    _relay_14_function__67p__phase_difference4__filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference4__previous_filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference4__zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference4__no_zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference4__previous_correction_ref = 0x0;
+    _relay_14_function__67p__phase_difference4__sample_cnt_ref = 0x0;
+    _relay_14_function__67p__phase_difference4__previous_filtered_ref = 0x0;
+    _relay_14_function__67p__phase_difference5__phase_diff = 0x0;
+    _relay_14_function__67p__phase_difference5__phase_state = 0x0;
+    _relay_14_function__67p__phase_difference5__correction_in = 0x0;
+    _relay_14_function__67p__phase_difference5__previous_correction_in = 0x0;
+    _relay_14_function__67p__phase_difference5__sample_cnt_in = 0x0;
+    _relay_14_function__67p__phase_difference5__filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference5__previous_filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference5__zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference5__no_zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference5__previous_correction_ref = 0x0;
+    _relay_14_function__67p__phase_difference5__sample_cnt_ref = 0x0;
+    _relay_14_function__67p__phase_difference5__previous_filtered_ref = 0x0;
+    _relay_14_function__67p__phase_difference6__phase_diff = 0x0;
+    _relay_14_function__67p__phase_difference6__phase_state = 0x0;
+    _relay_14_function__67p__phase_difference6__correction_in = 0x0;
+    _relay_14_function__67p__phase_difference6__previous_correction_in = 0x0;
+    _relay_14_function__67p__phase_difference6__sample_cnt_in = 0x0;
+    _relay_14_function__67p__phase_difference6__filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference6__previous_filtered_in = 0x0;
+    _relay_14_function__67p__phase_difference6__zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference6__no_zc_flag_in = 0x0;
+    _relay_14_function__67p__phase_difference6__previous_correction_ref = 0x0;
+    _relay_14_function__67p__phase_difference6__sample_cnt_ref = 0x0;
+    _relay_14_function__67p__phase_difference6__previous_filtered_ref = 0x0;
+    HIL_OutAO(0x2048, 0.0f);
+    HIL_OutAO(0x204c, 0.0f);
+    HIL_OutAO(0x204e, 0.0f);
+    HIL_OutAO(0x2050, 0.0f);
+    _relay_4_function__67p__phase_difference1__phase_diff = 0x0;
+    _relay_4_function__67p__phase_difference1__phase_state = 0x0;
+    _relay_4_function__67p__phase_difference1__correction_in = 0x0;
+    _relay_4_function__67p__phase_difference1__previous_correction_in = 0x0;
+    _relay_4_function__67p__phase_difference1__sample_cnt_in = 0x0;
+    _relay_4_function__67p__phase_difference1__filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference1__previous_filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference1__zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference1__no_zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference1__previous_correction_ref = 0x0;
+    _relay_4_function__67p__phase_difference1__sample_cnt_ref = 0x0;
+    _relay_4_function__67p__phase_difference1__previous_filtered_ref = 0x0;
+    _relay_4_function__67p__phase_difference2__phase_diff = 0x0;
+    _relay_4_function__67p__phase_difference2__phase_state = 0x0;
+    _relay_4_function__67p__phase_difference2__correction_in = 0x0;
+    _relay_4_function__67p__phase_difference2__previous_correction_in = 0x0;
+    _relay_4_function__67p__phase_difference2__sample_cnt_in = 0x0;
+    _relay_4_function__67p__phase_difference2__filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference2__previous_filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference2__zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference2__no_zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference2__previous_correction_ref = 0x0;
+    _relay_4_function__67p__phase_difference2__sample_cnt_ref = 0x0;
+    _relay_4_function__67p__phase_difference2__previous_filtered_ref = 0x0;
+    _relay_4_function__67p__phase_difference3__phase_diff = 0x0;
+    _relay_4_function__67p__phase_difference3__phase_state = 0x0;
+    _relay_4_function__67p__phase_difference3__correction_in = 0x0;
+    _relay_4_function__67p__phase_difference3__previous_correction_in = 0x0;
+    _relay_4_function__67p__phase_difference3__sample_cnt_in = 0x0;
+    _relay_4_function__67p__phase_difference3__filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference3__previous_filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference3__zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference3__no_zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference3__previous_correction_ref = 0x0;
+    _relay_4_function__67p__phase_difference3__sample_cnt_ref = 0x0;
+    _relay_4_function__67p__phase_difference3__previous_filtered_ref = 0x0;
+    _relay_4_function__67p__phase_difference4__phase_diff = 0x0;
+    _relay_4_function__67p__phase_difference4__phase_state = 0x0;
+    _relay_4_function__67p__phase_difference4__correction_in = 0x0;
+    _relay_4_function__67p__phase_difference4__previous_correction_in = 0x0;
+    _relay_4_function__67p__phase_difference4__sample_cnt_in = 0x0;
+    _relay_4_function__67p__phase_difference4__filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference4__previous_filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference4__zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference4__no_zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference4__previous_correction_ref = 0x0;
+    _relay_4_function__67p__phase_difference4__sample_cnt_ref = 0x0;
+    _relay_4_function__67p__phase_difference4__previous_filtered_ref = 0x0;
+    _relay_4_function__67p__phase_difference5__phase_diff = 0x0;
+    _relay_4_function__67p__phase_difference5__phase_state = 0x0;
+    _relay_4_function__67p__phase_difference5__correction_in = 0x0;
+    _relay_4_function__67p__phase_difference5__previous_correction_in = 0x0;
+    _relay_4_function__67p__phase_difference5__sample_cnt_in = 0x0;
+    _relay_4_function__67p__phase_difference5__filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference5__previous_filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference5__zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference5__no_zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference5__previous_correction_ref = 0x0;
+    _relay_4_function__67p__phase_difference5__sample_cnt_ref = 0x0;
+    _relay_4_function__67p__phase_difference5__previous_filtered_ref = 0x0;
+    _relay_4_function__67p__phase_difference6__phase_diff = 0x0;
+    _relay_4_function__67p__phase_difference6__phase_state = 0x0;
+    _relay_4_function__67p__phase_difference6__correction_in = 0x0;
+    _relay_4_function__67p__phase_difference6__previous_correction_in = 0x0;
+    _relay_4_function__67p__phase_difference6__sample_cnt_in = 0x0;
+    _relay_4_function__67p__phase_difference6__filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference6__previous_filtered_in = 0x0;
+    _relay_4_function__67p__phase_difference6__zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference6__no_zc_flag_in = 0x0;
+    _relay_4_function__67p__phase_difference6__previous_correction_ref = 0x0;
+    _relay_4_function__67p__phase_difference6__sample_cnt_ref = 0x0;
+    _relay_4_function__67p__phase_difference6__previous_filtered_ref = 0x0;
+    HIL_OutAO(0x205a, 0.0f);
+    HIL_OutAO(0x205e, 0.0f);
+    HIL_OutAO(0x2060, 0.0f);
+    HIL_OutAO(0x2062, 0.0f);
+    _relay_5_function__67p__phase_difference1__phase_diff = 0x0;
+    _relay_5_function__67p__phase_difference1__phase_state = 0x0;
+    _relay_5_function__67p__phase_difference1__correction_in = 0x0;
+    _relay_5_function__67p__phase_difference1__previous_correction_in = 0x0;
+    _relay_5_function__67p__phase_difference1__sample_cnt_in = 0x0;
+    _relay_5_function__67p__phase_difference1__filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference1__previous_filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference1__zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference1__no_zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference1__previous_correction_ref = 0x0;
+    _relay_5_function__67p__phase_difference1__sample_cnt_ref = 0x0;
+    _relay_5_function__67p__phase_difference1__previous_filtered_ref = 0x0;
+    _relay_5_function__67p__phase_difference2__phase_diff = 0x0;
+    _relay_5_function__67p__phase_difference2__phase_state = 0x0;
+    _relay_5_function__67p__phase_difference2__correction_in = 0x0;
+    _relay_5_function__67p__phase_difference2__previous_correction_in = 0x0;
+    _relay_5_function__67p__phase_difference2__sample_cnt_in = 0x0;
+    _relay_5_function__67p__phase_difference2__filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference2__previous_filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference2__zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference2__no_zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference2__previous_correction_ref = 0x0;
+    _relay_5_function__67p__phase_difference2__sample_cnt_ref = 0x0;
+    _relay_5_function__67p__phase_difference2__previous_filtered_ref = 0x0;
+    _relay_5_function__67p__phase_difference3__phase_diff = 0x0;
+    _relay_5_function__67p__phase_difference3__phase_state = 0x0;
+    _relay_5_function__67p__phase_difference3__correction_in = 0x0;
+    _relay_5_function__67p__phase_difference3__previous_correction_in = 0x0;
+    _relay_5_function__67p__phase_difference3__sample_cnt_in = 0x0;
+    _relay_5_function__67p__phase_difference3__filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference3__previous_filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference3__zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference3__no_zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference3__previous_correction_ref = 0x0;
+    _relay_5_function__67p__phase_difference3__sample_cnt_ref = 0x0;
+    _relay_5_function__67p__phase_difference3__previous_filtered_ref = 0x0;
+    _relay_5_function__67p__phase_difference4__phase_diff = 0x0;
+    _relay_5_function__67p__phase_difference4__phase_state = 0x0;
+    _relay_5_function__67p__phase_difference4__correction_in = 0x0;
+    _relay_5_function__67p__phase_difference4__previous_correction_in = 0x0;
+    _relay_5_function__67p__phase_difference4__sample_cnt_in = 0x0;
+    _relay_5_function__67p__phase_difference4__filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference4__previous_filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference4__zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference4__no_zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference4__previous_correction_ref = 0x0;
+    _relay_5_function__67p__phase_difference4__sample_cnt_ref = 0x0;
+    _relay_5_function__67p__phase_difference4__previous_filtered_ref = 0x0;
+    _relay_5_function__67p__phase_difference5__phase_diff = 0x0;
+    _relay_5_function__67p__phase_difference5__phase_state = 0x0;
+    _relay_5_function__67p__phase_difference5__correction_in = 0x0;
+    _relay_5_function__67p__phase_difference5__previous_correction_in = 0x0;
+    _relay_5_function__67p__phase_difference5__sample_cnt_in = 0x0;
+    _relay_5_function__67p__phase_difference5__filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference5__previous_filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference5__zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference5__no_zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference5__previous_correction_ref = 0x0;
+    _relay_5_function__67p__phase_difference5__sample_cnt_ref = 0x0;
+    _relay_5_function__67p__phase_difference5__previous_filtered_ref = 0x0;
+    _relay_5_function__67p__phase_difference6__phase_diff = 0x0;
+    _relay_5_function__67p__phase_difference6__phase_state = 0x0;
+    _relay_5_function__67p__phase_difference6__correction_in = 0x0;
+    _relay_5_function__67p__phase_difference6__previous_correction_in = 0x0;
+    _relay_5_function__67p__phase_difference6__sample_cnt_in = 0x0;
+    _relay_5_function__67p__phase_difference6__filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference6__previous_filtered_in = 0x0;
+    _relay_5_function__67p__phase_difference6__zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference6__no_zc_flag_in = 0x0;
+    _relay_5_function__67p__phase_difference6__previous_correction_ref = 0x0;
+    _relay_5_function__67p__phase_difference6__sample_cnt_ref = 0x0;
+    _relay_5_function__67p__phase_difference6__previous_filtered_ref = 0x0;
+    HIL_OutAO(0x206c, 0.0f);
+    HIL_OutAO(0x2070, 0.0f);
+    HIL_OutAO(0x206e, 0.0f);
+    HIL_OutAO(0x206d, 0.0f);
+    HIL_OutAO(0x206f, 0.0f);
+    HIL_OutAO(0x2021, 0.0f);
+    HIL_OutAO(0x201b, 0.0f);
+    HIL_OutAO(0x2019, 0.0f);
+    HIL_OutAO(0x2017, 0.0f);
+    HIL_OutAO(0x2022, 0.0f);
+    _relay_12_function__67p__c_function__directional_protection___Directional_Trip = 0;
+    _relay_12_function__67p__c_function__directional_protection___Flag = 0;
+    HIL_OutAO(0x2020, 0.0f);
+    HIL_OutAO(0x2033, 0.0f);
+    HIL_OutAO(0x202d, 0.0f);
+    HIL_OutAO(0x202b, 0.0f);
+    HIL_OutAO(0x2029, 0.0f);
+    HIL_OutAO(0x2034, 0.0f);
+    _relay_13_function__67p__c_function__directional_protection___Directional_Trip = 0;
+    _relay_13_function__67p__c_function__directional_protection___Flag = 0;
+    HIL_OutAO(0x2032, 0.0f);
+    HIL_OutAO(0x2045, 0.0f);
+    HIL_OutAO(0x203f, 0.0f);
+    HIL_OutAO(0x203d, 0.0f);
+    HIL_OutAO(0x203b, 0.0f);
+    HIL_OutAO(0x2046, 0.0f);
+    _relay_14_function__67p__c_function__directional_protection___Directional_Trip = 0;
+    _relay_14_function__67p__c_function__directional_protection___Flag = 0;
+    HIL_OutAO(0x2044, 0.0f);
+    HIL_OutAO(0x2057, 0.0f);
+    HIL_OutAO(0x2051, 0.0f);
+    HIL_OutAO(0x204f, 0.0f);
+    HIL_OutAO(0x204d, 0.0f);
+    HIL_OutAO(0x2058, 0.0f);
+    _relay_4_function__67p__c_function__directional_protection___Directional_Trip = 0;
+    _relay_4_function__67p__c_function__directional_protection___Flag = 0;
+    HIL_OutAO(0x2056, 0.0f);
+    HIL_OutAO(0x2069, 0.0f);
+    HIL_OutAO(0x2063, 0.0f);
+    HIL_OutAO(0x2061, 0.0f);
+    HIL_OutAO(0x205f, 0.0f);
+    HIL_OutAO(0x206a, 0.0f);
+    _relay_5_function__67p__c_function__directional_protection___Directional_Trip = 0;
+    _relay_5_function__67p__c_function__directional_protection___Flag = 0;
+    HIL_OutAO(0x2068, 0.0f);
+    HIL_OutAO(0x2015, 0.0f);
+    HIL_OutAO(0x2027, 0.0f);
+    HIL_OutAO(0x2039, 0.0f);
+    HIL_OutAO(0x204b, 0.0f);
+    HIL_OutAO(0x205d, 0.0f);
+    _relay_12_function__67p__overcurrent_inverse_function__B = 0.14;
+    _relay_12_function__67p__overcurrent_inverse_function__A = 0.02;
+    _relay_12_function__67p__overcurrent_inverse_function__L = 0;
+    _relay_12_function__67p__overcurrent_inverse_function__Flag = 0;
+    _relay_12_function__67p__overcurrent_inverse_function__TMS = 1;
+    _relay_12_function__67p__overcurrent_inverse_function__CTp = 1;
+    _relay_12_function__67p__overcurrent_inverse_function__Ipk_2 = 1;
+    _relay_12_function__67p__overcurrent_inverse_function__multiplier = 1;
+    _relay_12_function__67p__overcurrent_inverse_function__out = 0;
+    _relay_12_function__67p__overcurrent_inverse_function__counter = 0;
+    _relay_12_function__67p__overcurrent_inverse_function__time = 1e9;
+    _relay_12_function__67p__overcurrent_inverse_function__trans = 0;
+    _relay_13_function__67p__overcurrent_inverse_function__B = 0.14;
+    _relay_13_function__67p__overcurrent_inverse_function__A = 0.02;
+    _relay_13_function__67p__overcurrent_inverse_function__L = 0;
+    _relay_13_function__67p__overcurrent_inverse_function__Flag = 0;
+    _relay_13_function__67p__overcurrent_inverse_function__TMS = 1;
+    _relay_13_function__67p__overcurrent_inverse_function__CTp = 1;
+    _relay_13_function__67p__overcurrent_inverse_function__Ipk_2 = 1;
+    _relay_13_function__67p__overcurrent_inverse_function__multiplier = 1;
+    _relay_13_function__67p__overcurrent_inverse_function__out = 0;
+    _relay_13_function__67p__overcurrent_inverse_function__counter = 0;
+    _relay_13_function__67p__overcurrent_inverse_function__time = 1e9;
+    _relay_13_function__67p__overcurrent_inverse_function__trans = 0;
+    _relay_14_function__67p__overcurrent_inverse_function__B = 0.14;
+    _relay_14_function__67p__overcurrent_inverse_function__A = 0.02;
+    _relay_14_function__67p__overcurrent_inverse_function__L = 0;
+    _relay_14_function__67p__overcurrent_inverse_function__Flag = 0;
+    _relay_14_function__67p__overcurrent_inverse_function__TMS = 1;
+    _relay_14_function__67p__overcurrent_inverse_function__CTp = 1;
+    _relay_14_function__67p__overcurrent_inverse_function__Ipk_2 = 1;
+    _relay_14_function__67p__overcurrent_inverse_function__multiplier = 1;
+    _relay_14_function__67p__overcurrent_inverse_function__out = 0;
+    _relay_14_function__67p__overcurrent_inverse_function__counter = 0;
+    _relay_14_function__67p__overcurrent_inverse_function__time = 1e9;
+    _relay_14_function__67p__overcurrent_inverse_function__trans = 0;
+    _relay_4_function__67p__overcurrent_inverse_function__B = 0.14;
+    _relay_4_function__67p__overcurrent_inverse_function__A = 0.02;
+    _relay_4_function__67p__overcurrent_inverse_function__L = 0;
+    _relay_4_function__67p__overcurrent_inverse_function__Flag = 0;
+    _relay_4_function__67p__overcurrent_inverse_function__TMS = 1;
+    _relay_4_function__67p__overcurrent_inverse_function__CTp = 1;
+    _relay_4_function__67p__overcurrent_inverse_function__Ipk_2 = 1;
+    _relay_4_function__67p__overcurrent_inverse_function__multiplier = 1;
+    _relay_4_function__67p__overcurrent_inverse_function__out = 0;
+    _relay_4_function__67p__overcurrent_inverse_function__counter = 0;
+    _relay_4_function__67p__overcurrent_inverse_function__time = 1e9;
+    _relay_4_function__67p__overcurrent_inverse_function__trans = 0;
+    _relay_5_function__67p__overcurrent_inverse_function__B = 0.14;
+    _relay_5_function__67p__overcurrent_inverse_function__A = 0.02;
+    _relay_5_function__67p__overcurrent_inverse_function__L = 0;
+    _relay_5_function__67p__overcurrent_inverse_function__Flag = 0;
+    _relay_5_function__67p__overcurrent_inverse_function__TMS = 1;
+    _relay_5_function__67p__overcurrent_inverse_function__CTp = 1;
+    _relay_5_function__67p__overcurrent_inverse_function__Ipk_2 = 1;
+    _relay_5_function__67p__overcurrent_inverse_function__multiplier = 1;
+    _relay_5_function__67p__overcurrent_inverse_function__out = 0;
+    _relay_5_function__67p__overcurrent_inverse_function__counter = 0;
+    _relay_5_function__67p__overcurrent_inverse_function__time = 1e9;
+    _relay_5_function__67p__overcurrent_inverse_function__trans = 0;
+    HIL_OutAO(0x2023, 0.0f);
+    HIL_OutAO(0x2035, 0.0f);
+    HIL_OutAO(0x2047, 0.0f);
+    HIL_OutAO(0x2059, 0.0f);
+    HIL_OutAO(0x206b, 0.0f);
+    //@cmp.init.block.end
+}
+
+void ReInit_sp_scope_user_sp_cpu0_dev0() {
+    // initialise SP Scope buffer pointer
+}
+
+void load_fmi_libraries_user_sp_cpu0_dev0(void) {
+#if defined(_WIN64)
+#else
+#endif
+}
+// generated using template:generic_macros.template-----------------------------------------
+/*********************** Macros (Inline Functions) Definitions ***************************/
+
+// ----------------------------------------------------------------------------------------
+
+#ifndef MAX
+#define MAX(value, limit) (((value) > (limit)) ? (value) : (limit))
+#endif
+#ifndef MIN
+#define MIN(value, limit) (((value) < (limit)) ? (value) : (limit))
+#endif
+
+// generated using template: common_timer_counter_handler.template-------------------------
+
+/*****************************************************************************************/
+/**
+* This function is the handler which performs processing for the timer counter.
+* It is called from an interrupt context such that the amount of processing
+* performed should be minimized.  It is called when the timer counter expires
+* if interrupts are enabled.
+*
+*
+* @param    None
+*
+* @return   None
+*
+* @note     None
+*
+*****************************************************************************************/
+
+void TimerCounterHandler_0_user_sp_cpu0_dev0() {
+#if DEBUG_MODE
+    printf("\n\rTimerCounterHandler_0");
+#endif
+    //////////////////////////////////////////////////////////////////////////
+    // Set tunable parameters
+    //////////////////////////////////////////////////////////////////////////
+    // Generated from the component: Relay-12.Constant1
+    // Generated from the component: Relay-13.Constant1
+    // Generated from the component: Relay-14.Constant1
+    // Generated from the component: Relay-4.Constant1
+    // Generated from the component: Relay-5.Constant1
+    // Generated from the component: various.Constant1
+    //////////////////////////////////////////////////////////////////////////
+    // Output block
+    //////////////////////////////////////////////////////////////////////////
+    //@cmp.out.block.start
+    // Generated from the component: Measurements Block - 12.I_A.Ia1
+    _measurements_block___12_i_a_ia1__out = (HIL_InFloat(0xc80000 + 0x117));
+    // Generated from the component: Measurements Block - 12.I_B.Ia1
+    _measurements_block___12_i_b_ia1__out = (HIL_InFloat(0xc80000 + 0x118));
+    // Generated from the component: Measurements Block - 12.I_C.Ia1
+    _measurements_block___12_i_c_ia1__out = (HIL_InFloat(0xc80000 + 0x119));
+    // Generated from the component: Measurements Block - 12.IrmsA.cpu_trans.Output
+    _measurements_block___12_irmsa_cpu_trans_output__out = XIo_InFloat(0x55000100);
+    // Generated from the component: Measurements Block - 12.IrmsB.cpu_trans.Output
+    _measurements_block___12_irmsb_cpu_trans_output__out = XIo_InFloat(0x55000104);
+    // Generated from the component: Measurements Block - 12.IrmsC.cpu_trans.Output
+    _measurements_block___12_irmsc_cpu_trans_output__out = XIo_InFloat(0x55000108);
+    // Generated from the component: Measurements Block - 12.V_AB.Va1
+    _measurements_block___12_v_ab_va1__out = (HIL_InFloat(0xc80000 + 0x113));
+    // Generated from the component: Measurements Block - 12.V_BC.Va1
+    _measurements_block___12_v_bc_va1__out = (HIL_InFloat(0xc80000 + 0x114));
+    // Generated from the component: Measurements Block - 12.V_CA.Va1
+    _measurements_block___12_v_ca_va1__out = (HIL_InFloat(0xc80000 + 0x115));
+    // Generated from the component: Measurements Block - 13.I_A.Ia1
+    _measurements_block___13_i_a_ia1__out = (HIL_InFloat(0xc80000 + 0x1c));
+    // Generated from the component: Measurements Block - 13.I_B.Ia1
+    _measurements_block___13_i_b_ia1__out = (HIL_InFloat(0xc80000 + 0x1d));
+    // Generated from the component: Measurements Block - 13.I_C.Ia1
+    _measurements_block___13_i_c_ia1__out = (HIL_InFloat(0xc80000 + 0x1e));
+    // Generated from the component: Measurements Block - 13.IrmsA.cpu_trans.Output
+    _measurements_block___13_irmsa_cpu_trans_output__out = XIo_InFloat(0x5500010c);
+    // Generated from the component: Measurements Block - 13.IrmsB.cpu_trans.Output
+    _measurements_block___13_irmsb_cpu_trans_output__out = XIo_InFloat(0x55000110);
+    // Generated from the component: Measurements Block - 13.IrmsC.cpu_trans.Output
+    _measurements_block___13_irmsc_cpu_trans_output__out = XIo_InFloat(0x55000114);
+    // Generated from the component: Measurements Block - 13.V_AB.Va1
+    _measurements_block___13_v_ab_va1__out = (HIL_InFloat(0xc80000 + 0x18));
+    // Generated from the component: Measurements Block - 13.V_BC.Va1
+    _measurements_block___13_v_bc_va1__out = (HIL_InFloat(0xc80000 + 0x19));
+    // Generated from the component: Measurements Block - 13.V_CA.Va1
+    _measurements_block___13_v_ca_va1__out = (HIL_InFloat(0xc80000 + 0x1a));
+    // Generated from the component: Measurements Block - 14.I_A.Ia1
+    _measurements_block___14_i_a_ia1__out = (HIL_InFloat(0xc80000 + 0x319));
+    // Generated from the component: Measurements Block - 14.I_B.Ia1
+    _measurements_block___14_i_b_ia1__out = (HIL_InFloat(0xc80000 + 0x31a));
+    // Generated from the component: Measurements Block - 14.I_C.Ia1
+    _measurements_block___14_i_c_ia1__out = (HIL_InFloat(0xc80000 + 0x31b));
+    // Generated from the component: Measurements Block - 14.IrmsA.cpu_trans.Output
+    _measurements_block___14_irmsa_cpu_trans_output__out = XIo_InFloat(0x55000118);
+    // Generated from the component: Measurements Block - 14.IrmsB.cpu_trans.Output
+    _measurements_block___14_irmsb_cpu_trans_output__out = XIo_InFloat(0x5500011c);
+    // Generated from the component: Measurements Block - 14.IrmsC.cpu_trans.Output
+    _measurements_block___14_irmsc_cpu_trans_output__out = XIo_InFloat(0x55000120);
+    // Generated from the component: Measurements Block - 14.V_AB.Va1
+    _measurements_block___14_v_ab_va1__out = (HIL_InFloat(0xc80000 + 0x315));
+    // Generated from the component: Measurements Block - 14.V_BC.Va1
+    _measurements_block___14_v_bc_va1__out = (HIL_InFloat(0xc80000 + 0x316));
+    // Generated from the component: Measurements Block - 14.V_CA.Va1
+    _measurements_block___14_v_ca_va1__out = (HIL_InFloat(0xc80000 + 0x317));
+    // Generated from the component: Measurements Block - 4.I_A.Ia1
+    _measurements_block___4_i_a_ia1__out = (HIL_InFloat(0xc80000 + 0x233));
+    // Generated from the component: Measurements Block - 4.I_B.Ia1
+    _measurements_block___4_i_b_ia1__out = (HIL_InFloat(0xc80000 + 0x234));
+    // Generated from the component: Measurements Block - 4.I_C.Ia1
+    _measurements_block___4_i_c_ia1__out = (HIL_InFloat(0xc80000 + 0x235));
+    // Generated from the component: Measurements Block - 4.IrmsA.cpu_trans.Output
+    _measurements_block___4_irmsa_cpu_trans_output__out = XIo_InFloat(0x55000124);
+    // Generated from the component: Measurements Block - 4.IrmsB.cpu_trans.Output
+    _measurements_block___4_irmsb_cpu_trans_output__out = XIo_InFloat(0x55000128);
+    // Generated from the component: Measurements Block - 4.IrmsC.cpu_trans.Output
+    _measurements_block___4_irmsc_cpu_trans_output__out = XIo_InFloat(0x5500012c);
+    // Generated from the component: Measurements Block - 4.V_AB.Va1
+    _measurements_block___4_v_ab_va1__out = (HIL_InFloat(0xc80000 + 0x22c));
+    // Generated from the component: Measurements Block - 4.V_BC.Va1
+    _measurements_block___4_v_bc_va1__out = (HIL_InFloat(0xc80000 + 0x22d));
+    // Generated from the component: Measurements Block - 4.V_CA.Va1
+    _measurements_block___4_v_ca_va1__out = (HIL_InFloat(0xc80000 + 0x22e));
+    // Generated from the component: Measurements Block - 5.I_A.Ia1
+    _measurements_block___5_i_a_ia1__out = (HIL_InFloat(0xc80000 + 0x239));
+    // Generated from the component: Measurements Block - 5.I_B.Ia1
+    _measurements_block___5_i_b_ia1__out = (HIL_InFloat(0xc80000 + 0x23a));
+    // Generated from the component: Measurements Block - 5.I_C.Ia1
+    _measurements_block___5_i_c_ia1__out = (HIL_InFloat(0xc80000 + 0x23b));
+    // Generated from the component: Measurements Block - 5.IrmsA.cpu_trans.Output
+    _measurements_block___5_irmsa_cpu_trans_output__out = XIo_InFloat(0x55000130);
+    // Generated from the component: Measurements Block - 5.IrmsB.cpu_trans.Output
+    _measurements_block___5_irmsb_cpu_trans_output__out = XIo_InFloat(0x55000134);
+    // Generated from the component: Measurements Block - 5.IrmsC.cpu_trans.Output
+    _measurements_block___5_irmsc_cpu_trans_output__out = XIo_InFloat(0x55000138);
+    // Generated from the component: Measurements Block - 5.V_AB.Va1
+    _measurements_block___5_v_ab_va1__out = (HIL_InFloat(0xc80000 + 0x22f));
+    // Generated from the component: Measurements Block - 5.V_BC.Va1
+    _measurements_block___5_v_bc_va1__out = (HIL_InFloat(0xc80000 + 0x230));
+    // Generated from the component: Measurements Block - 5.V_CA.Va1
+    _measurements_block___5_v_ca_va1__out = (HIL_InFloat(0xc80000 + 0x231));
+    // Generated from the component: Relay-12.Constant1
+    // Generated from the component: Relay-13.Constant1
+    // Generated from the component: Relay-14.Constant1
+    // Generated from the component: Relay-4.Constant1
+    // Generated from the component: Relay-5.Constant1
+    // Generated from the component: Vrms10.cpu_trans.Output
+    _vrms10_cpu_trans_output__out = XIo_InFloat(0x5500013c);
+    // Generated from the component: Vrms5.cpu_trans.Output
+    _vrms5_cpu_trans_output__out = XIo_InFloat(0x55000140);
+    // Generated from the component: Vrms7.cpu_trans.Output
+    _vrms7_cpu_trans_output__out = XIo_InFloat(0x55000144);
+    // Generated from the component: Vrms8.cpu_trans.Output
+    _vrms8_cpu_trans_output__out = XIo_InFloat(0x55000148);
+    // Generated from the component: various.Constant1
+    // Generated from the component: various.Relay_Selected
+    _various_relay_selected__out = XIo_InInt32(0x55000248);
+    // Generated from the component: Measurements Block - 12.Basic Measurements (Join)
+    _measurements_block___12_basic_measurements__join___out[0] = _measurements_block___12_i_a_ia1__out;
+    _measurements_block___12_basic_measurements__join___out[1] = _measurements_block___12_i_b_ia1__out;
+    _measurements_block___12_basic_measurements__join___out[2] = _measurements_block___12_i_c_ia1__out;
+    _measurements_block___12_basic_measurements__join___out[3] = _measurements_block___12_v_bc_va1__out;
+    _measurements_block___12_basic_measurements__join___out[4] = _measurements_block___12_v_ca_va1__out;
+    _measurements_block___12_basic_measurements__join___out[5] = _measurements_block___12_v_ab_va1__out;
+    _measurements_block___12_basic_measurements__join___out[6] = _measurements_block___12_irmsa_cpu_trans_output__out;
+    _measurements_block___12_basic_measurements__join___out[7] = _measurements_block___12_irmsb_cpu_trans_output__out;
+    _measurements_block___12_basic_measurements__join___out[8] = _measurements_block___12_irmsc_cpu_trans_output__out;
+    // Generated from the component: Measurements Block - 13.Basic Measurements (Join)
+    _measurements_block___13_basic_measurements__join___out[0] = _measurements_block___13_i_a_ia1__out;
+    _measurements_block___13_basic_measurements__join___out[1] = _measurements_block___13_i_b_ia1__out;
+    _measurements_block___13_basic_measurements__join___out[2] = _measurements_block___13_i_c_ia1__out;
+    _measurements_block___13_basic_measurements__join___out[3] = _measurements_block___13_v_bc_va1__out;
+    _measurements_block___13_basic_measurements__join___out[4] = _measurements_block___13_v_ca_va1__out;
+    _measurements_block___13_basic_measurements__join___out[5] = _measurements_block___13_v_ab_va1__out;
+    _measurements_block___13_basic_measurements__join___out[6] = _measurements_block___13_irmsa_cpu_trans_output__out;
+    _measurements_block___13_basic_measurements__join___out[7] = _measurements_block___13_irmsb_cpu_trans_output__out;
+    _measurements_block___13_basic_measurements__join___out[8] = _measurements_block___13_irmsc_cpu_trans_output__out;
+    // Generated from the component: Measurements Block - 14.Basic Measurements (Join)
+    _measurements_block___14_basic_measurements__join___out[0] = _measurements_block___14_i_a_ia1__out;
+    _measurements_block___14_basic_measurements__join___out[1] = _measurements_block___14_i_b_ia1__out;
+    _measurements_block___14_basic_measurements__join___out[2] = _measurements_block___14_i_c_ia1__out;
+    _measurements_block___14_basic_measurements__join___out[3] = _measurements_block___14_v_bc_va1__out;
+    _measurements_block___14_basic_measurements__join___out[4] = _measurements_block___14_v_ca_va1__out;
+    _measurements_block___14_basic_measurements__join___out[5] = _measurements_block___14_v_ab_va1__out;
+    _measurements_block___14_basic_measurements__join___out[6] = _measurements_block___14_irmsa_cpu_trans_output__out;
+    _measurements_block___14_basic_measurements__join___out[7] = _measurements_block___14_irmsb_cpu_trans_output__out;
+    _measurements_block___14_basic_measurements__join___out[8] = _measurements_block___14_irmsc_cpu_trans_output__out;
+    // Generated from the component: Measurements Block - 4.Basic Measurements (Join)
+    _measurements_block___4_basic_measurements__join___out[0] = _measurements_block___4_i_a_ia1__out;
+    _measurements_block___4_basic_measurements__join___out[1] = _measurements_block___4_i_b_ia1__out;
+    _measurements_block___4_basic_measurements__join___out[2] = _measurements_block___4_i_c_ia1__out;
+    _measurements_block___4_basic_measurements__join___out[3] = _measurements_block___4_v_bc_va1__out;
+    _measurements_block___4_basic_measurements__join___out[4] = _measurements_block___4_v_ca_va1__out;
+    _measurements_block___4_basic_measurements__join___out[5] = _measurements_block___4_v_ab_va1__out;
+    _measurements_block___4_basic_measurements__join___out[6] = _measurements_block___4_irmsa_cpu_trans_output__out;
+    _measurements_block___4_basic_measurements__join___out[7] = _measurements_block___4_irmsb_cpu_trans_output__out;
+    _measurements_block___4_basic_measurements__join___out[8] = _measurements_block___4_irmsc_cpu_trans_output__out;
+    // Generated from the component: Measurements Block - 5.Basic Measurements (Join)
+    _measurements_block___5_basic_measurements__join___out[0] = _measurements_block___5_i_a_ia1__out;
+    _measurements_block___5_basic_measurements__join___out[1] = _measurements_block___5_i_b_ia1__out;
+    _measurements_block___5_basic_measurements__join___out[2] = _measurements_block___5_i_c_ia1__out;
+    _measurements_block___5_basic_measurements__join___out[3] = _measurements_block___5_v_bc_va1__out;
+    _measurements_block___5_basic_measurements__join___out[4] = _measurements_block___5_v_ca_va1__out;
+    _measurements_block___5_basic_measurements__join___out[5] = _measurements_block___5_v_ab_va1__out;
+    _measurements_block___5_basic_measurements__join___out[6] = _measurements_block___5_irmsa_cpu_trans_output__out;
+    _measurements_block___5_basic_measurements__join___out[7] = _measurements_block___5_irmsb_cpu_trans_output__out;
+    _measurements_block___5_basic_measurements__join___out[8] = _measurements_block___5_irmsc_cpu_trans_output__out;
+    // Generated from the component: Relay-12.Comparator1
+    if (_relay_12_rate_transition2_output__out < _relay_12_constant1__out) {
+        _relay_12_comparator1__out = 0;
+    } else if (_relay_12_rate_transition2_output__out > _relay_12_constant1__out) {
+        _relay_12_comparator1__out = 1;
+    } else {
+        _relay_12_comparator1__out = _relay_12_comparator1__state;
+    }
+    // Generated from the component: Relay-13.Comparator1
+    if (_relay_13_rate_transition2_output__out < _relay_13_constant1__out) {
+        _relay_13_comparator1__out = 0;
+    } else if (_relay_13_rate_transition2_output__out > _relay_13_constant1__out) {
+        _relay_13_comparator1__out = 1;
+    } else {
+        _relay_13_comparator1__out = _relay_13_comparator1__state;
+    }
+    // Generated from the component: Relay-14.Comparator1
+    if (_relay_14_rate_transition2_output__out < _relay_14_constant1__out) {
+        _relay_14_comparator1__out = 0;
+    } else if (_relay_14_rate_transition2_output__out > _relay_14_constant1__out) {
+        _relay_14_comparator1__out = 1;
+    } else {
+        _relay_14_comparator1__out = _relay_14_comparator1__state;
+    }
+    // Generated from the component: Relay-4.Comparator1
+    if (_relay_4_rate_transition2_output__out < _relay_4_constant1__out) {
+        _relay_4_comparator1__out = 0;
+    } else if (_relay_4_rate_transition2_output__out > _relay_4_constant1__out) {
+        _relay_4_comparator1__out = 1;
+    } else {
+        _relay_4_comparator1__out = _relay_4_comparator1__state;
+    }
+    // Generated from the component: Relay-5.Comparator1
+    if (_relay_5_rate_transition2_output__out < _relay_5_constant1__out) {
+        _relay_5_comparator1__out = 0;
+    } else if (_relay_5_rate_transition2_output__out > _relay_5_constant1__out) {
+        _relay_5_comparator1__out = 1;
+    } else {
+        _relay_5_comparator1__out = _relay_5_comparator1__state;
+    }
+    // Generated from the component: Gain10
+    _gain10__out = 1.4142135623730951 * _vrms10_cpu_trans_output__out;
+    // Generated from the component: Gain5
+    _gain5__out = 1.4142135623730951 * _vrms5_cpu_trans_output__out;
+    // Generated from the component: Gain7
+    _gain7__out = 1.4142135623730951 * _vrms7_cpu_trans_output__out;
+    // Generated from the component: Gain8
+    _gain8__out = 1.4142135623730951 * _vrms8_cpu_trans_output__out;
+    // Generated from the component: various.Magnitud
+    HIL_OutAO(0x2071, (float)_various_constant1__out);
+    // Generated from the component: various.Relay_Sted
+    HIL_OutAO(0x2072, (float)_various_relay_selected__out);
+    // Generated from the component: Relay-12.Rate Transition1.Input
+    _relay_12_rate_transition1_output__out[0] = _measurements_block___12_basic_measurements__join___out[0];
+    _relay_12_rate_transition1_output__out[1] = _measurements_block___12_basic_measurements__join___out[1];
+    _relay_12_rate_transition1_output__out[2] = _measurements_block___12_basic_measurements__join___out[2];
+    _relay_12_rate_transition1_output__out[3] = _measurements_block___12_basic_measurements__join___out[3];
+    _relay_12_rate_transition1_output__out[4] = _measurements_block___12_basic_measurements__join___out[4];
+    _relay_12_rate_transition1_output__out[5] = _measurements_block___12_basic_measurements__join___out[5];
+    _relay_12_rate_transition1_output__out[6] = _measurements_block___12_basic_measurements__join___out[6];
+    _relay_12_rate_transition1_output__out[7] = _measurements_block___12_basic_measurements__join___out[7];
+    _relay_12_rate_transition1_output__out[8] = _measurements_block___12_basic_measurements__join___out[8];
+    // Generated from the component: Relay-13.Rate Transition1.Input
+    _relay_13_rate_transition1_output__out[0] = _measurements_block___13_basic_measurements__join___out[0];
+    _relay_13_rate_transition1_output__out[1] = _measurements_block___13_basic_measurements__join___out[1];
+    _relay_13_rate_transition1_output__out[2] = _measurements_block___13_basic_measurements__join___out[2];
+    _relay_13_rate_transition1_output__out[3] = _measurements_block___13_basic_measurements__join___out[3];
+    _relay_13_rate_transition1_output__out[4] = _measurements_block___13_basic_measurements__join___out[4];
+    _relay_13_rate_transition1_output__out[5] = _measurements_block___13_basic_measurements__join___out[5];
+    _relay_13_rate_transition1_output__out[6] = _measurements_block___13_basic_measurements__join___out[6];
+    _relay_13_rate_transition1_output__out[7] = _measurements_block___13_basic_measurements__join___out[7];
+    _relay_13_rate_transition1_output__out[8] = _measurements_block___13_basic_measurements__join___out[8];
+    // Generated from the component: Relay-14.Rate Transition1.Input
+    _relay_14_rate_transition1_output__out[0] = _measurements_block___14_basic_measurements__join___out[0];
+    _relay_14_rate_transition1_output__out[1] = _measurements_block___14_basic_measurements__join___out[1];
+    _relay_14_rate_transition1_output__out[2] = _measurements_block___14_basic_measurements__join___out[2];
+    _relay_14_rate_transition1_output__out[3] = _measurements_block___14_basic_measurements__join___out[3];
+    _relay_14_rate_transition1_output__out[4] = _measurements_block___14_basic_measurements__join___out[4];
+    _relay_14_rate_transition1_output__out[5] = _measurements_block___14_basic_measurements__join___out[5];
+    _relay_14_rate_transition1_output__out[6] = _measurements_block___14_basic_measurements__join___out[6];
+    _relay_14_rate_transition1_output__out[7] = _measurements_block___14_basic_measurements__join___out[7];
+    _relay_14_rate_transition1_output__out[8] = _measurements_block___14_basic_measurements__join___out[8];
+    // Generated from the component: Relay-4.Rate Transition1.Input
+    _relay_4_rate_transition1_output__out[0] = _measurements_block___4_basic_measurements__join___out[0];
+    _relay_4_rate_transition1_output__out[1] = _measurements_block___4_basic_measurements__join___out[1];
+    _relay_4_rate_transition1_output__out[2] = _measurements_block___4_basic_measurements__join___out[2];
+    _relay_4_rate_transition1_output__out[3] = _measurements_block___4_basic_measurements__join___out[3];
+    _relay_4_rate_transition1_output__out[4] = _measurements_block___4_basic_measurements__join___out[4];
+    _relay_4_rate_transition1_output__out[5] = _measurements_block___4_basic_measurements__join___out[5];
+    _relay_4_rate_transition1_output__out[6] = _measurements_block___4_basic_measurements__join___out[6];
+    _relay_4_rate_transition1_output__out[7] = _measurements_block___4_basic_measurements__join___out[7];
+    _relay_4_rate_transition1_output__out[8] = _measurements_block___4_basic_measurements__join___out[8];
+    // Generated from the component: Relay-5.Rate Transition1.Input
+    _relay_5_rate_transition1_output__out[0] = _measurements_block___5_basic_measurements__join___out[0];
+    _relay_5_rate_transition1_output__out[1] = _measurements_block___5_basic_measurements__join___out[1];
+    _relay_5_rate_transition1_output__out[2] = _measurements_block___5_basic_measurements__join___out[2];
+    _relay_5_rate_transition1_output__out[3] = _measurements_block___5_basic_measurements__join___out[3];
+    _relay_5_rate_transition1_output__out[4] = _measurements_block___5_basic_measurements__join___out[4];
+    _relay_5_rate_transition1_output__out[5] = _measurements_block___5_basic_measurements__join___out[5];
+    _relay_5_rate_transition1_output__out[6] = _measurements_block___5_basic_measurements__join___out[6];
+    _relay_5_rate_transition1_output__out[7] = _measurements_block___5_basic_measurements__join___out[7];
+    _relay_5_rate_transition1_output__out[8] = _measurements_block___5_basic_measurements__join___out[8];
+    // Generated from the component: Relay-12.Logical operator1
+    _relay_12_logical_operator1__out = !_relay_12_comparator1__out;
+    // Generated from the component: Relay-12.Trip
+    HIL_OutAO(0x2024, (float)_relay_12_comparator1__out);
+    // Generated from the component: Relay-13.Logical operator1
+    _relay_13_logical_operator1__out = !_relay_13_comparator1__out;
+    // Generated from the component: Relay-13.Trip
+    HIL_OutAO(0x2036, (float)_relay_13_comparator1__out);
+    // Generated from the component: Relay-14.Logical operator1
+    _relay_14_logical_operator1__out = !_relay_14_comparator1__out;
+    // Generated from the component: Relay-14.Trip
+    HIL_OutAO(0x2048, (float)_relay_14_comparator1__out);
+    // Generated from the component: Relay-4.Logical operator1
+    _relay_4_logical_operator1__out = !_relay_4_comparator1__out;
+    // Generated from the component: Relay-4.Trip
+    HIL_OutAO(0x205a, (float)_relay_4_comparator1__out);
+    // Generated from the component: Relay-5.Logical operator1
+    _relay_5_logical_operator1__out = !_relay_5_comparator1__out;
+    // Generated from the component: Relay-5.Trip
+    HIL_OutAO(0x206c, (float)_relay_5_comparator1__out);
+    // Generated from the component: VA9
+    HIL_OutAO(0x2070, (float)_gain10__out);
+    // Generated from the component: VA6
+    HIL_OutAO(0x206e, (float)_gain5__out);
+    // Generated from the component: VA1
+    HIL_OutAO(0x206d, (float)_gain7__out);
+    // Generated from the component: VA8
+    HIL_OutAO(0x206f, (float)_gain8__out);
+    // Generated from the component: S12.CTC_Wrapper
+    if (_relay_12_logical_operator1__out == 0x0) {
+        HIL_OutInt32(0x8640480, 0x0);
+    }
+    else {
+        HIL_OutInt32(0x8640480, 0x1);
+    }
+    // Generated from the component: S13.CTC_Wrapper
+    if (_relay_13_logical_operator1__out == 0x0) {
+        HIL_OutInt32(0x8240480, 0x0);
+    }
+    else {
+        HIL_OutInt32(0x8240480, 0x1);
+    }
+    // Generated from the component: S14.CTC_Wrapper
+    if (_relay_14_logical_operator1__out == 0x0) {
+        HIL_OutInt32(0x8e40480, 0x0);
+    }
+    else {
+        HIL_OutInt32(0x8e40480, 0x1);
+    }
+    // Generated from the component: S4.CTC_Wrapper
+    if (_relay_4_logical_operator1__out == 0x0) {
+        HIL_OutInt32(0x8a40481, 0x0);
+    }
+    else {
+        HIL_OutInt32(0x8a40481, 0x1);
+    }
+    // Generated from the component: S5.CTC_Wrapper
+    if (_relay_5_logical_operator1__out == 0x0) {
+        HIL_OutInt32(0x8a40482, 0x0);
+    }
+    else {
+        HIL_OutInt32(0x8a40482, 0x1);
+    }
+    //@cmp.out.block.end
+    //////////////////////////////////////////////////////////////////////////
+    // Update block
+    //////////////////////////////////////////////////////////////////////////
+    //@cmp.update.block.start
+    // Generated from the component: Relay-12.Comparator1
+    if (_relay_12_rate_transition2_output__out < _relay_12_constant1__out) {
+        _relay_12_comparator1__state = 0;
+    } else if (_relay_12_rate_transition2_output__out > _relay_12_constant1__out) {
+        _relay_12_comparator1__state = 1;
+    }
+    // Generated from the component: Relay-13.Comparator1
+    if (_relay_13_rate_transition2_output__out < _relay_13_constant1__out) {
+        _relay_13_comparator1__state = 0;
+    } else if (_relay_13_rate_transition2_output__out > _relay_13_constant1__out) {
+        _relay_13_comparator1__state = 1;
+    }
+    // Generated from the component: Relay-14.Comparator1
+    if (_relay_14_rate_transition2_output__out < _relay_14_constant1__out) {
+        _relay_14_comparator1__state = 0;
+    } else if (_relay_14_rate_transition2_output__out > _relay_14_constant1__out) {
+        _relay_14_comparator1__state = 1;
+    }
+    // Generated from the component: Relay-4.Comparator1
+    if (_relay_4_rate_transition2_output__out < _relay_4_constant1__out) {
+        _relay_4_comparator1__state = 0;
+    } else if (_relay_4_rate_transition2_output__out > _relay_4_constant1__out) {
+        _relay_4_comparator1__state = 1;
+    }
+    // Generated from the component: Relay-5.Comparator1
+    if (_relay_5_rate_transition2_output__out < _relay_5_constant1__out) {
+        _relay_5_comparator1__state = 0;
+    } else if (_relay_5_rate_transition2_output__out > _relay_5_constant1__out) {
+        _relay_5_comparator1__state = 1;
+    }
+    //@cmp.update.block.end
+}
+void TimerCounterHandler_1_user_sp_cpu0_dev0() {
+#if DEBUG_MODE
+    printf("\n\rTimerCounterHandler_1");
+#endif
+    //////////////////////////////////////////////////////////////////////////
+    // Set tunable parameters
+    //////////////////////////////////////////////////////////////////////////
+    // Generated from the component: Relay-12.Function (67P).CTp
+    // Generated from the component: Relay-12.Function (67P).Constant1
+    // Generated from the component: Relay-12.Function (67P).Constant2
+    // Generated from the component: Relay-12.Function (67P).Constant3
+    // Generated from the component: Relay-12.Function (67P).Constant4
+    // Generated from the component: Relay-12.Function (67P).Constant6
+    // Generated from the component: Relay-12.Function (67P).Constant7
+    // Generated from the component: Relay-13.Function (67P).CTp
+    // Generated from the component: Relay-13.Function (67P).Constant1
+    // Generated from the component: Relay-13.Function (67P).Constant2
+    // Generated from the component: Relay-13.Function (67P).Constant3
+    // Generated from the component: Relay-13.Function (67P).Constant4
+    // Generated from the component: Relay-13.Function (67P).Constant6
+    // Generated from the component: Relay-13.Function (67P).Constant7
+    // Generated from the component: Relay-14.Function (67P).CTp
+    // Generated from the component: Relay-14.Function (67P).Constant1
+    // Generated from the component: Relay-14.Function (67P).Constant2
+    // Generated from the component: Relay-14.Function (67P).Constant3
+    // Generated from the component: Relay-14.Function (67P).Constant4
+    // Generated from the component: Relay-14.Function (67P).Constant6
+    // Generated from the component: Relay-14.Function (67P).Constant7
+    // Generated from the component: Relay-4.Function (67P).CTp
+    // Generated from the component: Relay-4.Function (67P).Constant1
+    // Generated from the component: Relay-4.Function (67P).Constant2
+    // Generated from the component: Relay-4.Function (67P).Constant3
+    // Generated from the component: Relay-4.Function (67P).Constant4
+    // Generated from the component: Relay-4.Function (67P).Constant6
+    // Generated from the component: Relay-4.Function (67P).Constant7
+    // Generated from the component: Relay-5.Function (67P).CTp
+    // Generated from the component: Relay-5.Function (67P).Constant1
+    // Generated from the component: Relay-5.Function (67P).Constant2
+    // Generated from the component: Relay-5.Function (67P).Constant3
+    // Generated from the component: Relay-5.Function (67P).Constant4
+    // Generated from the component: Relay-5.Function (67P).Constant6
+    // Generated from the component: Relay-5.Function (67P).Constant7
+    //////////////////////////////////////////////////////////////////////////
+    // Output block
+    //////////////////////////////////////////////////////////////////////////
+    //@cmp.out.block.start
+    // Generated from the component: Relay-12.Function (67P).CTp
+    // Generated from the component: Relay-12.Function (67P).Constant1
+    // Generated from the component: Relay-12.Function (67P).Constant2
+    // Generated from the component: Relay-12.Function (67P).Constant3
+    // Generated from the component: Relay-12.Function (67P).Constant4
+    // Generated from the component: Relay-12.Function (67P).Constant6
+    // Generated from the component: Relay-12.Function (67P).Constant7
+    // Generated from the component: Relay-12.Function (67P).DT
+    _relay_12_function__67p__dt__out = XIo_InFloat(0x550001e4);
+    // Generated from the component: Relay-12.Function (67P).Enable
+    _relay_12_function__67p__enable__out = XIo_InInt32(0x550001e8);
+    // Generated from the component: Relay-12.Function (67P).I_Pick_Up
+    _relay_12_function__67p__i_pick_up__out = XIo_InFloat(0x550001ec);
+    // Generated from the component: Relay-12.Function (67P).Reset
+    _relay_12_function__67p__reset__out = XIo_InFloat(0x550001f0);
+    // Generated from the component: Relay-12.Function (67P).Sinusoidal Source3
+    _relay_12_function__67p__sinusoidal_source3__out = (1.0 * sin(2.0f * M_PI * _relay_12_function__67p__sinusoidal_source3__current_phase) + 0.0);
+    // Generated from the component: Relay-12.Function (67P).TMS
+    _relay_12_function__67p__tms__out = XIo_InFloat(0x550001f4);
+    // Generated from the component: Relay-13.Function (67P).CTp
+    // Generated from the component: Relay-13.Function (67P).Constant1
+    // Generated from the component: Relay-13.Function (67P).Constant2
+    // Generated from the component: Relay-13.Function (67P).Constant3
+    // Generated from the component: Relay-13.Function (67P).Constant4
+    // Generated from the component: Relay-13.Function (67P).Constant6
+    // Generated from the component: Relay-13.Function (67P).Constant7
+    // Generated from the component: Relay-13.Function (67P).DT
+    _relay_13_function__67p__dt__out = XIo_InFloat(0x550001f8);
+    // Generated from the component: Relay-13.Function (67P).Enable
+    _relay_13_function__67p__enable__out = XIo_InInt32(0x550001fc);
+    // Generated from the component: Relay-13.Function (67P).I_Pick_Up
+    _relay_13_function__67p__i_pick_up__out = XIo_InFloat(0x55000200);
+    // Generated from the component: Relay-13.Function (67P).Reset
+    _relay_13_function__67p__reset__out = XIo_InFloat(0x55000204);
+    // Generated from the component: Relay-13.Function (67P).Sinusoidal Source3
+    _relay_13_function__67p__sinusoidal_source3__out = (1.0 * sin(2.0f * M_PI * _relay_13_function__67p__sinusoidal_source3__current_phase) + 0.0);
+    // Generated from the component: Relay-13.Function (67P).TMS
+    _relay_13_function__67p__tms__out = XIo_InFloat(0x55000208);
+    // Generated from the component: Relay-14.Function (67P).CTp
+    // Generated from the component: Relay-14.Function (67P).Constant1
+    // Generated from the component: Relay-14.Function (67P).Constant2
+    // Generated from the component: Relay-14.Function (67P).Constant3
+    // Generated from the component: Relay-14.Function (67P).Constant4
+    // Generated from the component: Relay-14.Function (67P).Constant6
+    // Generated from the component: Relay-14.Function (67P).Constant7
+    // Generated from the component: Relay-14.Function (67P).DT
+    _relay_14_function__67p__dt__out = XIo_InFloat(0x5500020c);
+    // Generated from the component: Relay-14.Function (67P).Enable
+    _relay_14_function__67p__enable__out = XIo_InInt32(0x55000210);
+    // Generated from the component: Relay-14.Function (67P).I_Pick_Up
+    _relay_14_function__67p__i_pick_up__out = XIo_InFloat(0x55000214);
+    // Generated from the component: Relay-14.Function (67P).Reset
+    _relay_14_function__67p__reset__out = XIo_InFloat(0x55000218);
+    // Generated from the component: Relay-14.Function (67P).Sinusoidal Source3
+    _relay_14_function__67p__sinusoidal_source3__out = (1.0 * sin(2.0f * M_PI * _relay_14_function__67p__sinusoidal_source3__current_phase) + 0.0);
+    // Generated from the component: Relay-14.Function (67P).TMS
+    _relay_14_function__67p__tms__out = XIo_InFloat(0x5500021c);
+    // Generated from the component: Relay-4.Function (67P).CTp
+    // Generated from the component: Relay-4.Function (67P).Constant1
+    // Generated from the component: Relay-4.Function (67P).Constant2
+    // Generated from the component: Relay-4.Function (67P).Constant3
+    // Generated from the component: Relay-4.Function (67P).Constant4
+    // Generated from the component: Relay-4.Function (67P).Constant6
+    // Generated from the component: Relay-4.Function (67P).Constant7
+    // Generated from the component: Relay-4.Function (67P).DT
+    _relay_4_function__67p__dt__out = XIo_InFloat(0x55000220);
+    // Generated from the component: Relay-4.Function (67P).Enable
+    _relay_4_function__67p__enable__out = XIo_InInt32(0x55000224);
+    // Generated from the component: Relay-4.Function (67P).I_Pick_Up
+    _relay_4_function__67p__i_pick_up__out = XIo_InFloat(0x55000228);
+    // Generated from the component: Relay-4.Function (67P).Reset
+    _relay_4_function__67p__reset__out = XIo_InFloat(0x5500022c);
+    // Generated from the component: Relay-4.Function (67P).Sinusoidal Source3
+    _relay_4_function__67p__sinusoidal_source3__out = (1.0 * sin(2.0f * M_PI * _relay_4_function__67p__sinusoidal_source3__current_phase) + 0.0);
+    // Generated from the component: Relay-4.Function (67P).TMS
+    _relay_4_function__67p__tms__out = XIo_InFloat(0x55000230);
+    // Generated from the component: Relay-5.Function (67P).CTp
+    // Generated from the component: Relay-5.Function (67P).Constant1
+    // Generated from the component: Relay-5.Function (67P).Constant2
+    // Generated from the component: Relay-5.Function (67P).Constant3
+    // Generated from the component: Relay-5.Function (67P).Constant4
+    // Generated from the component: Relay-5.Function (67P).Constant6
+    // Generated from the component: Relay-5.Function (67P).Constant7
+    // Generated from the component: Relay-5.Function (67P).DT
+    _relay_5_function__67p__dt__out = XIo_InFloat(0x55000234);
+    // Generated from the component: Relay-5.Function (67P).Enable
+    _relay_5_function__67p__enable__out = XIo_InInt32(0x55000238);
+    // Generated from the component: Relay-5.Function (67P).I_Pick_Up
+    _relay_5_function__67p__i_pick_up__out = XIo_InFloat(0x5500023c);
+    // Generated from the component: Relay-5.Function (67P).Reset
+    _relay_5_function__67p__reset__out = XIo_InFloat(0x55000240);
+    // Generated from the component: Relay-5.Function (67P).Sinusoidal Source3
+    _relay_5_function__67p__sinusoidal_source3__out = (1.0 * sin(2.0f * M_PI * _relay_5_function__67p__sinusoidal_source3__current_phase) + 0.0);
+    // Generated from the component: Relay-5.Function (67P).TMS
+    _relay_5_function__67p__tms__out = XIo_InFloat(0x55000244);
+    // Generated from the component: Relay-12.Function (67P).CTp_Stt
+    HIL_OutAO(0x2013, (float)_relay_12_function__67p__ctp__out);
+    // Generated from the component: Relay-12.Function (67P).RCA
+    HIL_OutAO(0x201d, (float)_relay_12_function__67p__constant7__out);
+    // Generated from the component: Relay-12.Function (67P).DT_Stt
+    HIL_OutAO(0x2014, (float)_relay_12_function__67p__dt__out);
+    // Generated from the component: Relay-12.Function (67P).I_PKU
+    HIL_OutAO(0x201c, (float)_relay_12_function__67p__i_pick_up__out);
+    // Generated from the component: Relay-12.Function (67P).RS
+    HIL_OutAO(0x201e, (float)_relay_12_function__67p__reset__out);
+    // Generated from the component: Relay-12.Function (67P).TMS_Stt
+    HIL_OutAO(0x201f, (float)_relay_12_function__67p__tms__out);
+    // Generated from the component: Relay-12.Function (67P).Basic Measurements (Split)
+    _relay_12_function__67p__basic_measurements__split___out = _relay_12_rate_transition1_output__out[0];
+    _relay_12_function__67p__basic_measurements__split___out1 = _relay_12_rate_transition1_output__out[1];
+    _relay_12_function__67p__basic_measurements__split___out2 = _relay_12_rate_transition1_output__out[2];
+    _relay_12_function__67p__basic_measurements__split___out3 = _relay_12_rate_transition1_output__out[3];
+    _relay_12_function__67p__basic_measurements__split___out4 = _relay_12_rate_transition1_output__out[4];
+    _relay_12_function__67p__basic_measurements__split___out5 = _relay_12_rate_transition1_output__out[5];
+    _relay_12_function__67p__basic_measurements__split___out6 = _relay_12_rate_transition1_output__out[6];
+    _relay_12_function__67p__basic_measurements__split___out7 = _relay_12_rate_transition1_output__out[7];
+    _relay_12_function__67p__basic_measurements__split___out8 = _relay_12_rate_transition1_output__out[8];
+    // Generated from the component: Relay-13.Function (67P).CTp_Stt
+    HIL_OutAO(0x2025, (float)_relay_13_function__67p__ctp__out);
+    // Generated from the component: Relay-13.Function (67P).RCA
+    HIL_OutAO(0x202f, (float)_relay_13_function__67p__constant7__out);
+    // Generated from the component: Relay-13.Function (67P).DT_Stt
+    HIL_OutAO(0x2026, (float)_relay_13_function__67p__dt__out);
+    // Generated from the component: Relay-13.Function (67P).I_PKU
+    HIL_OutAO(0x202e, (float)_relay_13_function__67p__i_pick_up__out);
+    // Generated from the component: Relay-13.Function (67P).RS
+    HIL_OutAO(0x2030, (float)_relay_13_function__67p__reset__out);
+    // Generated from the component: Relay-13.Function (67P).TMS_Stt
+    HIL_OutAO(0x2031, (float)_relay_13_function__67p__tms__out);
+    // Generated from the component: Relay-13.Function (67P).Basic Measurements (Split)
+    _relay_13_function__67p__basic_measurements__split___out = _relay_13_rate_transition1_output__out[0];
+    _relay_13_function__67p__basic_measurements__split___out1 = _relay_13_rate_transition1_output__out[1];
+    _relay_13_function__67p__basic_measurements__split___out2 = _relay_13_rate_transition1_output__out[2];
+    _relay_13_function__67p__basic_measurements__split___out3 = _relay_13_rate_transition1_output__out[3];
+    _relay_13_function__67p__basic_measurements__split___out4 = _relay_13_rate_transition1_output__out[4];
+    _relay_13_function__67p__basic_measurements__split___out5 = _relay_13_rate_transition1_output__out[5];
+    _relay_13_function__67p__basic_measurements__split___out6 = _relay_13_rate_transition1_output__out[6];
+    _relay_13_function__67p__basic_measurements__split___out7 = _relay_13_rate_transition1_output__out[7];
+    _relay_13_function__67p__basic_measurements__split___out8 = _relay_13_rate_transition1_output__out[8];
+    // Generated from the component: Relay-14.Function (67P).CTp_Stt
+    HIL_OutAO(0x2037, (float)_relay_14_function__67p__ctp__out);
+    // Generated from the component: Relay-14.Function (67P).RCA
+    HIL_OutAO(0x2041, (float)_relay_14_function__67p__constant7__out);
+    // Generated from the component: Relay-14.Function (67P).DT_Stt
+    HIL_OutAO(0x2038, (float)_relay_14_function__67p__dt__out);
+    // Generated from the component: Relay-14.Function (67P).I_PKU
+    HIL_OutAO(0x2040, (float)_relay_14_function__67p__i_pick_up__out);
+    // Generated from the component: Relay-14.Function (67P).RS
+    HIL_OutAO(0x2042, (float)_relay_14_function__67p__reset__out);
+    // Generated from the component: Relay-14.Function (67P).TMS_Stt
+    HIL_OutAO(0x2043, (float)_relay_14_function__67p__tms__out);
+    // Generated from the component: Relay-14.Function (67P).Basic Measurements (Split)
+    _relay_14_function__67p__basic_measurements__split___out = _relay_14_rate_transition1_output__out[0];
+    _relay_14_function__67p__basic_measurements__split___out1 = _relay_14_rate_transition1_output__out[1];
+    _relay_14_function__67p__basic_measurements__split___out2 = _relay_14_rate_transition1_output__out[2];
+    _relay_14_function__67p__basic_measurements__split___out3 = _relay_14_rate_transition1_output__out[3];
+    _relay_14_function__67p__basic_measurements__split___out4 = _relay_14_rate_transition1_output__out[4];
+    _relay_14_function__67p__basic_measurements__split___out5 = _relay_14_rate_transition1_output__out[5];
+    _relay_14_function__67p__basic_measurements__split___out6 = _relay_14_rate_transition1_output__out[6];
+    _relay_14_function__67p__basic_measurements__split___out7 = _relay_14_rate_transition1_output__out[7];
+    _relay_14_function__67p__basic_measurements__split___out8 = _relay_14_rate_transition1_output__out[8];
+    // Generated from the component: Relay-4.Function (67P).CTp_Stt
+    HIL_OutAO(0x2049, (float)_relay_4_function__67p__ctp__out);
+    // Generated from the component: Relay-4.Function (67P).RCA
+    HIL_OutAO(0x2053, (float)_relay_4_function__67p__constant7__out);
+    // Generated from the component: Relay-4.Function (67P).DT_Stt
+    HIL_OutAO(0x204a, (float)_relay_4_function__67p__dt__out);
+    // Generated from the component: Relay-4.Function (67P).I_PKU
+    HIL_OutAO(0x2052, (float)_relay_4_function__67p__i_pick_up__out);
+    // Generated from the component: Relay-4.Function (67P).RS
+    HIL_OutAO(0x2054, (float)_relay_4_function__67p__reset__out);
+    // Generated from the component: Relay-4.Function (67P).TMS_Stt
+    HIL_OutAO(0x2055, (float)_relay_4_function__67p__tms__out);
+    // Generated from the component: Relay-4.Function (67P).Basic Measurements (Split)
+    _relay_4_function__67p__basic_measurements__split___out = _relay_4_rate_transition1_output__out[0];
+    _relay_4_function__67p__basic_measurements__split___out1 = _relay_4_rate_transition1_output__out[1];
+    _relay_4_function__67p__basic_measurements__split___out2 = _relay_4_rate_transition1_output__out[2];
+    _relay_4_function__67p__basic_measurements__split___out3 = _relay_4_rate_transition1_output__out[3];
+    _relay_4_function__67p__basic_measurements__split___out4 = _relay_4_rate_transition1_output__out[4];
+    _relay_4_function__67p__basic_measurements__split___out5 = _relay_4_rate_transition1_output__out[5];
+    _relay_4_function__67p__basic_measurements__split___out6 = _relay_4_rate_transition1_output__out[6];
+    _relay_4_function__67p__basic_measurements__split___out7 = _relay_4_rate_transition1_output__out[7];
+    _relay_4_function__67p__basic_measurements__split___out8 = _relay_4_rate_transition1_output__out[8];
+    // Generated from the component: Relay-5.Function (67P).CTp_Stt
+    HIL_OutAO(0x205b, (float)_relay_5_function__67p__ctp__out);
+    // Generated from the component: Relay-5.Function (67P).RCA
+    HIL_OutAO(0x2065, (float)_relay_5_function__67p__constant7__out);
+    // Generated from the component: Relay-5.Function (67P).DT_Stt
+    HIL_OutAO(0x205c, (float)_relay_5_function__67p__dt__out);
+    // Generated from the component: Relay-5.Function (67P).I_PKU
+    HIL_OutAO(0x2064, (float)_relay_5_function__67p__i_pick_up__out);
+    // Generated from the component: Relay-5.Function (67P).RS
+    HIL_OutAO(0x2066, (float)_relay_5_function__67p__reset__out);
+    // Generated from the component: Relay-5.Function (67P).TMS_Stt
+    HIL_OutAO(0x2067, (float)_relay_5_function__67p__tms__out);
+    // Generated from the component: Relay-5.Function (67P).Basic Measurements (Split)
+    _relay_5_function__67p__basic_measurements__split___out = _relay_5_rate_transition1_output__out[0];
+    _relay_5_function__67p__basic_measurements__split___out1 = _relay_5_rate_transition1_output__out[1];
+    _relay_5_function__67p__basic_measurements__split___out2 = _relay_5_rate_transition1_output__out[2];
+    _relay_5_function__67p__basic_measurements__split___out3 = _relay_5_rate_transition1_output__out[3];
+    _relay_5_function__67p__basic_measurements__split___out4 = _relay_5_rate_transition1_output__out[4];
+    _relay_5_function__67p__basic_measurements__split___out5 = _relay_5_rate_transition1_output__out[5];
+    _relay_5_function__67p__basic_measurements__split___out6 = _relay_5_rate_transition1_output__out[6];
+    _relay_5_function__67p__basic_measurements__split___out7 = _relay_5_rate_transition1_output__out[7];
+    _relay_5_function__67p__basic_measurements__split___out8 = _relay_5_rate_transition1_output__out[8];
+    // Generated from the component: Relay-12.Function (67P).I_A(RMS)
+    HIL_OutAO(0x2016, (float)_relay_12_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-12.Function (67P).I_B(RMS)
+    HIL_OutAO(0x2018, (float)_relay_12_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-12.Function (67P).I_C(RMS)
+    HIL_OutAO(0x201a, (float)_relay_12_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-12.Function (67P).Phase Difference1
+    _relay_12_function__67p__phase_difference1__phase_diff = _relay_12_function__67p__phase_difference1__phase_state;
+    // Generated from the component: Relay-12.Function (67P).Phase Difference2
+    _relay_12_function__67p__phase_difference2__phase_diff = _relay_12_function__67p__phase_difference2__phase_state;
+    // Generated from the component: Relay-12.Function (67P).Phase Difference3
+    _relay_12_function__67p__phase_difference3__phase_diff = _relay_12_function__67p__phase_difference3__phase_state;
+    // Generated from the component: Relay-12.Function (67P).Phase Difference4
+    _relay_12_function__67p__phase_difference4__phase_diff = _relay_12_function__67p__phase_difference4__phase_state;
+    // Generated from the component: Relay-12.Function (67P).Phase Difference5
+    _relay_12_function__67p__phase_difference5__phase_diff = _relay_12_function__67p__phase_difference5__phase_state;
+    // Generated from the component: Relay-12.Function (67P).Phase Difference6
+    _relay_12_function__67p__phase_difference6__phase_diff = _relay_12_function__67p__phase_difference6__phase_state;
+    // Generated from the component: Relay-13.Function (67P).I_A(RMS)
+    HIL_OutAO(0x2028, (float)_relay_13_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-13.Function (67P).I_B(RMS)
+    HIL_OutAO(0x202a, (float)_relay_13_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-13.Function (67P).I_C(RMS)
+    HIL_OutAO(0x202c, (float)_relay_13_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-13.Function (67P).Phase Difference1
+    _relay_13_function__67p__phase_difference1__phase_diff = _relay_13_function__67p__phase_difference1__phase_state;
+    // Generated from the component: Relay-13.Function (67P).Phase Difference2
+    _relay_13_function__67p__phase_difference2__phase_diff = _relay_13_function__67p__phase_difference2__phase_state;
+    // Generated from the component: Relay-13.Function (67P).Phase Difference3
+    _relay_13_function__67p__phase_difference3__phase_diff = _relay_13_function__67p__phase_difference3__phase_state;
+    // Generated from the component: Relay-13.Function (67P).Phase Difference4
+    _relay_13_function__67p__phase_difference4__phase_diff = _relay_13_function__67p__phase_difference4__phase_state;
+    // Generated from the component: Relay-13.Function (67P).Phase Difference5
+    _relay_13_function__67p__phase_difference5__phase_diff = _relay_13_function__67p__phase_difference5__phase_state;
+    // Generated from the component: Relay-13.Function (67P).Phase Difference6
+    _relay_13_function__67p__phase_difference6__phase_diff = _relay_13_function__67p__phase_difference6__phase_state;
+    // Generated from the component: Relay-14.Function (67P).I_A(RMS)
+    HIL_OutAO(0x203a, (float)_relay_14_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-14.Function (67P).I_B(RMS)
+    HIL_OutAO(0x203c, (float)_relay_14_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-14.Function (67P).I_C(RMS)
+    HIL_OutAO(0x203e, (float)_relay_14_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-14.Function (67P).Phase Difference1
+    _relay_14_function__67p__phase_difference1__phase_diff = _relay_14_function__67p__phase_difference1__phase_state;
+    // Generated from the component: Relay-14.Function (67P).Phase Difference2
+    _relay_14_function__67p__phase_difference2__phase_diff = _relay_14_function__67p__phase_difference2__phase_state;
+    // Generated from the component: Relay-14.Function (67P).Phase Difference3
+    _relay_14_function__67p__phase_difference3__phase_diff = _relay_14_function__67p__phase_difference3__phase_state;
+    // Generated from the component: Relay-14.Function (67P).Phase Difference4
+    _relay_14_function__67p__phase_difference4__phase_diff = _relay_14_function__67p__phase_difference4__phase_state;
+    // Generated from the component: Relay-14.Function (67P).Phase Difference5
+    _relay_14_function__67p__phase_difference5__phase_diff = _relay_14_function__67p__phase_difference5__phase_state;
+    // Generated from the component: Relay-14.Function (67P).Phase Difference6
+    _relay_14_function__67p__phase_difference6__phase_diff = _relay_14_function__67p__phase_difference6__phase_state;
+    // Generated from the component: Relay-4.Function (67P).I_A(RMS)
+    HIL_OutAO(0x204c, (float)_relay_4_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-4.Function (67P).I_B(RMS)
+    HIL_OutAO(0x204e, (float)_relay_4_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-4.Function (67P).I_C(RMS)
+    HIL_OutAO(0x2050, (float)_relay_4_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-4.Function (67P).Phase Difference1
+    _relay_4_function__67p__phase_difference1__phase_diff = _relay_4_function__67p__phase_difference1__phase_state;
+    // Generated from the component: Relay-4.Function (67P).Phase Difference2
+    _relay_4_function__67p__phase_difference2__phase_diff = _relay_4_function__67p__phase_difference2__phase_state;
+    // Generated from the component: Relay-4.Function (67P).Phase Difference3
+    _relay_4_function__67p__phase_difference3__phase_diff = _relay_4_function__67p__phase_difference3__phase_state;
+    // Generated from the component: Relay-4.Function (67P).Phase Difference4
+    _relay_4_function__67p__phase_difference4__phase_diff = _relay_4_function__67p__phase_difference4__phase_state;
+    // Generated from the component: Relay-4.Function (67P).Phase Difference5
+    _relay_4_function__67p__phase_difference5__phase_diff = _relay_4_function__67p__phase_difference5__phase_state;
+    // Generated from the component: Relay-4.Function (67P).Phase Difference6
+    _relay_4_function__67p__phase_difference6__phase_diff = _relay_4_function__67p__phase_difference6__phase_state;
+    // Generated from the component: Relay-5.Function (67P).I_A(RMS)
+    HIL_OutAO(0x205e, (float)_relay_5_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-5.Function (67P).I_B(RMS)
+    HIL_OutAO(0x2060, (float)_relay_5_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-5.Function (67P).I_C(RMS)
+    HIL_OutAO(0x2062, (float)_relay_5_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-5.Function (67P).Phase Difference1
+    _relay_5_function__67p__phase_difference1__phase_diff = _relay_5_function__67p__phase_difference1__phase_state;
+    // Generated from the component: Relay-5.Function (67P).Phase Difference2
+    _relay_5_function__67p__phase_difference2__phase_diff = _relay_5_function__67p__phase_difference2__phase_state;
+    // Generated from the component: Relay-5.Function (67P).Phase Difference3
+    _relay_5_function__67p__phase_difference3__phase_diff = _relay_5_function__67p__phase_difference3__phase_state;
+    // Generated from the component: Relay-5.Function (67P).Phase Difference4
+    _relay_5_function__67p__phase_difference4__phase_diff = _relay_5_function__67p__phase_difference4__phase_state;
+    // Generated from the component: Relay-5.Function (67P).Phase Difference5
+    _relay_5_function__67p__phase_difference5__phase_diff = _relay_5_function__67p__phase_difference5__phase_state;
+    // Generated from the component: Relay-5.Function (67P).Phase Difference6
+    _relay_5_function__67p__phase_difference6__phase_diff = _relay_5_function__67p__phase_difference6__phase_state;
+    // Generated from the component: Relay-12.Function (67P).V_BC_(Angle)
+    HIL_OutAO(0x2021, (float)_relay_12_function__67p__phase_difference1__phase_diff);
+    // Generated from the component: Relay-12.Function (67P).I_C_(Angle)
+    HIL_OutAO(0x201b, (float)_relay_12_function__67p__phase_difference2__phase_diff);
+    // Generated from the component: Relay-12.Function (67P).I_B_(Angle)
+    HIL_OutAO(0x2019, (float)_relay_12_function__67p__phase_difference3__phase_diff);
+    // Generated from the component: Relay-12.Function (67P).I_A_(Angle)
+    HIL_OutAO(0x2017, (float)_relay_12_function__67p__phase_difference4__phase_diff);
+    // Generated from the component: Relay-12.Function (67P).V_CA_(Angle)
+    HIL_OutAO(0x2022, (float)_relay_12_function__67p__phase_difference5__phase_diff);
+    // Generated from the component: Relay-12.Function (67P).C function (Directional Protection)
+    _relay_12_function__67p__c_function__directional_protection___I_a = _relay_12_function__67p__phase_difference4__phase_diff;
+    _relay_12_function__67p__c_function__directional_protection___I_b = _relay_12_function__67p__phase_difference3__phase_diff;
+    _relay_12_function__67p__c_function__directional_protection___I_c = _relay_12_function__67p__phase_difference2__phase_diff;
+    _relay_12_function__67p__c_function__directional_protection___RCA = _relay_12_function__67p__constant7__out;
+    _relay_12_function__67p__c_function__directional_protection___Reset = _relay_12_function__67p__reset__out;
+    _relay_12_function__67p__c_function__directional_protection___V_ab = _relay_12_function__67p__phase_difference6__phase_diff;
+    _relay_12_function__67p__c_function__directional_protection___V_bc = _relay_12_function__67p__phase_difference1__phase_diff;
+    _relay_12_function__67p__c_function__directional_protection___V_ca = _relay_12_function__67p__phase_difference5__phase_diff;
+    _relay_12_function__67p__c_function__directional_protection___vec[0] = _relay_12_function__67p__c_function__directional_protection___V_bc;
+    _relay_12_function__67p__c_function__directional_protection___vec[1] = _relay_12_function__67p__c_function__directional_protection___V_ca;
+    _relay_12_function__67p__c_function__directional_protection___vec[2] = _relay_12_function__67p__c_function__directional_protection___V_ab;
+    _relay_12_function__67p__c_function__directional_protection___vec[3] = _relay_12_function__67p__c_function__directional_protection___I_a;
+    _relay_12_function__67p__c_function__directional_protection___vec[4] = _relay_12_function__67p__c_function__directional_protection___I_b;
+    _relay_12_function__67p__c_function__directional_protection___vec[5] = _relay_12_function__67p__c_function__directional_protection___I_c;
+    if ((X_Int32)_relay_12_function__67p__c_function__directional_protection___Reset == 1) {
+        _relay_12_function__67p__c_function__directional_protection___Flag = 0;
+    }
+    else {
+        for (_relay_12_function__67p__c_function__directional_protection___i = 0; _relay_12_function__67p__c_function__directional_protection___i < 3; _relay_12_function__67p__c_function__directional_protection___i++) {
+            if (_relay_12_function__67p__c_function__directional_protection___vec[_relay_12_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_12_function__67p__c_function__directional_protection___vec[_relay_12_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if (_relay_12_function__67p__c_function__directional_protection___vec[_relay_12_function__67p__c_function__directional_protection___i + 3] < 0) {
+                _relay_12_function__67p__c_function__directional_protection___vec[_relay_12_function__67p__c_function__directional_protection___i + 3] += 360;
+            }
+            _relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] = _relay_12_function__67p__c_function__directional_protection___vec[_relay_12_function__67p__c_function__directional_protection___i] - _relay_12_function__67p__c_function__directional_protection___vec[_relay_12_function__67p__c_function__directional_protection___i + 3] + _relay_12_function__67p__c_function__directional_protection___RCA;
+            if (_relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] > 360) {
+                _relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] -= 360;
+            }
+            if (_relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if ((_relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] >= 270 && _relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] < 360) || (_relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] >= 0 && _relay_12_function__67p__c_function__directional_protection___val[_relay_12_function__67p__c_function__directional_protection___i] <= 90)) {
+                _relay_12_function__67p__c_function__directional_protection___Flag = 1;
+                break ;
+            }
+            else {
+                _relay_12_function__67p__c_function__directional_protection___Flag = 0;
+            }
+        }
+    }
+    _relay_12_function__67p__c_function__directional_protection___Directional_Trip = _relay_12_function__67p__c_function__directional_protection___Flag;
+    // Generated from the component: Relay-12.Function (67P).V_AB_(Angle)
+    HIL_OutAO(0x2020, (float)_relay_12_function__67p__phase_difference6__phase_diff);
+    // Generated from the component: Relay-13.Function (67P).V_BC_(Angle)
+    HIL_OutAO(0x2033, (float)_relay_13_function__67p__phase_difference1__phase_diff);
+    // Generated from the component: Relay-13.Function (67P).I_C_(Angle)
+    HIL_OutAO(0x202d, (float)_relay_13_function__67p__phase_difference2__phase_diff);
+    // Generated from the component: Relay-13.Function (67P).I_B_(Angle)
+    HIL_OutAO(0x202b, (float)_relay_13_function__67p__phase_difference3__phase_diff);
+    // Generated from the component: Relay-13.Function (67P).I_A_(Angle)
+    HIL_OutAO(0x2029, (float)_relay_13_function__67p__phase_difference4__phase_diff);
+    // Generated from the component: Relay-13.Function (67P).V_CA_(Angle)
+    HIL_OutAO(0x2034, (float)_relay_13_function__67p__phase_difference5__phase_diff);
+    // Generated from the component: Relay-13.Function (67P).C function (Directional Protection)
+    _relay_13_function__67p__c_function__directional_protection___I_a = _relay_13_function__67p__phase_difference4__phase_diff;
+    _relay_13_function__67p__c_function__directional_protection___I_b = _relay_13_function__67p__phase_difference3__phase_diff;
+    _relay_13_function__67p__c_function__directional_protection___I_c = _relay_13_function__67p__phase_difference2__phase_diff;
+    _relay_13_function__67p__c_function__directional_protection___RCA = _relay_13_function__67p__constant7__out;
+    _relay_13_function__67p__c_function__directional_protection___Reset = _relay_13_function__67p__reset__out;
+    _relay_13_function__67p__c_function__directional_protection___V_ab = _relay_13_function__67p__phase_difference6__phase_diff;
+    _relay_13_function__67p__c_function__directional_protection___V_bc = _relay_13_function__67p__phase_difference1__phase_diff;
+    _relay_13_function__67p__c_function__directional_protection___V_ca = _relay_13_function__67p__phase_difference5__phase_diff;
+    _relay_13_function__67p__c_function__directional_protection___vec[0] = _relay_13_function__67p__c_function__directional_protection___V_bc;
+    _relay_13_function__67p__c_function__directional_protection___vec[1] = _relay_13_function__67p__c_function__directional_protection___V_ca;
+    _relay_13_function__67p__c_function__directional_protection___vec[2] = _relay_13_function__67p__c_function__directional_protection___V_ab;
+    _relay_13_function__67p__c_function__directional_protection___vec[3] = _relay_13_function__67p__c_function__directional_protection___I_a;
+    _relay_13_function__67p__c_function__directional_protection___vec[4] = _relay_13_function__67p__c_function__directional_protection___I_b;
+    _relay_13_function__67p__c_function__directional_protection___vec[5] = _relay_13_function__67p__c_function__directional_protection___I_c;
+    if ((X_Int32)_relay_13_function__67p__c_function__directional_protection___Reset == 1) {
+        _relay_13_function__67p__c_function__directional_protection___Flag = 0;
+    }
+    else {
+        for (_relay_13_function__67p__c_function__directional_protection___i = 0; _relay_13_function__67p__c_function__directional_protection___i < 3; _relay_13_function__67p__c_function__directional_protection___i++) {
+            if (_relay_13_function__67p__c_function__directional_protection___vec[_relay_13_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_13_function__67p__c_function__directional_protection___vec[_relay_13_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if (_relay_13_function__67p__c_function__directional_protection___vec[_relay_13_function__67p__c_function__directional_protection___i + 3] < 0) {
+                _relay_13_function__67p__c_function__directional_protection___vec[_relay_13_function__67p__c_function__directional_protection___i + 3] += 360;
+            }
+            _relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] = _relay_13_function__67p__c_function__directional_protection___vec[_relay_13_function__67p__c_function__directional_protection___i] - _relay_13_function__67p__c_function__directional_protection___vec[_relay_13_function__67p__c_function__directional_protection___i + 3] + _relay_13_function__67p__c_function__directional_protection___RCA;
+            if (_relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] > 360) {
+                _relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] -= 360;
+            }
+            if (_relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if ((_relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] >= 270 && _relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] < 360) || (_relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] >= 0 && _relay_13_function__67p__c_function__directional_protection___val[_relay_13_function__67p__c_function__directional_protection___i] <= 90)) {
+                _relay_13_function__67p__c_function__directional_protection___Flag = 1;
+                break ;
+            }
+            else {
+                _relay_13_function__67p__c_function__directional_protection___Flag = 0;
+            }
+        }
+    }
+    _relay_13_function__67p__c_function__directional_protection___Directional_Trip = _relay_13_function__67p__c_function__directional_protection___Flag;
+    // Generated from the component: Relay-13.Function (67P).V_AB_(Angle)
+    HIL_OutAO(0x2032, (float)_relay_13_function__67p__phase_difference6__phase_diff);
+    // Generated from the component: Relay-14.Function (67P).V_BC_(Angle)
+    HIL_OutAO(0x2045, (float)_relay_14_function__67p__phase_difference1__phase_diff);
+    // Generated from the component: Relay-14.Function (67P).I_C_(Angle)
+    HIL_OutAO(0x203f, (float)_relay_14_function__67p__phase_difference2__phase_diff);
+    // Generated from the component: Relay-14.Function (67P).I_B_(Angle)
+    HIL_OutAO(0x203d, (float)_relay_14_function__67p__phase_difference3__phase_diff);
+    // Generated from the component: Relay-14.Function (67P).I_A_(Angle)
+    HIL_OutAO(0x203b, (float)_relay_14_function__67p__phase_difference4__phase_diff);
+    // Generated from the component: Relay-14.Function (67P).V_CA_(Angle)
+    HIL_OutAO(0x2046, (float)_relay_14_function__67p__phase_difference5__phase_diff);
+    // Generated from the component: Relay-14.Function (67P).C function (Directional Protection)
+    _relay_14_function__67p__c_function__directional_protection___I_a = _relay_14_function__67p__phase_difference4__phase_diff;
+    _relay_14_function__67p__c_function__directional_protection___I_b = _relay_14_function__67p__phase_difference3__phase_diff;
+    _relay_14_function__67p__c_function__directional_protection___I_c = _relay_14_function__67p__phase_difference2__phase_diff;
+    _relay_14_function__67p__c_function__directional_protection___RCA = _relay_14_function__67p__constant7__out;
+    _relay_14_function__67p__c_function__directional_protection___Reset = _relay_14_function__67p__reset__out;
+    _relay_14_function__67p__c_function__directional_protection___V_ab = _relay_14_function__67p__phase_difference6__phase_diff;
+    _relay_14_function__67p__c_function__directional_protection___V_bc = _relay_14_function__67p__phase_difference1__phase_diff;
+    _relay_14_function__67p__c_function__directional_protection___V_ca = _relay_14_function__67p__phase_difference5__phase_diff;
+    _relay_14_function__67p__c_function__directional_protection___vec[0] = _relay_14_function__67p__c_function__directional_protection___V_bc;
+    _relay_14_function__67p__c_function__directional_protection___vec[1] = _relay_14_function__67p__c_function__directional_protection___V_ca;
+    _relay_14_function__67p__c_function__directional_protection___vec[2] = _relay_14_function__67p__c_function__directional_protection___V_ab;
+    _relay_14_function__67p__c_function__directional_protection___vec[3] = _relay_14_function__67p__c_function__directional_protection___I_a;
+    _relay_14_function__67p__c_function__directional_protection___vec[4] = _relay_14_function__67p__c_function__directional_protection___I_b;
+    _relay_14_function__67p__c_function__directional_protection___vec[5] = _relay_14_function__67p__c_function__directional_protection___I_c;
+    if ((X_Int32)_relay_14_function__67p__c_function__directional_protection___Reset == 1) {
+        _relay_14_function__67p__c_function__directional_protection___Flag = 0;
+    }
+    else {
+        for (_relay_14_function__67p__c_function__directional_protection___i = 0; _relay_14_function__67p__c_function__directional_protection___i < 3; _relay_14_function__67p__c_function__directional_protection___i++) {
+            if (_relay_14_function__67p__c_function__directional_protection___vec[_relay_14_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_14_function__67p__c_function__directional_protection___vec[_relay_14_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if (_relay_14_function__67p__c_function__directional_protection___vec[_relay_14_function__67p__c_function__directional_protection___i + 3] < 0) {
+                _relay_14_function__67p__c_function__directional_protection___vec[_relay_14_function__67p__c_function__directional_protection___i + 3] += 360;
+            }
+            _relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] = _relay_14_function__67p__c_function__directional_protection___vec[_relay_14_function__67p__c_function__directional_protection___i] - _relay_14_function__67p__c_function__directional_protection___vec[_relay_14_function__67p__c_function__directional_protection___i + 3] + _relay_14_function__67p__c_function__directional_protection___RCA;
+            if (_relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] > 360) {
+                _relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] -= 360;
+            }
+            if (_relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if ((_relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] >= 270 && _relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] < 360) || (_relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] >= 0 && _relay_14_function__67p__c_function__directional_protection___val[_relay_14_function__67p__c_function__directional_protection___i] <= 90)) {
+                _relay_14_function__67p__c_function__directional_protection___Flag = 1;
+                break ;
+            }
+            else {
+                _relay_14_function__67p__c_function__directional_protection___Flag = 0;
+            }
+        }
+    }
+    _relay_14_function__67p__c_function__directional_protection___Directional_Trip = _relay_14_function__67p__c_function__directional_protection___Flag;
+    // Generated from the component: Relay-14.Function (67P).V_AB_(Angle)
+    HIL_OutAO(0x2044, (float)_relay_14_function__67p__phase_difference6__phase_diff);
+    // Generated from the component: Relay-4.Function (67P).V_BC_(Angle)
+    HIL_OutAO(0x2057, (float)_relay_4_function__67p__phase_difference1__phase_diff);
+    // Generated from the component: Relay-4.Function (67P).I_C_(Angle)
+    HIL_OutAO(0x2051, (float)_relay_4_function__67p__phase_difference2__phase_diff);
+    // Generated from the component: Relay-4.Function (67P).I_B_(Angle)
+    HIL_OutAO(0x204f, (float)_relay_4_function__67p__phase_difference3__phase_diff);
+    // Generated from the component: Relay-4.Function (67P).I_A_(Angle)
+    HIL_OutAO(0x204d, (float)_relay_4_function__67p__phase_difference4__phase_diff);
+    // Generated from the component: Relay-4.Function (67P).V_CA_(Angle)
+    HIL_OutAO(0x2058, (float)_relay_4_function__67p__phase_difference5__phase_diff);
+    // Generated from the component: Relay-4.Function (67P).C function (Directional Protection)
+    _relay_4_function__67p__c_function__directional_protection___I_a = _relay_4_function__67p__phase_difference4__phase_diff;
+    _relay_4_function__67p__c_function__directional_protection___I_b = _relay_4_function__67p__phase_difference3__phase_diff;
+    _relay_4_function__67p__c_function__directional_protection___I_c = _relay_4_function__67p__phase_difference2__phase_diff;
+    _relay_4_function__67p__c_function__directional_protection___RCA = _relay_4_function__67p__constant7__out;
+    _relay_4_function__67p__c_function__directional_protection___Reset = _relay_4_function__67p__reset__out;
+    _relay_4_function__67p__c_function__directional_protection___V_ab = _relay_4_function__67p__phase_difference6__phase_diff;
+    _relay_4_function__67p__c_function__directional_protection___V_bc = _relay_4_function__67p__phase_difference1__phase_diff;
+    _relay_4_function__67p__c_function__directional_protection___V_ca = _relay_4_function__67p__phase_difference5__phase_diff;
+    _relay_4_function__67p__c_function__directional_protection___vec[0] = _relay_4_function__67p__c_function__directional_protection___V_bc;
+    _relay_4_function__67p__c_function__directional_protection___vec[1] = _relay_4_function__67p__c_function__directional_protection___V_ca;
+    _relay_4_function__67p__c_function__directional_protection___vec[2] = _relay_4_function__67p__c_function__directional_protection___V_ab;
+    _relay_4_function__67p__c_function__directional_protection___vec[3] = _relay_4_function__67p__c_function__directional_protection___I_a;
+    _relay_4_function__67p__c_function__directional_protection___vec[4] = _relay_4_function__67p__c_function__directional_protection___I_b;
+    _relay_4_function__67p__c_function__directional_protection___vec[5] = _relay_4_function__67p__c_function__directional_protection___I_c;
+    if ((X_Int32)_relay_4_function__67p__c_function__directional_protection___Reset == 1) {
+        _relay_4_function__67p__c_function__directional_protection___Flag = 0;
+    }
+    else {
+        for (_relay_4_function__67p__c_function__directional_protection___i = 0; _relay_4_function__67p__c_function__directional_protection___i < 3; _relay_4_function__67p__c_function__directional_protection___i++) {
+            if (_relay_4_function__67p__c_function__directional_protection___vec[_relay_4_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_4_function__67p__c_function__directional_protection___vec[_relay_4_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if (_relay_4_function__67p__c_function__directional_protection___vec[_relay_4_function__67p__c_function__directional_protection___i + 3] < 0) {
+                _relay_4_function__67p__c_function__directional_protection___vec[_relay_4_function__67p__c_function__directional_protection___i + 3] += 360;
+            }
+            _relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] = _relay_4_function__67p__c_function__directional_protection___vec[_relay_4_function__67p__c_function__directional_protection___i] - _relay_4_function__67p__c_function__directional_protection___vec[_relay_4_function__67p__c_function__directional_protection___i + 3] + _relay_4_function__67p__c_function__directional_protection___RCA;
+            if (_relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] > 360) {
+                _relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] -= 360;
+            }
+            if (_relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if ((_relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] >= 270 && _relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] < 360) || (_relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] >= 0 && _relay_4_function__67p__c_function__directional_protection___val[_relay_4_function__67p__c_function__directional_protection___i] <= 90)) {
+                _relay_4_function__67p__c_function__directional_protection___Flag = 1;
+                break ;
+            }
+            else {
+                _relay_4_function__67p__c_function__directional_protection___Flag = 0;
+            }
+        }
+    }
+    _relay_4_function__67p__c_function__directional_protection___Directional_Trip = _relay_4_function__67p__c_function__directional_protection___Flag;
+    // Generated from the component: Relay-4.Function (67P).V_AB_(Angle)
+    HIL_OutAO(0x2056, (float)_relay_4_function__67p__phase_difference6__phase_diff);
+    // Generated from the component: Relay-5.Function (67P).V_BC_(Angle)
+    HIL_OutAO(0x2069, (float)_relay_5_function__67p__phase_difference1__phase_diff);
+    // Generated from the component: Relay-5.Function (67P).I_C_(Angle)
+    HIL_OutAO(0x2063, (float)_relay_5_function__67p__phase_difference2__phase_diff);
+    // Generated from the component: Relay-5.Function (67P).I_B_(Angle)
+    HIL_OutAO(0x2061, (float)_relay_5_function__67p__phase_difference3__phase_diff);
+    // Generated from the component: Relay-5.Function (67P).I_A_(Angle)
+    HIL_OutAO(0x205f, (float)_relay_5_function__67p__phase_difference4__phase_diff);
+    // Generated from the component: Relay-5.Function (67P).V_CA_(Angle)
+    HIL_OutAO(0x206a, (float)_relay_5_function__67p__phase_difference5__phase_diff);
+    // Generated from the component: Relay-5.Function (67P).C function (Directional Protection)
+    _relay_5_function__67p__c_function__directional_protection___I_a = _relay_5_function__67p__phase_difference4__phase_diff;
+    _relay_5_function__67p__c_function__directional_protection___I_b = _relay_5_function__67p__phase_difference3__phase_diff;
+    _relay_5_function__67p__c_function__directional_protection___I_c = _relay_5_function__67p__phase_difference2__phase_diff;
+    _relay_5_function__67p__c_function__directional_protection___RCA = _relay_5_function__67p__constant7__out;
+    _relay_5_function__67p__c_function__directional_protection___Reset = _relay_5_function__67p__reset__out;
+    _relay_5_function__67p__c_function__directional_protection___V_ab = _relay_5_function__67p__phase_difference6__phase_diff;
+    _relay_5_function__67p__c_function__directional_protection___V_bc = _relay_5_function__67p__phase_difference1__phase_diff;
+    _relay_5_function__67p__c_function__directional_protection___V_ca = _relay_5_function__67p__phase_difference5__phase_diff;
+    _relay_5_function__67p__c_function__directional_protection___vec[0] = _relay_5_function__67p__c_function__directional_protection___V_bc;
+    _relay_5_function__67p__c_function__directional_protection___vec[1] = _relay_5_function__67p__c_function__directional_protection___V_ca;
+    _relay_5_function__67p__c_function__directional_protection___vec[2] = _relay_5_function__67p__c_function__directional_protection___V_ab;
+    _relay_5_function__67p__c_function__directional_protection___vec[3] = _relay_5_function__67p__c_function__directional_protection___I_a;
+    _relay_5_function__67p__c_function__directional_protection___vec[4] = _relay_5_function__67p__c_function__directional_protection___I_b;
+    _relay_5_function__67p__c_function__directional_protection___vec[5] = _relay_5_function__67p__c_function__directional_protection___I_c;
+    if ((X_Int32)_relay_5_function__67p__c_function__directional_protection___Reset == 1) {
+        _relay_5_function__67p__c_function__directional_protection___Flag = 0;
+    }
+    else {
+        for (_relay_5_function__67p__c_function__directional_protection___i = 0; _relay_5_function__67p__c_function__directional_protection___i < 3; _relay_5_function__67p__c_function__directional_protection___i++) {
+            if (_relay_5_function__67p__c_function__directional_protection___vec[_relay_5_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_5_function__67p__c_function__directional_protection___vec[_relay_5_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if (_relay_5_function__67p__c_function__directional_protection___vec[_relay_5_function__67p__c_function__directional_protection___i + 3] < 0) {
+                _relay_5_function__67p__c_function__directional_protection___vec[_relay_5_function__67p__c_function__directional_protection___i + 3] += 360;
+            }
+            _relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] = _relay_5_function__67p__c_function__directional_protection___vec[_relay_5_function__67p__c_function__directional_protection___i] - _relay_5_function__67p__c_function__directional_protection___vec[_relay_5_function__67p__c_function__directional_protection___i + 3] + _relay_5_function__67p__c_function__directional_protection___RCA;
+            if (_relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] > 360) {
+                _relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] -= 360;
+            }
+            if (_relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] < 0) {
+                _relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] += 360;
+            }
+            if ((_relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] >= 270 && _relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] < 360) || (_relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] >= 0 && _relay_5_function__67p__c_function__directional_protection___val[_relay_5_function__67p__c_function__directional_protection___i] <= 90)) {
+                _relay_5_function__67p__c_function__directional_protection___Flag = 1;
+                break ;
+            }
+            else {
+                _relay_5_function__67p__c_function__directional_protection___Flag = 0;
+            }
+        }
+    }
+    _relay_5_function__67p__c_function__directional_protection___Directional_Trip = _relay_5_function__67p__c_function__directional_protection___Flag;
+    // Generated from the component: Relay-5.Function (67P).V_AB_(Angle)
+    HIL_OutAO(0x2068, (float)_relay_5_function__67p__phase_difference6__phase_diff);
+    // Generated from the component: Relay-12.Function (67P).Directional Trip
+    HIL_OutAO(0x2015, (float)_relay_12_function__67p__c_function__directional_protection___Directional_Trip);
+    // Generated from the component: Relay-12.Function (67P).Signal switch1
+    _relay_12_function__67p__signal_switch1__out = (_relay_12_function__67p__constant2__out != 0.0) ? _relay_12_function__67p__c_function__directional_protection___Directional_Trip : _relay_12_function__67p__constant3__out;
+    // Generated from the component: Relay-13.Function (67P).Directional Trip
+    HIL_OutAO(0x2027, (float)_relay_13_function__67p__c_function__directional_protection___Directional_Trip);
+    // Generated from the component: Relay-13.Function (67P).Signal switch1
+    _relay_13_function__67p__signal_switch1__out = (_relay_13_function__67p__constant2__out != 0.0) ? _relay_13_function__67p__c_function__directional_protection___Directional_Trip : _relay_13_function__67p__constant3__out;
+    // Generated from the component: Relay-14.Function (67P).Directional Trip
+    HIL_OutAO(0x2039, (float)_relay_14_function__67p__c_function__directional_protection___Directional_Trip);
+    // Generated from the component: Relay-14.Function (67P).Signal switch1
+    _relay_14_function__67p__signal_switch1__out = (_relay_14_function__67p__constant2__out != 0.0) ? _relay_14_function__67p__c_function__directional_protection___Directional_Trip : _relay_14_function__67p__constant3__out;
+    // Generated from the component: Relay-4.Function (67P).Directional Trip
+    HIL_OutAO(0x204b, (float)_relay_4_function__67p__c_function__directional_protection___Directional_Trip);
+    // Generated from the component: Relay-4.Function (67P).Signal switch1
+    _relay_4_function__67p__signal_switch1__out = (_relay_4_function__67p__constant2__out != 0.0) ? _relay_4_function__67p__c_function__directional_protection___Directional_Trip : _relay_4_function__67p__constant3__out;
+    // Generated from the component: Relay-5.Function (67P).Directional Trip
+    HIL_OutAO(0x205d, (float)_relay_5_function__67p__c_function__directional_protection___Directional_Trip);
+    // Generated from the component: Relay-5.Function (67P).Signal switch1
+    _relay_5_function__67p__signal_switch1__out = (_relay_5_function__67p__constant2__out != 0.0) ? _relay_5_function__67p__c_function__directional_protection___Directional_Trip : _relay_5_function__67p__constant3__out;
+    // Generated from the component: Relay-12.Function (67P).Product1
+    _relay_12_function__67p__product1__out = (_relay_12_function__67p__signal_switch1__out * _relay_12_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-12.Function (67P).Product2
+    _relay_12_function__67p__product2__out = (_relay_12_function__67p__signal_switch1__out * _relay_12_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-12.Function (67P).Product3
+    _relay_12_function__67p__product3__out = (_relay_12_function__67p__signal_switch1__out * _relay_12_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-13.Function (67P).Product1
+    _relay_13_function__67p__product1__out = (_relay_13_function__67p__signal_switch1__out * _relay_13_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-13.Function (67P).Product2
+    _relay_13_function__67p__product2__out = (_relay_13_function__67p__signal_switch1__out * _relay_13_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-13.Function (67P).Product3
+    _relay_13_function__67p__product3__out = (_relay_13_function__67p__signal_switch1__out * _relay_13_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-14.Function (67P).Product1
+    _relay_14_function__67p__product1__out = (_relay_14_function__67p__signal_switch1__out * _relay_14_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-14.Function (67P).Product2
+    _relay_14_function__67p__product2__out = (_relay_14_function__67p__signal_switch1__out * _relay_14_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-14.Function (67P).Product3
+    _relay_14_function__67p__product3__out = (_relay_14_function__67p__signal_switch1__out * _relay_14_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-4.Function (67P).Product1
+    _relay_4_function__67p__product1__out = (_relay_4_function__67p__signal_switch1__out * _relay_4_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-4.Function (67P).Product2
+    _relay_4_function__67p__product2__out = (_relay_4_function__67p__signal_switch1__out * _relay_4_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-4.Function (67P).Product3
+    _relay_4_function__67p__product3__out = (_relay_4_function__67p__signal_switch1__out * _relay_4_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-5.Function (67P).Product1
+    _relay_5_function__67p__product1__out = (_relay_5_function__67p__signal_switch1__out * _relay_5_function__67p__basic_measurements__split___out6);
+    // Generated from the component: Relay-5.Function (67P).Product2
+    _relay_5_function__67p__product2__out = (_relay_5_function__67p__signal_switch1__out * _relay_5_function__67p__basic_measurements__split___out7);
+    // Generated from the component: Relay-5.Function (67P).Product3
+    _relay_5_function__67p__product3__out = (_relay_5_function__67p__signal_switch1__out * _relay_5_function__67p__basic_measurements__split___out8);
+    // Generated from the component: Relay-12.Function (67P).OverCurrent Inverse Function
+    _relay_12_function__67p__overcurrent_inverse_function__CTp = _relay_12_function__67p__ctp__out;
+    _relay_12_function__67p__overcurrent_inverse_function__DT = _relay_12_function__67p__dt__out;
+    _relay_12_function__67p__overcurrent_inverse_function__I_Arms = _relay_12_function__67p__product1__out;
+    _relay_12_function__67p__overcurrent_inverse_function__I_Brms = _relay_12_function__67p__product2__out;
+    _relay_12_function__67p__overcurrent_inverse_function__I_Crms = _relay_12_function__67p__product3__out;
+    _relay_12_function__67p__overcurrent_inverse_function__I_Pick_Up = _relay_12_function__67p__i_pick_up__out;
+    _relay_12_function__67p__overcurrent_inverse_function__Inverse_Function = _relay_12_function__67p__constant1__out;
+    _relay_12_function__67p__overcurrent_inverse_function__Reset = _relay_12_function__67p__reset__out;
+    _relay_12_function__67p__overcurrent_inverse_function__TMS = _relay_12_function__67p__tms__out;
+    _relay_12_function__67p__overcurrent_inverse_function__Ts = _relay_12_function__67p__constant4__out;
+    _relay_12_function__67p__overcurrent_inverse_function__Irms[0] = _relay_12_function__67p__overcurrent_inverse_function__I_Arms;
+    _relay_12_function__67p__overcurrent_inverse_function__Irms[1] = _relay_12_function__67p__overcurrent_inverse_function__I_Brms;
+    _relay_12_function__67p__overcurrent_inverse_function__Irms[2] = _relay_12_function__67p__overcurrent_inverse_function__I_Crms;
+    switch ((X_Int32)_relay_12_function__67p__overcurrent_inverse_function__Inverse_Function) {
+    case 0: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 1: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 13.5;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 2: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 80;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 3: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 120;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 4: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 45900;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 5.6;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 5: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 0.0515;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0.114;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 6: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 19.61;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0.491;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 7: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 28.2;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0.1217;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 8: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 5.95;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0.18;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 9: {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 0.16758;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0.11858;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    default : {
+        _relay_12_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_12_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_12_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__multiplier = _relay_12_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    }
+    if ((X_Int32)_relay_12_function__67p__overcurrent_inverse_function__Reset == 1) {
+        _relay_12_function__67p__overcurrent_inverse_function__trans = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__counter = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__Flag = 0;
+    }
+    else if (_relay_12_function__67p__overcurrent_inverse_function__trans == 0) {
+        _relay_12_function__67p__overcurrent_inverse_function__Ipk_2 = _relay_12_function__67p__overcurrent_inverse_function__I_Pick_Up * _relay_12_function__67p__overcurrent_inverse_function__CTp / 5.0;
+        for (_relay_12_function__67p__overcurrent_inverse_function__i = 0; _relay_12_function__67p__overcurrent_inverse_function__i < 3; _relay_12_function__67p__overcurrent_inverse_function__i++) {
+            _relay_12_function__67p__overcurrent_inverse_function__M[_relay_12_function__67p__overcurrent_inverse_function__i] = _relay_12_function__67p__overcurrent_inverse_function__Irms[_relay_12_function__67p__overcurrent_inverse_function__i] / _relay_12_function__67p__overcurrent_inverse_function__Ipk_2;
+            if (_relay_12_function__67p__overcurrent_inverse_function__M[_relay_12_function__67p__overcurrent_inverse_function__i] <= 1.0) {
+                _relay_12_function__67p__overcurrent_inverse_function__t[_relay_12_function__67p__overcurrent_inverse_function__i] = 1e6;
+            }
+            else {
+                _relay_12_function__67p__overcurrent_inverse_function__t[_relay_12_function__67p__overcurrent_inverse_function__i] = _relay_12_function__67p__overcurrent_inverse_function__multiplier * ((_relay_12_function__67p__overcurrent_inverse_function__B / (pow(_relay_12_function__67p__overcurrent_inverse_function__M[_relay_12_function__67p__overcurrent_inverse_function__i], _relay_12_function__67p__overcurrent_inverse_function__A) - 1)) + _relay_12_function__67p__overcurrent_inverse_function__L);
+            }
+        }
+        if ((_relay_12_function__67p__overcurrent_inverse_function__t[0] <= _relay_12_function__67p__overcurrent_inverse_function__t[1]) && (_relay_12_function__67p__overcurrent_inverse_function__t[0] <= _relay_12_function__67p__overcurrent_inverse_function__t[2])) {
+            _relay_12_function__67p__overcurrent_inverse_function__time = _relay_12_function__67p__overcurrent_inverse_function__t[0];
+        }
+        else if (_relay_12_function__67p__overcurrent_inverse_function__t[1] <= _relay_12_function__67p__overcurrent_inverse_function__t[2]) {
+            _relay_12_function__67p__overcurrent_inverse_function__time = _relay_12_function__67p__overcurrent_inverse_function__t[1];
+        }
+        else {
+            _relay_12_function__67p__overcurrent_inverse_function__time = _relay_12_function__67p__overcurrent_inverse_function__t[2];
+        }
+        for (_relay_12_function__67p__overcurrent_inverse_function__i = 0; _relay_12_function__67p__overcurrent_inverse_function__i < 3; _relay_12_function__67p__overcurrent_inverse_function__i++) {
+            if (_relay_12_function__67p__overcurrent_inverse_function__Irms[_relay_12_function__67p__overcurrent_inverse_function__i] > _relay_12_function__67p__overcurrent_inverse_function__Ipk_2) {
+                _relay_12_function__67p__overcurrent_inverse_function__Flag = 1;
+                break ;
+            }
+            else {
+                _relay_12_function__67p__overcurrent_inverse_function__Flag = 0;
+            }
+        }
+    }
+    if (_relay_12_function__67p__overcurrent_inverse_function__counter > _relay_12_function__67p__overcurrent_inverse_function__time) {
+        _relay_12_function__67p__overcurrent_inverse_function__out = 1;
+        _relay_12_function__67p__overcurrent_inverse_function__trans = 1;
+    }
+    else {
+        _relay_12_function__67p__overcurrent_inverse_function__out = 0;
+        _relay_12_function__67p__overcurrent_inverse_function__trans = 0;
+    }
+    _relay_12_function__67p__overcurrent_inverse_function__counter *= _relay_12_function__67p__overcurrent_inverse_function__Flag;
+    _relay_12_function__67p__overcurrent_inverse_function__counter += _relay_12_function__67p__overcurrent_inverse_function__Flag * _relay_12_function__67p__overcurrent_inverse_function__Ts;
+    _relay_12_function__67p__overcurrent_inverse_function__OUT = _relay_12_function__67p__overcurrent_inverse_function__out;
+    _relay_12_function__67p__overcurrent_inverse_function__time_out = _relay_12_function__67p__overcurrent_inverse_function__time;
+    // Generated from the component: Relay-13.Function (67P).OverCurrent Inverse Function
+    _relay_13_function__67p__overcurrent_inverse_function__CTp = _relay_13_function__67p__ctp__out;
+    _relay_13_function__67p__overcurrent_inverse_function__DT = _relay_13_function__67p__dt__out;
+    _relay_13_function__67p__overcurrent_inverse_function__I_Arms = _relay_13_function__67p__product1__out;
+    _relay_13_function__67p__overcurrent_inverse_function__I_Brms = _relay_13_function__67p__product2__out;
+    _relay_13_function__67p__overcurrent_inverse_function__I_Crms = _relay_13_function__67p__product3__out;
+    _relay_13_function__67p__overcurrent_inverse_function__I_Pick_Up = _relay_13_function__67p__i_pick_up__out;
+    _relay_13_function__67p__overcurrent_inverse_function__Inverse_Function = _relay_13_function__67p__constant1__out;
+    _relay_13_function__67p__overcurrent_inverse_function__Reset = _relay_13_function__67p__reset__out;
+    _relay_13_function__67p__overcurrent_inverse_function__TMS = _relay_13_function__67p__tms__out;
+    _relay_13_function__67p__overcurrent_inverse_function__Ts = _relay_13_function__67p__constant4__out;
+    _relay_13_function__67p__overcurrent_inverse_function__Irms[0] = _relay_13_function__67p__overcurrent_inverse_function__I_Arms;
+    _relay_13_function__67p__overcurrent_inverse_function__Irms[1] = _relay_13_function__67p__overcurrent_inverse_function__I_Brms;
+    _relay_13_function__67p__overcurrent_inverse_function__Irms[2] = _relay_13_function__67p__overcurrent_inverse_function__I_Crms;
+    switch ((X_Int32)_relay_13_function__67p__overcurrent_inverse_function__Inverse_Function) {
+    case 0: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 1: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 13.5;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 2: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 80;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 3: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 120;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 4: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 45900;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 5.6;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 5: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 0.0515;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0.114;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 6: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 19.61;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0.491;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 7: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 28.2;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0.1217;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 8: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 5.95;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0.18;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 9: {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 0.16758;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0.11858;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    default : {
+        _relay_13_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_13_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_13_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__multiplier = _relay_13_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    }
+    if ((X_Int32)_relay_13_function__67p__overcurrent_inverse_function__Reset == 1) {
+        _relay_13_function__67p__overcurrent_inverse_function__trans = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__counter = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__Flag = 0;
+    }
+    else if (_relay_13_function__67p__overcurrent_inverse_function__trans == 0) {
+        _relay_13_function__67p__overcurrent_inverse_function__Ipk_2 = _relay_13_function__67p__overcurrent_inverse_function__I_Pick_Up * _relay_13_function__67p__overcurrent_inverse_function__CTp / 5.0;
+        for (_relay_13_function__67p__overcurrent_inverse_function__i = 0; _relay_13_function__67p__overcurrent_inverse_function__i < 3; _relay_13_function__67p__overcurrent_inverse_function__i++) {
+            _relay_13_function__67p__overcurrent_inverse_function__M[_relay_13_function__67p__overcurrent_inverse_function__i] = _relay_13_function__67p__overcurrent_inverse_function__Irms[_relay_13_function__67p__overcurrent_inverse_function__i] / _relay_13_function__67p__overcurrent_inverse_function__Ipk_2;
+            if (_relay_13_function__67p__overcurrent_inverse_function__M[_relay_13_function__67p__overcurrent_inverse_function__i] <= 1.0) {
+                _relay_13_function__67p__overcurrent_inverse_function__t[_relay_13_function__67p__overcurrent_inverse_function__i] = 1e6;
+            }
+            else {
+                _relay_13_function__67p__overcurrent_inverse_function__t[_relay_13_function__67p__overcurrent_inverse_function__i] = _relay_13_function__67p__overcurrent_inverse_function__multiplier * ((_relay_13_function__67p__overcurrent_inverse_function__B / (pow(_relay_13_function__67p__overcurrent_inverse_function__M[_relay_13_function__67p__overcurrent_inverse_function__i], _relay_13_function__67p__overcurrent_inverse_function__A) - 1)) + _relay_13_function__67p__overcurrent_inverse_function__L);
+            }
+        }
+        if ((_relay_13_function__67p__overcurrent_inverse_function__t[0] <= _relay_13_function__67p__overcurrent_inverse_function__t[1]) && (_relay_13_function__67p__overcurrent_inverse_function__t[0] <= _relay_13_function__67p__overcurrent_inverse_function__t[2])) {
+            _relay_13_function__67p__overcurrent_inverse_function__time = _relay_13_function__67p__overcurrent_inverse_function__t[0];
+        }
+        else if (_relay_13_function__67p__overcurrent_inverse_function__t[1] <= _relay_13_function__67p__overcurrent_inverse_function__t[2]) {
+            _relay_13_function__67p__overcurrent_inverse_function__time = _relay_13_function__67p__overcurrent_inverse_function__t[1];
+        }
+        else {
+            _relay_13_function__67p__overcurrent_inverse_function__time = _relay_13_function__67p__overcurrent_inverse_function__t[2];
+        }
+        for (_relay_13_function__67p__overcurrent_inverse_function__i = 0; _relay_13_function__67p__overcurrent_inverse_function__i < 3; _relay_13_function__67p__overcurrent_inverse_function__i++) {
+            if (_relay_13_function__67p__overcurrent_inverse_function__Irms[_relay_13_function__67p__overcurrent_inverse_function__i] > _relay_13_function__67p__overcurrent_inverse_function__Ipk_2) {
+                _relay_13_function__67p__overcurrent_inverse_function__Flag = 1;
+                break ;
+            }
+            else {
+                _relay_13_function__67p__overcurrent_inverse_function__Flag = 0;
+            }
+        }
+    }
+    if (_relay_13_function__67p__overcurrent_inverse_function__counter > _relay_13_function__67p__overcurrent_inverse_function__time) {
+        _relay_13_function__67p__overcurrent_inverse_function__out = 1;
+        _relay_13_function__67p__overcurrent_inverse_function__trans = 1;
+    }
+    else {
+        _relay_13_function__67p__overcurrent_inverse_function__out = 0;
+        _relay_13_function__67p__overcurrent_inverse_function__trans = 0;
+    }
+    _relay_13_function__67p__overcurrent_inverse_function__counter *= _relay_13_function__67p__overcurrent_inverse_function__Flag;
+    _relay_13_function__67p__overcurrent_inverse_function__counter += _relay_13_function__67p__overcurrent_inverse_function__Flag * _relay_13_function__67p__overcurrent_inverse_function__Ts;
+    _relay_13_function__67p__overcurrent_inverse_function__OUT = _relay_13_function__67p__overcurrent_inverse_function__out;
+    _relay_13_function__67p__overcurrent_inverse_function__time_out = _relay_13_function__67p__overcurrent_inverse_function__time;
+    // Generated from the component: Relay-14.Function (67P).OverCurrent Inverse Function
+    _relay_14_function__67p__overcurrent_inverse_function__CTp = _relay_14_function__67p__ctp__out;
+    _relay_14_function__67p__overcurrent_inverse_function__DT = _relay_14_function__67p__dt__out;
+    _relay_14_function__67p__overcurrent_inverse_function__I_Arms = _relay_14_function__67p__product1__out;
+    _relay_14_function__67p__overcurrent_inverse_function__I_Brms = _relay_14_function__67p__product2__out;
+    _relay_14_function__67p__overcurrent_inverse_function__I_Crms = _relay_14_function__67p__product3__out;
+    _relay_14_function__67p__overcurrent_inverse_function__I_Pick_Up = _relay_14_function__67p__i_pick_up__out;
+    _relay_14_function__67p__overcurrent_inverse_function__Inverse_Function = _relay_14_function__67p__constant1__out;
+    _relay_14_function__67p__overcurrent_inverse_function__Reset = _relay_14_function__67p__reset__out;
+    _relay_14_function__67p__overcurrent_inverse_function__TMS = _relay_14_function__67p__tms__out;
+    _relay_14_function__67p__overcurrent_inverse_function__Ts = _relay_14_function__67p__constant4__out;
+    _relay_14_function__67p__overcurrent_inverse_function__Irms[0] = _relay_14_function__67p__overcurrent_inverse_function__I_Arms;
+    _relay_14_function__67p__overcurrent_inverse_function__Irms[1] = _relay_14_function__67p__overcurrent_inverse_function__I_Brms;
+    _relay_14_function__67p__overcurrent_inverse_function__Irms[2] = _relay_14_function__67p__overcurrent_inverse_function__I_Crms;
+    switch ((X_Int32)_relay_14_function__67p__overcurrent_inverse_function__Inverse_Function) {
+    case 0: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 1: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 13.5;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 2: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 80;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 3: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 120;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 4: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 45900;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 5.6;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 5: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 0.0515;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0.114;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 6: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 19.61;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0.491;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 7: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 28.2;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0.1217;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 8: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 5.95;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0.18;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 9: {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 0.16758;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0.11858;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    default : {
+        _relay_14_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_14_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_14_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__multiplier = _relay_14_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    }
+    if ((X_Int32)_relay_14_function__67p__overcurrent_inverse_function__Reset == 1) {
+        _relay_14_function__67p__overcurrent_inverse_function__trans = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__counter = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__Flag = 0;
+    }
+    else if (_relay_14_function__67p__overcurrent_inverse_function__trans == 0) {
+        _relay_14_function__67p__overcurrent_inverse_function__Ipk_2 = _relay_14_function__67p__overcurrent_inverse_function__I_Pick_Up * _relay_14_function__67p__overcurrent_inverse_function__CTp / 5.0;
+        for (_relay_14_function__67p__overcurrent_inverse_function__i = 0; _relay_14_function__67p__overcurrent_inverse_function__i < 3; _relay_14_function__67p__overcurrent_inverse_function__i++) {
+            _relay_14_function__67p__overcurrent_inverse_function__M[_relay_14_function__67p__overcurrent_inverse_function__i] = _relay_14_function__67p__overcurrent_inverse_function__Irms[_relay_14_function__67p__overcurrent_inverse_function__i] / _relay_14_function__67p__overcurrent_inverse_function__Ipk_2;
+            if (_relay_14_function__67p__overcurrent_inverse_function__M[_relay_14_function__67p__overcurrent_inverse_function__i] <= 1.0) {
+                _relay_14_function__67p__overcurrent_inverse_function__t[_relay_14_function__67p__overcurrent_inverse_function__i] = 1e6;
+            }
+            else {
+                _relay_14_function__67p__overcurrent_inverse_function__t[_relay_14_function__67p__overcurrent_inverse_function__i] = _relay_14_function__67p__overcurrent_inverse_function__multiplier * ((_relay_14_function__67p__overcurrent_inverse_function__B / (pow(_relay_14_function__67p__overcurrent_inverse_function__M[_relay_14_function__67p__overcurrent_inverse_function__i], _relay_14_function__67p__overcurrent_inverse_function__A) - 1)) + _relay_14_function__67p__overcurrent_inverse_function__L);
+            }
+        }
+        if ((_relay_14_function__67p__overcurrent_inverse_function__t[0] <= _relay_14_function__67p__overcurrent_inverse_function__t[1]) && (_relay_14_function__67p__overcurrent_inverse_function__t[0] <= _relay_14_function__67p__overcurrent_inverse_function__t[2])) {
+            _relay_14_function__67p__overcurrent_inverse_function__time = _relay_14_function__67p__overcurrent_inverse_function__t[0];
+        }
+        else if (_relay_14_function__67p__overcurrent_inverse_function__t[1] <= _relay_14_function__67p__overcurrent_inverse_function__t[2]) {
+            _relay_14_function__67p__overcurrent_inverse_function__time = _relay_14_function__67p__overcurrent_inverse_function__t[1];
+        }
+        else {
+            _relay_14_function__67p__overcurrent_inverse_function__time = _relay_14_function__67p__overcurrent_inverse_function__t[2];
+        }
+        for (_relay_14_function__67p__overcurrent_inverse_function__i = 0; _relay_14_function__67p__overcurrent_inverse_function__i < 3; _relay_14_function__67p__overcurrent_inverse_function__i++) {
+            if (_relay_14_function__67p__overcurrent_inverse_function__Irms[_relay_14_function__67p__overcurrent_inverse_function__i] > _relay_14_function__67p__overcurrent_inverse_function__Ipk_2) {
+                _relay_14_function__67p__overcurrent_inverse_function__Flag = 1;
+                break ;
+            }
+            else {
+                _relay_14_function__67p__overcurrent_inverse_function__Flag = 0;
+            }
+        }
+    }
+    if (_relay_14_function__67p__overcurrent_inverse_function__counter > _relay_14_function__67p__overcurrent_inverse_function__time) {
+        _relay_14_function__67p__overcurrent_inverse_function__out = 1;
+        _relay_14_function__67p__overcurrent_inverse_function__trans = 1;
+    }
+    else {
+        _relay_14_function__67p__overcurrent_inverse_function__out = 0;
+        _relay_14_function__67p__overcurrent_inverse_function__trans = 0;
+    }
+    _relay_14_function__67p__overcurrent_inverse_function__counter *= _relay_14_function__67p__overcurrent_inverse_function__Flag;
+    _relay_14_function__67p__overcurrent_inverse_function__counter += _relay_14_function__67p__overcurrent_inverse_function__Flag * _relay_14_function__67p__overcurrent_inverse_function__Ts;
+    _relay_14_function__67p__overcurrent_inverse_function__OUT = _relay_14_function__67p__overcurrent_inverse_function__out;
+    _relay_14_function__67p__overcurrent_inverse_function__time_out = _relay_14_function__67p__overcurrent_inverse_function__time;
+    // Generated from the component: Relay-4.Function (67P).OverCurrent Inverse Function
+    _relay_4_function__67p__overcurrent_inverse_function__CTp = _relay_4_function__67p__ctp__out;
+    _relay_4_function__67p__overcurrent_inverse_function__DT = _relay_4_function__67p__dt__out;
+    _relay_4_function__67p__overcurrent_inverse_function__I_Arms = _relay_4_function__67p__product1__out;
+    _relay_4_function__67p__overcurrent_inverse_function__I_Brms = _relay_4_function__67p__product2__out;
+    _relay_4_function__67p__overcurrent_inverse_function__I_Crms = _relay_4_function__67p__product3__out;
+    _relay_4_function__67p__overcurrent_inverse_function__I_Pick_Up = _relay_4_function__67p__i_pick_up__out;
+    _relay_4_function__67p__overcurrent_inverse_function__Inverse_Function = _relay_4_function__67p__constant1__out;
+    _relay_4_function__67p__overcurrent_inverse_function__Reset = _relay_4_function__67p__reset__out;
+    _relay_4_function__67p__overcurrent_inverse_function__TMS = _relay_4_function__67p__tms__out;
+    _relay_4_function__67p__overcurrent_inverse_function__Ts = _relay_4_function__67p__constant4__out;
+    _relay_4_function__67p__overcurrent_inverse_function__Irms[0] = _relay_4_function__67p__overcurrent_inverse_function__I_Arms;
+    _relay_4_function__67p__overcurrent_inverse_function__Irms[1] = _relay_4_function__67p__overcurrent_inverse_function__I_Brms;
+    _relay_4_function__67p__overcurrent_inverse_function__Irms[2] = _relay_4_function__67p__overcurrent_inverse_function__I_Crms;
+    switch ((X_Int32)_relay_4_function__67p__overcurrent_inverse_function__Inverse_Function) {
+    case 0: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 1: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 13.5;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 2: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 80;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 3: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 120;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 4: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 45900;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 5.6;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 5: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 0.0515;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0.114;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 6: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 19.61;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0.491;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 7: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 28.2;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0.1217;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 8: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 5.95;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0.18;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 9: {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 0.16758;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0.11858;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    default : {
+        _relay_4_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_4_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_4_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__multiplier = _relay_4_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    }
+    if ((X_Int32)_relay_4_function__67p__overcurrent_inverse_function__Reset == 1) {
+        _relay_4_function__67p__overcurrent_inverse_function__trans = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__counter = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__Flag = 0;
+    }
+    else if (_relay_4_function__67p__overcurrent_inverse_function__trans == 0) {
+        _relay_4_function__67p__overcurrent_inverse_function__Ipk_2 = _relay_4_function__67p__overcurrent_inverse_function__I_Pick_Up * _relay_4_function__67p__overcurrent_inverse_function__CTp / 5.0;
+        for (_relay_4_function__67p__overcurrent_inverse_function__i = 0; _relay_4_function__67p__overcurrent_inverse_function__i < 3; _relay_4_function__67p__overcurrent_inverse_function__i++) {
+            _relay_4_function__67p__overcurrent_inverse_function__M[_relay_4_function__67p__overcurrent_inverse_function__i] = _relay_4_function__67p__overcurrent_inverse_function__Irms[_relay_4_function__67p__overcurrent_inverse_function__i] / _relay_4_function__67p__overcurrent_inverse_function__Ipk_2;
+            if (_relay_4_function__67p__overcurrent_inverse_function__M[_relay_4_function__67p__overcurrent_inverse_function__i] <= 1.0) {
+                _relay_4_function__67p__overcurrent_inverse_function__t[_relay_4_function__67p__overcurrent_inverse_function__i] = 1e6;
+            }
+            else {
+                _relay_4_function__67p__overcurrent_inverse_function__t[_relay_4_function__67p__overcurrent_inverse_function__i] = _relay_4_function__67p__overcurrent_inverse_function__multiplier * ((_relay_4_function__67p__overcurrent_inverse_function__B / (pow(_relay_4_function__67p__overcurrent_inverse_function__M[_relay_4_function__67p__overcurrent_inverse_function__i], _relay_4_function__67p__overcurrent_inverse_function__A) - 1)) + _relay_4_function__67p__overcurrent_inverse_function__L);
+            }
+        }
+        if ((_relay_4_function__67p__overcurrent_inverse_function__t[0] <= _relay_4_function__67p__overcurrent_inverse_function__t[1]) && (_relay_4_function__67p__overcurrent_inverse_function__t[0] <= _relay_4_function__67p__overcurrent_inverse_function__t[2])) {
+            _relay_4_function__67p__overcurrent_inverse_function__time = _relay_4_function__67p__overcurrent_inverse_function__t[0];
+        }
+        else if (_relay_4_function__67p__overcurrent_inverse_function__t[1] <= _relay_4_function__67p__overcurrent_inverse_function__t[2]) {
+            _relay_4_function__67p__overcurrent_inverse_function__time = _relay_4_function__67p__overcurrent_inverse_function__t[1];
+        }
+        else {
+            _relay_4_function__67p__overcurrent_inverse_function__time = _relay_4_function__67p__overcurrent_inverse_function__t[2];
+        }
+        for (_relay_4_function__67p__overcurrent_inverse_function__i = 0; _relay_4_function__67p__overcurrent_inverse_function__i < 3; _relay_4_function__67p__overcurrent_inverse_function__i++) {
+            if (_relay_4_function__67p__overcurrent_inverse_function__Irms[_relay_4_function__67p__overcurrent_inverse_function__i] > _relay_4_function__67p__overcurrent_inverse_function__Ipk_2) {
+                _relay_4_function__67p__overcurrent_inverse_function__Flag = 1;
+                break ;
+            }
+            else {
+                _relay_4_function__67p__overcurrent_inverse_function__Flag = 0;
+            }
+        }
+    }
+    if (_relay_4_function__67p__overcurrent_inverse_function__counter > _relay_4_function__67p__overcurrent_inverse_function__time) {
+        _relay_4_function__67p__overcurrent_inverse_function__out = 1;
+        _relay_4_function__67p__overcurrent_inverse_function__trans = 1;
+    }
+    else {
+        _relay_4_function__67p__overcurrent_inverse_function__out = 0;
+        _relay_4_function__67p__overcurrent_inverse_function__trans = 0;
+    }
+    _relay_4_function__67p__overcurrent_inverse_function__counter *= _relay_4_function__67p__overcurrent_inverse_function__Flag;
+    _relay_4_function__67p__overcurrent_inverse_function__counter += _relay_4_function__67p__overcurrent_inverse_function__Flag * _relay_4_function__67p__overcurrent_inverse_function__Ts;
+    _relay_4_function__67p__overcurrent_inverse_function__OUT = _relay_4_function__67p__overcurrent_inverse_function__out;
+    _relay_4_function__67p__overcurrent_inverse_function__time_out = _relay_4_function__67p__overcurrent_inverse_function__time;
+    // Generated from the component: Relay-5.Function (67P).OverCurrent Inverse Function
+    _relay_5_function__67p__overcurrent_inverse_function__CTp = _relay_5_function__67p__ctp__out;
+    _relay_5_function__67p__overcurrent_inverse_function__DT = _relay_5_function__67p__dt__out;
+    _relay_5_function__67p__overcurrent_inverse_function__I_Arms = _relay_5_function__67p__product1__out;
+    _relay_5_function__67p__overcurrent_inverse_function__I_Brms = _relay_5_function__67p__product2__out;
+    _relay_5_function__67p__overcurrent_inverse_function__I_Crms = _relay_5_function__67p__product3__out;
+    _relay_5_function__67p__overcurrent_inverse_function__I_Pick_Up = _relay_5_function__67p__i_pick_up__out;
+    _relay_5_function__67p__overcurrent_inverse_function__Inverse_Function = _relay_5_function__67p__constant1__out;
+    _relay_5_function__67p__overcurrent_inverse_function__Reset = _relay_5_function__67p__reset__out;
+    _relay_5_function__67p__overcurrent_inverse_function__TMS = _relay_5_function__67p__tms__out;
+    _relay_5_function__67p__overcurrent_inverse_function__Ts = _relay_5_function__67p__constant4__out;
+    _relay_5_function__67p__overcurrent_inverse_function__Irms[0] = _relay_5_function__67p__overcurrent_inverse_function__I_Arms;
+    _relay_5_function__67p__overcurrent_inverse_function__Irms[1] = _relay_5_function__67p__overcurrent_inverse_function__I_Brms;
+    _relay_5_function__67p__overcurrent_inverse_function__Irms[2] = _relay_5_function__67p__overcurrent_inverse_function__I_Crms;
+    switch ((X_Int32)_relay_5_function__67p__overcurrent_inverse_function__Inverse_Function) {
+    case 0: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 1: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 13.5;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 2: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 80;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 3: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 120;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 1;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 4: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 45900;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 5.6;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    case 5: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 0.0515;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0.114;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 6: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 19.61;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0.491;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 7: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 28.2;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0.1217;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 8: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 5.95;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 2;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0.18;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    case 9: {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 0.16758;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0.11858;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__DT;
+        break ;
+    }
+    default : {
+        _relay_5_function__67p__overcurrent_inverse_function__B = 0.14;
+        _relay_5_function__67p__overcurrent_inverse_function__A = 0.02;
+        _relay_5_function__67p__overcurrent_inverse_function__L = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__multiplier = _relay_5_function__67p__overcurrent_inverse_function__TMS;
+        break ;
+    }
+    }
+    if ((X_Int32)_relay_5_function__67p__overcurrent_inverse_function__Reset == 1) {
+        _relay_5_function__67p__overcurrent_inverse_function__trans = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__counter = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__Flag = 0;
+    }
+    else if (_relay_5_function__67p__overcurrent_inverse_function__trans == 0) {
+        _relay_5_function__67p__overcurrent_inverse_function__Ipk_2 = _relay_5_function__67p__overcurrent_inverse_function__I_Pick_Up * _relay_5_function__67p__overcurrent_inverse_function__CTp / 5.0;
+        for (_relay_5_function__67p__overcurrent_inverse_function__i = 0; _relay_5_function__67p__overcurrent_inverse_function__i < 3; _relay_5_function__67p__overcurrent_inverse_function__i++) {
+            _relay_5_function__67p__overcurrent_inverse_function__M[_relay_5_function__67p__overcurrent_inverse_function__i] = _relay_5_function__67p__overcurrent_inverse_function__Irms[_relay_5_function__67p__overcurrent_inverse_function__i] / _relay_5_function__67p__overcurrent_inverse_function__Ipk_2;
+            if (_relay_5_function__67p__overcurrent_inverse_function__M[_relay_5_function__67p__overcurrent_inverse_function__i] <= 1.0) {
+                _relay_5_function__67p__overcurrent_inverse_function__t[_relay_5_function__67p__overcurrent_inverse_function__i] = 1e6;
+            }
+            else {
+                _relay_5_function__67p__overcurrent_inverse_function__t[_relay_5_function__67p__overcurrent_inverse_function__i] = _relay_5_function__67p__overcurrent_inverse_function__multiplier * ((_relay_5_function__67p__overcurrent_inverse_function__B / (pow(_relay_5_function__67p__overcurrent_inverse_function__M[_relay_5_function__67p__overcurrent_inverse_function__i], _relay_5_function__67p__overcurrent_inverse_function__A) - 1)) + _relay_5_function__67p__overcurrent_inverse_function__L);
+            }
+        }
+        if ((_relay_5_function__67p__overcurrent_inverse_function__t[0] <= _relay_5_function__67p__overcurrent_inverse_function__t[1]) && (_relay_5_function__67p__overcurrent_inverse_function__t[0] <= _relay_5_function__67p__overcurrent_inverse_function__t[2])) {
+            _relay_5_function__67p__overcurrent_inverse_function__time = _relay_5_function__67p__overcurrent_inverse_function__t[0];
+        }
+        else if (_relay_5_function__67p__overcurrent_inverse_function__t[1] <= _relay_5_function__67p__overcurrent_inverse_function__t[2]) {
+            _relay_5_function__67p__overcurrent_inverse_function__time = _relay_5_function__67p__overcurrent_inverse_function__t[1];
+        }
+        else {
+            _relay_5_function__67p__overcurrent_inverse_function__time = _relay_5_function__67p__overcurrent_inverse_function__t[2];
+        }
+        for (_relay_5_function__67p__overcurrent_inverse_function__i = 0; _relay_5_function__67p__overcurrent_inverse_function__i < 3; _relay_5_function__67p__overcurrent_inverse_function__i++) {
+            if (_relay_5_function__67p__overcurrent_inverse_function__Irms[_relay_5_function__67p__overcurrent_inverse_function__i] > _relay_5_function__67p__overcurrent_inverse_function__Ipk_2) {
+                _relay_5_function__67p__overcurrent_inverse_function__Flag = 1;
+                break ;
+            }
+            else {
+                _relay_5_function__67p__overcurrent_inverse_function__Flag = 0;
+            }
+        }
+    }
+    if (_relay_5_function__67p__overcurrent_inverse_function__counter > _relay_5_function__67p__overcurrent_inverse_function__time) {
+        _relay_5_function__67p__overcurrent_inverse_function__out = 1;
+        _relay_5_function__67p__overcurrent_inverse_function__trans = 1;
+    }
+    else {
+        _relay_5_function__67p__overcurrent_inverse_function__out = 0;
+        _relay_5_function__67p__overcurrent_inverse_function__trans = 0;
+    }
+    _relay_5_function__67p__overcurrent_inverse_function__counter *= _relay_5_function__67p__overcurrent_inverse_function__Flag;
+    _relay_5_function__67p__overcurrent_inverse_function__counter += _relay_5_function__67p__overcurrent_inverse_function__Flag * _relay_5_function__67p__overcurrent_inverse_function__Ts;
+    _relay_5_function__67p__overcurrent_inverse_function__OUT = _relay_5_function__67p__overcurrent_inverse_function__out;
+    _relay_5_function__67p__overcurrent_inverse_function__time_out = _relay_5_function__67p__overcurrent_inverse_function__time;
+    // Generated from the component: Relay-12.Function (67P).Signal switch2
+    _relay_12_function__67p__signal_switch2__out = (_relay_12_function__67p__enable__out != 0.0) ? _relay_12_function__67p__overcurrent_inverse_function__OUT : _relay_12_function__67p__constant6__out;
+    // Generated from the component: Relay-12.Function (67P).time
+    HIL_OutAO(0x2023, (float)_relay_12_function__67p__overcurrent_inverse_function__time_out);
+    // Generated from the component: Relay-13.Function (67P).Signal switch2
+    _relay_13_function__67p__signal_switch2__out = (_relay_13_function__67p__enable__out != 0.0) ? _relay_13_function__67p__overcurrent_inverse_function__OUT : _relay_13_function__67p__constant6__out;
+    // Generated from the component: Relay-13.Function (67P).time
+    HIL_OutAO(0x2035, (float)_relay_13_function__67p__overcurrent_inverse_function__time_out);
+    // Generated from the component: Relay-14.Function (67P).Signal switch2
+    _relay_14_function__67p__signal_switch2__out = (_relay_14_function__67p__enable__out != 0.0) ? _relay_14_function__67p__overcurrent_inverse_function__OUT : _relay_14_function__67p__constant6__out;
+    // Generated from the component: Relay-14.Function (67P).time
+    HIL_OutAO(0x2047, (float)_relay_14_function__67p__overcurrent_inverse_function__time_out);
+    // Generated from the component: Relay-4.Function (67P).Signal switch2
+    _relay_4_function__67p__signal_switch2__out = (_relay_4_function__67p__enable__out != 0.0) ? _relay_4_function__67p__overcurrent_inverse_function__OUT : _relay_4_function__67p__constant6__out;
+    // Generated from the component: Relay-4.Function (67P).time
+    HIL_OutAO(0x2059, (float)_relay_4_function__67p__overcurrent_inverse_function__time_out);
+    // Generated from the component: Relay-5.Function (67P).Signal switch2
+    _relay_5_function__67p__signal_switch2__out = (_relay_5_function__67p__enable__out != 0.0) ? _relay_5_function__67p__overcurrent_inverse_function__OUT : _relay_5_function__67p__constant6__out;
+    // Generated from the component: Relay-5.Function (67P).time
+    HIL_OutAO(0x206b, (float)_relay_5_function__67p__overcurrent_inverse_function__time_out);
+    // Generated from the component: Relay-12.Rate Transition2.Input
+    _relay_12_rate_transition2_output__out = _relay_12_function__67p__signal_switch2__out;
+    // Generated from the component: Relay-13.Rate Transition2.Input
+    _relay_13_rate_transition2_output__out = _relay_13_function__67p__signal_switch2__out;
+    // Generated from the component: Relay-14.Rate Transition2.Input
+    _relay_14_rate_transition2_output__out = _relay_14_function__67p__signal_switch2__out;
+    // Generated from the component: Relay-4.Rate Transition2.Input
+    _relay_4_rate_transition2_output__out = _relay_4_function__67p__signal_switch2__out;
+    // Generated from the component: Relay-5.Rate Transition2.Input
+    _relay_5_rate_transition2_output__out = _relay_5_function__67p__signal_switch2__out;
+    //@cmp.out.block.end
+    //////////////////////////////////////////////////////////////////////////
+    // Update block
+    //////////////////////////////////////////////////////////////////////////
+    //@cmp.update.block.start
+    // Generated from the component: Relay-12.Function (67P).Sinusoidal Source3
+    _relay_12_function__67p__sinusoidal_source3__current_phase += 60.0 * 0.0005;
+    if (_relay_12_function__67p__sinusoidal_source3__current_phase >= 1.0f) {
+        _relay_12_function__67p__sinusoidal_source3__current_phase -= 1.0f;
+    }
+    // Generated from the component: Relay-13.Function (67P).Sinusoidal Source3
+    _relay_13_function__67p__sinusoidal_source3__current_phase += 60.0 * 0.0005;
+    if (_relay_13_function__67p__sinusoidal_source3__current_phase >= 1.0f) {
+        _relay_13_function__67p__sinusoidal_source3__current_phase -= 1.0f;
+    }
+    // Generated from the component: Relay-14.Function (67P).Sinusoidal Source3
+    _relay_14_function__67p__sinusoidal_source3__current_phase += 60.0 * 0.0005;
+    if (_relay_14_function__67p__sinusoidal_source3__current_phase >= 1.0f) {
+        _relay_14_function__67p__sinusoidal_source3__current_phase -= 1.0f;
+    }
+    // Generated from the component: Relay-4.Function (67P).Sinusoidal Source3
+    _relay_4_function__67p__sinusoidal_source3__current_phase += 60.0 * 0.0005;
+    if (_relay_4_function__67p__sinusoidal_source3__current_phase >= 1.0f) {
+        _relay_4_function__67p__sinusoidal_source3__current_phase -= 1.0f;
+    }
+    // Generated from the component: Relay-5.Function (67P).Sinusoidal Source3
+    _relay_5_function__67p__sinusoidal_source3__current_phase += 60.0 * 0.0005;
+    if (_relay_5_function__67p__sinusoidal_source3__current_phase >= 1.0f) {
+        _relay_5_function__67p__sinusoidal_source3__current_phase -= 1.0f;
+    }
+    // Generated from the component: Relay-12.Function (67P).Phase Difference1
+    _relay_12_function__67p__phase_difference1__sample_cnt_ref += 1;
+    _relay_12_function__67p__phase_difference1__previous_filtered_ref = _relay_12_function__67p__phase_difference1__filtered_ref;
+    _relay_12_function__67p__phase_difference1__filtered_ref = _relay_12_function__67p__phase_difference1__previous_filtered_ref * 0.2679491924311227 + _relay_12_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference1__sample_cnt_ref >= 1000 ) {
+        _relay_12_function__67p__phase_difference1__zc_flag_ref = 0;
+        _relay_12_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference1__previous_correction_ref = 0;
+        _relay_12_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference1__filtered_ref >= 0) && (_relay_12_function__67p__phase_difference1__previous_filtered_ref < 0) ) {
+        _relay_12_function__67p__phase_difference1__zc_flag_ref = 1;
+    }
+    else {
+        _relay_12_function__67p__phase_difference1__zc_flag_ref = 0;
+    }
+    _relay_12_function__67p__phase_difference1__sample_cnt_in += 1;
+    _relay_12_function__67p__phase_difference1__previous_filtered_in = _relay_12_function__67p__phase_difference1__filtered_in;
+    _relay_12_function__67p__phase_difference1__filtered_in = _relay_12_function__67p__phase_difference1__previous_filtered_in * 0.2679491924311227 + _relay_12_function__67p__basic_measurements__split___out3 * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference1__sample_cnt_in >= 1000 ) {
+        _relay_12_function__67p__phase_difference1__zc_flag_in = 0;
+        _relay_12_function__67p__phase_difference1__no_zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference1__previous_correction_in = 0;
+        _relay_12_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference1__filtered_in >= 0) && (_relay_12_function__67p__phase_difference1__previous_filtered_in < 0) ) {
+        _relay_12_function__67p__phase_difference1__zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference1__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_12_function__67p__phase_difference1__zc_flag_in = 0;
+    }
+    if( _relay_12_function__67p__phase_difference1__zc_flag_ref ) {
+        _relay_12_function__67p__phase_difference1__correction_ref = - _relay_12_function__67p__phase_difference1__previous_filtered_ref / ( _relay_12_function__67p__phase_difference1__filtered_ref - _relay_12_function__67p__phase_difference1__previous_filtered_ref );
+        _relay_12_function__67p__phase_difference1__sample_cnt_ref += _relay_12_function__67p__phase_difference1__correction_ref - _relay_12_function__67p__phase_difference1__previous_correction_ref;
+        if( (_relay_12_function__67p__phase_difference1__sample_cnt_ref > 1e-6) || (_relay_12_function__67p__phase_difference1__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_12_function__67p__phase_difference1__no_zc_flag_in ) {
+                _relay_12_function__67p__phase_difference1__phase_state = 360.0 * ( _relay_12_function__67p__phase_difference1__sample_cnt_in + _relay_12_function__67p__phase_difference1__correction_ref - _relay_12_function__67p__phase_difference1__previous_correction_in ) / _relay_12_function__67p__phase_difference1__sample_cnt_ref;
+            }
+        }
+        if( (_relay_12_function__67p__phase_difference1__phase_state > 360.0) || (_relay_12_function__67p__phase_difference1__phase_state < -360.0) ) {
+            _relay_12_function__67p__phase_difference1__phase_state = fmod(_relay_12_function__67p__phase_difference1__phase_state, 360.0);
+        }
+        if (_relay_12_function__67p__phase_difference1__phase_state < -180.0) {
+            _relay_12_function__67p__phase_difference1__phase_state += 360.0;
+        }
+        else if (_relay_12_function__67p__phase_difference1__phase_state > 180.0) {
+            _relay_12_function__67p__phase_difference1__phase_state -= 360.0;
+        }
+        _relay_12_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference1__previous_correction_ref = _relay_12_function__67p__phase_difference1__correction_ref;
+    }
+    if( _relay_12_function__67p__phase_difference1__zc_flag_in ) {
+        _relay_12_function__67p__phase_difference1__correction_in = - _relay_12_function__67p__phase_difference1__previous_filtered_in / ( _relay_12_function__67p__phase_difference1__filtered_in - _relay_12_function__67p__phase_difference1__previous_filtered_in );
+        _relay_12_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference1__previous_correction_in = _relay_12_function__67p__phase_difference1__correction_in;
+    }
+    // Generated from the component: Relay-12.Function (67P).Phase Difference2
+    _relay_12_function__67p__phase_difference2__sample_cnt_ref += 1;
+    _relay_12_function__67p__phase_difference2__previous_filtered_ref = _relay_12_function__67p__phase_difference2__filtered_ref;
+    _relay_12_function__67p__phase_difference2__filtered_ref = _relay_12_function__67p__phase_difference2__previous_filtered_ref * 0.2679491924311227 + _relay_12_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference2__sample_cnt_ref >= 1000 ) {
+        _relay_12_function__67p__phase_difference2__zc_flag_ref = 0;
+        _relay_12_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference2__previous_correction_ref = 0;
+        _relay_12_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference2__filtered_ref >= 0) && (_relay_12_function__67p__phase_difference2__previous_filtered_ref < 0) ) {
+        _relay_12_function__67p__phase_difference2__zc_flag_ref = 1;
+    }
+    else {
+        _relay_12_function__67p__phase_difference2__zc_flag_ref = 0;
+    }
+    _relay_12_function__67p__phase_difference2__sample_cnt_in += 1;
+    _relay_12_function__67p__phase_difference2__previous_filtered_in = _relay_12_function__67p__phase_difference2__filtered_in;
+    _relay_12_function__67p__phase_difference2__filtered_in = _relay_12_function__67p__phase_difference2__previous_filtered_in * 0.2679491924311227 + _relay_12_function__67p__basic_measurements__split___out2 * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference2__sample_cnt_in >= 1000 ) {
+        _relay_12_function__67p__phase_difference2__zc_flag_in = 0;
+        _relay_12_function__67p__phase_difference2__no_zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference2__previous_correction_in = 0;
+        _relay_12_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference2__filtered_in >= 0) && (_relay_12_function__67p__phase_difference2__previous_filtered_in < 0) ) {
+        _relay_12_function__67p__phase_difference2__zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference2__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_12_function__67p__phase_difference2__zc_flag_in = 0;
+    }
+    if( _relay_12_function__67p__phase_difference2__zc_flag_ref ) {
+        _relay_12_function__67p__phase_difference2__correction_ref = - _relay_12_function__67p__phase_difference2__previous_filtered_ref / ( _relay_12_function__67p__phase_difference2__filtered_ref - _relay_12_function__67p__phase_difference2__previous_filtered_ref );
+        _relay_12_function__67p__phase_difference2__sample_cnt_ref += _relay_12_function__67p__phase_difference2__correction_ref - _relay_12_function__67p__phase_difference2__previous_correction_ref;
+        if( (_relay_12_function__67p__phase_difference2__sample_cnt_ref > 1e-6) || (_relay_12_function__67p__phase_difference2__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_12_function__67p__phase_difference2__no_zc_flag_in ) {
+                _relay_12_function__67p__phase_difference2__phase_state = 360.0 * ( _relay_12_function__67p__phase_difference2__sample_cnt_in + _relay_12_function__67p__phase_difference2__correction_ref - _relay_12_function__67p__phase_difference2__previous_correction_in ) / _relay_12_function__67p__phase_difference2__sample_cnt_ref;
+            }
+        }
+        if( (_relay_12_function__67p__phase_difference2__phase_state > 360.0) || (_relay_12_function__67p__phase_difference2__phase_state < -360.0) ) {
+            _relay_12_function__67p__phase_difference2__phase_state = fmod(_relay_12_function__67p__phase_difference2__phase_state, 360.0);
+        }
+        if (_relay_12_function__67p__phase_difference2__phase_state < -180.0) {
+            _relay_12_function__67p__phase_difference2__phase_state += 360.0;
+        }
+        else if (_relay_12_function__67p__phase_difference2__phase_state > 180.0) {
+            _relay_12_function__67p__phase_difference2__phase_state -= 360.0;
+        }
+        _relay_12_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference2__previous_correction_ref = _relay_12_function__67p__phase_difference2__correction_ref;
+    }
+    if( _relay_12_function__67p__phase_difference2__zc_flag_in ) {
+        _relay_12_function__67p__phase_difference2__correction_in = - _relay_12_function__67p__phase_difference2__previous_filtered_in / ( _relay_12_function__67p__phase_difference2__filtered_in - _relay_12_function__67p__phase_difference2__previous_filtered_in );
+        _relay_12_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference2__previous_correction_in = _relay_12_function__67p__phase_difference2__correction_in;
+    }
+    // Generated from the component: Relay-12.Function (67P).Phase Difference3
+    _relay_12_function__67p__phase_difference3__sample_cnt_ref += 1;
+    _relay_12_function__67p__phase_difference3__previous_filtered_ref = _relay_12_function__67p__phase_difference3__filtered_ref;
+    _relay_12_function__67p__phase_difference3__filtered_ref = _relay_12_function__67p__phase_difference3__previous_filtered_ref * 0.2679491924311227 + _relay_12_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference3__sample_cnt_ref >= 1000 ) {
+        _relay_12_function__67p__phase_difference3__zc_flag_ref = 0;
+        _relay_12_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference3__previous_correction_ref = 0;
+        _relay_12_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference3__filtered_ref >= 0) && (_relay_12_function__67p__phase_difference3__previous_filtered_ref < 0) ) {
+        _relay_12_function__67p__phase_difference3__zc_flag_ref = 1;
+    }
+    else {
+        _relay_12_function__67p__phase_difference3__zc_flag_ref = 0;
+    }
+    _relay_12_function__67p__phase_difference3__sample_cnt_in += 1;
+    _relay_12_function__67p__phase_difference3__previous_filtered_in = _relay_12_function__67p__phase_difference3__filtered_in;
+    _relay_12_function__67p__phase_difference3__filtered_in = _relay_12_function__67p__phase_difference3__previous_filtered_in * 0.2679491924311227 + _relay_12_function__67p__basic_measurements__split___out1 * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference3__sample_cnt_in >= 1000 ) {
+        _relay_12_function__67p__phase_difference3__zc_flag_in = 0;
+        _relay_12_function__67p__phase_difference3__no_zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference3__previous_correction_in = 0;
+        _relay_12_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference3__filtered_in >= 0) && (_relay_12_function__67p__phase_difference3__previous_filtered_in < 0) ) {
+        _relay_12_function__67p__phase_difference3__zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference3__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_12_function__67p__phase_difference3__zc_flag_in = 0;
+    }
+    if( _relay_12_function__67p__phase_difference3__zc_flag_ref ) {
+        _relay_12_function__67p__phase_difference3__correction_ref = - _relay_12_function__67p__phase_difference3__previous_filtered_ref / ( _relay_12_function__67p__phase_difference3__filtered_ref - _relay_12_function__67p__phase_difference3__previous_filtered_ref );
+        _relay_12_function__67p__phase_difference3__sample_cnt_ref += _relay_12_function__67p__phase_difference3__correction_ref - _relay_12_function__67p__phase_difference3__previous_correction_ref;
+        if( (_relay_12_function__67p__phase_difference3__sample_cnt_ref > 1e-6) || (_relay_12_function__67p__phase_difference3__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_12_function__67p__phase_difference3__no_zc_flag_in ) {
+                _relay_12_function__67p__phase_difference3__phase_state = 360.0 * ( _relay_12_function__67p__phase_difference3__sample_cnt_in + _relay_12_function__67p__phase_difference3__correction_ref - _relay_12_function__67p__phase_difference3__previous_correction_in ) / _relay_12_function__67p__phase_difference3__sample_cnt_ref;
+            }
+        }
+        if( (_relay_12_function__67p__phase_difference3__phase_state > 360.0) || (_relay_12_function__67p__phase_difference3__phase_state < -360.0) ) {
+            _relay_12_function__67p__phase_difference3__phase_state = fmod(_relay_12_function__67p__phase_difference3__phase_state, 360.0);
+        }
+        if (_relay_12_function__67p__phase_difference3__phase_state < -180.0) {
+            _relay_12_function__67p__phase_difference3__phase_state += 360.0;
+        }
+        else if (_relay_12_function__67p__phase_difference3__phase_state > 180.0) {
+            _relay_12_function__67p__phase_difference3__phase_state -= 360.0;
+        }
+        _relay_12_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference3__previous_correction_ref = _relay_12_function__67p__phase_difference3__correction_ref;
+    }
+    if( _relay_12_function__67p__phase_difference3__zc_flag_in ) {
+        _relay_12_function__67p__phase_difference3__correction_in = - _relay_12_function__67p__phase_difference3__previous_filtered_in / ( _relay_12_function__67p__phase_difference3__filtered_in - _relay_12_function__67p__phase_difference3__previous_filtered_in );
+        _relay_12_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference3__previous_correction_in = _relay_12_function__67p__phase_difference3__correction_in;
+    }
+    // Generated from the component: Relay-12.Function (67P).Phase Difference4
+    _relay_12_function__67p__phase_difference4__sample_cnt_ref += 1;
+    _relay_12_function__67p__phase_difference4__previous_filtered_ref = _relay_12_function__67p__phase_difference4__filtered_ref;
+    _relay_12_function__67p__phase_difference4__filtered_ref = _relay_12_function__67p__phase_difference4__previous_filtered_ref * 0.2679491924311227 + _relay_12_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference4__sample_cnt_ref >= 1000 ) {
+        _relay_12_function__67p__phase_difference4__zc_flag_ref = 0;
+        _relay_12_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference4__previous_correction_ref = 0;
+        _relay_12_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference4__filtered_ref >= 0) && (_relay_12_function__67p__phase_difference4__previous_filtered_ref < 0) ) {
+        _relay_12_function__67p__phase_difference4__zc_flag_ref = 1;
+    }
+    else {
+        _relay_12_function__67p__phase_difference4__zc_flag_ref = 0;
+    }
+    _relay_12_function__67p__phase_difference4__sample_cnt_in += 1;
+    _relay_12_function__67p__phase_difference4__previous_filtered_in = _relay_12_function__67p__phase_difference4__filtered_in;
+    _relay_12_function__67p__phase_difference4__filtered_in = _relay_12_function__67p__phase_difference4__previous_filtered_in * 0.2679491924311227 + _relay_12_function__67p__basic_measurements__split___out * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference4__sample_cnt_in >= 1000 ) {
+        _relay_12_function__67p__phase_difference4__zc_flag_in = 0;
+        _relay_12_function__67p__phase_difference4__no_zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference4__previous_correction_in = 0;
+        _relay_12_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference4__filtered_in >= 0) && (_relay_12_function__67p__phase_difference4__previous_filtered_in < 0) ) {
+        _relay_12_function__67p__phase_difference4__zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference4__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_12_function__67p__phase_difference4__zc_flag_in = 0;
+    }
+    if( _relay_12_function__67p__phase_difference4__zc_flag_ref ) {
+        _relay_12_function__67p__phase_difference4__correction_ref = - _relay_12_function__67p__phase_difference4__previous_filtered_ref / ( _relay_12_function__67p__phase_difference4__filtered_ref - _relay_12_function__67p__phase_difference4__previous_filtered_ref );
+        _relay_12_function__67p__phase_difference4__sample_cnt_ref += _relay_12_function__67p__phase_difference4__correction_ref - _relay_12_function__67p__phase_difference4__previous_correction_ref;
+        if( (_relay_12_function__67p__phase_difference4__sample_cnt_ref > 1e-6) || (_relay_12_function__67p__phase_difference4__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_12_function__67p__phase_difference4__no_zc_flag_in ) {
+                _relay_12_function__67p__phase_difference4__phase_state = 360.0 * ( _relay_12_function__67p__phase_difference4__sample_cnt_in + _relay_12_function__67p__phase_difference4__correction_ref - _relay_12_function__67p__phase_difference4__previous_correction_in ) / _relay_12_function__67p__phase_difference4__sample_cnt_ref;
+            }
+        }
+        if( (_relay_12_function__67p__phase_difference4__phase_state > 360.0) || (_relay_12_function__67p__phase_difference4__phase_state < -360.0) ) {
+            _relay_12_function__67p__phase_difference4__phase_state = fmod(_relay_12_function__67p__phase_difference4__phase_state, 360.0);
+        }
+        if (_relay_12_function__67p__phase_difference4__phase_state < -180.0) {
+            _relay_12_function__67p__phase_difference4__phase_state += 360.0;
+        }
+        else if (_relay_12_function__67p__phase_difference4__phase_state > 180.0) {
+            _relay_12_function__67p__phase_difference4__phase_state -= 360.0;
+        }
+        _relay_12_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference4__previous_correction_ref = _relay_12_function__67p__phase_difference4__correction_ref;
+    }
+    if( _relay_12_function__67p__phase_difference4__zc_flag_in ) {
+        _relay_12_function__67p__phase_difference4__correction_in = - _relay_12_function__67p__phase_difference4__previous_filtered_in / ( _relay_12_function__67p__phase_difference4__filtered_in - _relay_12_function__67p__phase_difference4__previous_filtered_in );
+        _relay_12_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference4__previous_correction_in = _relay_12_function__67p__phase_difference4__correction_in;
+    }
+    // Generated from the component: Relay-12.Function (67P).Phase Difference5
+    _relay_12_function__67p__phase_difference5__sample_cnt_ref += 1;
+    _relay_12_function__67p__phase_difference5__previous_filtered_ref = _relay_12_function__67p__phase_difference5__filtered_ref;
+    _relay_12_function__67p__phase_difference5__filtered_ref = _relay_12_function__67p__phase_difference5__previous_filtered_ref * 0.2679491924311227 + _relay_12_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference5__sample_cnt_ref >= 1000 ) {
+        _relay_12_function__67p__phase_difference5__zc_flag_ref = 0;
+        _relay_12_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference5__previous_correction_ref = 0;
+        _relay_12_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference5__filtered_ref >= 0) && (_relay_12_function__67p__phase_difference5__previous_filtered_ref < 0) ) {
+        _relay_12_function__67p__phase_difference5__zc_flag_ref = 1;
+    }
+    else {
+        _relay_12_function__67p__phase_difference5__zc_flag_ref = 0;
+    }
+    _relay_12_function__67p__phase_difference5__sample_cnt_in += 1;
+    _relay_12_function__67p__phase_difference5__previous_filtered_in = _relay_12_function__67p__phase_difference5__filtered_in;
+    _relay_12_function__67p__phase_difference5__filtered_in = _relay_12_function__67p__phase_difference5__previous_filtered_in * 0.2679491924311227 + _relay_12_function__67p__basic_measurements__split___out4 * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference5__sample_cnt_in >= 1000 ) {
+        _relay_12_function__67p__phase_difference5__zc_flag_in = 0;
+        _relay_12_function__67p__phase_difference5__no_zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference5__previous_correction_in = 0;
+        _relay_12_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference5__filtered_in >= 0) && (_relay_12_function__67p__phase_difference5__previous_filtered_in < 0) ) {
+        _relay_12_function__67p__phase_difference5__zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference5__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_12_function__67p__phase_difference5__zc_flag_in = 0;
+    }
+    if( _relay_12_function__67p__phase_difference5__zc_flag_ref ) {
+        _relay_12_function__67p__phase_difference5__correction_ref = - _relay_12_function__67p__phase_difference5__previous_filtered_ref / ( _relay_12_function__67p__phase_difference5__filtered_ref - _relay_12_function__67p__phase_difference5__previous_filtered_ref );
+        _relay_12_function__67p__phase_difference5__sample_cnt_ref += _relay_12_function__67p__phase_difference5__correction_ref - _relay_12_function__67p__phase_difference5__previous_correction_ref;
+        if( (_relay_12_function__67p__phase_difference5__sample_cnt_ref > 1e-6) || (_relay_12_function__67p__phase_difference5__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_12_function__67p__phase_difference5__no_zc_flag_in ) {
+                _relay_12_function__67p__phase_difference5__phase_state = 360.0 * ( _relay_12_function__67p__phase_difference5__sample_cnt_in + _relay_12_function__67p__phase_difference5__correction_ref - _relay_12_function__67p__phase_difference5__previous_correction_in ) / _relay_12_function__67p__phase_difference5__sample_cnt_ref;
+            }
+        }
+        if( (_relay_12_function__67p__phase_difference5__phase_state > 360.0) || (_relay_12_function__67p__phase_difference5__phase_state < -360.0) ) {
+            _relay_12_function__67p__phase_difference5__phase_state = fmod(_relay_12_function__67p__phase_difference5__phase_state, 360.0);
+        }
+        if (_relay_12_function__67p__phase_difference5__phase_state < -180.0) {
+            _relay_12_function__67p__phase_difference5__phase_state += 360.0;
+        }
+        else if (_relay_12_function__67p__phase_difference5__phase_state > 180.0) {
+            _relay_12_function__67p__phase_difference5__phase_state -= 360.0;
+        }
+        _relay_12_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference5__previous_correction_ref = _relay_12_function__67p__phase_difference5__correction_ref;
+    }
+    if( _relay_12_function__67p__phase_difference5__zc_flag_in ) {
+        _relay_12_function__67p__phase_difference5__correction_in = - _relay_12_function__67p__phase_difference5__previous_filtered_in / ( _relay_12_function__67p__phase_difference5__filtered_in - _relay_12_function__67p__phase_difference5__previous_filtered_in );
+        _relay_12_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference5__previous_correction_in = _relay_12_function__67p__phase_difference5__correction_in;
+    }
+    // Generated from the component: Relay-12.Function (67P).Phase Difference6
+    _relay_12_function__67p__phase_difference6__sample_cnt_ref += 1;
+    _relay_12_function__67p__phase_difference6__previous_filtered_ref = _relay_12_function__67p__phase_difference6__filtered_ref;
+    _relay_12_function__67p__phase_difference6__filtered_ref = _relay_12_function__67p__phase_difference6__previous_filtered_ref * 0.2679491924311227 + _relay_12_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference6__sample_cnt_ref >= 1000 ) {
+        _relay_12_function__67p__phase_difference6__zc_flag_ref = 0;
+        _relay_12_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference6__previous_correction_ref = 0;
+        _relay_12_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference6__filtered_ref >= 0) && (_relay_12_function__67p__phase_difference6__previous_filtered_ref < 0) ) {
+        _relay_12_function__67p__phase_difference6__zc_flag_ref = 1;
+    }
+    else {
+        _relay_12_function__67p__phase_difference6__zc_flag_ref = 0;
+    }
+    _relay_12_function__67p__phase_difference6__sample_cnt_in += 1;
+    _relay_12_function__67p__phase_difference6__previous_filtered_in = _relay_12_function__67p__phase_difference6__filtered_in;
+    _relay_12_function__67p__phase_difference6__filtered_in = _relay_12_function__67p__phase_difference6__previous_filtered_in * 0.2679491924311227 + _relay_12_function__67p__basic_measurements__split___out5 * 0.7320508075688773;
+    if( _relay_12_function__67p__phase_difference6__sample_cnt_in >= 1000 ) {
+        _relay_12_function__67p__phase_difference6__zc_flag_in = 0;
+        _relay_12_function__67p__phase_difference6__no_zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference6__previous_correction_in = 0;
+        _relay_12_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_12_function__67p__phase_difference6__filtered_in >= 0) && (_relay_12_function__67p__phase_difference6__previous_filtered_in < 0) ) {
+        _relay_12_function__67p__phase_difference6__zc_flag_in = 1;
+        _relay_12_function__67p__phase_difference6__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_12_function__67p__phase_difference6__zc_flag_in = 0;
+    }
+    if( _relay_12_function__67p__phase_difference6__zc_flag_ref ) {
+        _relay_12_function__67p__phase_difference6__correction_ref = - _relay_12_function__67p__phase_difference6__previous_filtered_ref / ( _relay_12_function__67p__phase_difference6__filtered_ref - _relay_12_function__67p__phase_difference6__previous_filtered_ref );
+        _relay_12_function__67p__phase_difference6__sample_cnt_ref += _relay_12_function__67p__phase_difference6__correction_ref - _relay_12_function__67p__phase_difference6__previous_correction_ref;
+        if( (_relay_12_function__67p__phase_difference6__sample_cnt_ref > 1e-6) || (_relay_12_function__67p__phase_difference6__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_12_function__67p__phase_difference6__no_zc_flag_in ) {
+                _relay_12_function__67p__phase_difference6__phase_state = 360.0 * ( _relay_12_function__67p__phase_difference6__sample_cnt_in + _relay_12_function__67p__phase_difference6__correction_ref - _relay_12_function__67p__phase_difference6__previous_correction_in ) / _relay_12_function__67p__phase_difference6__sample_cnt_ref;
+            }
+        }
+        if( (_relay_12_function__67p__phase_difference6__phase_state > 360.0) || (_relay_12_function__67p__phase_difference6__phase_state < -360.0) ) {
+            _relay_12_function__67p__phase_difference6__phase_state = fmod(_relay_12_function__67p__phase_difference6__phase_state, 360.0);
+        }
+        if (_relay_12_function__67p__phase_difference6__phase_state < -180.0) {
+            _relay_12_function__67p__phase_difference6__phase_state += 360.0;
+        }
+        else if (_relay_12_function__67p__phase_difference6__phase_state > 180.0) {
+            _relay_12_function__67p__phase_difference6__phase_state -= 360.0;
+        }
+        _relay_12_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_12_function__67p__phase_difference6__previous_correction_ref = _relay_12_function__67p__phase_difference6__correction_ref;
+    }
+    if( _relay_12_function__67p__phase_difference6__zc_flag_in ) {
+        _relay_12_function__67p__phase_difference6__correction_in = - _relay_12_function__67p__phase_difference6__previous_filtered_in / ( _relay_12_function__67p__phase_difference6__filtered_in - _relay_12_function__67p__phase_difference6__previous_filtered_in );
+        _relay_12_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_12_function__67p__phase_difference6__previous_correction_in = _relay_12_function__67p__phase_difference6__correction_in;
+    }
+    // Generated from the component: Relay-13.Function (67P).Phase Difference1
+    _relay_13_function__67p__phase_difference1__sample_cnt_ref += 1;
+    _relay_13_function__67p__phase_difference1__previous_filtered_ref = _relay_13_function__67p__phase_difference1__filtered_ref;
+    _relay_13_function__67p__phase_difference1__filtered_ref = _relay_13_function__67p__phase_difference1__previous_filtered_ref * 0.2679491924311227 + _relay_13_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference1__sample_cnt_ref >= 1000 ) {
+        _relay_13_function__67p__phase_difference1__zc_flag_ref = 0;
+        _relay_13_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference1__previous_correction_ref = 0;
+        _relay_13_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference1__filtered_ref >= 0) && (_relay_13_function__67p__phase_difference1__previous_filtered_ref < 0) ) {
+        _relay_13_function__67p__phase_difference1__zc_flag_ref = 1;
+    }
+    else {
+        _relay_13_function__67p__phase_difference1__zc_flag_ref = 0;
+    }
+    _relay_13_function__67p__phase_difference1__sample_cnt_in += 1;
+    _relay_13_function__67p__phase_difference1__previous_filtered_in = _relay_13_function__67p__phase_difference1__filtered_in;
+    _relay_13_function__67p__phase_difference1__filtered_in = _relay_13_function__67p__phase_difference1__previous_filtered_in * 0.2679491924311227 + _relay_13_function__67p__basic_measurements__split___out3 * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference1__sample_cnt_in >= 1000 ) {
+        _relay_13_function__67p__phase_difference1__zc_flag_in = 0;
+        _relay_13_function__67p__phase_difference1__no_zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference1__previous_correction_in = 0;
+        _relay_13_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference1__filtered_in >= 0) && (_relay_13_function__67p__phase_difference1__previous_filtered_in < 0) ) {
+        _relay_13_function__67p__phase_difference1__zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference1__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_13_function__67p__phase_difference1__zc_flag_in = 0;
+    }
+    if( _relay_13_function__67p__phase_difference1__zc_flag_ref ) {
+        _relay_13_function__67p__phase_difference1__correction_ref = - _relay_13_function__67p__phase_difference1__previous_filtered_ref / ( _relay_13_function__67p__phase_difference1__filtered_ref - _relay_13_function__67p__phase_difference1__previous_filtered_ref );
+        _relay_13_function__67p__phase_difference1__sample_cnt_ref += _relay_13_function__67p__phase_difference1__correction_ref - _relay_13_function__67p__phase_difference1__previous_correction_ref;
+        if( (_relay_13_function__67p__phase_difference1__sample_cnt_ref > 1e-6) || (_relay_13_function__67p__phase_difference1__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_13_function__67p__phase_difference1__no_zc_flag_in ) {
+                _relay_13_function__67p__phase_difference1__phase_state = 360.0 * ( _relay_13_function__67p__phase_difference1__sample_cnt_in + _relay_13_function__67p__phase_difference1__correction_ref - _relay_13_function__67p__phase_difference1__previous_correction_in ) / _relay_13_function__67p__phase_difference1__sample_cnt_ref;
+            }
+        }
+        if( (_relay_13_function__67p__phase_difference1__phase_state > 360.0) || (_relay_13_function__67p__phase_difference1__phase_state < -360.0) ) {
+            _relay_13_function__67p__phase_difference1__phase_state = fmod(_relay_13_function__67p__phase_difference1__phase_state, 360.0);
+        }
+        if (_relay_13_function__67p__phase_difference1__phase_state < -180.0) {
+            _relay_13_function__67p__phase_difference1__phase_state += 360.0;
+        }
+        else if (_relay_13_function__67p__phase_difference1__phase_state > 180.0) {
+            _relay_13_function__67p__phase_difference1__phase_state -= 360.0;
+        }
+        _relay_13_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference1__previous_correction_ref = _relay_13_function__67p__phase_difference1__correction_ref;
+    }
+    if( _relay_13_function__67p__phase_difference1__zc_flag_in ) {
+        _relay_13_function__67p__phase_difference1__correction_in = - _relay_13_function__67p__phase_difference1__previous_filtered_in / ( _relay_13_function__67p__phase_difference1__filtered_in - _relay_13_function__67p__phase_difference1__previous_filtered_in );
+        _relay_13_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference1__previous_correction_in = _relay_13_function__67p__phase_difference1__correction_in;
+    }
+    // Generated from the component: Relay-13.Function (67P).Phase Difference2
+    _relay_13_function__67p__phase_difference2__sample_cnt_ref += 1;
+    _relay_13_function__67p__phase_difference2__previous_filtered_ref = _relay_13_function__67p__phase_difference2__filtered_ref;
+    _relay_13_function__67p__phase_difference2__filtered_ref = _relay_13_function__67p__phase_difference2__previous_filtered_ref * 0.2679491924311227 + _relay_13_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference2__sample_cnt_ref >= 1000 ) {
+        _relay_13_function__67p__phase_difference2__zc_flag_ref = 0;
+        _relay_13_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference2__previous_correction_ref = 0;
+        _relay_13_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference2__filtered_ref >= 0) && (_relay_13_function__67p__phase_difference2__previous_filtered_ref < 0) ) {
+        _relay_13_function__67p__phase_difference2__zc_flag_ref = 1;
+    }
+    else {
+        _relay_13_function__67p__phase_difference2__zc_flag_ref = 0;
+    }
+    _relay_13_function__67p__phase_difference2__sample_cnt_in += 1;
+    _relay_13_function__67p__phase_difference2__previous_filtered_in = _relay_13_function__67p__phase_difference2__filtered_in;
+    _relay_13_function__67p__phase_difference2__filtered_in = _relay_13_function__67p__phase_difference2__previous_filtered_in * 0.2679491924311227 + _relay_13_function__67p__basic_measurements__split___out2 * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference2__sample_cnt_in >= 1000 ) {
+        _relay_13_function__67p__phase_difference2__zc_flag_in = 0;
+        _relay_13_function__67p__phase_difference2__no_zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference2__previous_correction_in = 0;
+        _relay_13_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference2__filtered_in >= 0) && (_relay_13_function__67p__phase_difference2__previous_filtered_in < 0) ) {
+        _relay_13_function__67p__phase_difference2__zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference2__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_13_function__67p__phase_difference2__zc_flag_in = 0;
+    }
+    if( _relay_13_function__67p__phase_difference2__zc_flag_ref ) {
+        _relay_13_function__67p__phase_difference2__correction_ref = - _relay_13_function__67p__phase_difference2__previous_filtered_ref / ( _relay_13_function__67p__phase_difference2__filtered_ref - _relay_13_function__67p__phase_difference2__previous_filtered_ref );
+        _relay_13_function__67p__phase_difference2__sample_cnt_ref += _relay_13_function__67p__phase_difference2__correction_ref - _relay_13_function__67p__phase_difference2__previous_correction_ref;
+        if( (_relay_13_function__67p__phase_difference2__sample_cnt_ref > 1e-6) || (_relay_13_function__67p__phase_difference2__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_13_function__67p__phase_difference2__no_zc_flag_in ) {
+                _relay_13_function__67p__phase_difference2__phase_state = 360.0 * ( _relay_13_function__67p__phase_difference2__sample_cnt_in + _relay_13_function__67p__phase_difference2__correction_ref - _relay_13_function__67p__phase_difference2__previous_correction_in ) / _relay_13_function__67p__phase_difference2__sample_cnt_ref;
+            }
+        }
+        if( (_relay_13_function__67p__phase_difference2__phase_state > 360.0) || (_relay_13_function__67p__phase_difference2__phase_state < -360.0) ) {
+            _relay_13_function__67p__phase_difference2__phase_state = fmod(_relay_13_function__67p__phase_difference2__phase_state, 360.0);
+        }
+        if (_relay_13_function__67p__phase_difference2__phase_state < -180.0) {
+            _relay_13_function__67p__phase_difference2__phase_state += 360.0;
+        }
+        else if (_relay_13_function__67p__phase_difference2__phase_state > 180.0) {
+            _relay_13_function__67p__phase_difference2__phase_state -= 360.0;
+        }
+        _relay_13_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference2__previous_correction_ref = _relay_13_function__67p__phase_difference2__correction_ref;
+    }
+    if( _relay_13_function__67p__phase_difference2__zc_flag_in ) {
+        _relay_13_function__67p__phase_difference2__correction_in = - _relay_13_function__67p__phase_difference2__previous_filtered_in / ( _relay_13_function__67p__phase_difference2__filtered_in - _relay_13_function__67p__phase_difference2__previous_filtered_in );
+        _relay_13_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference2__previous_correction_in = _relay_13_function__67p__phase_difference2__correction_in;
+    }
+    // Generated from the component: Relay-13.Function (67P).Phase Difference3
+    _relay_13_function__67p__phase_difference3__sample_cnt_ref += 1;
+    _relay_13_function__67p__phase_difference3__previous_filtered_ref = _relay_13_function__67p__phase_difference3__filtered_ref;
+    _relay_13_function__67p__phase_difference3__filtered_ref = _relay_13_function__67p__phase_difference3__previous_filtered_ref * 0.2679491924311227 + _relay_13_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference3__sample_cnt_ref >= 1000 ) {
+        _relay_13_function__67p__phase_difference3__zc_flag_ref = 0;
+        _relay_13_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference3__previous_correction_ref = 0;
+        _relay_13_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference3__filtered_ref >= 0) && (_relay_13_function__67p__phase_difference3__previous_filtered_ref < 0) ) {
+        _relay_13_function__67p__phase_difference3__zc_flag_ref = 1;
+    }
+    else {
+        _relay_13_function__67p__phase_difference3__zc_flag_ref = 0;
+    }
+    _relay_13_function__67p__phase_difference3__sample_cnt_in += 1;
+    _relay_13_function__67p__phase_difference3__previous_filtered_in = _relay_13_function__67p__phase_difference3__filtered_in;
+    _relay_13_function__67p__phase_difference3__filtered_in = _relay_13_function__67p__phase_difference3__previous_filtered_in * 0.2679491924311227 + _relay_13_function__67p__basic_measurements__split___out1 * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference3__sample_cnt_in >= 1000 ) {
+        _relay_13_function__67p__phase_difference3__zc_flag_in = 0;
+        _relay_13_function__67p__phase_difference3__no_zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference3__previous_correction_in = 0;
+        _relay_13_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference3__filtered_in >= 0) && (_relay_13_function__67p__phase_difference3__previous_filtered_in < 0) ) {
+        _relay_13_function__67p__phase_difference3__zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference3__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_13_function__67p__phase_difference3__zc_flag_in = 0;
+    }
+    if( _relay_13_function__67p__phase_difference3__zc_flag_ref ) {
+        _relay_13_function__67p__phase_difference3__correction_ref = - _relay_13_function__67p__phase_difference3__previous_filtered_ref / ( _relay_13_function__67p__phase_difference3__filtered_ref - _relay_13_function__67p__phase_difference3__previous_filtered_ref );
+        _relay_13_function__67p__phase_difference3__sample_cnt_ref += _relay_13_function__67p__phase_difference3__correction_ref - _relay_13_function__67p__phase_difference3__previous_correction_ref;
+        if( (_relay_13_function__67p__phase_difference3__sample_cnt_ref > 1e-6) || (_relay_13_function__67p__phase_difference3__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_13_function__67p__phase_difference3__no_zc_flag_in ) {
+                _relay_13_function__67p__phase_difference3__phase_state = 360.0 * ( _relay_13_function__67p__phase_difference3__sample_cnt_in + _relay_13_function__67p__phase_difference3__correction_ref - _relay_13_function__67p__phase_difference3__previous_correction_in ) / _relay_13_function__67p__phase_difference3__sample_cnt_ref;
+            }
+        }
+        if( (_relay_13_function__67p__phase_difference3__phase_state > 360.0) || (_relay_13_function__67p__phase_difference3__phase_state < -360.0) ) {
+            _relay_13_function__67p__phase_difference3__phase_state = fmod(_relay_13_function__67p__phase_difference3__phase_state, 360.0);
+        }
+        if (_relay_13_function__67p__phase_difference3__phase_state < -180.0) {
+            _relay_13_function__67p__phase_difference3__phase_state += 360.0;
+        }
+        else if (_relay_13_function__67p__phase_difference3__phase_state > 180.0) {
+            _relay_13_function__67p__phase_difference3__phase_state -= 360.0;
+        }
+        _relay_13_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference3__previous_correction_ref = _relay_13_function__67p__phase_difference3__correction_ref;
+    }
+    if( _relay_13_function__67p__phase_difference3__zc_flag_in ) {
+        _relay_13_function__67p__phase_difference3__correction_in = - _relay_13_function__67p__phase_difference3__previous_filtered_in / ( _relay_13_function__67p__phase_difference3__filtered_in - _relay_13_function__67p__phase_difference3__previous_filtered_in );
+        _relay_13_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference3__previous_correction_in = _relay_13_function__67p__phase_difference3__correction_in;
+    }
+    // Generated from the component: Relay-13.Function (67P).Phase Difference4
+    _relay_13_function__67p__phase_difference4__sample_cnt_ref += 1;
+    _relay_13_function__67p__phase_difference4__previous_filtered_ref = _relay_13_function__67p__phase_difference4__filtered_ref;
+    _relay_13_function__67p__phase_difference4__filtered_ref = _relay_13_function__67p__phase_difference4__previous_filtered_ref * 0.2679491924311227 + _relay_13_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference4__sample_cnt_ref >= 1000 ) {
+        _relay_13_function__67p__phase_difference4__zc_flag_ref = 0;
+        _relay_13_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference4__previous_correction_ref = 0;
+        _relay_13_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference4__filtered_ref >= 0) && (_relay_13_function__67p__phase_difference4__previous_filtered_ref < 0) ) {
+        _relay_13_function__67p__phase_difference4__zc_flag_ref = 1;
+    }
+    else {
+        _relay_13_function__67p__phase_difference4__zc_flag_ref = 0;
+    }
+    _relay_13_function__67p__phase_difference4__sample_cnt_in += 1;
+    _relay_13_function__67p__phase_difference4__previous_filtered_in = _relay_13_function__67p__phase_difference4__filtered_in;
+    _relay_13_function__67p__phase_difference4__filtered_in = _relay_13_function__67p__phase_difference4__previous_filtered_in * 0.2679491924311227 + _relay_13_function__67p__basic_measurements__split___out * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference4__sample_cnt_in >= 1000 ) {
+        _relay_13_function__67p__phase_difference4__zc_flag_in = 0;
+        _relay_13_function__67p__phase_difference4__no_zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference4__previous_correction_in = 0;
+        _relay_13_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference4__filtered_in >= 0) && (_relay_13_function__67p__phase_difference4__previous_filtered_in < 0) ) {
+        _relay_13_function__67p__phase_difference4__zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference4__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_13_function__67p__phase_difference4__zc_flag_in = 0;
+    }
+    if( _relay_13_function__67p__phase_difference4__zc_flag_ref ) {
+        _relay_13_function__67p__phase_difference4__correction_ref = - _relay_13_function__67p__phase_difference4__previous_filtered_ref / ( _relay_13_function__67p__phase_difference4__filtered_ref - _relay_13_function__67p__phase_difference4__previous_filtered_ref );
+        _relay_13_function__67p__phase_difference4__sample_cnt_ref += _relay_13_function__67p__phase_difference4__correction_ref - _relay_13_function__67p__phase_difference4__previous_correction_ref;
+        if( (_relay_13_function__67p__phase_difference4__sample_cnt_ref > 1e-6) || (_relay_13_function__67p__phase_difference4__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_13_function__67p__phase_difference4__no_zc_flag_in ) {
+                _relay_13_function__67p__phase_difference4__phase_state = 360.0 * ( _relay_13_function__67p__phase_difference4__sample_cnt_in + _relay_13_function__67p__phase_difference4__correction_ref - _relay_13_function__67p__phase_difference4__previous_correction_in ) / _relay_13_function__67p__phase_difference4__sample_cnt_ref;
+            }
+        }
+        if( (_relay_13_function__67p__phase_difference4__phase_state > 360.0) || (_relay_13_function__67p__phase_difference4__phase_state < -360.0) ) {
+            _relay_13_function__67p__phase_difference4__phase_state = fmod(_relay_13_function__67p__phase_difference4__phase_state, 360.0);
+        }
+        if (_relay_13_function__67p__phase_difference4__phase_state < -180.0) {
+            _relay_13_function__67p__phase_difference4__phase_state += 360.0;
+        }
+        else if (_relay_13_function__67p__phase_difference4__phase_state > 180.0) {
+            _relay_13_function__67p__phase_difference4__phase_state -= 360.0;
+        }
+        _relay_13_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference4__previous_correction_ref = _relay_13_function__67p__phase_difference4__correction_ref;
+    }
+    if( _relay_13_function__67p__phase_difference4__zc_flag_in ) {
+        _relay_13_function__67p__phase_difference4__correction_in = - _relay_13_function__67p__phase_difference4__previous_filtered_in / ( _relay_13_function__67p__phase_difference4__filtered_in - _relay_13_function__67p__phase_difference4__previous_filtered_in );
+        _relay_13_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference4__previous_correction_in = _relay_13_function__67p__phase_difference4__correction_in;
+    }
+    // Generated from the component: Relay-13.Function (67P).Phase Difference5
+    _relay_13_function__67p__phase_difference5__sample_cnt_ref += 1;
+    _relay_13_function__67p__phase_difference5__previous_filtered_ref = _relay_13_function__67p__phase_difference5__filtered_ref;
+    _relay_13_function__67p__phase_difference5__filtered_ref = _relay_13_function__67p__phase_difference5__previous_filtered_ref * 0.2679491924311227 + _relay_13_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference5__sample_cnt_ref >= 1000 ) {
+        _relay_13_function__67p__phase_difference5__zc_flag_ref = 0;
+        _relay_13_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference5__previous_correction_ref = 0;
+        _relay_13_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference5__filtered_ref >= 0) && (_relay_13_function__67p__phase_difference5__previous_filtered_ref < 0) ) {
+        _relay_13_function__67p__phase_difference5__zc_flag_ref = 1;
+    }
+    else {
+        _relay_13_function__67p__phase_difference5__zc_flag_ref = 0;
+    }
+    _relay_13_function__67p__phase_difference5__sample_cnt_in += 1;
+    _relay_13_function__67p__phase_difference5__previous_filtered_in = _relay_13_function__67p__phase_difference5__filtered_in;
+    _relay_13_function__67p__phase_difference5__filtered_in = _relay_13_function__67p__phase_difference5__previous_filtered_in * 0.2679491924311227 + _relay_13_function__67p__basic_measurements__split___out4 * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference5__sample_cnt_in >= 1000 ) {
+        _relay_13_function__67p__phase_difference5__zc_flag_in = 0;
+        _relay_13_function__67p__phase_difference5__no_zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference5__previous_correction_in = 0;
+        _relay_13_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference5__filtered_in >= 0) && (_relay_13_function__67p__phase_difference5__previous_filtered_in < 0) ) {
+        _relay_13_function__67p__phase_difference5__zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference5__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_13_function__67p__phase_difference5__zc_flag_in = 0;
+    }
+    if( _relay_13_function__67p__phase_difference5__zc_flag_ref ) {
+        _relay_13_function__67p__phase_difference5__correction_ref = - _relay_13_function__67p__phase_difference5__previous_filtered_ref / ( _relay_13_function__67p__phase_difference5__filtered_ref - _relay_13_function__67p__phase_difference5__previous_filtered_ref );
+        _relay_13_function__67p__phase_difference5__sample_cnt_ref += _relay_13_function__67p__phase_difference5__correction_ref - _relay_13_function__67p__phase_difference5__previous_correction_ref;
+        if( (_relay_13_function__67p__phase_difference5__sample_cnt_ref > 1e-6) || (_relay_13_function__67p__phase_difference5__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_13_function__67p__phase_difference5__no_zc_flag_in ) {
+                _relay_13_function__67p__phase_difference5__phase_state = 360.0 * ( _relay_13_function__67p__phase_difference5__sample_cnt_in + _relay_13_function__67p__phase_difference5__correction_ref - _relay_13_function__67p__phase_difference5__previous_correction_in ) / _relay_13_function__67p__phase_difference5__sample_cnt_ref;
+            }
+        }
+        if( (_relay_13_function__67p__phase_difference5__phase_state > 360.0) || (_relay_13_function__67p__phase_difference5__phase_state < -360.0) ) {
+            _relay_13_function__67p__phase_difference5__phase_state = fmod(_relay_13_function__67p__phase_difference5__phase_state, 360.0);
+        }
+        if (_relay_13_function__67p__phase_difference5__phase_state < -180.0) {
+            _relay_13_function__67p__phase_difference5__phase_state += 360.0;
+        }
+        else if (_relay_13_function__67p__phase_difference5__phase_state > 180.0) {
+            _relay_13_function__67p__phase_difference5__phase_state -= 360.0;
+        }
+        _relay_13_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference5__previous_correction_ref = _relay_13_function__67p__phase_difference5__correction_ref;
+    }
+    if( _relay_13_function__67p__phase_difference5__zc_flag_in ) {
+        _relay_13_function__67p__phase_difference5__correction_in = - _relay_13_function__67p__phase_difference5__previous_filtered_in / ( _relay_13_function__67p__phase_difference5__filtered_in - _relay_13_function__67p__phase_difference5__previous_filtered_in );
+        _relay_13_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference5__previous_correction_in = _relay_13_function__67p__phase_difference5__correction_in;
+    }
+    // Generated from the component: Relay-13.Function (67P).Phase Difference6
+    _relay_13_function__67p__phase_difference6__sample_cnt_ref += 1;
+    _relay_13_function__67p__phase_difference6__previous_filtered_ref = _relay_13_function__67p__phase_difference6__filtered_ref;
+    _relay_13_function__67p__phase_difference6__filtered_ref = _relay_13_function__67p__phase_difference6__previous_filtered_ref * 0.2679491924311227 + _relay_13_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference6__sample_cnt_ref >= 1000 ) {
+        _relay_13_function__67p__phase_difference6__zc_flag_ref = 0;
+        _relay_13_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference6__previous_correction_ref = 0;
+        _relay_13_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference6__filtered_ref >= 0) && (_relay_13_function__67p__phase_difference6__previous_filtered_ref < 0) ) {
+        _relay_13_function__67p__phase_difference6__zc_flag_ref = 1;
+    }
+    else {
+        _relay_13_function__67p__phase_difference6__zc_flag_ref = 0;
+    }
+    _relay_13_function__67p__phase_difference6__sample_cnt_in += 1;
+    _relay_13_function__67p__phase_difference6__previous_filtered_in = _relay_13_function__67p__phase_difference6__filtered_in;
+    _relay_13_function__67p__phase_difference6__filtered_in = _relay_13_function__67p__phase_difference6__previous_filtered_in * 0.2679491924311227 + _relay_13_function__67p__basic_measurements__split___out5 * 0.7320508075688773;
+    if( _relay_13_function__67p__phase_difference6__sample_cnt_in >= 1000 ) {
+        _relay_13_function__67p__phase_difference6__zc_flag_in = 0;
+        _relay_13_function__67p__phase_difference6__no_zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference6__previous_correction_in = 0;
+        _relay_13_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_13_function__67p__phase_difference6__filtered_in >= 0) && (_relay_13_function__67p__phase_difference6__previous_filtered_in < 0) ) {
+        _relay_13_function__67p__phase_difference6__zc_flag_in = 1;
+        _relay_13_function__67p__phase_difference6__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_13_function__67p__phase_difference6__zc_flag_in = 0;
+    }
+    if( _relay_13_function__67p__phase_difference6__zc_flag_ref ) {
+        _relay_13_function__67p__phase_difference6__correction_ref = - _relay_13_function__67p__phase_difference6__previous_filtered_ref / ( _relay_13_function__67p__phase_difference6__filtered_ref - _relay_13_function__67p__phase_difference6__previous_filtered_ref );
+        _relay_13_function__67p__phase_difference6__sample_cnt_ref += _relay_13_function__67p__phase_difference6__correction_ref - _relay_13_function__67p__phase_difference6__previous_correction_ref;
+        if( (_relay_13_function__67p__phase_difference6__sample_cnt_ref > 1e-6) || (_relay_13_function__67p__phase_difference6__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_13_function__67p__phase_difference6__no_zc_flag_in ) {
+                _relay_13_function__67p__phase_difference6__phase_state = 360.0 * ( _relay_13_function__67p__phase_difference6__sample_cnt_in + _relay_13_function__67p__phase_difference6__correction_ref - _relay_13_function__67p__phase_difference6__previous_correction_in ) / _relay_13_function__67p__phase_difference6__sample_cnt_ref;
+            }
+        }
+        if( (_relay_13_function__67p__phase_difference6__phase_state > 360.0) || (_relay_13_function__67p__phase_difference6__phase_state < -360.0) ) {
+            _relay_13_function__67p__phase_difference6__phase_state = fmod(_relay_13_function__67p__phase_difference6__phase_state, 360.0);
+        }
+        if (_relay_13_function__67p__phase_difference6__phase_state < -180.0) {
+            _relay_13_function__67p__phase_difference6__phase_state += 360.0;
+        }
+        else if (_relay_13_function__67p__phase_difference6__phase_state > 180.0) {
+            _relay_13_function__67p__phase_difference6__phase_state -= 360.0;
+        }
+        _relay_13_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_13_function__67p__phase_difference6__previous_correction_ref = _relay_13_function__67p__phase_difference6__correction_ref;
+    }
+    if( _relay_13_function__67p__phase_difference6__zc_flag_in ) {
+        _relay_13_function__67p__phase_difference6__correction_in = - _relay_13_function__67p__phase_difference6__previous_filtered_in / ( _relay_13_function__67p__phase_difference6__filtered_in - _relay_13_function__67p__phase_difference6__previous_filtered_in );
+        _relay_13_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_13_function__67p__phase_difference6__previous_correction_in = _relay_13_function__67p__phase_difference6__correction_in;
+    }
+    // Generated from the component: Relay-14.Function (67P).Phase Difference1
+    _relay_14_function__67p__phase_difference1__sample_cnt_ref += 1;
+    _relay_14_function__67p__phase_difference1__previous_filtered_ref = _relay_14_function__67p__phase_difference1__filtered_ref;
+    _relay_14_function__67p__phase_difference1__filtered_ref = _relay_14_function__67p__phase_difference1__previous_filtered_ref * 0.2679491924311227 + _relay_14_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference1__sample_cnt_ref >= 1000 ) {
+        _relay_14_function__67p__phase_difference1__zc_flag_ref = 0;
+        _relay_14_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference1__previous_correction_ref = 0;
+        _relay_14_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference1__filtered_ref >= 0) && (_relay_14_function__67p__phase_difference1__previous_filtered_ref < 0) ) {
+        _relay_14_function__67p__phase_difference1__zc_flag_ref = 1;
+    }
+    else {
+        _relay_14_function__67p__phase_difference1__zc_flag_ref = 0;
+    }
+    _relay_14_function__67p__phase_difference1__sample_cnt_in += 1;
+    _relay_14_function__67p__phase_difference1__previous_filtered_in = _relay_14_function__67p__phase_difference1__filtered_in;
+    _relay_14_function__67p__phase_difference1__filtered_in = _relay_14_function__67p__phase_difference1__previous_filtered_in * 0.2679491924311227 + _relay_14_function__67p__basic_measurements__split___out3 * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference1__sample_cnt_in >= 1000 ) {
+        _relay_14_function__67p__phase_difference1__zc_flag_in = 0;
+        _relay_14_function__67p__phase_difference1__no_zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference1__previous_correction_in = 0;
+        _relay_14_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference1__filtered_in >= 0) && (_relay_14_function__67p__phase_difference1__previous_filtered_in < 0) ) {
+        _relay_14_function__67p__phase_difference1__zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference1__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_14_function__67p__phase_difference1__zc_flag_in = 0;
+    }
+    if( _relay_14_function__67p__phase_difference1__zc_flag_ref ) {
+        _relay_14_function__67p__phase_difference1__correction_ref = - _relay_14_function__67p__phase_difference1__previous_filtered_ref / ( _relay_14_function__67p__phase_difference1__filtered_ref - _relay_14_function__67p__phase_difference1__previous_filtered_ref );
+        _relay_14_function__67p__phase_difference1__sample_cnt_ref += _relay_14_function__67p__phase_difference1__correction_ref - _relay_14_function__67p__phase_difference1__previous_correction_ref;
+        if( (_relay_14_function__67p__phase_difference1__sample_cnt_ref > 1e-6) || (_relay_14_function__67p__phase_difference1__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_14_function__67p__phase_difference1__no_zc_flag_in ) {
+                _relay_14_function__67p__phase_difference1__phase_state = 360.0 * ( _relay_14_function__67p__phase_difference1__sample_cnt_in + _relay_14_function__67p__phase_difference1__correction_ref - _relay_14_function__67p__phase_difference1__previous_correction_in ) / _relay_14_function__67p__phase_difference1__sample_cnt_ref;
+            }
+        }
+        if( (_relay_14_function__67p__phase_difference1__phase_state > 360.0) || (_relay_14_function__67p__phase_difference1__phase_state < -360.0) ) {
+            _relay_14_function__67p__phase_difference1__phase_state = fmod(_relay_14_function__67p__phase_difference1__phase_state, 360.0);
+        }
+        if (_relay_14_function__67p__phase_difference1__phase_state < -180.0) {
+            _relay_14_function__67p__phase_difference1__phase_state += 360.0;
+        }
+        else if (_relay_14_function__67p__phase_difference1__phase_state > 180.0) {
+            _relay_14_function__67p__phase_difference1__phase_state -= 360.0;
+        }
+        _relay_14_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference1__previous_correction_ref = _relay_14_function__67p__phase_difference1__correction_ref;
+    }
+    if( _relay_14_function__67p__phase_difference1__zc_flag_in ) {
+        _relay_14_function__67p__phase_difference1__correction_in = - _relay_14_function__67p__phase_difference1__previous_filtered_in / ( _relay_14_function__67p__phase_difference1__filtered_in - _relay_14_function__67p__phase_difference1__previous_filtered_in );
+        _relay_14_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference1__previous_correction_in = _relay_14_function__67p__phase_difference1__correction_in;
+    }
+    // Generated from the component: Relay-14.Function (67P).Phase Difference2
+    _relay_14_function__67p__phase_difference2__sample_cnt_ref += 1;
+    _relay_14_function__67p__phase_difference2__previous_filtered_ref = _relay_14_function__67p__phase_difference2__filtered_ref;
+    _relay_14_function__67p__phase_difference2__filtered_ref = _relay_14_function__67p__phase_difference2__previous_filtered_ref * 0.2679491924311227 + _relay_14_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference2__sample_cnt_ref >= 1000 ) {
+        _relay_14_function__67p__phase_difference2__zc_flag_ref = 0;
+        _relay_14_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference2__previous_correction_ref = 0;
+        _relay_14_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference2__filtered_ref >= 0) && (_relay_14_function__67p__phase_difference2__previous_filtered_ref < 0) ) {
+        _relay_14_function__67p__phase_difference2__zc_flag_ref = 1;
+    }
+    else {
+        _relay_14_function__67p__phase_difference2__zc_flag_ref = 0;
+    }
+    _relay_14_function__67p__phase_difference2__sample_cnt_in += 1;
+    _relay_14_function__67p__phase_difference2__previous_filtered_in = _relay_14_function__67p__phase_difference2__filtered_in;
+    _relay_14_function__67p__phase_difference2__filtered_in = _relay_14_function__67p__phase_difference2__previous_filtered_in * 0.2679491924311227 + _relay_14_function__67p__basic_measurements__split___out2 * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference2__sample_cnt_in >= 1000 ) {
+        _relay_14_function__67p__phase_difference2__zc_flag_in = 0;
+        _relay_14_function__67p__phase_difference2__no_zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference2__previous_correction_in = 0;
+        _relay_14_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference2__filtered_in >= 0) && (_relay_14_function__67p__phase_difference2__previous_filtered_in < 0) ) {
+        _relay_14_function__67p__phase_difference2__zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference2__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_14_function__67p__phase_difference2__zc_flag_in = 0;
+    }
+    if( _relay_14_function__67p__phase_difference2__zc_flag_ref ) {
+        _relay_14_function__67p__phase_difference2__correction_ref = - _relay_14_function__67p__phase_difference2__previous_filtered_ref / ( _relay_14_function__67p__phase_difference2__filtered_ref - _relay_14_function__67p__phase_difference2__previous_filtered_ref );
+        _relay_14_function__67p__phase_difference2__sample_cnt_ref += _relay_14_function__67p__phase_difference2__correction_ref - _relay_14_function__67p__phase_difference2__previous_correction_ref;
+        if( (_relay_14_function__67p__phase_difference2__sample_cnt_ref > 1e-6) || (_relay_14_function__67p__phase_difference2__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_14_function__67p__phase_difference2__no_zc_flag_in ) {
+                _relay_14_function__67p__phase_difference2__phase_state = 360.0 * ( _relay_14_function__67p__phase_difference2__sample_cnt_in + _relay_14_function__67p__phase_difference2__correction_ref - _relay_14_function__67p__phase_difference2__previous_correction_in ) / _relay_14_function__67p__phase_difference2__sample_cnt_ref;
+            }
+        }
+        if( (_relay_14_function__67p__phase_difference2__phase_state > 360.0) || (_relay_14_function__67p__phase_difference2__phase_state < -360.0) ) {
+            _relay_14_function__67p__phase_difference2__phase_state = fmod(_relay_14_function__67p__phase_difference2__phase_state, 360.0);
+        }
+        if (_relay_14_function__67p__phase_difference2__phase_state < -180.0) {
+            _relay_14_function__67p__phase_difference2__phase_state += 360.0;
+        }
+        else if (_relay_14_function__67p__phase_difference2__phase_state > 180.0) {
+            _relay_14_function__67p__phase_difference2__phase_state -= 360.0;
+        }
+        _relay_14_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference2__previous_correction_ref = _relay_14_function__67p__phase_difference2__correction_ref;
+    }
+    if( _relay_14_function__67p__phase_difference2__zc_flag_in ) {
+        _relay_14_function__67p__phase_difference2__correction_in = - _relay_14_function__67p__phase_difference2__previous_filtered_in / ( _relay_14_function__67p__phase_difference2__filtered_in - _relay_14_function__67p__phase_difference2__previous_filtered_in );
+        _relay_14_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference2__previous_correction_in = _relay_14_function__67p__phase_difference2__correction_in;
+    }
+    // Generated from the component: Relay-14.Function (67P).Phase Difference3
+    _relay_14_function__67p__phase_difference3__sample_cnt_ref += 1;
+    _relay_14_function__67p__phase_difference3__previous_filtered_ref = _relay_14_function__67p__phase_difference3__filtered_ref;
+    _relay_14_function__67p__phase_difference3__filtered_ref = _relay_14_function__67p__phase_difference3__previous_filtered_ref * 0.2679491924311227 + _relay_14_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference3__sample_cnt_ref >= 1000 ) {
+        _relay_14_function__67p__phase_difference3__zc_flag_ref = 0;
+        _relay_14_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference3__previous_correction_ref = 0;
+        _relay_14_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference3__filtered_ref >= 0) && (_relay_14_function__67p__phase_difference3__previous_filtered_ref < 0) ) {
+        _relay_14_function__67p__phase_difference3__zc_flag_ref = 1;
+    }
+    else {
+        _relay_14_function__67p__phase_difference3__zc_flag_ref = 0;
+    }
+    _relay_14_function__67p__phase_difference3__sample_cnt_in += 1;
+    _relay_14_function__67p__phase_difference3__previous_filtered_in = _relay_14_function__67p__phase_difference3__filtered_in;
+    _relay_14_function__67p__phase_difference3__filtered_in = _relay_14_function__67p__phase_difference3__previous_filtered_in * 0.2679491924311227 + _relay_14_function__67p__basic_measurements__split___out1 * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference3__sample_cnt_in >= 1000 ) {
+        _relay_14_function__67p__phase_difference3__zc_flag_in = 0;
+        _relay_14_function__67p__phase_difference3__no_zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference3__previous_correction_in = 0;
+        _relay_14_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference3__filtered_in >= 0) && (_relay_14_function__67p__phase_difference3__previous_filtered_in < 0) ) {
+        _relay_14_function__67p__phase_difference3__zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference3__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_14_function__67p__phase_difference3__zc_flag_in = 0;
+    }
+    if( _relay_14_function__67p__phase_difference3__zc_flag_ref ) {
+        _relay_14_function__67p__phase_difference3__correction_ref = - _relay_14_function__67p__phase_difference3__previous_filtered_ref / ( _relay_14_function__67p__phase_difference3__filtered_ref - _relay_14_function__67p__phase_difference3__previous_filtered_ref );
+        _relay_14_function__67p__phase_difference3__sample_cnt_ref += _relay_14_function__67p__phase_difference3__correction_ref - _relay_14_function__67p__phase_difference3__previous_correction_ref;
+        if( (_relay_14_function__67p__phase_difference3__sample_cnt_ref > 1e-6) || (_relay_14_function__67p__phase_difference3__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_14_function__67p__phase_difference3__no_zc_flag_in ) {
+                _relay_14_function__67p__phase_difference3__phase_state = 360.0 * ( _relay_14_function__67p__phase_difference3__sample_cnt_in + _relay_14_function__67p__phase_difference3__correction_ref - _relay_14_function__67p__phase_difference3__previous_correction_in ) / _relay_14_function__67p__phase_difference3__sample_cnt_ref;
+            }
+        }
+        if( (_relay_14_function__67p__phase_difference3__phase_state > 360.0) || (_relay_14_function__67p__phase_difference3__phase_state < -360.0) ) {
+            _relay_14_function__67p__phase_difference3__phase_state = fmod(_relay_14_function__67p__phase_difference3__phase_state, 360.0);
+        }
+        if (_relay_14_function__67p__phase_difference3__phase_state < -180.0) {
+            _relay_14_function__67p__phase_difference3__phase_state += 360.0;
+        }
+        else if (_relay_14_function__67p__phase_difference3__phase_state > 180.0) {
+            _relay_14_function__67p__phase_difference3__phase_state -= 360.0;
+        }
+        _relay_14_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference3__previous_correction_ref = _relay_14_function__67p__phase_difference3__correction_ref;
+    }
+    if( _relay_14_function__67p__phase_difference3__zc_flag_in ) {
+        _relay_14_function__67p__phase_difference3__correction_in = - _relay_14_function__67p__phase_difference3__previous_filtered_in / ( _relay_14_function__67p__phase_difference3__filtered_in - _relay_14_function__67p__phase_difference3__previous_filtered_in );
+        _relay_14_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference3__previous_correction_in = _relay_14_function__67p__phase_difference3__correction_in;
+    }
+    // Generated from the component: Relay-14.Function (67P).Phase Difference4
+    _relay_14_function__67p__phase_difference4__sample_cnt_ref += 1;
+    _relay_14_function__67p__phase_difference4__previous_filtered_ref = _relay_14_function__67p__phase_difference4__filtered_ref;
+    _relay_14_function__67p__phase_difference4__filtered_ref = _relay_14_function__67p__phase_difference4__previous_filtered_ref * 0.2679491924311227 + _relay_14_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference4__sample_cnt_ref >= 1000 ) {
+        _relay_14_function__67p__phase_difference4__zc_flag_ref = 0;
+        _relay_14_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference4__previous_correction_ref = 0;
+        _relay_14_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference4__filtered_ref >= 0) && (_relay_14_function__67p__phase_difference4__previous_filtered_ref < 0) ) {
+        _relay_14_function__67p__phase_difference4__zc_flag_ref = 1;
+    }
+    else {
+        _relay_14_function__67p__phase_difference4__zc_flag_ref = 0;
+    }
+    _relay_14_function__67p__phase_difference4__sample_cnt_in += 1;
+    _relay_14_function__67p__phase_difference4__previous_filtered_in = _relay_14_function__67p__phase_difference4__filtered_in;
+    _relay_14_function__67p__phase_difference4__filtered_in = _relay_14_function__67p__phase_difference4__previous_filtered_in * 0.2679491924311227 + _relay_14_function__67p__basic_measurements__split___out * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference4__sample_cnt_in >= 1000 ) {
+        _relay_14_function__67p__phase_difference4__zc_flag_in = 0;
+        _relay_14_function__67p__phase_difference4__no_zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference4__previous_correction_in = 0;
+        _relay_14_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference4__filtered_in >= 0) && (_relay_14_function__67p__phase_difference4__previous_filtered_in < 0) ) {
+        _relay_14_function__67p__phase_difference4__zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference4__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_14_function__67p__phase_difference4__zc_flag_in = 0;
+    }
+    if( _relay_14_function__67p__phase_difference4__zc_flag_ref ) {
+        _relay_14_function__67p__phase_difference4__correction_ref = - _relay_14_function__67p__phase_difference4__previous_filtered_ref / ( _relay_14_function__67p__phase_difference4__filtered_ref - _relay_14_function__67p__phase_difference4__previous_filtered_ref );
+        _relay_14_function__67p__phase_difference4__sample_cnt_ref += _relay_14_function__67p__phase_difference4__correction_ref - _relay_14_function__67p__phase_difference4__previous_correction_ref;
+        if( (_relay_14_function__67p__phase_difference4__sample_cnt_ref > 1e-6) || (_relay_14_function__67p__phase_difference4__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_14_function__67p__phase_difference4__no_zc_flag_in ) {
+                _relay_14_function__67p__phase_difference4__phase_state = 360.0 * ( _relay_14_function__67p__phase_difference4__sample_cnt_in + _relay_14_function__67p__phase_difference4__correction_ref - _relay_14_function__67p__phase_difference4__previous_correction_in ) / _relay_14_function__67p__phase_difference4__sample_cnt_ref;
+            }
+        }
+        if( (_relay_14_function__67p__phase_difference4__phase_state > 360.0) || (_relay_14_function__67p__phase_difference4__phase_state < -360.0) ) {
+            _relay_14_function__67p__phase_difference4__phase_state = fmod(_relay_14_function__67p__phase_difference4__phase_state, 360.0);
+        }
+        if (_relay_14_function__67p__phase_difference4__phase_state < -180.0) {
+            _relay_14_function__67p__phase_difference4__phase_state += 360.0;
+        }
+        else if (_relay_14_function__67p__phase_difference4__phase_state > 180.0) {
+            _relay_14_function__67p__phase_difference4__phase_state -= 360.0;
+        }
+        _relay_14_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference4__previous_correction_ref = _relay_14_function__67p__phase_difference4__correction_ref;
+    }
+    if( _relay_14_function__67p__phase_difference4__zc_flag_in ) {
+        _relay_14_function__67p__phase_difference4__correction_in = - _relay_14_function__67p__phase_difference4__previous_filtered_in / ( _relay_14_function__67p__phase_difference4__filtered_in - _relay_14_function__67p__phase_difference4__previous_filtered_in );
+        _relay_14_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference4__previous_correction_in = _relay_14_function__67p__phase_difference4__correction_in;
+    }
+    // Generated from the component: Relay-14.Function (67P).Phase Difference5
+    _relay_14_function__67p__phase_difference5__sample_cnt_ref += 1;
+    _relay_14_function__67p__phase_difference5__previous_filtered_ref = _relay_14_function__67p__phase_difference5__filtered_ref;
+    _relay_14_function__67p__phase_difference5__filtered_ref = _relay_14_function__67p__phase_difference5__previous_filtered_ref * 0.2679491924311227 + _relay_14_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference5__sample_cnt_ref >= 1000 ) {
+        _relay_14_function__67p__phase_difference5__zc_flag_ref = 0;
+        _relay_14_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference5__previous_correction_ref = 0;
+        _relay_14_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference5__filtered_ref >= 0) && (_relay_14_function__67p__phase_difference5__previous_filtered_ref < 0) ) {
+        _relay_14_function__67p__phase_difference5__zc_flag_ref = 1;
+    }
+    else {
+        _relay_14_function__67p__phase_difference5__zc_flag_ref = 0;
+    }
+    _relay_14_function__67p__phase_difference5__sample_cnt_in += 1;
+    _relay_14_function__67p__phase_difference5__previous_filtered_in = _relay_14_function__67p__phase_difference5__filtered_in;
+    _relay_14_function__67p__phase_difference5__filtered_in = _relay_14_function__67p__phase_difference5__previous_filtered_in * 0.2679491924311227 + _relay_14_function__67p__basic_measurements__split___out4 * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference5__sample_cnt_in >= 1000 ) {
+        _relay_14_function__67p__phase_difference5__zc_flag_in = 0;
+        _relay_14_function__67p__phase_difference5__no_zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference5__previous_correction_in = 0;
+        _relay_14_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference5__filtered_in >= 0) && (_relay_14_function__67p__phase_difference5__previous_filtered_in < 0) ) {
+        _relay_14_function__67p__phase_difference5__zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference5__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_14_function__67p__phase_difference5__zc_flag_in = 0;
+    }
+    if( _relay_14_function__67p__phase_difference5__zc_flag_ref ) {
+        _relay_14_function__67p__phase_difference5__correction_ref = - _relay_14_function__67p__phase_difference5__previous_filtered_ref / ( _relay_14_function__67p__phase_difference5__filtered_ref - _relay_14_function__67p__phase_difference5__previous_filtered_ref );
+        _relay_14_function__67p__phase_difference5__sample_cnt_ref += _relay_14_function__67p__phase_difference5__correction_ref - _relay_14_function__67p__phase_difference5__previous_correction_ref;
+        if( (_relay_14_function__67p__phase_difference5__sample_cnt_ref > 1e-6) || (_relay_14_function__67p__phase_difference5__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_14_function__67p__phase_difference5__no_zc_flag_in ) {
+                _relay_14_function__67p__phase_difference5__phase_state = 360.0 * ( _relay_14_function__67p__phase_difference5__sample_cnt_in + _relay_14_function__67p__phase_difference5__correction_ref - _relay_14_function__67p__phase_difference5__previous_correction_in ) / _relay_14_function__67p__phase_difference5__sample_cnt_ref;
+            }
+        }
+        if( (_relay_14_function__67p__phase_difference5__phase_state > 360.0) || (_relay_14_function__67p__phase_difference5__phase_state < -360.0) ) {
+            _relay_14_function__67p__phase_difference5__phase_state = fmod(_relay_14_function__67p__phase_difference5__phase_state, 360.0);
+        }
+        if (_relay_14_function__67p__phase_difference5__phase_state < -180.0) {
+            _relay_14_function__67p__phase_difference5__phase_state += 360.0;
+        }
+        else if (_relay_14_function__67p__phase_difference5__phase_state > 180.0) {
+            _relay_14_function__67p__phase_difference5__phase_state -= 360.0;
+        }
+        _relay_14_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference5__previous_correction_ref = _relay_14_function__67p__phase_difference5__correction_ref;
+    }
+    if( _relay_14_function__67p__phase_difference5__zc_flag_in ) {
+        _relay_14_function__67p__phase_difference5__correction_in = - _relay_14_function__67p__phase_difference5__previous_filtered_in / ( _relay_14_function__67p__phase_difference5__filtered_in - _relay_14_function__67p__phase_difference5__previous_filtered_in );
+        _relay_14_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference5__previous_correction_in = _relay_14_function__67p__phase_difference5__correction_in;
+    }
+    // Generated from the component: Relay-14.Function (67P).Phase Difference6
+    _relay_14_function__67p__phase_difference6__sample_cnt_ref += 1;
+    _relay_14_function__67p__phase_difference6__previous_filtered_ref = _relay_14_function__67p__phase_difference6__filtered_ref;
+    _relay_14_function__67p__phase_difference6__filtered_ref = _relay_14_function__67p__phase_difference6__previous_filtered_ref * 0.2679491924311227 + _relay_14_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference6__sample_cnt_ref >= 1000 ) {
+        _relay_14_function__67p__phase_difference6__zc_flag_ref = 0;
+        _relay_14_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference6__previous_correction_ref = 0;
+        _relay_14_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference6__filtered_ref >= 0) && (_relay_14_function__67p__phase_difference6__previous_filtered_ref < 0) ) {
+        _relay_14_function__67p__phase_difference6__zc_flag_ref = 1;
+    }
+    else {
+        _relay_14_function__67p__phase_difference6__zc_flag_ref = 0;
+    }
+    _relay_14_function__67p__phase_difference6__sample_cnt_in += 1;
+    _relay_14_function__67p__phase_difference6__previous_filtered_in = _relay_14_function__67p__phase_difference6__filtered_in;
+    _relay_14_function__67p__phase_difference6__filtered_in = _relay_14_function__67p__phase_difference6__previous_filtered_in * 0.2679491924311227 + _relay_14_function__67p__basic_measurements__split___out5 * 0.7320508075688773;
+    if( _relay_14_function__67p__phase_difference6__sample_cnt_in >= 1000 ) {
+        _relay_14_function__67p__phase_difference6__zc_flag_in = 0;
+        _relay_14_function__67p__phase_difference6__no_zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference6__previous_correction_in = 0;
+        _relay_14_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_14_function__67p__phase_difference6__filtered_in >= 0) && (_relay_14_function__67p__phase_difference6__previous_filtered_in < 0) ) {
+        _relay_14_function__67p__phase_difference6__zc_flag_in = 1;
+        _relay_14_function__67p__phase_difference6__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_14_function__67p__phase_difference6__zc_flag_in = 0;
+    }
+    if( _relay_14_function__67p__phase_difference6__zc_flag_ref ) {
+        _relay_14_function__67p__phase_difference6__correction_ref = - _relay_14_function__67p__phase_difference6__previous_filtered_ref / ( _relay_14_function__67p__phase_difference6__filtered_ref - _relay_14_function__67p__phase_difference6__previous_filtered_ref );
+        _relay_14_function__67p__phase_difference6__sample_cnt_ref += _relay_14_function__67p__phase_difference6__correction_ref - _relay_14_function__67p__phase_difference6__previous_correction_ref;
+        if( (_relay_14_function__67p__phase_difference6__sample_cnt_ref > 1e-6) || (_relay_14_function__67p__phase_difference6__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_14_function__67p__phase_difference6__no_zc_flag_in ) {
+                _relay_14_function__67p__phase_difference6__phase_state = 360.0 * ( _relay_14_function__67p__phase_difference6__sample_cnt_in + _relay_14_function__67p__phase_difference6__correction_ref - _relay_14_function__67p__phase_difference6__previous_correction_in ) / _relay_14_function__67p__phase_difference6__sample_cnt_ref;
+            }
+        }
+        if( (_relay_14_function__67p__phase_difference6__phase_state > 360.0) || (_relay_14_function__67p__phase_difference6__phase_state < -360.0) ) {
+            _relay_14_function__67p__phase_difference6__phase_state = fmod(_relay_14_function__67p__phase_difference6__phase_state, 360.0);
+        }
+        if (_relay_14_function__67p__phase_difference6__phase_state < -180.0) {
+            _relay_14_function__67p__phase_difference6__phase_state += 360.0;
+        }
+        else if (_relay_14_function__67p__phase_difference6__phase_state > 180.0) {
+            _relay_14_function__67p__phase_difference6__phase_state -= 360.0;
+        }
+        _relay_14_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_14_function__67p__phase_difference6__previous_correction_ref = _relay_14_function__67p__phase_difference6__correction_ref;
+    }
+    if( _relay_14_function__67p__phase_difference6__zc_flag_in ) {
+        _relay_14_function__67p__phase_difference6__correction_in = - _relay_14_function__67p__phase_difference6__previous_filtered_in / ( _relay_14_function__67p__phase_difference6__filtered_in - _relay_14_function__67p__phase_difference6__previous_filtered_in );
+        _relay_14_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_14_function__67p__phase_difference6__previous_correction_in = _relay_14_function__67p__phase_difference6__correction_in;
+    }
+    // Generated from the component: Relay-4.Function (67P).Phase Difference1
+    _relay_4_function__67p__phase_difference1__sample_cnt_ref += 1;
+    _relay_4_function__67p__phase_difference1__previous_filtered_ref = _relay_4_function__67p__phase_difference1__filtered_ref;
+    _relay_4_function__67p__phase_difference1__filtered_ref = _relay_4_function__67p__phase_difference1__previous_filtered_ref * 0.2679491924311227 + _relay_4_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference1__sample_cnt_ref >= 1000 ) {
+        _relay_4_function__67p__phase_difference1__zc_flag_ref = 0;
+        _relay_4_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference1__previous_correction_ref = 0;
+        _relay_4_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference1__filtered_ref >= 0) && (_relay_4_function__67p__phase_difference1__previous_filtered_ref < 0) ) {
+        _relay_4_function__67p__phase_difference1__zc_flag_ref = 1;
+    }
+    else {
+        _relay_4_function__67p__phase_difference1__zc_flag_ref = 0;
+    }
+    _relay_4_function__67p__phase_difference1__sample_cnt_in += 1;
+    _relay_4_function__67p__phase_difference1__previous_filtered_in = _relay_4_function__67p__phase_difference1__filtered_in;
+    _relay_4_function__67p__phase_difference1__filtered_in = _relay_4_function__67p__phase_difference1__previous_filtered_in * 0.2679491924311227 + _relay_4_function__67p__basic_measurements__split___out3 * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference1__sample_cnt_in >= 1000 ) {
+        _relay_4_function__67p__phase_difference1__zc_flag_in = 0;
+        _relay_4_function__67p__phase_difference1__no_zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference1__previous_correction_in = 0;
+        _relay_4_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference1__filtered_in >= 0) && (_relay_4_function__67p__phase_difference1__previous_filtered_in < 0) ) {
+        _relay_4_function__67p__phase_difference1__zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference1__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_4_function__67p__phase_difference1__zc_flag_in = 0;
+    }
+    if( _relay_4_function__67p__phase_difference1__zc_flag_ref ) {
+        _relay_4_function__67p__phase_difference1__correction_ref = - _relay_4_function__67p__phase_difference1__previous_filtered_ref / ( _relay_4_function__67p__phase_difference1__filtered_ref - _relay_4_function__67p__phase_difference1__previous_filtered_ref );
+        _relay_4_function__67p__phase_difference1__sample_cnt_ref += _relay_4_function__67p__phase_difference1__correction_ref - _relay_4_function__67p__phase_difference1__previous_correction_ref;
+        if( (_relay_4_function__67p__phase_difference1__sample_cnt_ref > 1e-6) || (_relay_4_function__67p__phase_difference1__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_4_function__67p__phase_difference1__no_zc_flag_in ) {
+                _relay_4_function__67p__phase_difference1__phase_state = 360.0 * ( _relay_4_function__67p__phase_difference1__sample_cnt_in + _relay_4_function__67p__phase_difference1__correction_ref - _relay_4_function__67p__phase_difference1__previous_correction_in ) / _relay_4_function__67p__phase_difference1__sample_cnt_ref;
+            }
+        }
+        if( (_relay_4_function__67p__phase_difference1__phase_state > 360.0) || (_relay_4_function__67p__phase_difference1__phase_state < -360.0) ) {
+            _relay_4_function__67p__phase_difference1__phase_state = fmod(_relay_4_function__67p__phase_difference1__phase_state, 360.0);
+        }
+        if (_relay_4_function__67p__phase_difference1__phase_state < -180.0) {
+            _relay_4_function__67p__phase_difference1__phase_state += 360.0;
+        }
+        else if (_relay_4_function__67p__phase_difference1__phase_state > 180.0) {
+            _relay_4_function__67p__phase_difference1__phase_state -= 360.0;
+        }
+        _relay_4_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference1__previous_correction_ref = _relay_4_function__67p__phase_difference1__correction_ref;
+    }
+    if( _relay_4_function__67p__phase_difference1__zc_flag_in ) {
+        _relay_4_function__67p__phase_difference1__correction_in = - _relay_4_function__67p__phase_difference1__previous_filtered_in / ( _relay_4_function__67p__phase_difference1__filtered_in - _relay_4_function__67p__phase_difference1__previous_filtered_in );
+        _relay_4_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference1__previous_correction_in = _relay_4_function__67p__phase_difference1__correction_in;
+    }
+    // Generated from the component: Relay-4.Function (67P).Phase Difference2
+    _relay_4_function__67p__phase_difference2__sample_cnt_ref += 1;
+    _relay_4_function__67p__phase_difference2__previous_filtered_ref = _relay_4_function__67p__phase_difference2__filtered_ref;
+    _relay_4_function__67p__phase_difference2__filtered_ref = _relay_4_function__67p__phase_difference2__previous_filtered_ref * 0.2679491924311227 + _relay_4_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference2__sample_cnt_ref >= 1000 ) {
+        _relay_4_function__67p__phase_difference2__zc_flag_ref = 0;
+        _relay_4_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference2__previous_correction_ref = 0;
+        _relay_4_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference2__filtered_ref >= 0) && (_relay_4_function__67p__phase_difference2__previous_filtered_ref < 0) ) {
+        _relay_4_function__67p__phase_difference2__zc_flag_ref = 1;
+    }
+    else {
+        _relay_4_function__67p__phase_difference2__zc_flag_ref = 0;
+    }
+    _relay_4_function__67p__phase_difference2__sample_cnt_in += 1;
+    _relay_4_function__67p__phase_difference2__previous_filtered_in = _relay_4_function__67p__phase_difference2__filtered_in;
+    _relay_4_function__67p__phase_difference2__filtered_in = _relay_4_function__67p__phase_difference2__previous_filtered_in * 0.2679491924311227 + _relay_4_function__67p__basic_measurements__split___out2 * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference2__sample_cnt_in >= 1000 ) {
+        _relay_4_function__67p__phase_difference2__zc_flag_in = 0;
+        _relay_4_function__67p__phase_difference2__no_zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference2__previous_correction_in = 0;
+        _relay_4_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference2__filtered_in >= 0) && (_relay_4_function__67p__phase_difference2__previous_filtered_in < 0) ) {
+        _relay_4_function__67p__phase_difference2__zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference2__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_4_function__67p__phase_difference2__zc_flag_in = 0;
+    }
+    if( _relay_4_function__67p__phase_difference2__zc_flag_ref ) {
+        _relay_4_function__67p__phase_difference2__correction_ref = - _relay_4_function__67p__phase_difference2__previous_filtered_ref / ( _relay_4_function__67p__phase_difference2__filtered_ref - _relay_4_function__67p__phase_difference2__previous_filtered_ref );
+        _relay_4_function__67p__phase_difference2__sample_cnt_ref += _relay_4_function__67p__phase_difference2__correction_ref - _relay_4_function__67p__phase_difference2__previous_correction_ref;
+        if( (_relay_4_function__67p__phase_difference2__sample_cnt_ref > 1e-6) || (_relay_4_function__67p__phase_difference2__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_4_function__67p__phase_difference2__no_zc_flag_in ) {
+                _relay_4_function__67p__phase_difference2__phase_state = 360.0 * ( _relay_4_function__67p__phase_difference2__sample_cnt_in + _relay_4_function__67p__phase_difference2__correction_ref - _relay_4_function__67p__phase_difference2__previous_correction_in ) / _relay_4_function__67p__phase_difference2__sample_cnt_ref;
+            }
+        }
+        if( (_relay_4_function__67p__phase_difference2__phase_state > 360.0) || (_relay_4_function__67p__phase_difference2__phase_state < -360.0) ) {
+            _relay_4_function__67p__phase_difference2__phase_state = fmod(_relay_4_function__67p__phase_difference2__phase_state, 360.0);
+        }
+        if (_relay_4_function__67p__phase_difference2__phase_state < -180.0) {
+            _relay_4_function__67p__phase_difference2__phase_state += 360.0;
+        }
+        else if (_relay_4_function__67p__phase_difference2__phase_state > 180.0) {
+            _relay_4_function__67p__phase_difference2__phase_state -= 360.0;
+        }
+        _relay_4_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference2__previous_correction_ref = _relay_4_function__67p__phase_difference2__correction_ref;
+    }
+    if( _relay_4_function__67p__phase_difference2__zc_flag_in ) {
+        _relay_4_function__67p__phase_difference2__correction_in = - _relay_4_function__67p__phase_difference2__previous_filtered_in / ( _relay_4_function__67p__phase_difference2__filtered_in - _relay_4_function__67p__phase_difference2__previous_filtered_in );
+        _relay_4_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference2__previous_correction_in = _relay_4_function__67p__phase_difference2__correction_in;
+    }
+    // Generated from the component: Relay-4.Function (67P).Phase Difference3
+    _relay_4_function__67p__phase_difference3__sample_cnt_ref += 1;
+    _relay_4_function__67p__phase_difference3__previous_filtered_ref = _relay_4_function__67p__phase_difference3__filtered_ref;
+    _relay_4_function__67p__phase_difference3__filtered_ref = _relay_4_function__67p__phase_difference3__previous_filtered_ref * 0.2679491924311227 + _relay_4_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference3__sample_cnt_ref >= 1000 ) {
+        _relay_4_function__67p__phase_difference3__zc_flag_ref = 0;
+        _relay_4_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference3__previous_correction_ref = 0;
+        _relay_4_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference3__filtered_ref >= 0) && (_relay_4_function__67p__phase_difference3__previous_filtered_ref < 0) ) {
+        _relay_4_function__67p__phase_difference3__zc_flag_ref = 1;
+    }
+    else {
+        _relay_4_function__67p__phase_difference3__zc_flag_ref = 0;
+    }
+    _relay_4_function__67p__phase_difference3__sample_cnt_in += 1;
+    _relay_4_function__67p__phase_difference3__previous_filtered_in = _relay_4_function__67p__phase_difference3__filtered_in;
+    _relay_4_function__67p__phase_difference3__filtered_in = _relay_4_function__67p__phase_difference3__previous_filtered_in * 0.2679491924311227 + _relay_4_function__67p__basic_measurements__split___out1 * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference3__sample_cnt_in >= 1000 ) {
+        _relay_4_function__67p__phase_difference3__zc_flag_in = 0;
+        _relay_4_function__67p__phase_difference3__no_zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference3__previous_correction_in = 0;
+        _relay_4_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference3__filtered_in >= 0) && (_relay_4_function__67p__phase_difference3__previous_filtered_in < 0) ) {
+        _relay_4_function__67p__phase_difference3__zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference3__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_4_function__67p__phase_difference3__zc_flag_in = 0;
+    }
+    if( _relay_4_function__67p__phase_difference3__zc_flag_ref ) {
+        _relay_4_function__67p__phase_difference3__correction_ref = - _relay_4_function__67p__phase_difference3__previous_filtered_ref / ( _relay_4_function__67p__phase_difference3__filtered_ref - _relay_4_function__67p__phase_difference3__previous_filtered_ref );
+        _relay_4_function__67p__phase_difference3__sample_cnt_ref += _relay_4_function__67p__phase_difference3__correction_ref - _relay_4_function__67p__phase_difference3__previous_correction_ref;
+        if( (_relay_4_function__67p__phase_difference3__sample_cnt_ref > 1e-6) || (_relay_4_function__67p__phase_difference3__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_4_function__67p__phase_difference3__no_zc_flag_in ) {
+                _relay_4_function__67p__phase_difference3__phase_state = 360.0 * ( _relay_4_function__67p__phase_difference3__sample_cnt_in + _relay_4_function__67p__phase_difference3__correction_ref - _relay_4_function__67p__phase_difference3__previous_correction_in ) / _relay_4_function__67p__phase_difference3__sample_cnt_ref;
+            }
+        }
+        if( (_relay_4_function__67p__phase_difference3__phase_state > 360.0) || (_relay_4_function__67p__phase_difference3__phase_state < -360.0) ) {
+            _relay_4_function__67p__phase_difference3__phase_state = fmod(_relay_4_function__67p__phase_difference3__phase_state, 360.0);
+        }
+        if (_relay_4_function__67p__phase_difference3__phase_state < -180.0) {
+            _relay_4_function__67p__phase_difference3__phase_state += 360.0;
+        }
+        else if (_relay_4_function__67p__phase_difference3__phase_state > 180.0) {
+            _relay_4_function__67p__phase_difference3__phase_state -= 360.0;
+        }
+        _relay_4_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference3__previous_correction_ref = _relay_4_function__67p__phase_difference3__correction_ref;
+    }
+    if( _relay_4_function__67p__phase_difference3__zc_flag_in ) {
+        _relay_4_function__67p__phase_difference3__correction_in = - _relay_4_function__67p__phase_difference3__previous_filtered_in / ( _relay_4_function__67p__phase_difference3__filtered_in - _relay_4_function__67p__phase_difference3__previous_filtered_in );
+        _relay_4_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference3__previous_correction_in = _relay_4_function__67p__phase_difference3__correction_in;
+    }
+    // Generated from the component: Relay-4.Function (67P).Phase Difference4
+    _relay_4_function__67p__phase_difference4__sample_cnt_ref += 1;
+    _relay_4_function__67p__phase_difference4__previous_filtered_ref = _relay_4_function__67p__phase_difference4__filtered_ref;
+    _relay_4_function__67p__phase_difference4__filtered_ref = _relay_4_function__67p__phase_difference4__previous_filtered_ref * 0.2679491924311227 + _relay_4_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference4__sample_cnt_ref >= 1000 ) {
+        _relay_4_function__67p__phase_difference4__zc_flag_ref = 0;
+        _relay_4_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference4__previous_correction_ref = 0;
+        _relay_4_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference4__filtered_ref >= 0) && (_relay_4_function__67p__phase_difference4__previous_filtered_ref < 0) ) {
+        _relay_4_function__67p__phase_difference4__zc_flag_ref = 1;
+    }
+    else {
+        _relay_4_function__67p__phase_difference4__zc_flag_ref = 0;
+    }
+    _relay_4_function__67p__phase_difference4__sample_cnt_in += 1;
+    _relay_4_function__67p__phase_difference4__previous_filtered_in = _relay_4_function__67p__phase_difference4__filtered_in;
+    _relay_4_function__67p__phase_difference4__filtered_in = _relay_4_function__67p__phase_difference4__previous_filtered_in * 0.2679491924311227 + _relay_4_function__67p__basic_measurements__split___out * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference4__sample_cnt_in >= 1000 ) {
+        _relay_4_function__67p__phase_difference4__zc_flag_in = 0;
+        _relay_4_function__67p__phase_difference4__no_zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference4__previous_correction_in = 0;
+        _relay_4_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference4__filtered_in >= 0) && (_relay_4_function__67p__phase_difference4__previous_filtered_in < 0) ) {
+        _relay_4_function__67p__phase_difference4__zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference4__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_4_function__67p__phase_difference4__zc_flag_in = 0;
+    }
+    if( _relay_4_function__67p__phase_difference4__zc_flag_ref ) {
+        _relay_4_function__67p__phase_difference4__correction_ref = - _relay_4_function__67p__phase_difference4__previous_filtered_ref / ( _relay_4_function__67p__phase_difference4__filtered_ref - _relay_4_function__67p__phase_difference4__previous_filtered_ref );
+        _relay_4_function__67p__phase_difference4__sample_cnt_ref += _relay_4_function__67p__phase_difference4__correction_ref - _relay_4_function__67p__phase_difference4__previous_correction_ref;
+        if( (_relay_4_function__67p__phase_difference4__sample_cnt_ref > 1e-6) || (_relay_4_function__67p__phase_difference4__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_4_function__67p__phase_difference4__no_zc_flag_in ) {
+                _relay_4_function__67p__phase_difference4__phase_state = 360.0 * ( _relay_4_function__67p__phase_difference4__sample_cnt_in + _relay_4_function__67p__phase_difference4__correction_ref - _relay_4_function__67p__phase_difference4__previous_correction_in ) / _relay_4_function__67p__phase_difference4__sample_cnt_ref;
+            }
+        }
+        if( (_relay_4_function__67p__phase_difference4__phase_state > 360.0) || (_relay_4_function__67p__phase_difference4__phase_state < -360.0) ) {
+            _relay_4_function__67p__phase_difference4__phase_state = fmod(_relay_4_function__67p__phase_difference4__phase_state, 360.0);
+        }
+        if (_relay_4_function__67p__phase_difference4__phase_state < -180.0) {
+            _relay_4_function__67p__phase_difference4__phase_state += 360.0;
+        }
+        else if (_relay_4_function__67p__phase_difference4__phase_state > 180.0) {
+            _relay_4_function__67p__phase_difference4__phase_state -= 360.0;
+        }
+        _relay_4_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference4__previous_correction_ref = _relay_4_function__67p__phase_difference4__correction_ref;
+    }
+    if( _relay_4_function__67p__phase_difference4__zc_flag_in ) {
+        _relay_4_function__67p__phase_difference4__correction_in = - _relay_4_function__67p__phase_difference4__previous_filtered_in / ( _relay_4_function__67p__phase_difference4__filtered_in - _relay_4_function__67p__phase_difference4__previous_filtered_in );
+        _relay_4_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference4__previous_correction_in = _relay_4_function__67p__phase_difference4__correction_in;
+    }
+    // Generated from the component: Relay-4.Function (67P).Phase Difference5
+    _relay_4_function__67p__phase_difference5__sample_cnt_ref += 1;
+    _relay_4_function__67p__phase_difference5__previous_filtered_ref = _relay_4_function__67p__phase_difference5__filtered_ref;
+    _relay_4_function__67p__phase_difference5__filtered_ref = _relay_4_function__67p__phase_difference5__previous_filtered_ref * 0.2679491924311227 + _relay_4_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference5__sample_cnt_ref >= 1000 ) {
+        _relay_4_function__67p__phase_difference5__zc_flag_ref = 0;
+        _relay_4_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference5__previous_correction_ref = 0;
+        _relay_4_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference5__filtered_ref >= 0) && (_relay_4_function__67p__phase_difference5__previous_filtered_ref < 0) ) {
+        _relay_4_function__67p__phase_difference5__zc_flag_ref = 1;
+    }
+    else {
+        _relay_4_function__67p__phase_difference5__zc_flag_ref = 0;
+    }
+    _relay_4_function__67p__phase_difference5__sample_cnt_in += 1;
+    _relay_4_function__67p__phase_difference5__previous_filtered_in = _relay_4_function__67p__phase_difference5__filtered_in;
+    _relay_4_function__67p__phase_difference5__filtered_in = _relay_4_function__67p__phase_difference5__previous_filtered_in * 0.2679491924311227 + _relay_4_function__67p__basic_measurements__split___out4 * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference5__sample_cnt_in >= 1000 ) {
+        _relay_4_function__67p__phase_difference5__zc_flag_in = 0;
+        _relay_4_function__67p__phase_difference5__no_zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference5__previous_correction_in = 0;
+        _relay_4_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference5__filtered_in >= 0) && (_relay_4_function__67p__phase_difference5__previous_filtered_in < 0) ) {
+        _relay_4_function__67p__phase_difference5__zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference5__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_4_function__67p__phase_difference5__zc_flag_in = 0;
+    }
+    if( _relay_4_function__67p__phase_difference5__zc_flag_ref ) {
+        _relay_4_function__67p__phase_difference5__correction_ref = - _relay_4_function__67p__phase_difference5__previous_filtered_ref / ( _relay_4_function__67p__phase_difference5__filtered_ref - _relay_4_function__67p__phase_difference5__previous_filtered_ref );
+        _relay_4_function__67p__phase_difference5__sample_cnt_ref += _relay_4_function__67p__phase_difference5__correction_ref - _relay_4_function__67p__phase_difference5__previous_correction_ref;
+        if( (_relay_4_function__67p__phase_difference5__sample_cnt_ref > 1e-6) || (_relay_4_function__67p__phase_difference5__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_4_function__67p__phase_difference5__no_zc_flag_in ) {
+                _relay_4_function__67p__phase_difference5__phase_state = 360.0 * ( _relay_4_function__67p__phase_difference5__sample_cnt_in + _relay_4_function__67p__phase_difference5__correction_ref - _relay_4_function__67p__phase_difference5__previous_correction_in ) / _relay_4_function__67p__phase_difference5__sample_cnt_ref;
+            }
+        }
+        if( (_relay_4_function__67p__phase_difference5__phase_state > 360.0) || (_relay_4_function__67p__phase_difference5__phase_state < -360.0) ) {
+            _relay_4_function__67p__phase_difference5__phase_state = fmod(_relay_4_function__67p__phase_difference5__phase_state, 360.0);
+        }
+        if (_relay_4_function__67p__phase_difference5__phase_state < -180.0) {
+            _relay_4_function__67p__phase_difference5__phase_state += 360.0;
+        }
+        else if (_relay_4_function__67p__phase_difference5__phase_state > 180.0) {
+            _relay_4_function__67p__phase_difference5__phase_state -= 360.0;
+        }
+        _relay_4_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference5__previous_correction_ref = _relay_4_function__67p__phase_difference5__correction_ref;
+    }
+    if( _relay_4_function__67p__phase_difference5__zc_flag_in ) {
+        _relay_4_function__67p__phase_difference5__correction_in = - _relay_4_function__67p__phase_difference5__previous_filtered_in / ( _relay_4_function__67p__phase_difference5__filtered_in - _relay_4_function__67p__phase_difference5__previous_filtered_in );
+        _relay_4_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference5__previous_correction_in = _relay_4_function__67p__phase_difference5__correction_in;
+    }
+    // Generated from the component: Relay-4.Function (67P).Phase Difference6
+    _relay_4_function__67p__phase_difference6__sample_cnt_ref += 1;
+    _relay_4_function__67p__phase_difference6__previous_filtered_ref = _relay_4_function__67p__phase_difference6__filtered_ref;
+    _relay_4_function__67p__phase_difference6__filtered_ref = _relay_4_function__67p__phase_difference6__previous_filtered_ref * 0.2679491924311227 + _relay_4_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference6__sample_cnt_ref >= 1000 ) {
+        _relay_4_function__67p__phase_difference6__zc_flag_ref = 0;
+        _relay_4_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference6__previous_correction_ref = 0;
+        _relay_4_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference6__filtered_ref >= 0) && (_relay_4_function__67p__phase_difference6__previous_filtered_ref < 0) ) {
+        _relay_4_function__67p__phase_difference6__zc_flag_ref = 1;
+    }
+    else {
+        _relay_4_function__67p__phase_difference6__zc_flag_ref = 0;
+    }
+    _relay_4_function__67p__phase_difference6__sample_cnt_in += 1;
+    _relay_4_function__67p__phase_difference6__previous_filtered_in = _relay_4_function__67p__phase_difference6__filtered_in;
+    _relay_4_function__67p__phase_difference6__filtered_in = _relay_4_function__67p__phase_difference6__previous_filtered_in * 0.2679491924311227 + _relay_4_function__67p__basic_measurements__split___out5 * 0.7320508075688773;
+    if( _relay_4_function__67p__phase_difference6__sample_cnt_in >= 1000 ) {
+        _relay_4_function__67p__phase_difference6__zc_flag_in = 0;
+        _relay_4_function__67p__phase_difference6__no_zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference6__previous_correction_in = 0;
+        _relay_4_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_4_function__67p__phase_difference6__filtered_in >= 0) && (_relay_4_function__67p__phase_difference6__previous_filtered_in < 0) ) {
+        _relay_4_function__67p__phase_difference6__zc_flag_in = 1;
+        _relay_4_function__67p__phase_difference6__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_4_function__67p__phase_difference6__zc_flag_in = 0;
+    }
+    if( _relay_4_function__67p__phase_difference6__zc_flag_ref ) {
+        _relay_4_function__67p__phase_difference6__correction_ref = - _relay_4_function__67p__phase_difference6__previous_filtered_ref / ( _relay_4_function__67p__phase_difference6__filtered_ref - _relay_4_function__67p__phase_difference6__previous_filtered_ref );
+        _relay_4_function__67p__phase_difference6__sample_cnt_ref += _relay_4_function__67p__phase_difference6__correction_ref - _relay_4_function__67p__phase_difference6__previous_correction_ref;
+        if( (_relay_4_function__67p__phase_difference6__sample_cnt_ref > 1e-6) || (_relay_4_function__67p__phase_difference6__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_4_function__67p__phase_difference6__no_zc_flag_in ) {
+                _relay_4_function__67p__phase_difference6__phase_state = 360.0 * ( _relay_4_function__67p__phase_difference6__sample_cnt_in + _relay_4_function__67p__phase_difference6__correction_ref - _relay_4_function__67p__phase_difference6__previous_correction_in ) / _relay_4_function__67p__phase_difference6__sample_cnt_ref;
+            }
+        }
+        if( (_relay_4_function__67p__phase_difference6__phase_state > 360.0) || (_relay_4_function__67p__phase_difference6__phase_state < -360.0) ) {
+            _relay_4_function__67p__phase_difference6__phase_state = fmod(_relay_4_function__67p__phase_difference6__phase_state, 360.0);
+        }
+        if (_relay_4_function__67p__phase_difference6__phase_state < -180.0) {
+            _relay_4_function__67p__phase_difference6__phase_state += 360.0;
+        }
+        else if (_relay_4_function__67p__phase_difference6__phase_state > 180.0) {
+            _relay_4_function__67p__phase_difference6__phase_state -= 360.0;
+        }
+        _relay_4_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_4_function__67p__phase_difference6__previous_correction_ref = _relay_4_function__67p__phase_difference6__correction_ref;
+    }
+    if( _relay_4_function__67p__phase_difference6__zc_flag_in ) {
+        _relay_4_function__67p__phase_difference6__correction_in = - _relay_4_function__67p__phase_difference6__previous_filtered_in / ( _relay_4_function__67p__phase_difference6__filtered_in - _relay_4_function__67p__phase_difference6__previous_filtered_in );
+        _relay_4_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_4_function__67p__phase_difference6__previous_correction_in = _relay_4_function__67p__phase_difference6__correction_in;
+    }
+    // Generated from the component: Relay-5.Function (67P).Phase Difference1
+    _relay_5_function__67p__phase_difference1__sample_cnt_ref += 1;
+    _relay_5_function__67p__phase_difference1__previous_filtered_ref = _relay_5_function__67p__phase_difference1__filtered_ref;
+    _relay_5_function__67p__phase_difference1__filtered_ref = _relay_5_function__67p__phase_difference1__previous_filtered_ref * 0.2679491924311227 + _relay_5_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference1__sample_cnt_ref >= 1000 ) {
+        _relay_5_function__67p__phase_difference1__zc_flag_ref = 0;
+        _relay_5_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference1__previous_correction_ref = 0;
+        _relay_5_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference1__filtered_ref >= 0) && (_relay_5_function__67p__phase_difference1__previous_filtered_ref < 0) ) {
+        _relay_5_function__67p__phase_difference1__zc_flag_ref = 1;
+    }
+    else {
+        _relay_5_function__67p__phase_difference1__zc_flag_ref = 0;
+    }
+    _relay_5_function__67p__phase_difference1__sample_cnt_in += 1;
+    _relay_5_function__67p__phase_difference1__previous_filtered_in = _relay_5_function__67p__phase_difference1__filtered_in;
+    _relay_5_function__67p__phase_difference1__filtered_in = _relay_5_function__67p__phase_difference1__previous_filtered_in * 0.2679491924311227 + _relay_5_function__67p__basic_measurements__split___out3 * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference1__sample_cnt_in >= 1000 ) {
+        _relay_5_function__67p__phase_difference1__zc_flag_in = 0;
+        _relay_5_function__67p__phase_difference1__no_zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference1__previous_correction_in = 0;
+        _relay_5_function__67p__phase_difference1__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference1__filtered_in >= 0) && (_relay_5_function__67p__phase_difference1__previous_filtered_in < 0) ) {
+        _relay_5_function__67p__phase_difference1__zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference1__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_5_function__67p__phase_difference1__zc_flag_in = 0;
+    }
+    if( _relay_5_function__67p__phase_difference1__zc_flag_ref ) {
+        _relay_5_function__67p__phase_difference1__correction_ref = - _relay_5_function__67p__phase_difference1__previous_filtered_ref / ( _relay_5_function__67p__phase_difference1__filtered_ref - _relay_5_function__67p__phase_difference1__previous_filtered_ref );
+        _relay_5_function__67p__phase_difference1__sample_cnt_ref += _relay_5_function__67p__phase_difference1__correction_ref - _relay_5_function__67p__phase_difference1__previous_correction_ref;
+        if( (_relay_5_function__67p__phase_difference1__sample_cnt_ref > 1e-6) || (_relay_5_function__67p__phase_difference1__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_5_function__67p__phase_difference1__no_zc_flag_in ) {
+                _relay_5_function__67p__phase_difference1__phase_state = 360.0 * ( _relay_5_function__67p__phase_difference1__sample_cnt_in + _relay_5_function__67p__phase_difference1__correction_ref - _relay_5_function__67p__phase_difference1__previous_correction_in ) / _relay_5_function__67p__phase_difference1__sample_cnt_ref;
+            }
+        }
+        if( (_relay_5_function__67p__phase_difference1__phase_state > 360.0) || (_relay_5_function__67p__phase_difference1__phase_state < -360.0) ) {
+            _relay_5_function__67p__phase_difference1__phase_state = fmod(_relay_5_function__67p__phase_difference1__phase_state, 360.0);
+        }
+        if (_relay_5_function__67p__phase_difference1__phase_state < -180.0) {
+            _relay_5_function__67p__phase_difference1__phase_state += 360.0;
+        }
+        else if (_relay_5_function__67p__phase_difference1__phase_state > 180.0) {
+            _relay_5_function__67p__phase_difference1__phase_state -= 360.0;
+        }
+        _relay_5_function__67p__phase_difference1__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference1__previous_correction_ref = _relay_5_function__67p__phase_difference1__correction_ref;
+    }
+    if( _relay_5_function__67p__phase_difference1__zc_flag_in ) {
+        _relay_5_function__67p__phase_difference1__correction_in = - _relay_5_function__67p__phase_difference1__previous_filtered_in / ( _relay_5_function__67p__phase_difference1__filtered_in - _relay_5_function__67p__phase_difference1__previous_filtered_in );
+        _relay_5_function__67p__phase_difference1__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference1__previous_correction_in = _relay_5_function__67p__phase_difference1__correction_in;
+    }
+    // Generated from the component: Relay-5.Function (67P).Phase Difference2
+    _relay_5_function__67p__phase_difference2__sample_cnt_ref += 1;
+    _relay_5_function__67p__phase_difference2__previous_filtered_ref = _relay_5_function__67p__phase_difference2__filtered_ref;
+    _relay_5_function__67p__phase_difference2__filtered_ref = _relay_5_function__67p__phase_difference2__previous_filtered_ref * 0.2679491924311227 + _relay_5_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference2__sample_cnt_ref >= 1000 ) {
+        _relay_5_function__67p__phase_difference2__zc_flag_ref = 0;
+        _relay_5_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference2__previous_correction_ref = 0;
+        _relay_5_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference2__filtered_ref >= 0) && (_relay_5_function__67p__phase_difference2__previous_filtered_ref < 0) ) {
+        _relay_5_function__67p__phase_difference2__zc_flag_ref = 1;
+    }
+    else {
+        _relay_5_function__67p__phase_difference2__zc_flag_ref = 0;
+    }
+    _relay_5_function__67p__phase_difference2__sample_cnt_in += 1;
+    _relay_5_function__67p__phase_difference2__previous_filtered_in = _relay_5_function__67p__phase_difference2__filtered_in;
+    _relay_5_function__67p__phase_difference2__filtered_in = _relay_5_function__67p__phase_difference2__previous_filtered_in * 0.2679491924311227 + _relay_5_function__67p__basic_measurements__split___out2 * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference2__sample_cnt_in >= 1000 ) {
+        _relay_5_function__67p__phase_difference2__zc_flag_in = 0;
+        _relay_5_function__67p__phase_difference2__no_zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference2__previous_correction_in = 0;
+        _relay_5_function__67p__phase_difference2__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference2__filtered_in >= 0) && (_relay_5_function__67p__phase_difference2__previous_filtered_in < 0) ) {
+        _relay_5_function__67p__phase_difference2__zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference2__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_5_function__67p__phase_difference2__zc_flag_in = 0;
+    }
+    if( _relay_5_function__67p__phase_difference2__zc_flag_ref ) {
+        _relay_5_function__67p__phase_difference2__correction_ref = - _relay_5_function__67p__phase_difference2__previous_filtered_ref / ( _relay_5_function__67p__phase_difference2__filtered_ref - _relay_5_function__67p__phase_difference2__previous_filtered_ref );
+        _relay_5_function__67p__phase_difference2__sample_cnt_ref += _relay_5_function__67p__phase_difference2__correction_ref - _relay_5_function__67p__phase_difference2__previous_correction_ref;
+        if( (_relay_5_function__67p__phase_difference2__sample_cnt_ref > 1e-6) || (_relay_5_function__67p__phase_difference2__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_5_function__67p__phase_difference2__no_zc_flag_in ) {
+                _relay_5_function__67p__phase_difference2__phase_state = 360.0 * ( _relay_5_function__67p__phase_difference2__sample_cnt_in + _relay_5_function__67p__phase_difference2__correction_ref - _relay_5_function__67p__phase_difference2__previous_correction_in ) / _relay_5_function__67p__phase_difference2__sample_cnt_ref;
+            }
+        }
+        if( (_relay_5_function__67p__phase_difference2__phase_state > 360.0) || (_relay_5_function__67p__phase_difference2__phase_state < -360.0) ) {
+            _relay_5_function__67p__phase_difference2__phase_state = fmod(_relay_5_function__67p__phase_difference2__phase_state, 360.0);
+        }
+        if (_relay_5_function__67p__phase_difference2__phase_state < -180.0) {
+            _relay_5_function__67p__phase_difference2__phase_state += 360.0;
+        }
+        else if (_relay_5_function__67p__phase_difference2__phase_state > 180.0) {
+            _relay_5_function__67p__phase_difference2__phase_state -= 360.0;
+        }
+        _relay_5_function__67p__phase_difference2__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference2__previous_correction_ref = _relay_5_function__67p__phase_difference2__correction_ref;
+    }
+    if( _relay_5_function__67p__phase_difference2__zc_flag_in ) {
+        _relay_5_function__67p__phase_difference2__correction_in = - _relay_5_function__67p__phase_difference2__previous_filtered_in / ( _relay_5_function__67p__phase_difference2__filtered_in - _relay_5_function__67p__phase_difference2__previous_filtered_in );
+        _relay_5_function__67p__phase_difference2__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference2__previous_correction_in = _relay_5_function__67p__phase_difference2__correction_in;
+    }
+    // Generated from the component: Relay-5.Function (67P).Phase Difference3
+    _relay_5_function__67p__phase_difference3__sample_cnt_ref += 1;
+    _relay_5_function__67p__phase_difference3__previous_filtered_ref = _relay_5_function__67p__phase_difference3__filtered_ref;
+    _relay_5_function__67p__phase_difference3__filtered_ref = _relay_5_function__67p__phase_difference3__previous_filtered_ref * 0.2679491924311227 + _relay_5_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference3__sample_cnt_ref >= 1000 ) {
+        _relay_5_function__67p__phase_difference3__zc_flag_ref = 0;
+        _relay_5_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference3__previous_correction_ref = 0;
+        _relay_5_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference3__filtered_ref >= 0) && (_relay_5_function__67p__phase_difference3__previous_filtered_ref < 0) ) {
+        _relay_5_function__67p__phase_difference3__zc_flag_ref = 1;
+    }
+    else {
+        _relay_5_function__67p__phase_difference3__zc_flag_ref = 0;
+    }
+    _relay_5_function__67p__phase_difference3__sample_cnt_in += 1;
+    _relay_5_function__67p__phase_difference3__previous_filtered_in = _relay_5_function__67p__phase_difference3__filtered_in;
+    _relay_5_function__67p__phase_difference3__filtered_in = _relay_5_function__67p__phase_difference3__previous_filtered_in * 0.2679491924311227 + _relay_5_function__67p__basic_measurements__split___out1 * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference3__sample_cnt_in >= 1000 ) {
+        _relay_5_function__67p__phase_difference3__zc_flag_in = 0;
+        _relay_5_function__67p__phase_difference3__no_zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference3__previous_correction_in = 0;
+        _relay_5_function__67p__phase_difference3__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference3__filtered_in >= 0) && (_relay_5_function__67p__phase_difference3__previous_filtered_in < 0) ) {
+        _relay_5_function__67p__phase_difference3__zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference3__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_5_function__67p__phase_difference3__zc_flag_in = 0;
+    }
+    if( _relay_5_function__67p__phase_difference3__zc_flag_ref ) {
+        _relay_5_function__67p__phase_difference3__correction_ref = - _relay_5_function__67p__phase_difference3__previous_filtered_ref / ( _relay_5_function__67p__phase_difference3__filtered_ref - _relay_5_function__67p__phase_difference3__previous_filtered_ref );
+        _relay_5_function__67p__phase_difference3__sample_cnt_ref += _relay_5_function__67p__phase_difference3__correction_ref - _relay_5_function__67p__phase_difference3__previous_correction_ref;
+        if( (_relay_5_function__67p__phase_difference3__sample_cnt_ref > 1e-6) || (_relay_5_function__67p__phase_difference3__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_5_function__67p__phase_difference3__no_zc_flag_in ) {
+                _relay_5_function__67p__phase_difference3__phase_state = 360.0 * ( _relay_5_function__67p__phase_difference3__sample_cnt_in + _relay_5_function__67p__phase_difference3__correction_ref - _relay_5_function__67p__phase_difference3__previous_correction_in ) / _relay_5_function__67p__phase_difference3__sample_cnt_ref;
+            }
+        }
+        if( (_relay_5_function__67p__phase_difference3__phase_state > 360.0) || (_relay_5_function__67p__phase_difference3__phase_state < -360.0) ) {
+            _relay_5_function__67p__phase_difference3__phase_state = fmod(_relay_5_function__67p__phase_difference3__phase_state, 360.0);
+        }
+        if (_relay_5_function__67p__phase_difference3__phase_state < -180.0) {
+            _relay_5_function__67p__phase_difference3__phase_state += 360.0;
+        }
+        else if (_relay_5_function__67p__phase_difference3__phase_state > 180.0) {
+            _relay_5_function__67p__phase_difference3__phase_state -= 360.0;
+        }
+        _relay_5_function__67p__phase_difference3__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference3__previous_correction_ref = _relay_5_function__67p__phase_difference3__correction_ref;
+    }
+    if( _relay_5_function__67p__phase_difference3__zc_flag_in ) {
+        _relay_5_function__67p__phase_difference3__correction_in = - _relay_5_function__67p__phase_difference3__previous_filtered_in / ( _relay_5_function__67p__phase_difference3__filtered_in - _relay_5_function__67p__phase_difference3__previous_filtered_in );
+        _relay_5_function__67p__phase_difference3__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference3__previous_correction_in = _relay_5_function__67p__phase_difference3__correction_in;
+    }
+    // Generated from the component: Relay-5.Function (67P).Phase Difference4
+    _relay_5_function__67p__phase_difference4__sample_cnt_ref += 1;
+    _relay_5_function__67p__phase_difference4__previous_filtered_ref = _relay_5_function__67p__phase_difference4__filtered_ref;
+    _relay_5_function__67p__phase_difference4__filtered_ref = _relay_5_function__67p__phase_difference4__previous_filtered_ref * 0.2679491924311227 + _relay_5_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference4__sample_cnt_ref >= 1000 ) {
+        _relay_5_function__67p__phase_difference4__zc_flag_ref = 0;
+        _relay_5_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference4__previous_correction_ref = 0;
+        _relay_5_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference4__filtered_ref >= 0) && (_relay_5_function__67p__phase_difference4__previous_filtered_ref < 0) ) {
+        _relay_5_function__67p__phase_difference4__zc_flag_ref = 1;
+    }
+    else {
+        _relay_5_function__67p__phase_difference4__zc_flag_ref = 0;
+    }
+    _relay_5_function__67p__phase_difference4__sample_cnt_in += 1;
+    _relay_5_function__67p__phase_difference4__previous_filtered_in = _relay_5_function__67p__phase_difference4__filtered_in;
+    _relay_5_function__67p__phase_difference4__filtered_in = _relay_5_function__67p__phase_difference4__previous_filtered_in * 0.2679491924311227 + _relay_5_function__67p__basic_measurements__split___out * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference4__sample_cnt_in >= 1000 ) {
+        _relay_5_function__67p__phase_difference4__zc_flag_in = 0;
+        _relay_5_function__67p__phase_difference4__no_zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference4__previous_correction_in = 0;
+        _relay_5_function__67p__phase_difference4__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference4__filtered_in >= 0) && (_relay_5_function__67p__phase_difference4__previous_filtered_in < 0) ) {
+        _relay_5_function__67p__phase_difference4__zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference4__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_5_function__67p__phase_difference4__zc_flag_in = 0;
+    }
+    if( _relay_5_function__67p__phase_difference4__zc_flag_ref ) {
+        _relay_5_function__67p__phase_difference4__correction_ref = - _relay_5_function__67p__phase_difference4__previous_filtered_ref / ( _relay_5_function__67p__phase_difference4__filtered_ref - _relay_5_function__67p__phase_difference4__previous_filtered_ref );
+        _relay_5_function__67p__phase_difference4__sample_cnt_ref += _relay_5_function__67p__phase_difference4__correction_ref - _relay_5_function__67p__phase_difference4__previous_correction_ref;
+        if( (_relay_5_function__67p__phase_difference4__sample_cnt_ref > 1e-6) || (_relay_5_function__67p__phase_difference4__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_5_function__67p__phase_difference4__no_zc_flag_in ) {
+                _relay_5_function__67p__phase_difference4__phase_state = 360.0 * ( _relay_5_function__67p__phase_difference4__sample_cnt_in + _relay_5_function__67p__phase_difference4__correction_ref - _relay_5_function__67p__phase_difference4__previous_correction_in ) / _relay_5_function__67p__phase_difference4__sample_cnt_ref;
+            }
+        }
+        if( (_relay_5_function__67p__phase_difference4__phase_state > 360.0) || (_relay_5_function__67p__phase_difference4__phase_state < -360.0) ) {
+            _relay_5_function__67p__phase_difference4__phase_state = fmod(_relay_5_function__67p__phase_difference4__phase_state, 360.0);
+        }
+        if (_relay_5_function__67p__phase_difference4__phase_state < -180.0) {
+            _relay_5_function__67p__phase_difference4__phase_state += 360.0;
+        }
+        else if (_relay_5_function__67p__phase_difference4__phase_state > 180.0) {
+            _relay_5_function__67p__phase_difference4__phase_state -= 360.0;
+        }
+        _relay_5_function__67p__phase_difference4__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference4__previous_correction_ref = _relay_5_function__67p__phase_difference4__correction_ref;
+    }
+    if( _relay_5_function__67p__phase_difference4__zc_flag_in ) {
+        _relay_5_function__67p__phase_difference4__correction_in = - _relay_5_function__67p__phase_difference4__previous_filtered_in / ( _relay_5_function__67p__phase_difference4__filtered_in - _relay_5_function__67p__phase_difference4__previous_filtered_in );
+        _relay_5_function__67p__phase_difference4__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference4__previous_correction_in = _relay_5_function__67p__phase_difference4__correction_in;
+    }
+    // Generated from the component: Relay-5.Function (67P).Phase Difference5
+    _relay_5_function__67p__phase_difference5__sample_cnt_ref += 1;
+    _relay_5_function__67p__phase_difference5__previous_filtered_ref = _relay_5_function__67p__phase_difference5__filtered_ref;
+    _relay_5_function__67p__phase_difference5__filtered_ref = _relay_5_function__67p__phase_difference5__previous_filtered_ref * 0.2679491924311227 + _relay_5_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference5__sample_cnt_ref >= 1000 ) {
+        _relay_5_function__67p__phase_difference5__zc_flag_ref = 0;
+        _relay_5_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference5__previous_correction_ref = 0;
+        _relay_5_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference5__filtered_ref >= 0) && (_relay_5_function__67p__phase_difference5__previous_filtered_ref < 0) ) {
+        _relay_5_function__67p__phase_difference5__zc_flag_ref = 1;
+    }
+    else {
+        _relay_5_function__67p__phase_difference5__zc_flag_ref = 0;
+    }
+    _relay_5_function__67p__phase_difference5__sample_cnt_in += 1;
+    _relay_5_function__67p__phase_difference5__previous_filtered_in = _relay_5_function__67p__phase_difference5__filtered_in;
+    _relay_5_function__67p__phase_difference5__filtered_in = _relay_5_function__67p__phase_difference5__previous_filtered_in * 0.2679491924311227 + _relay_5_function__67p__basic_measurements__split___out4 * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference5__sample_cnt_in >= 1000 ) {
+        _relay_5_function__67p__phase_difference5__zc_flag_in = 0;
+        _relay_5_function__67p__phase_difference5__no_zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference5__previous_correction_in = 0;
+        _relay_5_function__67p__phase_difference5__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference5__filtered_in >= 0) && (_relay_5_function__67p__phase_difference5__previous_filtered_in < 0) ) {
+        _relay_5_function__67p__phase_difference5__zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference5__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_5_function__67p__phase_difference5__zc_flag_in = 0;
+    }
+    if( _relay_5_function__67p__phase_difference5__zc_flag_ref ) {
+        _relay_5_function__67p__phase_difference5__correction_ref = - _relay_5_function__67p__phase_difference5__previous_filtered_ref / ( _relay_5_function__67p__phase_difference5__filtered_ref - _relay_5_function__67p__phase_difference5__previous_filtered_ref );
+        _relay_5_function__67p__phase_difference5__sample_cnt_ref += _relay_5_function__67p__phase_difference5__correction_ref - _relay_5_function__67p__phase_difference5__previous_correction_ref;
+        if( (_relay_5_function__67p__phase_difference5__sample_cnt_ref > 1e-6) || (_relay_5_function__67p__phase_difference5__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_5_function__67p__phase_difference5__no_zc_flag_in ) {
+                _relay_5_function__67p__phase_difference5__phase_state = 360.0 * ( _relay_5_function__67p__phase_difference5__sample_cnt_in + _relay_5_function__67p__phase_difference5__correction_ref - _relay_5_function__67p__phase_difference5__previous_correction_in ) / _relay_5_function__67p__phase_difference5__sample_cnt_ref;
+            }
+        }
+        if( (_relay_5_function__67p__phase_difference5__phase_state > 360.0) || (_relay_5_function__67p__phase_difference5__phase_state < -360.0) ) {
+            _relay_5_function__67p__phase_difference5__phase_state = fmod(_relay_5_function__67p__phase_difference5__phase_state, 360.0);
+        }
+        if (_relay_5_function__67p__phase_difference5__phase_state < -180.0) {
+            _relay_5_function__67p__phase_difference5__phase_state += 360.0;
+        }
+        else if (_relay_5_function__67p__phase_difference5__phase_state > 180.0) {
+            _relay_5_function__67p__phase_difference5__phase_state -= 360.0;
+        }
+        _relay_5_function__67p__phase_difference5__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference5__previous_correction_ref = _relay_5_function__67p__phase_difference5__correction_ref;
+    }
+    if( _relay_5_function__67p__phase_difference5__zc_flag_in ) {
+        _relay_5_function__67p__phase_difference5__correction_in = - _relay_5_function__67p__phase_difference5__previous_filtered_in / ( _relay_5_function__67p__phase_difference5__filtered_in - _relay_5_function__67p__phase_difference5__previous_filtered_in );
+        _relay_5_function__67p__phase_difference5__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference5__previous_correction_in = _relay_5_function__67p__phase_difference5__correction_in;
+    }
+    // Generated from the component: Relay-5.Function (67P).Phase Difference6
+    _relay_5_function__67p__phase_difference6__sample_cnt_ref += 1;
+    _relay_5_function__67p__phase_difference6__previous_filtered_ref = _relay_5_function__67p__phase_difference6__filtered_ref;
+    _relay_5_function__67p__phase_difference6__filtered_ref = _relay_5_function__67p__phase_difference6__previous_filtered_ref * 0.2679491924311227 + _relay_5_function__67p__sinusoidal_source3__out * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference6__sample_cnt_ref >= 1000 ) {
+        _relay_5_function__67p__phase_difference6__zc_flag_ref = 0;
+        _relay_5_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference6__previous_correction_ref = 0;
+        _relay_5_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference6__filtered_ref >= 0) && (_relay_5_function__67p__phase_difference6__previous_filtered_ref < 0) ) {
+        _relay_5_function__67p__phase_difference6__zc_flag_ref = 1;
+    }
+    else {
+        _relay_5_function__67p__phase_difference6__zc_flag_ref = 0;
+    }
+    _relay_5_function__67p__phase_difference6__sample_cnt_in += 1;
+    _relay_5_function__67p__phase_difference6__previous_filtered_in = _relay_5_function__67p__phase_difference6__filtered_in;
+    _relay_5_function__67p__phase_difference6__filtered_in = _relay_5_function__67p__phase_difference6__previous_filtered_in * 0.2679491924311227 + _relay_5_function__67p__basic_measurements__split___out5 * 0.7320508075688773;
+    if( _relay_5_function__67p__phase_difference6__sample_cnt_in >= 1000 ) {
+        _relay_5_function__67p__phase_difference6__zc_flag_in = 0;
+        _relay_5_function__67p__phase_difference6__no_zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference6__previous_correction_in = 0;
+        _relay_5_function__67p__phase_difference6__phase_state = 0;
+    }
+    else if( (_relay_5_function__67p__phase_difference6__filtered_in >= 0) && (_relay_5_function__67p__phase_difference6__previous_filtered_in < 0) ) {
+        _relay_5_function__67p__phase_difference6__zc_flag_in = 1;
+        _relay_5_function__67p__phase_difference6__no_zc_flag_in = 0;
+    }
+    else {
+        _relay_5_function__67p__phase_difference6__zc_flag_in = 0;
+    }
+    if( _relay_5_function__67p__phase_difference6__zc_flag_ref ) {
+        _relay_5_function__67p__phase_difference6__correction_ref = - _relay_5_function__67p__phase_difference6__previous_filtered_ref / ( _relay_5_function__67p__phase_difference6__filtered_ref - _relay_5_function__67p__phase_difference6__previous_filtered_ref );
+        _relay_5_function__67p__phase_difference6__sample_cnt_ref += _relay_5_function__67p__phase_difference6__correction_ref - _relay_5_function__67p__phase_difference6__previous_correction_ref;
+        if( (_relay_5_function__67p__phase_difference6__sample_cnt_ref > 1e-6) || (_relay_5_function__67p__phase_difference6__sample_cnt_ref < -1e-6) ) {
+            if( !_relay_5_function__67p__phase_difference6__no_zc_flag_in ) {
+                _relay_5_function__67p__phase_difference6__phase_state = 360.0 * ( _relay_5_function__67p__phase_difference6__sample_cnt_in + _relay_5_function__67p__phase_difference6__correction_ref - _relay_5_function__67p__phase_difference6__previous_correction_in ) / _relay_5_function__67p__phase_difference6__sample_cnt_ref;
+            }
+        }
+        if( (_relay_5_function__67p__phase_difference6__phase_state > 360.0) || (_relay_5_function__67p__phase_difference6__phase_state < -360.0) ) {
+            _relay_5_function__67p__phase_difference6__phase_state = fmod(_relay_5_function__67p__phase_difference6__phase_state, 360.0);
+        }
+        if (_relay_5_function__67p__phase_difference6__phase_state < -180.0) {
+            _relay_5_function__67p__phase_difference6__phase_state += 360.0;
+        }
+        else if (_relay_5_function__67p__phase_difference6__phase_state > 180.0) {
+            _relay_5_function__67p__phase_difference6__phase_state -= 360.0;
+        }
+        _relay_5_function__67p__phase_difference6__sample_cnt_ref = 0;
+        _relay_5_function__67p__phase_difference6__previous_correction_ref = _relay_5_function__67p__phase_difference6__correction_ref;
+    }
+    if( _relay_5_function__67p__phase_difference6__zc_flag_in ) {
+        _relay_5_function__67p__phase_difference6__correction_in = - _relay_5_function__67p__phase_difference6__previous_filtered_in / ( _relay_5_function__67p__phase_difference6__filtered_in - _relay_5_function__67p__phase_difference6__previous_filtered_in );
+        _relay_5_function__67p__phase_difference6__sample_cnt_in = 0;
+        _relay_5_function__67p__phase_difference6__previous_correction_in = _relay_5_function__67p__phase_difference6__correction_in;
+    }
+    // Generated from the component: Relay-12.Function (67P).C function (Directional Protection)
+    // Generated from the component: Relay-13.Function (67P).C function (Directional Protection)
+    // Generated from the component: Relay-14.Function (67P).C function (Directional Protection)
+    // Generated from the component: Relay-4.Function (67P).C function (Directional Protection)
+    // Generated from the component: Relay-5.Function (67P).C function (Directional Protection)
+    // Generated from the component: Relay-12.Function (67P).OverCurrent Inverse Function
+    // Generated from the component: Relay-13.Function (67P).OverCurrent Inverse Function
+    // Generated from the component: Relay-14.Function (67P).OverCurrent Inverse Function
+    // Generated from the component: Relay-4.Function (67P).OverCurrent Inverse Function
+    // Generated from the component: Relay-5.Function (67P).OverCurrent Inverse Function
+    //@cmp.update.block.end
+}
+// ----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
