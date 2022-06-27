@@ -1,0 +1,3109 @@
+
+<model_description>
+    <sw_version>2021.3</sw_version>
+    <hw_properties>
+        <revision>3</revision>
+        <product_id>HIL402</product_id>
+        <configuration_id>2</configuration_id>
+        <device_ao_limit_enable>False</device_ao_limit_enable>
+        <device_id>0</device_id>
+        <spc_out_mem_size>256</spc_out_mem_size>
+        <fw_support_limit>132450055</fw_support_limit>
+    </hw_properties>
+    <sim_setup>
+        <sim_time_step>1e-05</sim_time_step>
+    </sim_setup>
+    <pesb>
+    </pesb>
+    <analog_variables>
+        <cell>
+            <name>Couplin(3ph)-1.C1</name>
+            <address>0</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.C2</name>
+            <address>1</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.C3</name>
+            <address>2</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.C1</name>
+            <address>3</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.C2</name>
+            <address>4</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.C3</name>
+            <address>5</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-5.C1</name>
+            <address>6</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-5.C3</name>
+            <address>7</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-5.C5</name>
+            <address>8</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl1.L1</name>
+            <address>9</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl2.L1</name>
+            <address>10</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl1.L1</name>
+            <address>11</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl2.L1</name>
+            <address>12</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-5.L1</name>
+            <address>13</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-5.L2</name>
+            <address>14</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-5.L3</name>
+            <address>15</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-6.L1</name>
+            <address>16</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-6.L2</name>
+            <address>17</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-6.L3</name>
+            <address>18</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Load4.Lb</name>
+            <address>19</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Load4.Lc</name>
+            <address>20</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms7.instantaneous</name>
+            <address>22</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms7.Vinst</name>
+            <address>22</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl3.V_cpl_msr_1</name>
+            <address>206</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl2.V_cpl_msr_1</name>
+            <address>205</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl1.V_cpl_msr_1</name>
+            <address>196</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms6.instantaneous</name>
+            <address>21</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms6.Vinst</name>
+            <address>21</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl2.V_cpl_msr_1</name>
+            <address>197</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl3.V_cpl_msr_1</name>
+            <address>198</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl1.V_cpl_msr_1</name>
+            <address>204</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.C4</name>
+            <address>256</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.C5</name>
+            <address>257</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.C6</name>
+            <address>258</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.C1</name>
+            <address>259</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.C2</name>
+            <address>260</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.C3</name>
+            <address>261</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.C4</name>
+            <address>262</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.C5</name>
+            <address>263</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.C6</name>
+            <address>264</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-3.C1</name>
+            <address>265</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-3.C3</name>
+            <address>266</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-3.C5</name>
+            <address>267</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-4.C2</name>
+            <address>268</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-4.C4</name>
+            <address>269</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-4.C6</name>
+            <address>270</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl1.L2</name>
+            <address>271</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl2.L2</name>
+            <address>272</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl1.L1</name>
+            <address>273</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl2.L1</name>
+            <address>274</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl1.L2</name>
+            <address>275</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl2.L2</name>
+            <address>276</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-3.L1</name>
+            <address>277</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-3.L2</name>
+            <address>278</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-3.L3</name>
+            <address>279</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-4.L1</name>
+            <address>280</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-4.L2</name>
+            <address>281</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-4.L3</name>
+            <address>282</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-7.L1</name>
+            <address>283</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-7.L2</name>
+            <address>284</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-7.L3</name>
+            <address>285</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Load3.Lb</name>
+            <address>286</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Load3.Lc</name>
+            <address>287</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr2.tr1.L2</name>
+            <address>288</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr2.tr1.Lm</name>
+            <address>289</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr2.tr2.L2</name>
+            <address>290</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr2.tr2.Lm</name>
+            <address>291</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr2.tr3.L2</name>
+            <address>292</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr2.tr3.Lm</name>
+            <address>293</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms5.instantaneous</name>
+            <address>300</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms5.Vinst</name>
+            <address>300</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.V_AB</name>
+            <address>294</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl3.V_cpl_msr_1</name>
+            <address>458</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsA.instantaneous</name>
+            <address>304</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsA.Iinst</name>
+            <address>304</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl2.V_cpl_msr_1</name>
+            <address>457</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl3.V_cpl_msr_2</name>
+            <address>450</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms3.instantaneous</name>
+            <address>299</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms3.Vinst</name>
+            <address>299</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl2.V_cpl_msr_2</name>
+            <address>461</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.I_B</name>
+            <address>302</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl1.V_cpl_msr_2</name>
+            <address>460</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms2.instantaneous</name>
+            <address>298</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms2.Vinst</name>
+            <address>298</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsC.instantaneous</name>
+            <address>306</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsC.Iinst</name>
+            <address>306</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms1.instantaneous</name>
+            <address>297</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms1.Vinst</name>
+            <address>297</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.I_A</name>
+            <address>301</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl1.V_cpl_msr_1</name>
+            <address>456</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsB.instantaneous</name>
+            <address>305</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsB.Iinst</name>
+            <address>305</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.I_C</name>
+            <address>303</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl3.V_cpl_msr_2</name>
+            <address>462</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.V_CA</name>
+            <address>296</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.V_BC</name>
+            <address>295</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl1.V_cpl_msr_2</name>
+            <address>448</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-1.Core Coupling 1.cpl2.V_cpl_msr_2</name>
+            <address>449</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Gen -2_a</name>
+            <address>16640</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Gen -2_b</name>
+            <address>16641</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Gen -2_c</name>
+            <address>16642</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.C4</name>
+            <address>512</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.C5</name>
+            <address>513</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.C6</name>
+            <address>514</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.C4</name>
+            <address>515</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.C5</name>
+            <address>516</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.C6</name>
+            <address>517</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl1.L2</name>
+            <address>518</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl2.L2</name>
+            <address>519</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Load2.Lb</name>
+            <address>520</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Load2.Lc</name>
+            <address>521</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsC.instantaneous</name>
+            <address>530</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsC.Iinst</name>
+            <address>530</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.Core Coupling 6.cpl3.V_cpl_msr_2</name>
+            <address>718</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsA.instantaneous</name>
+            <address>528</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsA.Iinst</name>
+            <address>528</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.V_BC</name>
+            <address>523</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.I_B</name>
+            <address>526</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl1.V_cpl_msr_2</name>
+            <address>708</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.Core Coupling 6.cpl2.V_cpl_msr_2</name>
+            <address>717</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.V_CA</name>
+            <address>524</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.V_AB</name>
+            <address>522</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl3.V_cpl_msr_2</name>
+            <address>710</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.I_A</name>
+            <address>525</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(3ph)-2.Core Coupling 1.cpl2.V_cpl_msr_2</name>
+            <address>709</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.I_C</name>
+            <address>527</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.Core Coupling 6.cpl1.V_cpl_msr_2</name>
+            <address>716</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsB.instantaneous</name>
+            <address>529</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsB.Iinst</name>
+            <address>529</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.C1</name>
+            <address>768</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.C2</name>
+            <address>769</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.C3</name>
+            <address>770</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.C1</name>
+            <address>771</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.C2</name>
+            <address>772</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.C3</name>
+            <address>773</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.C1</name>
+            <address>774</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.C2</name>
+            <address>775</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.C3</name>
+            <address>776</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.C4</name>
+            <address>777</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.C5</name>
+            <address>778</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.C6</name>
+            <address>779</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.C1</name>
+            <address>780</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.C2</name>
+            <address>781</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.C3</name>
+            <address>782</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.C4</name>
+            <address>783</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.C5</name>
+            <address>784</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.C6</name>
+            <address>785</address>
+            <type>voltage</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl1.L1</name>
+            <address>786</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl2.L1</name>
+            <address>787</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl1.L2</name>
+            <address>788</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl2.L2</name>
+            <address>789</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Fault-1.L1</name>
+            <address>790</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Fault-1.L2</name>
+            <address>791</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Fault-1.L3</name>
+            <address>792</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.L1</name>
+            <address>793</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.L2</name>
+            <address>794</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-1.L3</name>
+            <address>795</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.L1</name>
+            <address>796</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.L2</name>
+            <address>797</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-1.L3</name>
+            <address>798</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-2.L1</name>
+            <address>799</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-2.L2</name>
+            <address>800</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Line-2_section-2.L3</name>
+            <address>801</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Load1.Lb</name>
+            <address>802</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Load1.Lc</name>
+            <address>803</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr1.tr1.L2</name>
+            <address>804</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr1.tr1.Lm</name>
+            <address>805</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr1.tr2.L2</name>
+            <address>806</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr1.tr2.Lm</name>
+            <address>807</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr1.tr3.L2</name>
+            <address>808</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Tr1.tr3.Lm</name>
+            <address>809</address>
+            <type>current</type>
+            <initial_condition>0.0</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsC.instantaneous</name>
+            <address>825</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsC.Iinst</name>
+            <address>825</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.Core Coupling 6.cpl1.V_cpl_msr_1</name>
+            <address>968</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.I_C</name>
+            <address>828</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl3.V_cpl_msr_1</name>
+            <address>966</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.V_AB</name>
+            <address>810</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms8.instantaneous</name>
+            <address>818</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms8.Vinst</name>
+            <address>818</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms10.instantaneous</name>
+            <address>816</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms10.Vinst</name>
+            <address>816</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms9.instantaneous</name>
+            <address>819</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms9.Vinst</name>
+            <address>819</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsB.instantaneous</name>
+            <address>824</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsB.Iinst</name>
+            <address>824</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.V_BC</name>
+            <address>814</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.Core Coupling 6.cpl3.V_cpl_msr_1</name>
+            <address>970</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.V_BC</name>
+            <address>811</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl2.V_cpl_msr_2</name>
+            <address>961</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms4.instantaneous</name>
+            <address>817</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms4.Vinst</name>
+            <address>817</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl1.V_cpl_msr_2</name>
+            <address>960</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsB.instantaneous</name>
+            <address>830</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsB.Iinst</name>
+            <address>830</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.I_A</name>
+            <address>826</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.I_C</name>
+            <address>822</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.I_B</name>
+            <address>827</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsA.instantaneous</name>
+            <address>823</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsA.Iinst</name>
+            <address>823</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-3.Core Coupling 6.cpl3.V_cpl_msr_2</name>
+            <address>962</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.I_A</name>
+            <address>820</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsA.instantaneous</name>
+            <address>829</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsA.Iinst</name>
+            <address>829</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl2.V_cpl_msr_1</name>
+            <address>965</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.V_CA</name>
+            <address>812</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.V_CA</name>
+            <address>815</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-2.Core Coupling 6.cpl1.V_cpl_msr_1</name>
+            <address>964</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Couplin(4ph)-1.Core Coupling 6.cpl2.V_cpl_msr_1</name>
+            <address>969</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.V_AB</name>
+            <address>813</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsC.instantaneous</name>
+            <address>831</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsC.Iinst</name>
+            <address>831</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.I_B</name>
+            <address>821</address>
+            <type>current</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Gen - 1_a</name>
+            <address>16643</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Gen - 1_b</name>
+            <address>16644</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Gen - 1_c</name>
+            <address>16645</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>const_0V</name>
+            <address>17152</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 1</name>
+            <address>17408</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 2</name>
+            <address>17409</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 3</name>
+            <address>17410</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 4</name>
+            <address>17411</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 5</name>
+            <address>17412</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 6</name>
+            <address>17413</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 7</name>
+            <address>17414</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 8</name>
+            <address>17415</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 9</name>
+            <address>17416</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 10</name>
+            <address>17417</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 11</name>
+            <address>17418</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 12</name>
+            <address>17419</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 13</name>
+            <address>17420</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 14</name>
+            <address>17421</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 15</name>
+            <address>17422</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>HIL0 analog input 16</name>
+            <address>17423</address>
+            <type>voltage</type>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+    </analog_variables>
+    <digital_variables>
+        <cell>
+            <name>HIL0 AO flag</name>
+            <address>8</address>
+        </cell>
+        <cell>
+            <name>HIL0 DTV flag</name>
+            <address>9</address>
+        </cell>
+        <cell>
+            <name>HIL0 Capture/Scope Trigger</name>
+            <address>16</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 1</name>
+            <address>512</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 2</name>
+            <address>513</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 3</name>
+            <address>514</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 4</name>
+            <address>515</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 5</name>
+            <address>516</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 6</name>
+            <address>517</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 7</name>
+            <address>518</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 8</name>
+            <address>519</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 9</name>
+            <address>520</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 10</name>
+            <address>521</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 11</name>
+            <address>522</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 12</name>
+            <address>523</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 13</name>
+            <address>524</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 14</name>
+            <address>525</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 15</name>
+            <address>526</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 16</name>
+            <address>527</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 17</name>
+            <address>528</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 18</name>
+            <address>529</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 19</name>
+            <address>530</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 20</name>
+            <address>531</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 21</name>
+            <address>532</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 22</name>
+            <address>533</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 23</name>
+            <address>534</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 24</name>
+            <address>535</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 25</name>
+            <address>536</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 26</name>
+            <address>537</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 27</name>
+            <address>538</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 28</name>
+            <address>539</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 29</name>
+            <address>540</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 30</name>
+            <address>541</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 31</name>
+            <address>542</address>
+        </cell>
+        <cell>
+            <name>HIL0 digital input 32</name>
+            <address>543</address>
+        </cell>
+        <cell>
+            <name>Fault-1.S1.Sa</name>
+            <address>512</address>
+        </cell>
+        <cell>
+            <name>S11_fb</name>
+            <address>1039</address>
+        </cell>
+        <cell>
+            <name>S10_fb</name>
+            <address>1054</address>
+        </cell>
+        <cell>
+            <name>Fault-1.S1_fb</name>
+            <address>1069</address>
+        </cell>
+        <cell>
+            <name>S2_fb</name>
+            <address>1070</address>
+        </cell>
+        <cell>
+            <name>S3_fb</name>
+            <address>1071</address>
+        </cell>
+    </digital_variables>
+    <sources>
+        <cell>
+            <name>Gen -2</name>
+            <type>3phase</type>
+            <address>[0, 1, 2]</address>
+            <unit>V</unit>
+            <init_settings>['Sine', 4082.482905, 60.0, 0.0]</init_settings>
+        </cell>
+        <cell>
+            <name>Gen - 1</name>
+            <type>3phase</type>
+            <address>[3, 4, 5]</address>
+            <unit>V</unit>
+            <init_settings>['Sine', 4082.482905, 60.0, 0.0]</init_settings>
+        </cell>
+    </sources>
+    <machines>
+    </machines>
+    <pv_panels>
+    </pv_panels>
+    <batteries>
+    </batteries>
+    <contactors>
+        <cell>
+            <name>S11</name>
+            <type>three_phase_breaker</type>
+            <weight>0</weight>
+            <site>1</site>
+        </cell>
+        <cell>
+            <name>S10</name>
+            <type>three_phase_breaker</type>
+            <weight>0</weight>
+            <site>2</site>
+        </cell>
+        <cell>
+            <name>Fault-1.S1</name>
+            <type>three_phase_breaker</type>
+            <weight>0</weight>
+            <site>3</site>
+        </cell>
+        <cell>
+            <name>S2</name>
+            <type>three_phase_breaker</type>
+            <weight>1</weight>
+            <site>3</site>
+        </cell>
+        <cell>
+            <name>S3</name>
+            <type>three_phase_breaker</type>
+            <weight>2</weight>
+            <site>3</site>
+        </cell>
+    </contactors>
+    <analog_output_settings>
+    </analog_output_settings>
+    <digital_output_settings>
+    </digital_output_settings>
+    <dtv>
+        <spc_dtv>
+        </spc_dtv>
+        <par_dtv>
+        </par_dtv>
+    </dtv>
+
+<!-- ******* SP DATA ******** -->
+
+    <model_properties>
+        <execution_rates>[[[0.0001, 0.0005]]]</execution_rates>
+    </model_properties>
+
+    <analog_variables>
+        <cell>
+            <name>Relay-11.Function (67P).V_BC_(Angle)</name>
+            <type>generic</type>
+            <address>8246</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).I_A(RMS)</name>
+            <type>generic</type>
+            <address>8253</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsC.rms</name>
+            <type>current</type>
+            <address>8194</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsC</name>
+            <type>current</type>
+            <address>8194</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).I_B_(Angle)</name>
+            <type>generic</type>
+            <address>8238</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms9.rms</name>
+            <type>voltage</type>
+            <address>8213</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms9</name>
+            <type>voltage</type>
+            <address>8213</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).RCA</name>
+            <type>generic</type>
+            <address>8278</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).I_A(RMS)</name>
+            <type>generic</type>
+            <address>8235</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).I_B(RMS)</name>
+            <type>generic</type>
+            <address>8237</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).Directional Trip</name>
+            <type>generic</type>
+            <address>8252</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).I_PKU</name>
+            <type>generic</type>
+            <address>8277</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).Directional Trip</name>
+            <type>generic</type>
+            <address>8234</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>various.Magnitud</name>
+            <type>generic</type>
+            <address>8296</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).TMS_Stt</name>
+            <type>generic</type>
+            <address>8262</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).TMS_Stt</name>
+            <type>generic</type>
+            <address>8280</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms3.rms</name>
+            <type>voltage</type>
+            <address>8207</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms3</name>
+            <type>voltage</type>
+            <address>8207</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms4.rms</name>
+            <type>voltage</type>
+            <address>8208</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms4</name>
+            <type>voltage</type>
+            <address>8208</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms1.rms</name>
+            <type>voltage</type>
+            <address>8204</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms1</name>
+            <type>voltage</type>
+            <address>8204</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms5.rms</name>
+            <type>voltage</type>
+            <address>8209</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms5</name>
+            <type>voltage</type>
+            <address>8209</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms2.rms</name>
+            <type>voltage</type>
+            <address>8206</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms2</name>
+            <type>voltage</type>
+            <address>8206</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsA.rms</name>
+            <type>current</type>
+            <address>8201</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsA</name>
+            <type>current</type>
+            <address>8201</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).I_B(RMS)</name>
+            <type>generic</type>
+            <address>8255</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).V_AB_(Angle)</name>
+            <type>generic</type>
+            <address>8245</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms7.rms</name>
+            <type>voltage</type>
+            <address>8211</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms7</name>
+            <type>voltage</type>
+            <address>8211</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).I_B_(Angle)</name>
+            <type>generic</type>
+            <address>8256</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA9</name>
+            <type>generic</type>
+            <address>8295</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Trip</name>
+            <type>generic</type>
+            <address>8285</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA8</name>
+            <type>generic</type>
+            <address>8294</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).CTp_Stt</name>
+            <type>generic</type>
+            <address>8268</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).V_BC_(Angle)</name>
+            <type>generic</type>
+            <address>8264</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA6</name>
+            <type>generic</type>
+            <address>8292</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsB.rms</name>
+            <type>current</type>
+            <address>8196</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsB</name>
+            <type>current</type>
+            <address>8196</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).TMS_Stt</name>
+            <type>generic</type>
+            <address>8244</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).I_C_(Angle)</name>
+            <type>generic</type>
+            <address>8240</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).time</name>
+            <type>generic</type>
+            <address>8230</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).RCA</name>
+            <type>generic</type>
+            <address>8260</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).V_AB_(Angle)</name>
+            <type>generic</type>
+            <address>8263</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA1</name>
+            <type>generic</type>
+            <address>8286</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).I_A_(Angle)</name>
+            <type>generic</type>
+            <address>8272</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).I_PKU</name>
+            <type>generic</type>
+            <address>8259</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA5</name>
+            <type>generic</type>
+            <address>8291</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms6.rms</name>
+            <type>voltage</type>
+            <address>8210</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms6</name>
+            <type>voltage</type>
+            <address>8210</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).I_C_(Angle)</name>
+            <type>generic</type>
+            <address>8258</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).I_C(RMS)</name>
+            <type>generic</type>
+            <address>8257</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsA.rms</name>
+            <type>current</type>
+            <address>8192</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsA</name>
+            <type>current</type>
+            <address>8192</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Trip</name>
+            <type>generic</type>
+            <address>8249</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsB.rms</name>
+            <type>current</type>
+            <address>8202</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsB</name>
+            <type>current</type>
+            <address>8202</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).Directional Trip</name>
+            <type>generic</type>
+            <address>8216</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).TMS_Stt</name>
+            <type>generic</type>
+            <address>8226</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsC.rms</name>
+            <type>current</type>
+            <address>8197</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsC</name>
+            <type>current</type>
+            <address>8197</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsC.rms</name>
+            <type>current</type>
+            <address>8200</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsC</name>
+            <type>current</type>
+            <address>8200</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).I_B_(Angle)</name>
+            <type>generic</type>
+            <address>8274</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).RCA</name>
+            <type>generic</type>
+            <address>8224</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).DT_Stt</name>
+            <type>generic</type>
+            <address>8215</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).RS</name>
+            <type>generic</type>
+            <address>8261</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).time</name>
+            <type>generic</type>
+            <address>8284</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA14</name>
+            <type>generic</type>
+            <address>8289</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA13</name>
+            <type>generic</type>
+            <address>8288</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms10.rms</name>
+            <type>voltage</type>
+            <address>8205</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms10</name>
+            <type>voltage</type>
+            <address>8205</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).I_B(RMS)</name>
+            <type>generic</type>
+            <address>8273</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsB.rms</name>
+            <type>current</type>
+            <address>8193</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 10.IrmsB</name>
+            <type>current</type>
+            <address>8193</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).I_A_(Angle)</name>
+            <type>generic</type>
+            <address>8254</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Trip</name>
+            <type>generic</type>
+            <address>8267</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).time</name>
+            <type>generic</type>
+            <address>8248</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).I_A(RMS)</name>
+            <type>generic</type>
+            <address>8217</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).V_CA_(Angle)</name>
+            <type>generic</type>
+            <address>8265</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).I_C(RMS)</name>
+            <type>generic</type>
+            <address>8221</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).I_C(RMS)</name>
+            <type>generic</type>
+            <address>8239</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).RS</name>
+            <type>generic</type>
+            <address>8225</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).I_A_(Angle)</name>
+            <type>generic</type>
+            <address>8236</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).Directional Trip</name>
+            <type>generic</type>
+            <address>8270</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).V_BC_(Angle)</name>
+            <type>generic</type>
+            <address>8282</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms8.rms</name>
+            <type>voltage</type>
+            <address>8212</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Vrms8</name>
+            <type>voltage</type>
+            <address>8212</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).DT_Stt</name>
+            <type>generic</type>
+            <address>8251</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).I_A_(Angle)</name>
+            <type>generic</type>
+            <address>8218</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA12</name>
+            <type>generic</type>
+            <address>8287</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsB.rms</name>
+            <type>current</type>
+            <address>8199</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsB</name>
+            <type>current</type>
+            <address>8199</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>various.Relay_Sted</name>
+            <type>generic</type>
+            <address>8297</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).I_C_(Angle)</name>
+            <type>generic</type>
+            <address>8222</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA7</name>
+            <type>generic</type>
+            <address>8293</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).V_AB_(Angle)</name>
+            <type>generic</type>
+            <address>8281</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).RS</name>
+            <type>generic</type>
+            <address>8279</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).I_B_(Angle)</name>
+            <type>generic</type>
+            <address>8220</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Trip</name>
+            <type>generic</type>
+            <address>8231</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).I_PKU</name>
+            <type>generic</type>
+            <address>8223</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).I_C(RMS)</name>
+            <type>generic</type>
+            <address>8275</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).CTp_Stt</name>
+            <type>generic</type>
+            <address>8214</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).CTp_Stt</name>
+            <type>generic</type>
+            <address>8250</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsA.rms</name>
+            <type>current</type>
+            <address>8195</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 11.IrmsA</name>
+            <type>current</type>
+            <address>8195</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).RS</name>
+            <type>generic</type>
+            <address>8243</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).RCA</name>
+            <type>generic</type>
+            <address>8242</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).I_B(RMS)</name>
+            <type>generic</type>
+            <address>8219</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).V_BC_(Angle)</name>
+            <type>generic</type>
+            <address>8228</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsC.rms</name>
+            <type>current</type>
+            <address>8203</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 3.IrmsC</name>
+            <type>current</type>
+            <address>8203</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).V_CA_(Angle)</name>
+            <type>generic</type>
+            <address>8247</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).DT_Stt</name>
+            <type>generic</type>
+            <address>8233</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsA.rms</name>
+            <type>current</type>
+            <address>8198</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Measurements Block - 2.IrmsA</name>
+            <type>current</type>
+            <address>8198</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).V_CA_(Angle)</name>
+            <type>generic</type>
+            <address>8283</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-2.Function (67P).time</name>
+            <type>generic</type>
+            <address>8266</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).I_A(RMS)</name>
+            <type>generic</type>
+            <address>8271</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).V_AB_(Angle)</name>
+            <type>generic</type>
+            <address>8227</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).I_PKU</name>
+            <type>generic</type>
+            <address>8241</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-10.Function (67P).V_CA_(Angle)</name>
+            <type>generic</type>
+            <address>8229</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).DT_Stt</name>
+            <type>generic</type>
+            <address>8269</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-11.Function (67P).CTp_Stt</name>
+            <type>generic</type>
+            <address>8232</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>VA2</name>
+            <type>generic</type>
+            <address>8290</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+        <cell>
+            <name>Relay-3.Function (67P).I_C_(Angle)</name>
+            <type>generic</type>
+            <address>8276</address>
+            <initial_condition>None</initial_condition>
+            <visible>True</visible>
+        </cell>
+    </analog_variables>
+
+<digital_variables>
+    </digital_variables>
+
+    <tunable_params>
+        <tunable_param>
+            <name>Relay-10.Function (67P).DT</name>
+            <addr>[1426063880]</addr>
+            <min>0.024</min>
+            <max>1.3</max>
+            <def_value>0.025</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-10.Function (67P).Enable</name>
+            <addr>[1426063884]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>1.0</def_value>
+            <unit></unit>
+            <widget_type>int</widget_type>
+            <format>unsigned_int</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-10.Function (67P).I_Pick_Up</name>
+            <addr>[1426063888]</addr>
+            <min>-1000000.0</min>
+            <max>1000000.0</max>
+            <def_value>3.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-10.Function (67P).Reset</name>
+            <addr>[1426063892]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-10.Function (67P).TMS</name>
+            <addr>[1426063896]</addr>
+            <min>-1000000.0</min>
+            <max>1000000.0</max>
+            <def_value>0.313</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-11.Function (67P).DT</name>
+            <addr>[1426063900]</addr>
+            <min>0.024</min>
+            <max>1.3</max>
+            <def_value>0.025</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-11.Function (67P).Enable</name>
+            <addr>[1426063904]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>1.0</def_value>
+            <unit></unit>
+            <widget_type>int</widget_type>
+            <format>unsigned_int</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-11.Function (67P).I_Pick_Up</name>
+            <addr>[1426063908]</addr>
+            <min>-1000000.0</min>
+            <max>1000000.0</max>
+            <def_value>6.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-11.Function (67P).Reset</name>
+            <addr>[1426063912]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-11.Function (67P).TMS</name>
+            <addr>[1426063916]</addr>
+            <min>-1000000.0</min>
+            <max>1000000.0</max>
+            <def_value>0.338</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-2.Function (67P).DT</name>
+            <addr>[1426063920]</addr>
+            <min>0.024</min>
+            <max>1.3</max>
+            <def_value>0.025</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-2.Function (67P).Enable</name>
+            <addr>[1426063924]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>1.0</def_value>
+            <unit></unit>
+            <widget_type>int</widget_type>
+            <format>unsigned_int</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-2.Function (67P).I_Pick_Up</name>
+            <addr>[1426063928]</addr>
+            <min>-1000000.0</min>
+            <max>1000000.0</max>
+            <def_value>12.5</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-2.Function (67P).Reset</name>
+            <addr>[1426063932]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-2.Function (67P).TMS</name>
+            <addr>[1426063936]</addr>
+            <min>-1000000.0</min>
+            <max>1000000.0</max>
+            <def_value>0.32</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-3.Function (67P).DT</name>
+            <addr>[1426063940]</addr>
+            <min>0.024</min>
+            <max>1.3</max>
+            <def_value>0.025</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-3.Function (67P).Enable</name>
+            <addr>[1426063944]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>1.0</def_value>
+            <unit></unit>
+            <widget_type>int</widget_type>
+            <format>unsigned_int</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-3.Function (67P).I_Pick_Up</name>
+            <addr>[1426063948]</addr>
+            <min>-1000000.0</min>
+            <max>1000000.0</max>
+            <def_value>6.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-3.Function (67P).Reset</name>
+            <addr>[1426063952]</addr>
+            <min>0.0</min>
+            <max>1.0</max>
+            <def_value>0.0</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>Relay-3.Function (67P).TMS</name>
+            <addr>[1426063956]</addr>
+            <min>-1000000.0</min>
+            <max>1000000.0</max>
+            <def_value>0.332</def_value>
+            <unit></unit>
+            <widget_type>float</widget_type>
+            <format>real</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+        <tunable_param>
+            <name>various.Relay_Selected</name>
+            <addr>[1426063960]</addr>
+            <min>0.0</min>
+            <max>20.0</max>
+            <def_value>1.0</def_value>
+            <unit></unit>
+            <widget_type>int</widget_type>
+            <format>unsigned_int</format>
+            <size>1</size>
+            <param_type>scada input</param_type>
+            <cpu_type>user_sp_cpu</cpu_type>
+            <cpu_idx>0</cpu_idx>
+        </tunable_param>
+    </tunable_params>
+
+
+    <dsp_monitors>
+        <monitor>
+            <type>internal</type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rates>[0.0001, 0.05]</execution_rates>
+            <execution_rate_labels>['ER0 (0.0001)', 'ER1 (0.05)']</execution_rate_labels>
+            <timer_counters>[15999, 7999999]</timer_counters>
+
+            
+        </monitor>
+        <monitor>
+            <type>user</type>
+            <cpu_idx>0</cpu_idx>
+            <execution_rates>[0.0001, 0.0005]</execution_rates>
+            <execution_rate_labels>['ER0 (0.0001)', 'ER1 (0.0005)']</execution_rate_labels>
+            <timer_counters>[15999, 79999]</timer_counters>
+
+            
+        </monitor>
+    </dsp_monitors>
+
+    <streaming>
+
+
+
+     </streaming>
+
+
+</model_description>
